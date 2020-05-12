@@ -52,4 +52,4 @@ Changes made to the frontend have to be built
 npm run build
 ```
 
-Then you can commit & push normally
+Then you can commit & push normally.
