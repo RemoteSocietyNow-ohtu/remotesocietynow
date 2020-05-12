@@ -1,11 +1,14 @@
 language: node_js
 node_js:
   - 7
-
-script:
+before_install:
+  - npm install
+  - cd frontend
+  - npm install
+  - cd ..
+script:  
   - npm test
   - npm run build:front
-
 deploy:
   provider: heroku
   api_key: $HEROKU_API_KEY
