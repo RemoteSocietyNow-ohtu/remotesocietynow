@@ -1,13 +1,14 @@
 language: node_js
 node_js:
-  - 11
+- 11
 before_install:
-  - cd frontend
-  - npm install
-  - cd ..
-script:  
-  - npm test
-  - npm run build:front
+- cd frontend
+- npm install
+- cd ..
+script:
+- npm test
+- npm run build:front
 deploy:
   provider: heroku
-  api_key: $HEROKU_API_KEY
+  api_key:
+    secure: KBpKLbBC8ynp7TG6387QTrpVR6nKfOBEvdbDYenr37rRbZLDGxU9PWZK2Idcc8ZzLPKpWt3NTyi9uXUpOqRJEHUJI5VkfI5zzHjR4VXnJqihSOx3V7B5/jIHrw5CVahIoucX54mfATy0eINIoV4oyPFWTk1z9Dkq7Hzu7z1DrF+J382Xeh/i+MgMZUQg9jiWr19XzBiuG9rDcD7tT83O5bSiNPcwHMj/hW1U9TMVr/+JsZzY+7wv1roc1kl4tY0bsRDp+zEaafS6VRn1fYBEdZuLdi+6ABMkQDjU4oVR8LBrHBqI8xrDVWWuFQ6GruBtxihIlYWz6ERX21ZryxcTgpQP73nq8kcNVqkqb55DQ0YnPEHeJBGyl850Pmu/djVLG0LsdmEWuKxeCqeJ4RyU2IKqgVj20wYq5lFUshsJHT371Ybn5KnWr9/bQWls36qF0vDSozLFBy1NguALaD39OYyzJn7YptvnKZXaQT6qYysRMBFGz6dQ5ZrqG89jAaKia+cZ78guxr/YgrKvJRLFRo4JhuJG79oGTF6LxK7+T7R3I2I4+sc9IIFiaqHVZXWZ88ogaW45pQvlHFh9sGSAZeAIXqfchRdCuIHwvN7RxQNHk7pV15dhTvobobAnfxRaz6Kd/weketWkoi3ssj8xebwrEd6LwB2WejKYHMH45VA=
