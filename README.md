@@ -1,5 +1,7 @@
 # RemoteSocietyNow
 
+[![Build Status](https://travis-ci.org/RemoteSocietyNow-ohtu/remotesocietynow.svg?branch=master)](https://travis-ci.org/RemoteSocietyNow-ohtu/remotesocietynow)
+
 **Instructions**
 
 Clone the repository
