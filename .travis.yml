@@ -5,6 +5,7 @@ before_install:
   - npm install
   - cd frontend
   - npm install
+  - cd ..
 script:  
   - npm test
   - npm run build:front
