@@ -9,10 +9,10 @@ script:
 - npm test
 - npm run build:front
 deploy:
-  provider: heroku
+  provider: heroku:git
   api_key:
     secure: vZCHZyTPsVQSM+Ypyv18NZ3hazBTIrGVBa4QOLE290YNS0bF82qL9XLsq6vBNmPWNn8yRz5dihAjbphOSJshwspWKl7Zi2g+NxQZGbRIvLKhd2gTbngSI6Z4EV/RCyRLabD5qLv2iRaVFSt7IENUZnEVFTVwtivBoX79+1dDkPbPKwgFbXafQsvau/dRYsP8a7Y5H/i2Kr+QE3HMq7i0J7oRqpNr4UqlTtpj12eGjjUBKWx1pNmL3KXBiovyFwPxr8syAw4hn/DluhWHBOIbNvPg82HMn/8XmbwP2H9ufkx2VnLN5Hxuz+bh3LjoTBC04bhtQWslvsqrBBBfxMSnl6QL0NnnJH9WA79ek+tTAld7+WQhH72y1P2vr8OpT0ZLOI0ulocL0P38qmFshepjG85p7MM+QiXaYl3MdrCG309uI9pP4qx5gnk4RPdNEzbzGI2kvtJkoW0Jngjgv43dayfHbCN2QUNcBlisu8VaZy5ew5V78LOcx7jCxvzn58bq8X8iPKoDpC0Poya/q9so4WErZmdnQe+9qDRmh05GIKlwMXfr1JiOhjIa6y8klF9CuuuQIf+ALbcXQnSkR2qywaEuFXURmyM/lo2F3pSepZnqVzYTaMHYAt+lRxmhpG0oN1HNcUsT6069uxjo/aongUwoe75hm963orkTi4G46zQ=
   app: remotesocietynow
   on:
     repo: RemoteSocietyNow-ohtu/remotesocietynow
-  skip_cleanup: 'true'
+  edge: true
