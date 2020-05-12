@@ -1,14 +1,47 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './App.css'
+import Navbar from './components/Navbar'
+import Main from './components/Main'
+import People from './components/People'
+import Companies from './components/Companies'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>Hello World!</p>
-      </header>
-    </div>
-  );
+const App = () => {
+
+  const [body, setBody] = useState('main')
+
+  if (body === 'main') {
+    return (
+      <div className="App">
+        <Navbar setBody={setBody} />
+        <div className='Body'>
+          <Main />
+        </div>
+      </div>
+    )
+  }
+
+  if (body === 'people') {
+    return (
+      <div className="App">
+        <Navbar setBody={setBody} />
+        <div className='Body'>
+          <People />
+        </div>
+      </div>
+    )
+  }
+
+  if (body === 'companies') {
+    return (
+      <div className="App">
+        <Navbar setBody={setBody} />
+        <div className='Body'>
+          <Companies />
+        </div>
+      </div>
+    )
+  }
+
 }
 
 export default App

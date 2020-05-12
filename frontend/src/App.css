@@ -1,14 +1,160 @@
 .App {
   text-align: center;
+  font-family: monospace;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Body {
+  margin: auto;
+  width: 100%;
+  height: 100vh;
+  font-size: calc(10px + 2vmin);
+  background-color: #f3ffe5;
+}
+
+.Spacer-vertical {
+  height: 50px;
+  width: 100%;
+  background-color: #f3ffe5;
+}
+
+.Box {
+  color: white;
+  background: #5EA200;
+  padding: 1em;
+  margin: auto;
+  width: 40%;
+  height: 20px;
+  box-shadow: 15px 15px black;
+}
+
+.Toggle-Button {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.Toggle-Button:focus {
+  outline: none;
+}
+
+.Toggle-Button-line {
+  width: 40px;
+  height: 3px;
+  background: gainsboro;
+}
+
+.Navbar {
+  margin-top: 3%;
+  margin: auto;
+  width: 80vw;
+  height: 80px;
+  position: relative;
+}
+
+.Navbar-logo {
+  height: 70px;
+  cursor: pointer;
+}
+
+.Navbar-navigation {
+  display: flex;
+  height: 100%;
   align-items: center;
+  padding: 0 1rem;
+}
+
+.Navbar-item {
+  color: #4F8F07;
+  text-decoration: none;
+  display: inline-block;
+  padding: 1rem;
+}
+
+.Navbar-item:hover,
+.Navbar-item:active {
+  color: black;
+  cursor: pointer;
+}
+
+.Navbar-items ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.Navbar-spacer {
+  flex: 1;
+}
+
+.Backdrop {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+
+.Side-Drawer {
+  height: 100vh;
+  background: white;
+  box-shadow: 2px 0px 7px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 70%;
+  max-width: 400px;
+  z-index: 200;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-out;
+}
+
+.Side-Drawer.open {
+  transform: translateX(0);
+}
+
+.Side-Drawer ul {
+  height: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+
+.Side-Drawer-item {
+  color: #004c13;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  font-size: calc(15px + 1vmin);
+  padding: 1rem;
+}
+
+.Side-Drawer-item:hover, 
+.Side-Drawer-item:active {
+  color: black;
+}
+
+.Side-Drawer li {
+  margin: 0.5rem 0;
+}
+
+@media (max-width: 700px) {
+  .Navbar-items {
+    display: none;
+  }
+}
+
+@media (min-width: 700px) {
+  .Toggle-Button {
+    display: none;
+  }
 }
