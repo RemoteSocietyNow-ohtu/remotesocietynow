@@ -2,7 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 
-app.use(express.static('build'))
+app.use(express.static(__dirname + '/frontend/build/'))
 
 const cors = require('cors')
 app.use(cors())
