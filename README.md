@@ -2,15 +2,33 @@
 
 [![Build Status](https://travis-ci.org/RemoteSocietyNow-ohtu/remotesocietynow.svg?branch=master)](https://travis-ci.org/RemoteSocietyNow-ohtu/remotesocietynow)
 
-**Instructions**
+## Instructions ##
 
-Clone the repository
+**Clone the repository**
 
 ```bash
 git clone <repository>
 ```
 
-Create `.env` file in the root directory.
+**Developing backend**
+
+Before running the app you need to install dependencies
+
+```bash
+npm install
+```
+
+Run in development mode (nodemon)
+
+```bash
+npm run dev
+```
+
+Port 3001 will be used by default if not defined in `.env`
+
+http://localhost:3001/
+
+If needed create `.env` file in the root directory.
 
 Define the necessary environment variables in `.env`.
 
@@ -22,34 +40,42 @@ PORT=3001
 
 ```
 
-Port 3001 will be used by default if not defined in `.env`
+To make a new build of frontend
 
-Before running the app you need to install requirements:
+```bash
+npm run build:front
+```
+
+**Developing frontend**
+
+Go to /frontend
+
+Before running the app you need to install dependencies
 
 ```bash
 npm install
 ```
 
-**Available scripts**
-
-Run in development mode (nodemon)
-
-```bash
-npm run dev
-```
-
-Run on a server
+Run in development mode
 
 ```bash
 npm start
 ```
+Frontend will be running at http://localhost:3000/
+
+You may want to make sure the backend is running as well.
 
 # Push to Github
 
-Changes made to the frontend have to be built
-
+Make changes to local copy then
 ```bash
-npm run build
+git add .
+git commit -m "your message"
+git push
 ```
 
-Then you can commit & push normally
+Pushing to Github master branch will trigger Travis CI to run tests, linting and make a build of frontend.
+If succesfull the app is deployed to Heroku for staging and can be run at:
+
+https://remotesocietynow.herokuapp.com/
+
