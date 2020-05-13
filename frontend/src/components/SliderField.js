@@ -10,7 +10,7 @@ const SliderField = ({ name, handleValueChange, value }) => {
                 max='100' 
                 onChange={handleValueChange}
                 value={value} 
-                class='slider' 
+                className='slider' 
             />
             <p>{value}%</p>
         </div>

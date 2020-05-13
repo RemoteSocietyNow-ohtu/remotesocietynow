@@ -11,7 +11,7 @@ const NumberField = ({ name, handleValueChange, value}) => {
                 onChange={handleValueChange}
                 id="valueField"
             />
-            <p>{value}</p>
+            <p>{value || 0}</p>
        </div>
         )  
 }
