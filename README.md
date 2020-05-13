@@ -61,6 +61,7 @@ Run in development mode
 ```bash
 npm start
 ```
+Frontend will be running at http://localhost:3000/
 
 You may want to make sure the backend is running as well.
 
