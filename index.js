@@ -21,7 +21,7 @@ const questions = [
   },
   {
     name: 'Kuinka monena päivänä viikossa kuljet tällä kulkuvälineellä töihin?',
-    type: 'field"
+    type: 'field'
   },
   {
     name: 'Kuljetko jollakin muulla kulkuvälineellä töihin, ja jos kyllä, millä?',
@@ -36,7 +36,7 @@ const questions = [
   },
   {
     name: 'Kuinka monena päivänä viikossa keskimäärin teet etätöitä?',
-    type: 'field"
+    type: 'field'
   },
   {
     name: 'Miten suhtaudut etätyöskentelyyn?',
