@@ -65,6 +65,16 @@ Frontend will be running at http://localhost:3000/
 
 You may want to make sure the backend is running as well.
 
+**Eslint**
+
+Check for eslint-errors
+
+`npm run lint`
+
+Automatically fix most common eslint errors
+
+`npm run fix:lint`
+
 # Push to Github
 
 Make changes to local copy then
