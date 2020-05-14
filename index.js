@@ -3,16 +3,7 @@ const express = require('express')
 const app = express()
 app.use(express.json())
 
-const questions = [
-  {
-    name:'Kuinka monena päivänä kuukaudessa kuljet töihin omalla autollasi?',
-    type:'multipleChoice'
-  },
-  {
-    name:'Kuinka pitkiä työmatkasi keskimäärin ovat (km/aika)?',
-    type:'input'
-  },
-]
+
 
 app.use(express.static(__dirname + '/frontend/build/'))
 
@@ -23,7 +14,7 @@ app.get('/', (req, res) => {
   res.send('<h1>Backend is running!</h1>')
 })
 
-app.get('/api/questions', (req, res) => {
+app.get('/api/questions/', (req, res) => {
   res.json(questions)
 })
 
