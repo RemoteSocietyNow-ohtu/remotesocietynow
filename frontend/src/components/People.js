@@ -25,13 +25,16 @@ const People = () => {
   
   console.log(values)
 
+  if(questions.length === 0) {
+    return <p>Haetaan kysymyksiä...</p>
+  }
+
   return (
     <div>
       <div className='Body'>
         <div className='Spacer-vertical'></div>
         <h1 className='Box'>People</h1>
-        <Questions questions={questions} values={values} setValues={setValues} />
-        
+        <Questions questions={questions} values={values} setValues={setValues} />        
       </div>
     </div>
   )
