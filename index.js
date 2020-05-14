@@ -18,6 +18,13 @@ app.get('/api/questions/', (req, res) => {
   res.json(questions)
 })
 
+app.get('/api/questions/:id', (req, res) => {
+  const id = req.params.id
+  const question = questions[id]
+
+  res.json(question)
+})
+
 const port = process.env.PORT || 3001
 app.listen(port)
 console.log(`Server running on port ${port}`)
