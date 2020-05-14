@@ -1,20 +1,25 @@
-import React, { useState } from 'react'
+import React from 'react'
 import NumberField from './NumberField'
 import SliderField from './SliderField'
+import MultipleChoiceField from './MultipleChoiceField'
 
+const Field = ({ fieldType, options, value, setValue }) => {
+  const handleValueChange = (event) => setValue(event.target.value)
 
-const Field = ({ name, fieldType,  value, setValue }) => {
-    const handleValueChange = (event) => setValue(event.target.value)
-
-    if (fieldType === 'field') {
-        return <NumberField name={name} handleValueChange={handleValueChange} value={value} />
-    }
-    if (fieldType === 'slider') {
-        return(
-            <SliderField name={name} handleValueChange={handleValueChange} value={value} />
-        )
-    }
-    return null
+  if (fieldType === 'field') {    
+    return <NumberField handleValueChange={handleValueChange} value={value} />
+  }
+  if (fieldType === 'slider') {
+    return(
+      <SliderField handleValueChange={handleValueChange} value={value} />
+    )
+  }
+  if (fieldType === 'multipleChoice') {
+    return(
+      <MultipleChoiceField options={options} handleValueChange={handleValueChange} value={value} />
+    )
+  }
+  return null
 }
 
 export default Field

@@ -1,9 +1,11 @@
 import React from 'react'
+import Field from './Field'
 
-const Question = ({ question }) => {
+const Question = ({ question, value, setValues }) => {  
   return (
     <div>
-      <p className='Question'>{question}</p>
+      <p>{question.name}</p>         
+      <Field fieldType={question.type} options={question.options} value={value} setValue={setValues} />
     </div>
   )
 }
