@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react'
 import questionService from '../services/questionService'
 import Questions from './Questions'
 
-const [questions, setQuestions] = useState([])
-
-useEffect(() => {
-  questionService.getQuestions()
-    .then(res => setQuestions(res))
-}, [])
-
 const People = () => {
+  const [questions, setQuestions] = useState([])
+
+  useEffect(() => {
+    questionService.getQuestions()
+      .then(res => setQuestions(res))
+  }, [])
+  
   return (
     <div>
       <div className='Body'>
