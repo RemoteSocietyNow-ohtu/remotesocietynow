@@ -33,7 +33,7 @@ const People = () => {
       <div className='Body'>
         <div className='Container'>
           <img className='Loading-animation' src={loadingAnimation} alt='loading animation' />
-          <h3>Loading...</h3>
+          <h3 className='Alexis-Marie'>Loading...</h3>
         </div>
       </div>
     )
