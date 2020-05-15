@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import questionService from '../services/questionService'
 import Questions from './Questions'
 import Results from './Results'
+import loadingAnimation from '../resources/loading.gif'
 
 const initValues = questions => {
   return questions.reduce((newObject, question) => {
@@ -23,7 +24,14 @@ const People = () => {
   }, [questions])
 
   if (questions.length === 0) {
-    return <p>Haetaan kysymyksiä...</p>
+    return (
+      <div className='Body'>
+        <div className='Container'>
+          <img className='Loading-animation' src={loadingAnimation} alt='loading' />
+          <h3>Loading...</h3>
+        </div>
+      </div>
+    )
   }
 
   console.log(values)
