@@ -7,7 +7,7 @@ const Main = () => {
   return (
     <div className='Body'>
       <div className='Spacer-vertical'></div>
-      <h1 className='Box'>Main</h1>
+      <p className='Box'>Main</p>
       <div>       
         <Mathinfo/>
       </div>

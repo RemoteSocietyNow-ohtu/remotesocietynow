@@ -5,7 +5,7 @@ const Companies = () => {
     <div>
       <div className='Body'>
         <div className='Spacer-vertical'></div>
-        <h1 className='Box'>Companies</h1>
+        <p className='Box'>Companies</p>
       </div>
     </div>
   )

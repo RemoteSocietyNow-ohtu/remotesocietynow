@@ -44,7 +44,7 @@ const People = () => {
       <div className='Body'>
         <div className='Container'>
           <div className='Spacer-vertical'></div>
-          <h1 className='Box'>Laskuri</h1>
+          <p className='Box'>Laskuri</p>
           <Questions questions={questions} values={values} setValues={setValues} />
           <SendAnswersButton values={values} setResults={setResults} />          
           <div className='Question-separator'></div>
