@@ -5,9 +5,10 @@ const NumberField = ({ handleValueChange, value, minValue, maxValue}) => {
   return(
     <div>
       <input
+        className='NumberField'
         type="number"
-        value={value}
         onChange={handleValueChange}
+        defaultValue={0}
         id="valueField"
         min={minValue}
         max={maxValue}
