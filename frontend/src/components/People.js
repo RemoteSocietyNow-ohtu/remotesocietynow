@@ -3,11 +3,8 @@ import questionService from '../services/questionService'
 import Questions from './Questions'
 
 const initValues = questions => {
-  const newObject = {}
-  questions.forEach(question => {
-    newObject[question.name] = 0
-  })
-  return newObject
+  return questions.reduce((newObject, question) => {
+    return {...newObject, [question.name] : 0 } }, {})
 }
 
 const People = () => {
@@ -20,14 +17,14 @@ const People = () => {
   }, [])
 
   useEffect(() => {
-    setValues(initValues(questions))
+    setValues(initValues(questions))  
   }, [questions])
   
-  console.log(values)
-
   if(questions.length === 0) {
     return <p>Haetaan kysymyksiä...</p>
   }
+  
+  console.log(values)
 
   return (
     <div>

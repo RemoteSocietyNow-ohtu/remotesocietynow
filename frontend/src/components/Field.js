@@ -8,13 +8,11 @@ const Field = ({ fieldType, options, value, setValue }) => {
 
   if (fieldType === 'field') {    
     return <NumberField handleValueChange={handleValueChange} value={value} />
-  }
-  if (fieldType === 'slider') {
+  } else if (fieldType === 'slider') {
     return(
       <SliderField handleValueChange={handleValueChange} value={value} />
     )
-  }
-  if (fieldType === 'multipleChoice') {
+  } else if (fieldType === 'multipleChoice') {
     return(
       <MultipleChoiceField options={options} handleValueChange={handleValueChange} value={value} />
     )

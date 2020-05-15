@@ -9,7 +9,7 @@ const Questions = ({ questions, values, setValues }) => {
           key={question.name} 
           question={question} 
           value={values[question.name] ? values[question.name] : 0} 
-          setValues={(value) => setValues({...values, [question.name]: value})} 
+          setValue={(value) => setValues({...values, [question.name]: value})} 
         /> ) }
     </div>
   )
