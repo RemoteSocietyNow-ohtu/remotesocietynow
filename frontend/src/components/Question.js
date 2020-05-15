@@ -9,6 +9,8 @@ const Question = ({ question, value, setValue }) => {
       <Field
         fieldType={question.type}
         options={question.options}
+        minValue={question.minValue}
+        maxValue={question.maxValue}
         value={value}
         setValue={setValue} />
     </div>

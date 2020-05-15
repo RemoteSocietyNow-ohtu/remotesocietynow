@@ -3,14 +3,25 @@ import NumberField from './NumberField'
 import SliderField from './SliderField'
 import MultipleChoiceField from './MultipleChoiceField'
 
-const Field = ({ fieldType, options, value, setValue }) => {
+const Field = ({ fieldType, options, value, setValue, minValue, maxValue }) => {
   const handleValueChange = (event) => setValue(event.target.value)
-
   if (fieldType === 'field') {    
-    return <NumberField handleValueChange={handleValueChange} value={value} />
+    return ( 
+      <NumberField 
+        handleValueChange={handleValueChange} 
+        value={value} 
+        minValue={minValue} 
+        maxValue={maxValue}
+      />
+    )
   } else if (fieldType === 'slider') {
     return(
-      <SliderField handleValueChange={handleValueChange} value={value} />
+      <SliderField 
+        handleValueChange={handleValueChange} 
+        value={value} 
+        minValue={minValue} 
+        maxValue={maxValue}
+      />
     )
   } else if (fieldType === 'multipleChoice') {
     return(

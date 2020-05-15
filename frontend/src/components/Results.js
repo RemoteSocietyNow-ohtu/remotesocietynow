@@ -1,10 +1,13 @@
 import React from 'react'
 
-const Results = ({ results }) => { 
+const Results = ({ results }) => {
+
   return (
     <div>     
-      <p>CO2 vuodessa: {results.result}</p>
-      <p>Vuosittainen CO2 vähennys: </p>  
+      <p>Työmatkojen CO2-päästöt vuodessa:</p>
+      <p>{results.result ? results.result : '-'}</p>
+      <p>Etätyöskentelyn tuoma vuosittainen CO2 vähennys:</p>
+      <p>-</p>  
     </div>
   )
 }

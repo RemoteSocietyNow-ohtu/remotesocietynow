@@ -6,9 +6,11 @@ import SendAnswersButton from './SendAnswersButton'
 import loadingAnimation from '../resources/loading.gif'
 
 const initValues = questions => {
-
   return questions.reduce((newObject, question) => {
-    return { ...newObject, [question.identifyingString]: 0 }
+    return { 
+      ...newObject, 
+      [question.identifyingString]: question.defaultValue ? question.defaultValue : ' '
+    }
   }, {})
 }
 
@@ -36,8 +38,6 @@ const People = () => {
       </div>
     )
   }
-
-  console.log(values)
 
   return (
     <div>

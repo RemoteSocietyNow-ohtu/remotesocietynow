@@ -19,9 +19,9 @@ const SendAnswersButton = ({ values, setResults }) => {
     }    
   }
 
-  if(loading === true) return <p>Uploading aswers</p>
+  if(loading === true) return <button disabled>Lähetetään...</button>
 
-  if(error === true) return <p>Error uploading answers</p>
+  if(error === true) return <p>Vastausten lähetyksessä tapahtui virhe.</p>
 
   return (
     <div>

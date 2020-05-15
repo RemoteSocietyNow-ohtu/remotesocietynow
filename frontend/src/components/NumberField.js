@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const NumberField = ({ handleValueChange, value}) => {
+const NumberField = ({ handleValueChange, value, minValue, maxValue}) => {
   return(
     <div>
       <input
@@ -9,6 +9,8 @@ const NumberField = ({ handleValueChange, value}) => {
         value={value}
         onChange={handleValueChange}
         id="valueField"
+        min={minValue}
+        max={maxValue}
       />
       <p>{value || 0}</p>
     </div>
