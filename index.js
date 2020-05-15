@@ -27,7 +27,7 @@ const questions = [
   {
     identifyingString:'noOfDaysOfUsage',
     name: 'Kuinka monena päivänä viikossa kuljet tällä kulkuvälineellä töihin?',
-    type: 'field',
+    type: 'slider',
     defaultValue:'0',
     minValue:'0',
     maxValue:'7',
@@ -48,7 +48,7 @@ const questions = [
   {
     identifyingString:'numberOfRemoteworkDays',
     name: 'Kuinka monena päivänä viikossa keskimäärin teet etätöitä?',
-    type: 'field',
+    type: 'slider',
     defaultValue:'0',
     minValue:'0',
     maxValue:'7',
@@ -57,7 +57,14 @@ const questions = [
   {
     identifyingString:'opinionRemote',
     name: 'Miten suhtaudut etätyöskentelyyn?',
-    type: 'slider'
+    type: 'multipleChoice',
+    options: [
+      'Erittäin kielteisesti',
+      'kielteisesti',
+      'ei mielipidettä',
+      'positiivisesti',
+      'erittäin positiivisesti'
+    ]
   }
 ]
 

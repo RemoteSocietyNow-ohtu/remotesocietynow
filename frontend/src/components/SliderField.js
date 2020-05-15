@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SliderField = ({ handleValueChange, value, minValue, maxValue }) => {
+const SliderField = ({ handleValueChange, value, minValue, maxValue, unit }) => {
   return(
     <div>
       <input
@@ -11,7 +11,7 @@ const SliderField = ({ handleValueChange, value, minValue, maxValue }) => {
         value={value} 
         className='slider' 
       />
-      <p>{value}%</p>
+      <p>{value} {unit}</p>
     </div>
   )
 }
