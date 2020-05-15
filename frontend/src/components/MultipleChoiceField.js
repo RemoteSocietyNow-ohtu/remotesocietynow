@@ -1,6 +1,6 @@
 import React from 'react'
 
-const MultipleChoiceField = ({ options, handleValueChange, value }) => {
+const MultipleChoiceField = ({ options, handleValueChange }) => {
   return(
     <div>
       {options.map(option => 
