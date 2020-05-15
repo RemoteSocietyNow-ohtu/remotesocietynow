@@ -77,6 +77,11 @@ app.get('/api/questions/:id', (req, res) => {
   res.json(question)
 })
 
+app.post('/api/calculate/', (req,res) => {
+  const result = {result: 1}
+  res.json(result)
+})
+
 const port = process.env.PORT || 3001
 app.listen(port)
 console.log(`Server running on port ${port}`)
