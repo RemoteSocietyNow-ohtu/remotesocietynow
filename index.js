@@ -9,7 +9,8 @@ const questions = [
     name: 'Kuinka pitkä työmatkaasi on kilometreinä? Ilmoita matka yhteen suuntaan.',
     type: 'field',
     defaultValue:'0',
-    minValue: 0
+    minValue: 0,
+    unit: 'km'
   },
   {
     identifyingString:'typicalVehicle',
@@ -29,7 +30,8 @@ const questions = [
     type: 'field',
     defaultValue:'0',
     minValue:'0',
-    maxValue:'7'
+    maxValue:'7',
+    unit: 'päivänä'
   },
   {
     identifyingString:'commuteMethodSecond',
@@ -49,7 +51,8 @@ const questions = [
     type: 'field',
     defaultValue:'0',
     minValue:'0',
-    maxValue:'7'
+    maxValue:'7',
+    unit: 'päivänä'
   },
   {
     identifyingString:'opinionRemote',
