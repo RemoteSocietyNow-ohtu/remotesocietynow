@@ -5,50 +5,54 @@ app.use(express.json())
 
 const questions = [
   {
-    identifyingString:'commuteLength',
+    identifyingString:'dailyCommuteKm',
     name: 'Kuinka pitkä työmatkaasi on kilometreinä? Ilmoita matka yhteen suuntaan.',
     type: 'field',
-    defaultValue:'0'
+    defaultValue:'0',
+    minValue: 0,
+    unit: 'km'
   },
   {
-    identifyingString:'commuteMethod',
+    identifyingString:'typicalVehicle',
     name: 'Millä kulkuvälineellä useimmiten kuljet töihin?',
     type: 'multipleChoice',
     options: [
-      'Jalan/Pyörällä',
-      'Linja-auto',
-      'Juna',
-      'Auto',
-      'Moottoripyörä'
+      'walking',
+      'bus',
+      'train',
+      'car',
+      'motorcycle'
     ],
   },
   {
-    identifyingString:'daysCommuted',
+    identifyingString:'noOfDaysOfUsage',
     name: 'Kuinka monena päivänä viikossa kuljet tällä kulkuvälineellä töihin?',
     type: 'field',
     defaultValue:'0',
     minValue:'0',
-    maxValue:'7'
+    maxValue:'7',
+    unit: 'päivänä'
   },
   {
     identifyingString:'commuteMethodSecond',
     name: 'Kuljetko jollakin muulla kulkuvälineellä töihin, ja jos kyllä, millä?',
     type: 'multipleChoice',
     options: [
-      'Jalan/Pyörällä',
-      'Linja-auto',
-      'Juna',
-      'Auto',
-      'Moottoripyörä'
+      'walking',
+      'bus',
+      'train',
+      'car',
+      'motorcycle'
     ]
   },
   {
-    identifyingString:'daysCommutedSecond',
+    identifyingString:'numberOfRemoteworkDays',
     name: 'Kuinka monena päivänä viikossa keskimäärin teet etätöitä?',
     type: 'field',
     defaultValue:'0',
     minValue:'0',
-    maxValue:'7'
+    maxValue:'7',
+    unit: 'päivänä'
   },
   {
     identifyingString:'opinionRemote',
@@ -78,6 +82,8 @@ app.get('/api/questions/:id', (req, res) => {
 })
 
 app.post('/api/calculate/', (req,res) => {
+  console.log(req.body)
+
   const distance = req.body.dailyCommuteKm
   const days = req.body.noOfDaysOfUsage
   const remoteDays = req.body.numberOfRemoteworkDays
@@ -91,7 +97,7 @@ app.post('/api/calculate/', (req,res) => {
   coeficcients["walking"] = 0
   coeficcients["motorcycle"] = 94
 
-  const amountOfWorkDoneRemotely = Math.min(remoteDays/days,1)
+  const amountOfWorkDoneRemotely = Math.max(1-(remoteDays/days),0)
    
   const co2 = coeficcients[vehicle]*distance*2*221
   const co2remote = coeficcients[vehicle]*distance*2*amountOfWorkDoneRemotely*221
