@@ -99,11 +99,18 @@ app.post('/api/calculate/', (req,res) => {
 
   const amountOfWorkDoneRemotely = Math.max(1-(remoteDays/days),0)
    
-  const co2 = coeficcients[vehicle]*distance*2*221
+  let co2 = coeficcients[vehicle]*distance*2*221
   const co2remote = coeficcients[vehicle]*distance*2*amountOfWorkDoneRemotely*221
 
-  const result = (co2-co2remote)/1000000
-  res.json({result: result})
+  
+  const co2reduce = (co2-co2remote)/1000000
+  co2 = co2/1000000
+
+  const result ={
+    co2: co2,
+    co2reduce: co2reduce
+  }
+  res.json(result)
 })
 
 const port = process.env.PORT || 3001
