@@ -27,7 +27,7 @@ const People = () => {
     return (
       <div className='Body'>
         <div className='Container'>
-          <img className='Loading-animation' src={loadingAnimation} alt='loading' />
+          <img className='Loading-animation' src={loadingAnimation} alt='loading animation' />
           <h3>Loading...</h3>
         </div>
       </div>
@@ -41,8 +41,9 @@ const People = () => {
       <div className='Body'>
         <div className='Container'>
           <div className='Spacer-vertical'></div>
-          <h1 className='Box'>People</h1>
+          <h1 className='Box'>Laskuri</h1>
           <Questions questions={questions} values={values} setValues={setValues} />
+          <div className='Question-separator'></div>
           <Results values={values} />
         </div>
       </div>
