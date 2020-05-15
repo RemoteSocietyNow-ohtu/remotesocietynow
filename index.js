@@ -5,25 +5,26 @@ app.use(express.json())
 
 const questions = [
   {
-    identifyingString:'commuteLength',
+    identifyingString:'dailyCommuteKm',
     name: 'Kuinka pitkä työmatkaasi on kilometreinä? Ilmoita matka yhteen suuntaan.',
     type: 'field',
-    defaultValue:'0'
+    defaultValue:'0',
+    minValue: 0
   },
   {
-    identifyingString:'commuteMethod',
+    identifyingString:'typicalVehicle',
     name: 'Millä kulkuvälineellä useimmiten kuljet töihin?',
     type: 'multipleChoice',
     options: [
-      'Jalan/Pyörällä',
-      'Linja-auto',
-      'Juna',
-      'Auto',
-      'Moottoripyörä'
+      'walking',
+      'bus',
+      'train',
+      'car',
+      'motorcycle'
     ],
   },
   {
-    identifyingString:'daysCommuted',
+    identifyingString:'noOfDaysOfUsage',
     name: 'Kuinka monena päivänä viikossa kuljet tällä kulkuvälineellä töihin?',
     type: 'field',
     defaultValue:'0',
@@ -35,15 +36,15 @@ const questions = [
     name: 'Kuljetko jollakin muulla kulkuvälineellä töihin, ja jos kyllä, millä?',
     type: 'multipleChoice',
     options: [
-      'Jalan/Pyörällä',
-      'Linja-auto',
-      'Juna',
-      'Auto',
-      'Moottoripyörä'
+      'walking',
+      'bus',
+      'train',
+      'car',
+      'motorcycle'
     ]
   },
   {
-    identifyingString:'daysCommutedSecond',
+    identifyingString:'numberOfRemoteworkDays',
     name: 'Kuinka monena päivänä viikossa keskimäärin teet etätöitä?',
     type: 'field',
     defaultValue:'0',
@@ -78,6 +79,8 @@ app.get('/api/questions/:id', (req, res) => {
 })
 
 app.post('/api/calculate/', (req,res) => {
+  console.log(req.body)
+
   const distance = req.body.dailyCommuteKm
   const days = req.body.noOfDaysOfUsage
   const remoteDays = req.body.numberOfRemoteworkDays
