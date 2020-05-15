@@ -94,7 +94,7 @@ app.post('/api/calculate/', (req,res) => {
   coeficcients["walking"] = 0
   coeficcients["motorcycle"] = 94
 
-  const amountOfWorkDoneRemotely = Math.min(remoteDays/days,1)
+  const amountOfWorkDoneRemotely = Math.max(1-(remoteDays/days),0)
    
   const co2 = coeficcients[vehicle]*distance*2*221
   const co2remote = coeficcients[vehicle]*distance*2*amountOfWorkDoneRemotely*221
