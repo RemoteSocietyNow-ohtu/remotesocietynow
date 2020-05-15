@@ -5,6 +5,7 @@ import Results from './Results'
 import loadingAnimation from '../resources/loading.gif'
 
 const initValues = questions => {
+
   return questions.reduce((newObject, question) => {
     return { ...newObject, [question.identifyingString]: 0 }
   }, {})
