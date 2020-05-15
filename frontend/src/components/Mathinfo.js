@@ -13,7 +13,7 @@ const style = {
   backgroundColor:'lightgreen'
 }
 
-const Mathinfo = (props) => {
+const Mathinfo = () => {
   return(
     <div style={style}>
       <h2>About the math</h2>

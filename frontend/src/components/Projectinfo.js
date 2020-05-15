@@ -24,7 +24,7 @@ const infoEng = [
   'For each legitimate business talk with a new client we will plant a real tree – for real.'
 ]
 
-const Projectinfo = (props) => {
+const Projectinfo = () => {
   return(
     <div style={style}>
       <h2>Remote Society - Now!</h2>
