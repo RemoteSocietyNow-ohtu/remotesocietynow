@@ -8,8 +8,7 @@ const SliderField = ({ handleValueChange, value, minValue, maxValue, unit }) => 
         min={minValue} 
         max={maxValue}
         onChange={handleValueChange}
-        value={value} 
-        className='slider' 
+        value={value}
       />
       <p>{value} {unit}</p>
     </div>

@@ -25,7 +25,7 @@ const SendAnswersButton = ({ values, setResults }) => {
 
   return (
     <div>
-      <button onClick={sendAnswers}>Laske</button>
+      <button className='Laske-button' onClick={sendAnswers}>Laske</button>
     </div>
   )
 }

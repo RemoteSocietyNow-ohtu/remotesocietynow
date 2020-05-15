@@ -204,3 +204,64 @@ html {
   color: white;
   background-color: #181A1B;
 }
+
+.Choice-button {
+  cursor: pointer;
+  height: 50px;
+  min-width: 80px;
+  margin-top: 2%;
+  margin-left: 2%;
+  border: none;
+  border-radius: 3%;
+}
+
+.Laske-button {
+  margin-top: 6%;
+  margin-bottom: 3%;
+  height: 70px;
+  width: 150px;
+  cursor: pointer;
+  border: #4F8F07 2px solid;
+  border-radius: 5%;
+}
+
+.Laske-button:hover {
+  background-color: #4F8F07;
+  border: black 2px solid;
+}
+
+.Choice-button:hover {
+  background-color: #4F8F07;
+}
+
+input[type="range"]::-moz-range-progress {
+  background-color: #5EA200;
+}
+
+input[type="range"]::-moz-range-track {  
+  background-color: black;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  input[type='range'] {
+    overflow: hidden;
+    width: 200px;
+    height: 50px;
+    -webkit-appearance: none;
+    background-color: #c9c9c9;
+  }
+  
+  input[type='range']::-webkit-slider-runnable-track {
+    height: 10px;
+    -webkit-appearance: none;
+    margin-top: -1px;
+  }
+  
+  input[type='range']::-webkit-slider-thumb {
+    width: 10px;
+    -webkit-appearance: none;
+    height: 10px;
+    cursor: ew-resize;
+  }
+
+}
