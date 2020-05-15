@@ -17,11 +17,11 @@ const questions = [
     name: 'Millä kulkuvälineellä useimmiten kuljet töihin?',
     type: 'multipleChoice',
     options: [
-      'walking',
-      'bus',
-      'train',
-      'car',
-      'motorcycle'
+      {string: 'kävellen/pyörällä', value: 'walking'},
+      {string: 'bussilla', value: 'bus'},
+      {string: 'junalla', value: 'train'},
+      {string: 'henkilöautolla', value: 'car'},
+      {string: 'moottoripyörällä', value: 'motorcycle'},
     ],
   },
   {
@@ -38,11 +38,11 @@ const questions = [
     name: 'Kuljetko jollakin muulla kulkuvälineellä töihin, ja jos kyllä, millä?',
     type: 'multipleChoice',
     options: [
-      'walking',
-      'bus',
-      'train',
-      'car',
-      'motorcycle'
+      {string: 'kävellen/pyörällä', value: 'walking'},
+      {string: 'bussilla', value: 'bus'},
+      {string: 'junalla', value: 'train'},
+      {string: 'henkilöautolla', value: 'car'},
+      {string: 'moottoripyörällä', value: 'motorcycle'},
     ]
   },
   {
@@ -59,11 +59,11 @@ const questions = [
     name: 'Miten suhtaudut etätyöskentelyyn?',
     type: 'multipleChoice',
     options: [
-      'Erittäin kielteisesti',
-      'kielteisesti',
-      'ei mielipidettä',
-      'positiivisesti',
-      'erittäin positiivisesti'
+      { string: 'Erittäin kielteisesti', value: 'very negative' },
+      { string: 'kielteisesti', value: 'negative' },
+      { string: 'ei mielipidettä', value: 'neutral' },
+      { string: 'positiivisesti', value: 'positive' },
+      { string: 'erittäin positiivisesti', value: 'very positive' },
     ]
   }
 ]
