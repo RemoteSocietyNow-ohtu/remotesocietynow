@@ -4,8 +4,8 @@ import Field from './Field'
 const Question = ({ question, value, setValue }) => {
   return (
     <div className='Question'>
-      <div className='Question-separator'></div>
-      <p>{question.name}</p>
+      <div className='Line-separator-full'></div>
+      <p className='Alexis-Marie'>{question.name}</p>
       <Field
         fieldType={question.type}
         options={question.options}

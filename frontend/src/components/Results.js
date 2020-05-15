@@ -3,7 +3,7 @@ import React from 'react'
 const Results = ({ results }) => {
 
   return (
-    <div>     
+    <div className='Alexis-Marie'>     
       <p>Työmatkojen CO2-päästöt vuodessa:</p>
       <p>{results.co2 ? results.co2 : '-'} tonnia</p> 
       <p>Etätyöskentelyn tuoma vuosittainen CO2 vähennys:</p>

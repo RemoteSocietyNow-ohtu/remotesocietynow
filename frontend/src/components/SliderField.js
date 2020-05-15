@@ -11,7 +11,7 @@ const SliderField = ({ handleValueChange, value, minValue, maxValue, unit }) => 
         value={value}
         className='slider'
       />
-      <p>{value} {unit}</p>
+      <p className='Alexis-Marie'>{value} {unit}</p>
     </div>
   )
 }

@@ -12,10 +12,14 @@ const infoEng = [
 ]
 
 const Projectinfo = () => {
-  return(
-    <div className='Project-info'>
-      <h2>Remote Society - Now!</h2>
-      {infoEng.map((info, i) => <p key={i}>{info}</p>)}
+  return (
+    <div className='Container'>
+      <div className='Project-info'>
+        <div className='Question-separator'></div>
+        <div className='Container'>
+          {infoEng.map((info, i) => <p key={i}>{info}</p>)}
+        </div>
+      </div>
     </div>
   )
 }
