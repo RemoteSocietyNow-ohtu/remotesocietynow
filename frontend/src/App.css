@@ -2,6 +2,11 @@ html {
   background-color: #244300;
 }
 
+@font-face {
+  src: url(fonts/Dear\ Sunshine.ttf);
+  font-family: Dear Sunshine;
+}
+
 .App {
   text-align: center;
   font-family: monospace;
@@ -29,6 +34,7 @@ html {
 }
 
 .Box {
+  font-family: Dear Sunshine;
   color: white;
   background: #5EA200;
   padding: 1em;
