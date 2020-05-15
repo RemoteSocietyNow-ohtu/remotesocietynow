@@ -1,18 +1,5 @@
 import React from 'react'
 
-const style = {
-  display: 'inline-block',
-  padding: '15px',
-  fontSize: '16px',
-  width:'400px',
-  border:'solid',
-  borderWidth: '5px,0,0',
-  float: 'right',
-  marginTop: '2%',
-  marginRight:'10%',
-  backgroundColor:'lightgreen'
-}
-
 const infoEng = [
   'The Most Enjoyable Way to Save the Planet! While making more money and saving time.',
   'How does this save the planet?',
@@ -26,7 +13,7 @@ const infoEng = [
 
 const Projectinfo = () => {
   return(
-    <div style={style}>
+    <div className='Project-info'>
       <h2>Remote Society - Now!</h2>
       {infoEng.map((info, i) => <p key={i}>{info}</p>)}
     </div>

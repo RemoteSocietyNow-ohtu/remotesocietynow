@@ -98,11 +98,11 @@ app.post('/api/calculate/', (req,res) => {
 
   const coeficcients = {}
 
-  coeficcients["car"] = 230
-  coeficcients["train"] = 2
-  coeficcients["bus"] = 59
-  coeficcients["walking"] = 0
-  coeficcients["motorcycle"] = 94
+  coeficcients['car'] = 230
+  coeficcients['train'] = 2
+  coeficcients['bus'] = 59
+  coeficcients['walking'] = 0
+  coeficcients['motorcycle'] = 94
 
   const amountOfWorkDoneRemotely = Math.max(1-(remoteDays/days),0)
    

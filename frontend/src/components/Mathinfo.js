@@ -1,21 +1,8 @@
 import React from 'react'
 
-const style = {
-  display: 'inline-block',
-  padding: '15px',
-  fontSize: '16px',
-  width:'800px',
-  border:'solid',
-  borderWidth: '5px,0,0',
-  float: 'left',
-  marginTop: '2%',
-  marginLeft:'10%',
-  backgroundColor:'lightgreen'
-}
-
 const Mathinfo = () => {
   return(
-    <div style={style}>
+    <div className='Math-info'>
       <h2>About the math</h2>
       <p>We factor in the following variables: more text to be added</p>
       <div
