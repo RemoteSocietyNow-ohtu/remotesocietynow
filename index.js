@@ -6,7 +6,7 @@ app.use(express.json())
 const questions = [
   {
     identifyingString:'dailyCommuteKm',
-    name: 'Kuinka pitkä työmatkaasi on kilometreinä? Ilmoita matka yhteen suuntaan.',
+    name: 'Kuinka pitkä työmatkasi on kilometreinä? Ilmoita matka yhteen suuntaan.',
     type: 'field',
     defaultValue:'0',
     minValue: 0,
@@ -59,7 +59,7 @@ const questions = [
     name: 'Miten suhtaudut etätyöskentelyyn?',
     type: 'multipleChoice',
     options: [
-      { string: 'Erittäin kielteisesti', value: 'very negative' },
+      { string: 'erittäin kielteisesti', value: 'very negative' },
       { string: 'kielteisesti', value: 'negative' },
       { string: 'ei mielipidettä', value: 'neutral' },
       { string: 'positiivisesti', value: 'positive' },
@@ -98,20 +98,19 @@ app.post('/api/calculate/', (req,res) => {
 
   const coeficcients = {}
 
-  coeficcients['car'] = 230
-  coeficcients['train'] = 2
-  coeficcients['bus'] = 59
+  coeficcients['car'] = 155
+  coeficcients['train'] = 10
+  coeficcients['bus'] = 53
   coeficcients['walking'] = 0
-  coeficcients['motorcycle'] = 94
+  coeficcients['motorcycle'] = 91
 
-  const amountOfWorkDoneRemotely = Math.max(1-(remoteDays/days),0)
+  const shareOfWorkDoneAtOffice = Math.max(1-(remoteDays/days),0)
    
   let co2 = coeficcients[vehicle]*distance*2*221
-  const co2remote = coeficcients[vehicle]*distance*2*amountOfWorkDoneRemotely*221
-
+  const co2remote = coeficcients[vehicle]*distance*2*shareOfWorkDoneAtOffice*221
   
-  const co2reduce = (co2-co2remote)/1000000
-  co2 = co2/1000000
+  const co2reduce = Math.round(((co2-co2remote)/1000 + Number.EPSILON) * 100) / 100
+  co2 =  Math.round((co2/1000 + Number.EPSILON) * 100) / 100
 
   const result ={
     co2: co2,
