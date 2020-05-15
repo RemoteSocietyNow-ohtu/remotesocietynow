@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import questionService from '../services/questionService'
 import Questions from './Questions'
+import Results from './Results'
 
 const initValues = questions => {
   return questions.reduce((newObject, question) => {
@@ -23,7 +24,7 @@ const People = () => {
   if(questions.length === 0) {
     return <p>Haetaan kysymyksiä...</p>
   }
-  
+
   console.log(values)
 
   return (
@@ -31,7 +32,8 @@ const People = () => {
       <div className='Body'>
         <div className='Spacer-vertical'></div>
         <h1 className='Box'>People</h1>
-        <Questions questions={questions} values={values} setValues={setValues} />        
+        <Questions questions={questions} values={values} setValues={setValues} />     
+        <Results />   
       </div>
     </div>
   )
