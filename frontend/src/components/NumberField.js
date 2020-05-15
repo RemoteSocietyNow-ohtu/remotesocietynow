@@ -10,6 +10,7 @@ const NumberField = ({ handleValueChange, value, minValue, maxValue}) => {
         onChange={handleValueChange}
         defaultValue={0}
         id="valueField"
+        value={value}
         min={minValue}
         max={maxValue}
       />
