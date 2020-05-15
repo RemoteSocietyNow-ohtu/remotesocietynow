@@ -5,10 +5,13 @@ app.use(express.json())
 
 const questions = [
   {
+    identifyingString:'commuteLength',
     name: 'Kuinka pitkä työmatkaasi on kilometreinä? Ilmoita matka yhteen suuntaan.',
-    type: 'field'
+    type: 'field',
+    defaultValue:'0'
   },
   {
+    identifyingString:'commuteMethod',
     name: 'Millä kulkuvälineellä useimmiten kuljet töihin?',
     type: 'multipleChoice',
     options: [
@@ -17,13 +20,18 @@ const questions = [
       'Juna',
       'Auto',
       'Moottoripyörä'
-    ]
+    ],
   },
   {
+    identifyingString:'daysCommuted',
     name: 'Kuinka monena päivänä viikossa kuljet tällä kulkuvälineellä töihin?',
-    type: 'field'
+    type: 'field',
+    defaultValue:'0',
+    minValue:'0',
+    maxValue:'7'
   },
   {
+    identifyingString:'commuteMethodSecond',
     name: 'Kuljetko jollakin muulla kulkuvälineellä töihin, ja jos kyllä, millä?',
     type: 'multipleChoice',
     options: [
@@ -35,10 +43,15 @@ const questions = [
     ]
   },
   {
+    identifyingString:'daysCommutedSecond',
     name: 'Kuinka monena päivänä viikossa keskimäärin teet etätöitä?',
-    type: 'field'
+    type: 'field',
+    defaultValue:'0',
+    minValue:'0',
+    maxValue:'7'
   },
   {
+    identifyingString:'opinionRemote',
     name: 'Miten suhtaudut etätyöskentelyyn?',
     type: 'slider'
   }
