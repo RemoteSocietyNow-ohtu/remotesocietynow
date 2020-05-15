@@ -78,8 +78,26 @@ app.get('/api/questions/:id', (req, res) => {
 })
 
 app.post('/api/calculate/', (req,res) => {
-  const result = {result: 1}
-  res.json(result)
+  const distance = req.body.dailyCommuteKm
+  const days = req.body.noOfDaysOfUsage
+  const remoteDays = req.body.numberOfRemoteworkDays
+  const vehicle = req.body.typicalVehicle
+
+  const coeficcients = {}
+
+  coeficcients["car"] = 230
+  coeficcients["train"] = 2
+  coeficcients["bus"] = 59
+  coeficcients["walking"] = 0
+  coeficcients["motorcycle"] = 94
+
+  const amountOfWorkDoneRemotely = Math.min(remoteDays/days,1)
+   
+  const co2 = coeficcients[vehicle]*distance*2*221
+  const co2remote = coeficcients[vehicle]*distance*2*amountOfWorkDoneRemotely*221
+
+  const result = (co2-co2remote)/1000000
+  res.json({result: result})
 })
 
 const port = process.env.PORT || 3001
