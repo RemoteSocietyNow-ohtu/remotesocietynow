@@ -35,6 +35,7 @@ const Mathinfo = (props) => {
             width: '100%',
             height: '100%'
           }}
+          title='projectInfoVideo'
           src={'https://player.vimeo.com/video/412161185'}
           frameBorder="0"
         />

@@ -13,7 +13,7 @@ const style = {
   backgroundColor:'lightgreen'
 }
 
-const info = [
+const infoEng = [
   'The Most Enjoyable Way to Save the Planet! While making more money and saving time.',
   'How does this save the planet?',
   'Remote-work and remote-life can become new key efforts in limiting CO2 emissions.',
@@ -28,7 +28,7 @@ const Projectinfo = (props) => {
   return(
     <div style={style}>
       <h2>Remote Society - Now!</h2>
-      {info.map((info, i) => <p key={i}>{info}</p>)}
+      {infoEng.map((info, i) => <p key={i}>{info}</p>)}
     </div>
   )
 }
