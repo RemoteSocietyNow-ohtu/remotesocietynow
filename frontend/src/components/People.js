@@ -5,23 +5,24 @@ import Results from './Results'
 
 const initValues = questions => {
   return questions.reduce((newObject, question) => {
-    return {...newObject, [question.identifyingString] : 0 } }, {})
+    return { ...newObject, [question.identifyingString]: 0 }
+  }, {})
 }
 
 const People = () => {
   const [questions, setQuestions] = useState([])
-  const [values, setValues] = useState({})   
-  
+  const [values, setValues] = useState({})
+
   useEffect(() => {
     questionService.getQuestions()
       .then(res => setQuestions(res))
   }, [])
 
   useEffect(() => {
-    setValues(initValues(questions))  
+    setValues(initValues(questions))
   }, [questions])
-  
-  if(questions.length === 0) {
+
+  if (questions.length === 0) {
     return <p>Haetaan kysymyksiä...</p>
   }
 
@@ -30,10 +31,12 @@ const People = () => {
   return (
     <div>
       <div className='Body'>
-        <div className='Spacer-vertical'></div>
-        <h1 className='Box'>People</h1>
-        <Questions questions={questions} values={values} setValues={setValues} />     
-        <Results values={values} />   
+        <div className='Container'>
+          <div className='Spacer-vertical'></div>
+          <h1 className='Box'>People</h1>
+          <Questions questions={questions} values={values} setValues={setValues} />
+          <Results values={values} />
+        </div>
       </div>
     </div>
   )
