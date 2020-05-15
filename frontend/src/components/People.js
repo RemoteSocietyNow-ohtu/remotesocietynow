@@ -5,7 +5,7 @@ import Results from './Results'
 
 const initValues = questions => {
   return questions.reduce((newObject, question) => {
-    return {...newObject, [question.name] : 0 } }, {})
+    return {...newObject, [question.identifyingString] : 0 } }, {})
 }
 
 const People = () => {
@@ -33,7 +33,7 @@ const People = () => {
         <div className='Spacer-vertical'></div>
         <h1 className='Box'>People</h1>
         <Questions questions={questions} values={values} setValues={setValues} />     
-        <Results />   
+        <Results values={values} />   
       </div>
     </div>
   )

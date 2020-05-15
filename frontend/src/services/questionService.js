@@ -7,4 +7,9 @@ const getQuestions = () => {
   return request.then((res) => res.data)
 }
 
-export default { getQuestions }
+const sendAnswers = ( values ) => {
+  const request = axios.post(`${baseurl}/api/calculate/`, values)
+  return request.then((res) => res.data)
+}
+
+export default { getQuestions, sendAnswers }

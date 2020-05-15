@@ -8,8 +8,8 @@ const Questions = ({ questions, values, setValues }) => {
         <Question 
           key={question.name} 
           question={question} 
-          value={values[question.name] ? values[question.name] : 0} 
-          setValue={(value) => setValues({...values, [question.name]: value})} 
+          value={values[question.identifyingString] ? values[question.identifyingString] : 0} 
+          setValue={(value) => setValues({...values, [question.identifyingString]: value})} 
         /> ) }
     </div>
   )
