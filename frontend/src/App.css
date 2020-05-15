@@ -143,7 +143,8 @@ html {
 }
 
 .Side-Drawer-item {
-  color: #004c13;
+  text-align: left;
+  color: #4F8F07;
   text-decoration: none;
   display: inline-block;
   cursor: pointer;
@@ -153,7 +154,7 @@ html {
 
 .Side-Drawer-item:hover, 
 .Side-Drawer-item:active {
-  color: black;
+  color: white;
 }
 
 .Side-Drawer li {
@@ -174,4 +175,15 @@ html {
 
 .Question {
   margin-top: 5%;
+}
+
+.Question-separator {
+  height: 2px;
+  background-color: black;
+  width: 100%;
+}
+
+.Loading-animation {
+  margin-top: 10%;
+  width: 10vw;
 }
