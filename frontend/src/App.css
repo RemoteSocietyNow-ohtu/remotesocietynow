@@ -251,19 +251,16 @@ input[type="range"]::-moz-range-track {
     overflow: hidden;
     width: 200px;
     height: 50px;
-    -webkit-appearance: none;
     background-color: #c9c9c9;
   }
   
   input[type='range']::-webkit-slider-runnable-track {
     height: 10px;
-    -webkit-appearance: none;
     margin-top: -1px;
   }
   
   input[type='range']::-webkit-slider-thumb {
     width: 10px;
-    -webkit-appearance: none;
     height: 10px;
     cursor: ew-resize;
   }
