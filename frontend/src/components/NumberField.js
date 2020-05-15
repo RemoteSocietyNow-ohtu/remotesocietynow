@@ -12,7 +12,6 @@ const NumberField = ({ handleValueChange, value, minValue, maxValue}) => {
         min={minValue}
         max={maxValue}
       />
-      <p>{value || 0}</p>
     </div>
   )  
 }

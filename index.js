@@ -9,7 +9,8 @@ const questions = [
     name: 'Kuinka pitkä työmatkaasi on kilometreinä? Ilmoita matka yhteen suuntaan.',
     type: 'field',
     defaultValue:'0',
-    minValue: 0
+    minValue: 0,
+    unit: 'km'
   },
   {
     identifyingString:'typicalVehicle',
@@ -26,10 +27,11 @@ const questions = [
   {
     identifyingString:'noOfDaysOfUsage',
     name: 'Kuinka monena päivänä viikossa kuljet tällä kulkuvälineellä töihin?',
-    type: 'field',
+    type: 'slider',
     defaultValue:'0',
     minValue:'0',
-    maxValue:'7'
+    maxValue:'7',
+    unit: 'päivänä'
   },
   {
     identifyingString:'commuteMethodSecond',
@@ -46,15 +48,23 @@ const questions = [
   {
     identifyingString:'numberOfRemoteworkDays',
     name: 'Kuinka monena päivänä viikossa keskimäärin teet etätöitä?',
-    type: 'field',
+    type: 'slider',
     defaultValue:'0',
     minValue:'0',
-    maxValue:'7'
+    maxValue:'7',
+    unit: 'päivänä'
   },
   {
     identifyingString:'opinionRemote',
     name: 'Miten suhtaudut etätyöskentelyyn?',
-    type: 'slider'
+    type: 'multipleChoice',
+    options: [
+      'Erittäin kielteisesti',
+      'kielteisesti',
+      'ei mielipidettä',
+      'positiivisesti',
+      'erittäin positiivisesti'
+    ]
   }
 ]
 
@@ -94,13 +104,20 @@ app.post('/api/calculate/', (req,res) => {
   coeficcients["walking"] = 0
   coeficcients["motorcycle"] = 94
 
-  const amountOfWorkDoneRemotely = Math.min(remoteDays/days,1)
+  const amountOfWorkDoneRemotely = Math.max(1-(remoteDays/days),0)
    
-  const co2 = coeficcients[vehicle]*distance*2*221
+  let co2 = coeficcients[vehicle]*distance*2*221
   const co2remote = coeficcients[vehicle]*distance*2*amountOfWorkDoneRemotely*221
 
-  const result = (co2-co2remote)/1000000
-  res.json({result: result})
+  
+  const co2reduce = (co2-co2remote)/1000000
+  co2 = co2/1000000
+
+  const result ={
+    co2: co2,
+    co2reduce: co2reduce
+  }
+  res.json(result)
 })
 
 const port = process.env.PORT || 3001

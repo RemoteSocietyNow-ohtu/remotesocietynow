@@ -11,6 +11,7 @@ const Question = ({ question, value, setValue }) => {
         options={question.options}
         minValue={question.minValue}
         maxValue={question.maxValue}
+        unit={question.unit}
         value={value}
         setValue={setValue} />
     </div>
