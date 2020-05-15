@@ -234,6 +234,10 @@ html {
   background-color: #4F8F07;
 }
 
+.Choice-button:focus {
+  background-color: #4F8F07;
+}
+
 input[type="range"]::-moz-range-progress {
   background-color: #5EA200;
 }
