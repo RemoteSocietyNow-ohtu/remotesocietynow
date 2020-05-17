@@ -34,16 +34,26 @@ const questions = [
     unit: 'päivänä'
   },
   {
-    identifyingString:'commuteMethodSecond',
-    name: 'Kuljetko jollakin muulla kulkuvälineellä töihin, ja jos kyllä, millä?',
+    identifyingString:'secondVehicle',
+    name: 'Kuljetko jollain muulla kulkuvälineellä töihin? Millä?',
     type: 'multipleChoice',
+    defaultValue: 'walking',
     options: [
       {string: 'kävellen/pyörällä', value: 'walking'},
       {string: 'bussilla', value: 'bus'},
       {string: 'junalla', value: 'train'},
       {string: 'henkilöautolla', value: 'car'},
       {string: 'moottoripyörällä', value: 'motorcycle'},
-    ]
+    ],
+  },
+  {
+    identifyingString:'noOfDaysOfUsageSecond',
+    name: 'Kuinka monena päivänä viikossa kuljet tällä kulkuvälineellä töihin?',
+    type: 'slider',
+    defaultValue:'0',
+    minValue:'0',
+    maxValue:'7',
+    unit: 'päivänä'
   },
   {
     identifyingString:'numberOfRemoteworkDays',
@@ -91,23 +101,25 @@ app.get('/api/questions/:id', (req, res) => {
 app.post('/api/calculate/', (req,res) => {
   console.log(req.body)
 
-  const distance = req.body.dailyCommuteKm
-  const days = req.body.noOfDaysOfUsage
-  const remoteDays = req.body.numberOfRemoteworkDays
+  const distance = +req.body.dailyCommuteKm
+  const days = +req.body.noOfDaysOfUsage
+  const remoteDays = +req.body.numberOfRemoteworkDays
   const vehicle = req.body.typicalVehicle
+  const secondVehicle = req.body.secondVehicle
+  const daysSecond = +req.body.noOfDaysOfUsageSecond
 
-  const coeficcients = {}
-
-  coeficcients['car'] = 155
-  coeficcients['train'] = 10
-  coeficcients['bus'] = 53
-  coeficcients['walking'] = 0
-  coeficcients['motorcycle'] = 91
-
-  const shareOfWorkDoneAtOffice = Math.max(1-(remoteDays/days),0)
-   
-  let co2 = coeficcients[vehicle]*distance*2*221
-  const co2remote = coeficcients[vehicle]*distance*2*shareOfWorkDoneAtOffice*221
+  const coefficients = {}
+  coefficients['car'] = 155
+  coefficients['train'] = 10
+  coefficients['bus'] = 53
+  coefficients['walking'] = 0
+  coefficients['motorcycle'] = 91
+  
+  const coefficientOfUser = (days*coefficients[vehicle]+daysSecond*coefficients[secondVehicle])/(days+daysSecond)
+  const shareOfWorkDoneAtOffice = Math.max(1-(remoteDays/(days+daysSecond)),0)
+  
+  let co2 = coefficientOfUser*distance*2*221
+  const co2remote = coefficientOfUser*distance*2*shareOfWorkDoneAtOffice*221
   
   const co2reduce = Math.round(((co2-co2remote)/1000 + Number.EPSILON) * 100) / 100
   co2 =  Math.round((co2/1000 + Number.EPSILON) * 100) / 100
