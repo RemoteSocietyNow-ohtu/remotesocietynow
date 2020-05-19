@@ -11,7 +11,7 @@ export const english = {
   },
   navigation: {
     forPeople: 'For people',
-    forCompany: 'For company'
+    forCompany: 'For companyyyyy'
   },
   results: {
     commuteCO2result: 'Annual CO2 pollution:',

@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import logo from '../resources/logo512.png'
 import DrawerToggleButton from './DrawerToggleButton'
 import SideDrawer from './SideDrawer'
 import Backdrop from './Backdrop'
+import LanguageContext from '../Contexts/LanguageContext'
 
 const Navbar = ({ setBody }) => {
-
+  const language = useContext(LanguageContext)
   const [drawerOpen, setDrawerOpen] = useState(false)
 
   const toggleDrawer = () => {
@@ -23,7 +24,7 @@ const Navbar = ({ setBody }) => {
           <div className='Navbar-spacer'></div>
           <div className='Navbar-items'>
             <ul>
-              <li className='Navbar-item' onClick={() => setBody('companies')}>For Companies</li>
+              <li className='Navbar-item' onClick={() => setBody('companies')}>{language.navigation.forCompany}</li>
               <li className='Navbar-item' onClick={() => setBody('people')}>For People</li>
             </ul>
           </div>
