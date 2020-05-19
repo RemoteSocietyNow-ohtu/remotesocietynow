@@ -3,7 +3,7 @@ import questionService from '../services/questionService'
 import Questions from './Questions'
 import Results from './Results'
 import SendAnswersButton from './SendAnswersButton'
-import loadingAnimation from '../resources/loading.gif'
+import LoadingScreen from './LoadingScreen'
 
 const initValues = questions => {
   return questions.reduce((newObject, question) => {
@@ -31,10 +31,7 @@ const People = () => {
   if (questions.length === 0) {
     return (
       <div className='Body'>
-        <div className='Container'>
-          <img className='Loading-animation' src={loadingAnimation} alt='loading animation' />
-          <h3 className='Alexis-Marie'>Loading...</h3>
-        </div>
+        <LoadingScreen />
       </div>
     )
   }

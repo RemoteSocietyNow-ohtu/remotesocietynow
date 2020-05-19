@@ -8,7 +8,7 @@ const getQuestions = () => {
 }
 
 const sendAnswers = ( values ) => {
-  const request = axios.post(`${baseurl}/api/calculate/`, values)
+  const request = axios.post(`${baseurl}/api/calculate/person`, values)
   return request.then((res) => res.data)
 }
 
