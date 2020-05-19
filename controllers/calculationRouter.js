@@ -1,7 +1,7 @@
-const calculatePerson = require('express').Router()
+const calculationRouter = require('express').Router()
 
 
-calculatePerson.post('/', (req,res) => {
+calculationRouter.post('/person', (req,res) => {
   console.log(req.body)
   
   const distance = +req.body.dailyCommuteKm
@@ -34,4 +34,4 @@ calculatePerson.post('/', (req,res) => {
   res.json(result)
 })
 
-module.exports = calculatePerson
+module.exports = calculationRouter

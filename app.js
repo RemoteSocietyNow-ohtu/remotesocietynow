@@ -3,7 +3,7 @@ const express = require('express')
 const app = express()
 app.use(express.json())
 
-const calculatePerson = require('./controllers/calculateperson')
+const calculationRouter = require('./controllers/calculationRouter')
 
 const questions = [
   {
@@ -100,6 +100,6 @@ app.get('/api/questions/:id', (req, res) => {
   res.json(question)
 })
 
-app.use('/api/calculate/', calculatePerson)
+app.use('/api/calculate/', calculationRouter)
 
 module.exports = app
