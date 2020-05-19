@@ -24,7 +24,7 @@ const Navbar = ({ setBody }) => {
           <div className='Navbar-spacer'></div>
           <div className='Navbar-items'>
             <ul>
-              <li className='Navbar-item' onClick={() => setBody('companies')}>{language.navigation.aboutUs}</li>
+              <li className='Navbar-item' onClick={() => setBody('about')}>{language.navigation.aboutUs}</li>
               <li className='Navbar-item' onClick={() => setBody('companies')}>{language.navigation.forCompany}</li>
               <li className='Navbar-item' onClick={() => setBody('people')}>{language.navigation.forPeople}</li>
             </ul>

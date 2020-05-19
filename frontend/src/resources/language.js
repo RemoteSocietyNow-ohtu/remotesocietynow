@@ -10,6 +10,7 @@ export const english = {
     calculate: 'Calculate'
   },
   navigation: {
+    aboutUs: 'About Us',
     forPeople: 'For people',
     forCompany: 'For companyyyyy'
   },
