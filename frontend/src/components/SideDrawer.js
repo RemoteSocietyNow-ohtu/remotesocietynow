@@ -15,6 +15,7 @@ const SideDrawer = ({ show, toggleDrawer, setBody }) => {
   return (
     <nav className={drawerClasses.join(' ')}>
       <ul>
+        <li className='Side-Drawer-item' onClick={() => handleSelection('about')}>About Us</li>
         <li className='Side-Drawer-item' onClick={() => handleSelection('companies')}>For Companies</li>
         <li className='Side-Drawer-item' onClick={() => handleSelection('people')}>For People</li>
       </ul>
