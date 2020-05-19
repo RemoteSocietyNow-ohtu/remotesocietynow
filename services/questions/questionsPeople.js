@@ -1,7 +1,7 @@
 const questionsPeople = [
   {
     identifyingString:'dailyCommuteKm',
-    name: 'How long is your one way daily commute?',
+    name: 'How long is your daily one-way commute in kilometers?',
     type: 'field',
     defaultValue:'0',
     minValue: 0,
@@ -9,7 +9,7 @@ const questionsPeople = [
   },
   {
     identifyingString:'typicalVehicle',
-    name: 'Witch trasportation are you using most often for commuting?',
+    name: 'Which trasportation do you use most often for commuting?',
     type: 'multipleChoice',
     options: [
       {string: 'Walking/Bike', value: 'walking'},
@@ -21,7 +21,7 @@ const questionsPeople = [
   },
   {
     identifyingString:'noOfDaysOfUsage',
-    name: 'How many days a week you use this transportation for commuting?',
+    name: 'How many days a week do you use this transportation for commuting?',
     type: 'slider',
     defaultValue:'0',
     minValue:'0',
@@ -30,7 +30,7 @@ const questionsPeople = [
   },
   {
     identifyingString:'secondVehicle',
-    name: 'Are you using any other trasportation for commuting?',
+    name: 'Do you use any other transportation for commuting?',
     type: 'multipleChoice',
     defaultValue: 'walking',
     options: [
@@ -43,7 +43,7 @@ const questionsPeople = [
   },
   {
     identifyingString:'noOfDaysOfUsageSecond',
-    name: 'How many days a week you use this transportation for commuting?',
+    name: 'How many days a week do you use this transportation for commuting?',
     type: 'slider',
     defaultValue:'0',
     minValue:'0',
@@ -52,7 +52,7 @@ const questionsPeople = [
   },
   {
     identifyingString:'numberOfRemoteworkDays',
-    name: 'How many days a week you work remotely?',
+    name: 'How many days a week do you work remotely?',
     type: 'slider',
     defaultValue:'0',
     minValue:'0',
@@ -61,7 +61,7 @@ const questionsPeople = [
   },
   {
     identifyingString:'opinionRemote',
-    name: 'How do you feel abaut working remote?',
+    name: 'How do you feel about remote working?',
     type: 'multipleChoice',
     options: [
       { string: 'very negative', value: 'veryNegative' },
