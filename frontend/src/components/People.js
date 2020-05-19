@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import questionService from '../services/questionService'
 import Questions from './Questions'
 import Results from './Results'
 import SendAnswersButton from './SendAnswersButton'
 import LoadingScreen from './LoadingScreen'
+import LanguageContext from '../Contexts/LanguageContext'
 
 const initValues = questions => {
   return questions.reduce((newObject, question) => {
@@ -15,6 +16,7 @@ const initValues = questions => {
 }
 
 const People = () => {
+  const language = useContext(LanguageContext)
   const [questions, setQuestions] = useState([])
   const [values, setValues] = useState({})
   const [results, setResults] = useState({})
@@ -41,7 +43,7 @@ const People = () => {
       <div className='Body'>
         <div className='Container'>
           <div className='Spacer-vertical'></div>
-          <p className='Box'>Laskuri</p>
+          <p className='Box'>{language.headers.people}</p>
           <Questions questions={questions} values={values} setValues={setValues} />
           <SendAnswersButton values={values} setResults={setResults} />          
           <div className='Question-separator'></div>

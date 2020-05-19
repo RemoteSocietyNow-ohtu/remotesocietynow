@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import questionService from '../services/questionService'
+import LanguageContext from '../Contexts/LanguageContext'
 
 const SendAnswersButton = ({ values, setResults }) => {
+  const language = useContext(LanguageContext)
   const [ loading, setLoading ] = useState(false)
   const [ error, setError ] = useState(false)
 
@@ -19,13 +21,13 @@ const SendAnswersButton = ({ values, setResults }) => {
     }    
   }
 
-  if(loading === true) return <button disabled>Lähetetään...</button>
+  if(loading === true) return <button disabled>{language.actions.sending}</button>
 
-  if(error === true) return <p>Vastausten lähetyksessä tapahtui virhe.</p>
+  if(error === true) return <p>{language.errors.errorSendingAnswers}</p>
 
   return (
     <div>
-      <button className='Laske-button' onClick={sendAnswers}>Laske</button>
+      <button className='Laske-button' onClick={sendAnswers}>{language.buttons.calculate}</button>
     </div>
   )
 }

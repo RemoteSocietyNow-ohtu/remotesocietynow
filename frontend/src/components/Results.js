@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import LanguageContext from '../Contexts/LanguageContext'
 
 const Results = ({ results }) => {
+  const language = useContext(LanguageContext)
 
   return (
     <div className='Alexis-Marie'>     
-      <p>Työmatkojen CO2-päästöt vuodessa:</p>
-      <p>{results.co2 ? results.co2 : '-'} kilogrammaa</p> 
-      <p>Etätyöskentelyn tuoma vuosittainen CO2 vähennys:</p>
-      <p>{results.co2reduce ? results.co2reduce : '-'} kilogrammaa</p>
+      <p>{language.results.commuteCO2result}:</p>
+      <p>{results.co2 ? results.co2 : '-'} {language.units.kg}</p> 
+      <p>{language.results.commuteCO2savings}:</p>
+      <p>{results.co2reduce ? results.co2reduce : '-'} {language.units.kg}</p>
     </div>
   )
 }
