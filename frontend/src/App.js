@@ -5,6 +5,7 @@ import Main from './components/Main'
 import People from './components/People'
 import Companies from './components/Companies'
 import AboutUs from './components/AboutUs'
+import GDPRCompliancy from './components/GDPRCompliancy'
 
 const App = () => {
 
@@ -49,6 +50,17 @@ const App = () => {
         <Navbar setBody={setBody} />
         <div className='Body'>
           <AboutUs />
+        </div>
+      </div>
+    )
+  }
+
+  if (body === 'gdprCompliancy') {
+    return (
+      <div className='App'>
+        <Navbar setBody={setBody} />
+        <div className='Body'>
+          <GDPRCompliancy />
         </div>
       </div>
     )

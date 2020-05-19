@@ -14,7 +14,7 @@ const Main = () => {
       <div className='Content-main-left'></div>
       <div className='Content-main-right'>
         <p className='Heading'>{language.headers.mainHeader}</p>
-        <p>{language.mainContent}</p>
+        <p className='Content-main'>{language.content.main}</p>
       </div>
     </div>
 

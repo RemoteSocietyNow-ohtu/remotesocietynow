@@ -49,6 +49,10 @@ html {
   100% {opacity: 1;}
 }
 
+.Content-main {
+  font-size: large;
+}
+
 .Content-main-right {
   color: gainsboro;
   font-family: 'PT Root';
@@ -66,6 +70,11 @@ html {
   width: 75%;
 }
 
+.Content-gdprCompliancy {
+  text-align: left;
+  font-size: calc(10px + 2vmin);
+}
+
 .Project-info {
   font-family: PT Root;
   font-size: calc(10px + 2vmin);
@@ -74,6 +83,10 @@ html {
   margin-top: 10%;
   margin-bottom: 4%;
   background-color:#c9c9c9;
+}
+
+.Contact-info {
+  font-size: large;
 }
 
 .Math-info {

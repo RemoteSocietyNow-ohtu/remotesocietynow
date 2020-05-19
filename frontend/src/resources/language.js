@@ -5,13 +5,25 @@ export const english = {
     companies: 'Calculator',
     people: 'Calculator',
     calculator: 'calculator',
-    aboutTheMath: 'About the math'
+    aboutTheMath: 'About the math',
+    gdprCompliancy: 'GDPR'
   },
-  mainContent: 'The Most Enjoyable Way to Save the Planet! While making more money and saving time.',
+  content: {
+    main: 'The Most Enjoyable Way to Save the Planet! While making more money and saving time.',
+    gdprCompliancy: [
+      'You’re entitled to know exactly how your data is collected and used.',
+      'You can ask what information has been collected about you.',
+      'If there are mistakes in your data, you can request to have them corrected.',
+      'You can have your data deleted from records.',
+      'You’re allowed to refuse data processing, for example, marketing efforts.'
+    ],
+    contactInfo: 'Any inquiries can be directed to jr.tasklist@gmail.com',
+  },
   buttons: {
     calculate: 'Calculate'
   },
   navigation: {
+    gdprCompliancy: 'GDPR',
     aboutUs: 'About Us',
     forPeople: 'For people',
     forCompany: 'For company'
