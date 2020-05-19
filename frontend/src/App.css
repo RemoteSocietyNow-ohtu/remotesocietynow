@@ -22,6 +22,10 @@ html {
   font-family: Alexis Marie;
 }
 
+.Violet {
+  color: #AE19AA;
+}
+
 .Body {
   margin: auto;
   width: 100%;
@@ -40,6 +44,32 @@ html {
   height: 50px;
   width: 100%;
   background-color: #c9c9c9;
+}
+
+.Background-video-main {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+}
+
+@keyframes fade {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.Content-main-right {
+  font-family: 'Franklin Gothic Medium';
+  width: 40%;
+  position: fixed;
+  text-align: left;
+  top: 22%;
+  right: 10%;
+  animation: fade 1s ease-in;
+}
+
+.Content-main-left {
+  width: 75%;
 }
 
 .Project-info {
@@ -72,7 +102,7 @@ html {
   font-family: Dear Sunshine;
   font-size: calc(10px + 3vmin);
   color: white;
-  background: #4CAF50;
+  background: #2196F3;
   padding: 1em;
   margin: auto;
   width: 40%;
@@ -125,7 +155,7 @@ html {
 }
 
 .Navbar-item {
-  color: #4CAF50;
+  color: #2196F3;
   text-decoration: none;
   display: inline-block;
   padding: 1rem;
@@ -186,7 +216,7 @@ html {
 
 .Side-Drawer-item {
   text-align: left;
-  color: #4CAF50;
+  color: #2196F3;
   text-decoration: none;
   display: inline-block;
   cursor: pointer;
@@ -258,21 +288,21 @@ html {
   height: 70px;
   width: 150px;
   cursor: pointer;
-  border: #4CAF50 2px solid;
+  border: #2196F3 2px solid;
   border-radius: 5%;
 }
 
 .Laske-button:hover {
-  background-color: #4CAF50;
+  background-color: #2196F3;
   border: black 2px solid;
 }
 
 .Choice-button:hover {
-  background-color: #4CAF50;
+  background-color: #2196F3;
 }
 
 .Choice-button:focus {
-  background-color: #4CAF50;
+  background-color: #2196F3;
 }
 
 .slider {
@@ -293,7 +323,7 @@ html {
   width: 25px;
   height: 25px;
   border-radius: 50%; 
-  background: #4CAF50;
+  background: #2196F3;
   cursor: pointer;
 }
 
@@ -301,10 +331,10 @@ html {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: #4CAF50;
+  background: #2196F3;
   cursor: pointer;
 }
 
 .slider::-moz-range-progress {
-  background-color: #4F8F07;
+  background-color: #2196F3;
 }

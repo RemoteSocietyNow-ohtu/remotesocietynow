@@ -7,6 +7,7 @@ export const english = {
     calculator: 'calculator',
     aboutTheMath: 'About the math'
   },
+  mainContent: 'The Most Enjoyable Way to Save the Planet! While making more money and saving time.',
   buttons: {
     calculate: 'Calculate'
   },
