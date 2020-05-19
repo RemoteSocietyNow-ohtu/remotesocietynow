@@ -34,4 +34,11 @@ calculationRouter.post('/person', (req,res) => {
   res.json(result)
 })
 
+calculationRouter.post('/business', (req,res) =>{
+  const result = {
+    moneySaved: 1
+  }
+  res.json(result)
+})
+
 module.exports = calculationRouter
