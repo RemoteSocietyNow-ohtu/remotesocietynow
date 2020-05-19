@@ -2,12 +2,12 @@ import React from 'react'
 import loadingAnimation from '../resources/loading.gif'
 
 const LoadingScreen = () => {
-    return (
-        <div className='Container'>
-            <img className='Loading-animation' src={loadingAnimation} alt='loading animation' />
-            <h3 className='Alexis-Marie'>Loading...</h3>
-        </div>
-    )
+  return (
+    <div className='Container'>
+      <img className='Loading-animation' src={loadingAnimation} alt='loading animation' />
+      <h3 className='Alexis-Marie'>Loading...</h3>
+    </div>
+  )
 }
 
 export default LoadingScreen
