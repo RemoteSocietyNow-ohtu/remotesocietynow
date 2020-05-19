@@ -3,23 +3,14 @@ html {
 }
 
 @font-face {
-  src: url(fonts/Dear\ Sunshine.ttf);
-  font-family: Dear Sunshine;
-}
-
-@font-face {
-  src: url(fonts/Alexis\ Marie.ttf);
-  font-family: Alexis Marie;
+  src: url(fonts/PT\ Root\ UI_Light.ttf);
+  font-family: PT Root;
 }
 
 .App {
   text-align: center;
-  font-family: monospace;
+  font-family: PT Root;
   background-color: #c9c9c9;
-}
-
-.Alexis-Marie {
-  font-family: Alexis Marie;
 }
 
 .Violet {
@@ -59,13 +50,16 @@ html {
 }
 
 .Content-main-right {
-  font-family: 'Franklin Gothic Medium';
+  color: gainsboro;
+  font-family: 'PT Root';
   width: 40%;
   position: fixed;
   text-align: left;
   top: 22%;
   right: 10%;
   animation: fade 1s ease-in;
+  padding: 3%;
+  background-color: #181A1B;
 }
 
 .Content-main-left {
@@ -73,7 +67,7 @@ html {
 }
 
 .Project-info {
-  font-family: Arial;
+  font-family: PT Root;
   font-size: calc(10px + 2vmin);
   width: 100%;
   border: solid 3px;
@@ -99,7 +93,7 @@ html {
 
 .Box {
   margin: auto;
-  font-family: Dear Sunshine;
+  font-family: PT Root;
   font-size: calc(10px + 3vmin);
   color: white;
   background: #2196F3;

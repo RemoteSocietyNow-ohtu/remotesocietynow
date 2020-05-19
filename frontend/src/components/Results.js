@@ -5,7 +5,7 @@ const Results = ({ results }) => {
   const language = useContext(LanguageContext)
 
   return (
-    <div className='Alexis-Marie'>     
+    <div>     
       <p>{language.results.commuteCO2result}:</p>
       <p>{results.co2 ? results.co2 : '-'} {language.units.kg}</p> 
       <p>{language.results.commuteCO2savings}:</p>

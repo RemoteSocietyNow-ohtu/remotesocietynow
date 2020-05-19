@@ -5,7 +5,7 @@ const Question = ({ question, value, setValue }) => {
   return (
     <div className='Question'>
       <div className='Line-separator-full'></div>
-      <p className='Alexis-Marie'>{question.name}</p>
+      <p>{question.name}</p>
       <Field
         fieldType={question.type}
         options={question.options}

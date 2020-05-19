@@ -2,8 +2,8 @@ export const english = {
   name: 'English',
   headers: {
     mainHeader: 'Remote Society -Now!',
-    companies: 'companies',
-    people: 'people',
+    companies: 'Calculator',
+    people: 'Calculator',
     calculator: 'calculator',
     aboutTheMath: 'About the math'
   },
