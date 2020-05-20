@@ -25,6 +25,6 @@ Features are tested as much as to be sure that they are working.
 Tests location???
 
 ## CI ##
-Pushing to Github master branch will trigger Travis CI to run tests, linting and make a build of frontend. If succesfull the app is deployed to Heroku for staging and can be run at:
+Pushing to Github master branch will trigger Travis CI to run tests, linting and make a build of frontend. If succesfull the app is deployed to Heroku for staging and can be run at: https://remotesocietynow.herokuapp.com/
 
 https://docs.google.com/drawings/d/1JnighsokIjPMCwBD-mMOFF6KbeqNXLSJPMYhnNM_bwA/edit?usp=sharing
