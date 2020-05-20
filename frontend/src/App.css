@@ -118,6 +118,15 @@ html {
   box-shadow: 15px 15px black;
 }
 
+.Results {
+  font-size: calc(10px + 2vmin);
+  width: 100%;
+  border: solid 3px;
+  margin-top: 2;
+  margin-bottom: 4%;
+  background-color:#c9c9c9;
+}
+
 .Toggle-Button {
   display: flex;
   flex-direction: column;

@@ -1,8 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
 import LanguageContext from '../Contexts/LanguageContext'
 import questionService from '../services/questionService'
-import Question from './Question'
-import LoadingScreen from './LoadingScreen'
+import Questions from './Questions'
 
 //answerValues get initial values. It is default value if such is available, otherwise empty string
 const initAnswerValues = questions => {
@@ -24,34 +23,25 @@ const Companies = () => {
 
   //Fetch questions and init question and aswer states
   useEffect(() => {
-    questionService.getQuestions()
+    questionService.getQuestionsPeople()
       .then(res => {
         setQuestions(res)
-        setAnwers(initAnswerValues(res))      
-      })      
+        setAnwers(initAnswerValues(res))
+      })
   }, [])
 
-  // Return loading screen if question and aswer states are not ready
-  if (Object.keys(answers).length === 0 || questions.length === 0) { 
-    return (
-      <div className='Body'>
-        <LoadingScreen />
-      </div>
-    )
-  }
-  console.log(answers)
-  
   return (
     <div>
       <div className='Body'>
         <div className='Spacer-vertical'></div>
         <p className='Box'>{language.headers.companies}</p>
-        <Question 
-          question={questions[currentQuestion]} 
+        <Questions 
+          questions={questions} 
           answers={answers} 
           setAnwers={setAnwers} 
-        />        
-        <button onClick={() => setCurrentQuestion(currentQuestion + 1)}>&gt;&gt;</button>
+          currentQuestion={currentQuestion}
+          setCurrentQuestion={setCurrentQuestion}
+        />     
       </div>
     </div>
   )
