@@ -31,7 +31,9 @@ export const english = {
   },
   results: {
     commuteCO2result: 'Annual CO2 pollution:',
-    commuteCO2savings: 'Annual CO2 saved by working remotely:'
+    commuteCO2savings: 'Annual CO2 saved by working remotely:',
+    businessMoneySavings: 'Annual money saved:',
+    businessMoneyUsage: 'Annual money used:'
   },
   units: {
     kg: 'kg'

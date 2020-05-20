@@ -3,6 +3,7 @@ import LanguageContext from '../Contexts/LanguageContext'
 import questionService from '../services/questionService'
 import Questions from './Questions'
 import QuestionsSidebar from './QuestionsSidebar'
+import ResultsCompany from './ResultsCompany'
 
 //answerValues get initial values. It is default value if such is available, otherwise empty string
 const initAnswerValues = questions => {
@@ -19,7 +20,7 @@ const Companies = () => {
   const language = useContext(LanguageContext)
   const [questions, setQuestions] = useState([]) // Questions that are presented to user.
   const [answers, setAnwers] = useState({}) // Values of question fields
-  //const [results, setResults] = useState({}) // Results that are recieved from backend after sending values
+  const [results, setResults] = useState({}) // Results that are recieved from backend after sending values
   const [currentQuestion, setCurrentQuestion] = useState(0)
 
   //Fetch questions and init question and aswer states
@@ -37,19 +38,24 @@ const Companies = () => {
         <div className='Spacer-vertical'></div>
         <p className='Box'>{language.headers.companies}</p>
         <div className='Content-companies-left'>
-          <Questions
-            questions={questions}
-            answers={answers}
-            setAnwers={setAnwers}
-            currentQuestion={currentQuestion}
-            setCurrentQuestion={setCurrentQuestion}
-          />
+          {Object.keys(results).length === 0 ?
+            <Questions
+              questions={questions}
+              answers={answers}
+              setAnwers={setAnwers}
+              currentQuestion={currentQuestion}
+              setCurrentQuestion={setCurrentQuestion}
+              setResults={setResults}
+            />
+            : <ResultsCompany results={results} />          
+          }        
         </div>
         <div className='Content-companies-right'>
           <QuestionsSidebar questions={questions} answers={answers} currentQuestion={currentQuestion} />
         </div>
       </div>
     </div>
+
   )
 }
 
