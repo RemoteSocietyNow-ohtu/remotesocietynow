@@ -1,16 +1,26 @@
 import React from 'react'
 import Question from './Question'
+import LoadingScreen from './LoadingScreen'
 
-const Questions = ({ questions, values, setValues }) => {
+const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, setAnwers }) => {
+  // Return loading screen if question and aswer states are not ready
+  if (Object.keys(answers).length === 0 || questions.length === 0) { 
+    return (
+      <div className='Body'>
+        <LoadingScreen />
+      </div>
+    )
+  }
+  
   return (
     <div>
-      {questions.map((question) => 
-        <Question 
-          key={question.name} 
-          question={question} 
-          value={values[question.identifyingString] ? values[question.identifyingString] : 0} 
-          setValue={(value) => setValues({...values, [question.identifyingString]: value})} 
-        /> ) }
+      <Question
+        question={questions[currentQuestion]} 
+        answers={answers} 
+        setAnwers={setAnwers} 
+      />
+      <button onClick={() => setCurrentQuestion(currentQuestion - 1)}>&lt;&lt;</button>        
+      <button onClick={() => setCurrentQuestion(currentQuestion + 1)}>&gt;&gt;</button>   
     </div>
   )
 }
