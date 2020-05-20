@@ -2,12 +2,13 @@ import React, { useContext, useState, useEffect } from 'react'
 import LanguageContext from '../Contexts/LanguageContext'
 import questionService from '../services/questionService'
 import Questions from './Questions'
+import QuestionsSidebar from './QuestionsSidebar'
 
 //answerValues get initial values. It is default value if such is available, otherwise empty string
 const initAnswerValues = questions => {
   return questions.reduce((newObject, question) => {
-    return { 
-      ...newObject, 
+    return {
+      ...newObject,
       [question.identifyingString]: question.defaultValue ? question.defaultValue : ' ',
       [question.identifyingString + 'Open']: ''
     }
@@ -35,13 +36,18 @@ const Companies = () => {
       <div className='Container'>
         <div className='Spacer-vertical'></div>
         <p className='Box'>{language.headers.companies}</p>
-        <Questions 
-          questions={questions} 
-          answers={answers} 
-          setAnwers={setAnwers} 
-          currentQuestion={currentQuestion}
-          setCurrentQuestion={setCurrentQuestion}
-        />     
+        <div className='Content-companies-left'>
+          <Questions
+            questions={questions}
+            answers={answers}
+            setAnwers={setAnwers}
+            currentQuestion={currentQuestion}
+            setCurrentQuestion={setCurrentQuestion}
+          />
+        </div>
+        <div className='Content-companies-right'>
+          <QuestionsSidebar questions={questions} />
+        </div>
       </div>
     </div>
   )
