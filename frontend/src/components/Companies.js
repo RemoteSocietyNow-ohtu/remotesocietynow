@@ -46,7 +46,7 @@ const Companies = () => {
           />
         </div>
         <div className='Content-companies-right'>
-          <QuestionsSidebar questions={questions} />
+          <QuestionsSidebar questions={questions} answers={answers} currentQuestion={currentQuestion} />
         </div>
       </div>
     </div>
