@@ -3,10 +3,9 @@ import questionService from '../services/questionService'
 import Questions from './Questions'
 import Results from './Results'
 import SendAnswersButton from './SendAnswersButton'
-import LoadingScreen from './LoadingScreen'
 import LanguageContext from '../Contexts/LanguageContext'
 
-const initValues = questions => {
+const initAnswerValues = questions => {
   return questions.reduce((newObject, question) => {
     return { 
       ...newObject, 
@@ -17,26 +16,18 @@ const initValues = questions => {
 
 const People = () => {
   const language = useContext(LanguageContext)
-  const [questions, setQuestions] = useState([])
-  const [values, setValues] = useState({})
-  const [results, setResults] = useState({})
+  const [questions, setQuestions] = useState([]) // Questions that are presented to user.
+  const [answers, setAnwers] = useState({}) // Values of question fields
+  const [results, setResults] = useState({}) // Results that are recieved from backend after sending values
+  const [currentQuestion, setCurrentQuestion] = useState(0)
 
   useEffect(() => {
-    questionService.getQuestions()
-      .then(res => setQuestions(res))
+    questionService.getQuestionsPeople()
+      .then(res => {
+        setQuestions(res)
+        setAnwers(initAnswerValues(res))
+      })
   }, [])
-
-  useEffect(() => {
-    setValues(initValues(questions))
-  }, [questions])
-
-  if (questions.length === 0) {
-    return (
-      <div className='Body'>
-        <LoadingScreen />
-      </div>
-    )
-  }
 
   return (
     <div>
@@ -44,10 +35,22 @@ const People = () => {
         <div className='Container'>
           <div className='Spacer-vertical'></div>
           <p className='Box'>{language.headers.people}</p>
-          <Questions questions={questions} values={values} setValues={setValues} />
-          <SendAnswersButton values={values} setResults={setResults} />          
-          <div className='Question-separator'></div>
-          <Results results={results} />
+          {
+            currentQuestion < questions.length ? 
+              <Questions 
+                questions={questions} 
+                answers={answers} 
+                setAnwers={setAnwers} 
+                currentQuestion={currentQuestion}
+                setCurrentQuestion={setCurrentQuestion}
+              />
+              : 
+              <>
+                <SendAnswersButton values={answers} setResults={setResults} />          
+                <div className='Question-separator'></div>
+                <Results results={results} />
+              </>
+          }
         </div>
       </div>
     </div>

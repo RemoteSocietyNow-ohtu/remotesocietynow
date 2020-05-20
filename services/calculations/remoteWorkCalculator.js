@@ -1,22 +1,39 @@
 const co2Coefficients = require('./co2Coefficients')
 
-const calculateBenefitsForPerson = (distance,days,remoteDays,vehicle,secondVehicle,daysSecond) =>{
-      
-  const coefficientOfUser = (days*co2Coefficients[vehicle]+daysSecond*co2Coefficients[secondVehicle])/(days+daysSecond)
-  const shareOfWorkDoneAtOffice = Math.max(1-(remoteDays/(days+daysSecond)),0)
-      
-  let co2 = coefficientOfUser*distance*2*221
-  const co2remote = coefficientOfUser*distance*2*shareOfWorkDoneAtOffice*221
-      
-  const co2reduce = Math.round(((co2-co2remote)/1000 + Number.EPSILON) * 100) / 100
-  co2 =  Math.round((co2/1000 + Number.EPSILON) * 100) / 100
-    
-  const result ={
-    co2: co2,
-    co2reduce: co2reduce
-  }
+const avgNumberOfWorkDaysInAYear = 221
+
+const calculateEmissionsForVehicle = (vehicle,daysUsed) =>{
+  return co2Coefficients[vehicle]*daysUsed
+}
+
+const roundEmissionsToKg = (emissions) =>{
+  return Math.round((emissions/1000+ Number.EPSILON) * 100) / 100
+}
+
+const calculateBenefitsForPerson = (distance,daysFirst,daysSecond,firstVehicle,secondVehicle,remoteDays) =>{
+
+  const emissionsOfTheFirstVehicle = calculateEmissionsForVehicle(firstVehicle,daysFirst)
+  const emissionsOfTheSecondVehicle = calculateEmissionsForVehicle(secondVehicle,daysSecond)
+  const totalEmissions = emissionsOfTheFirstVehicle + emissionsOfTheSecondVehicle
+
+  const totalCommuteDays = daysFirst + daysSecond
+
+  const emissionsOfPersonInDay = totalEmissions/totalCommuteDays
+
+  const shareOfWorkDoneAtOffice = 1-(remoteDays/totalCommuteDays)
+
+  const distanceInDay = distance*2
+
+  const co2Emissions = emissionsOfPersonInDay*distanceInDay*avgNumberOfWorkDaysInAYear
+  const co2EmissionsWithRemoteWorking = emissionsOfPersonInDay*distanceInDay*shareOfWorkDoneAtOffice*avgNumberOfWorkDaysInAYear
+  const reducedEmissions = co2Emissions - co2EmissionsWithRemoteWorking
+
+  const result = {
+    co2: roundEmissionsToKg(co2Emissions),
+    co2reduce: roundEmissionsToKg(reducedEmissions)
+  }  
 
   return(result)
 }
 
-module.exports = calculateBenefitsForPerson
+module.exports = {calculateBenefitsForPerson}

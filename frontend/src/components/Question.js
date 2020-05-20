@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import LanguageContext from '../Contexts/LanguageContext'
 import Field from './InputFields/Field'
 
-const Question = ({ question, value, setValue }) => {
+const Question = ({ question, answers, setAnwers }) => {
+  const language = useContext(LanguageContext)
+
   return (
     <div className='Question'>
       <div className='Line-separator-full'></div>
@@ -12,8 +15,15 @@ const Question = ({ question, value, setValue }) => {
         minValue={question.minValue}
         maxValue={question.maxValue}
         unit={question.unit}
-        value={value}
-        setValue={setValue} />
+        value={answers[question.identifyingString]}
+        setValue={(value) => setAnwers({...answers, [question.identifyingString]: value})} 
+      />
+      <p>{language.headers.additionalInformation}</p>
+      <Field 
+        fieldType='textField'
+        value={answers[question.identifyingString + 'Open']}
+        setValue={(value) => setAnwers({...answers, [question.identifyingString + 'Open']: value})}
+      />
     </div>
   )
 }
