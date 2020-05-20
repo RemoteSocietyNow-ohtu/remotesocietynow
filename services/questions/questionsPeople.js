@@ -8,6 +8,14 @@ const questionsPeople = [
     unit: 'km'
   },
   {
+    identifyingString:'dailyCommuteMinutes',
+    name: 'How many minutes does your daily one-way commute take?',
+    type: 'field',
+    defaultValue:'0',
+    minValue: 0,
+    unit: 'minutes'
+  },
+  {
     identifyingString:'typicalVehicle',
     name: 'Which trasportation do you use most often for commuting?',
     type: 'multipleChoice',
@@ -51,6 +59,14 @@ const questionsPeople = [
     unit: 'days'
   },
   {
+    identifyingString:'annualCommuteExpenses',
+    name: 'How much do you pay for commuting annually?',
+    type: 'field',
+    defaultValue:'0',
+    minValue: 0,
+    unit: 'euros'
+  },
+  {
     identifyingString:'numberOfRemoteworkDays',
     name: 'How many days a week do you work remotely?',
     type: 'slider',
@@ -70,23 +86,6 @@ const questionsPeople = [
       { string: 'positive', value: 'positive' },
       { string: 'very positive', value: 'veryPositive' },
     ]
-  },
-  // new questions
-  {
-    identifyingString:'dailyCommuteMinutes',
-    name: 'How many minutes does your daily one-way commute take?',
-    type: 'field',
-    defaultValue:'0',
-    minValue: 0,
-    unit: 'minutes'
-  },
-  {
-    identifyingString:'annualCommuteExpenses',
-    name: 'How much do you pay for commuting annually?',
-    type: 'field',
-    defaultValue:'0',
-    minValue: 0,
-    unit: 'euros'
   },
   {
     identifyingString:'numberOfBusinessTrips',
