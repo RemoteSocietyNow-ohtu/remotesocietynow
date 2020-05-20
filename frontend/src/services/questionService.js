@@ -22,4 +22,8 @@ const sendAnswersCompany = ( values ) => {
   return request.then((res) => res.data)
 }
 
-export default { getQuestionsPeople, sendAnswersPeople, getQuestionsCompany }
+export default { 
+  getQuestionsPeople, 
+  sendAnswersPeople, 
+  getQuestionsCompany, 
+  sendAnswersCompany }

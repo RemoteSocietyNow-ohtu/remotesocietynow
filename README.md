@@ -45,9 +45,7 @@ Port 3001 will be used by default if not defined in `.env`
 
 http://localhost:3001/
 
-If needed create `.env` file in the root directory.
-
-Define the necessary environment variables in `.env`.
+If needed create `.env` file in the root directory. Define the necessary environment variables in `.env`.
 
 Example contents of `.env`:
 
@@ -67,6 +65,9 @@ npm run build:front
 
 Go to /frontend
 
+Create `.env` file in the /frontend directory with following line
+```REACT_APP_BACKEND_URL=http://localhost:3001```
+
 Before running the app you need to install dependencies
 
 ```bash
@@ -80,7 +81,7 @@ npm start
 ```
 Frontend will be running at http://localhost:3000/
 
-You may want to make sure the backend is running as well.
+Make sure the backend is running as well at the port defined in `.env`.
 
 **Eslint**
 
