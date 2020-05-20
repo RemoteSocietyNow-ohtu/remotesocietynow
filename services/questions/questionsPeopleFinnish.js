@@ -70,6 +70,39 @@ const questionsPeopleFinnish = [
       { string: 'positiivisesti', value: 'positive' },
       { string: 'erittäin positiivisesti', value: 'very positive' },
     ]
+  },
+  // new questions
+  {
+    identifyingString:'dailyCommuteMinutes',
+    name: 'Kuinka monta minuuttia päivittäinen työmatkasi kestää yhteen suuntaan?',
+    type: 'field',
+    defaultValue:'0',
+    minValue: 0,
+    unit: 'minuuttia'
+  },
+  {
+    identifyingString:'annualCommuteExpenses',
+    name: 'Kuinka paljon matkasi töihin maksavat vuodessa?',
+    type: 'field',
+    defaultValue:'0',
+    minValue: 0,
+    unit: 'euroa'
+  },
+  {
+    identifyingString:'numberOfBusinessTrips',
+    name: 'Kuinka monta työmatkaa (meno-paluu) teet vuodessa lentäen?',
+    type: 'field',
+    defaultValue:'0',
+    minValue: 0,
+    unit: 'matkaa'
+  },
+  {
+    identifyingString:'numberOfHoursOnPlane',
+    name: 'Kuinka monta tuntia vuodessa vietät työmatkoillasi lentokoneessa?',
+    type: 'field',
+    defaultValue:'0',
+    minValue: 0,
+    unit: 'tuntia'
   }
 ]
 

@@ -70,6 +70,39 @@ const questionsPeople = [
       { string: 'positive', value: 'positive' },
       { string: 'very positive', value: 'veryPositive' },
     ]
+  },
+  // new questions
+  {
+    identifyingString:'dailyCommuteMinutes',
+    name: 'How many minutes does your daily one-way commute take?',
+    type: 'field',
+    defaultValue:'0',
+    minValue: 0,
+    unit: 'minutes'
+  },
+  {
+    identifyingString:'annualCommuteExpenses',
+    name: 'How much do you pay for commuting annually?',
+    type: 'field',
+    defaultValue:'0',
+    minValue: 0,
+    unit: 'euros'
+  },
+  {
+    identifyingString:'numberOfBusinessTrips',
+    name: 'How many two-way business trips by plane do you make annually?',
+    type: 'field',
+    defaultValue:'0',
+    minValue: 0,
+    unit: 'trips'
+  },
+  {
+    identifyingString:'numberOfHoursOnPlane',
+    name: 'And during these trips, how many hours do you spend on a plane annually?',
+    type: 'field',
+    defaultValue:'0',
+    minValue: 0,
+    unit: 'hours'
   }
 ]
 
