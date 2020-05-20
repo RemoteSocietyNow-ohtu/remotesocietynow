@@ -2,9 +2,17 @@
 
 [![Build Status](https://travis-ci.org/RemoteSocietyNow-ohtu/remotesocietynow.svg?branch=master)](https://travis-ci.org/RemoteSocietyNow-ohtu/remotesocietynow)
 
-## Instructions ##
+
+## Introduction ##
+
+Remote-work and remote-life can become new key efforts in limiting CO2 emissions.
+You and your company actually earn real money and save time, plus productivity increases.
+
+## Coding Conventions ##
 
 [Coding conventions](./docs/conventions.md)
+
+## Development workflow and scripts ##
 
 **Clone the repository**
 
@@ -86,8 +94,4 @@ git commit -m "your message"
 git push
 ```
 
-Pushing to Github master branch will trigger Travis CI to run tests, linting and make a build of frontend.
-If succesfull the app is deployed to Heroku for staging and can be run at:
-
-https://remotesocietynow.herokuapp.com/
 
