@@ -11,7 +11,7 @@ const SendAnswersButton = ({ values, setResults }) => {
     event.preventDefault()    
     setLoading(true)
     try {
-      const response = await questionService.sendAnswers(values)
+      const response = await questionService.sendAnswersPeople(values)
       setResults(response)
       setLoading(false)      
     } catch (error) {
