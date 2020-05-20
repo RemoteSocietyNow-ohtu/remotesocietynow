@@ -8,6 +8,14 @@ const questionsPeopleFinnish = [
     unit: 'km'
   },
   {
+    identifyingString:'dailyCommuteMinutes',
+    name: 'Kuinka monta minuuttia päivittäinen työmatkasi kestää yhteen suuntaan?',
+    type: 'field',
+    defaultValue:'0',
+    minValue: 0,
+    unit: 'minuuttia'
+  },
+  {
     identifyingString:'typicalVehicle',
     name: 'Millä kulkuvälineellä useimmiten kuljet töihin?',
     type: 'multipleChoice',
@@ -51,6 +59,14 @@ const questionsPeopleFinnish = [
     unit: 'päivänä'
   },
   {
+    identifyingString:'annualCommuteExpenses',
+    name: 'Kuinka paljon matkasi töihin maksavat vuodessa?',
+    type: 'field',
+    defaultValue:'0',
+    minValue: 0,
+    unit: 'euroa'
+  },
+  {
     identifyingString:'numberOfRemoteworkDays',
     name: 'Kuinka monena päivänä viikossa keskimäärin teet etätöitä?',
     type: 'slider',
@@ -70,23 +86,6 @@ const questionsPeopleFinnish = [
       { string: 'positiivisesti', value: 'positive' },
       { string: 'erittäin positiivisesti', value: 'very positive' },
     ]
-  },
-  // new questions
-  {
-    identifyingString:'dailyCommuteMinutes',
-    name: 'Kuinka monta minuuttia päivittäinen työmatkasi kestää yhteen suuntaan?',
-    type: 'field',
-    defaultValue:'0',
-    minValue: 0,
-    unit: 'minuuttia'
-  },
-  {
-    identifyingString:'annualCommuteExpenses',
-    name: 'Kuinka paljon matkasi töihin maksavat vuodessa?',
-    type: 'field',
-    defaultValue:'0',
-    minValue: 0,
-    unit: 'euroa'
   },
   {
     identifyingString:'numberOfBusinessTrips',
