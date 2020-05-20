@@ -1,19 +1,10 @@
 import React from 'react'
 import Question from './Question'
-import LoadingScreen from './LoadingScreen'
 import arrowRight from '../resources/arrow-right.png'
 import arrowLeft from '../resources/arrow-left.png'
 import SendCompanyAnswersButton from './SendCompanyAnswersButton'
 
 const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, setAnwers, setResults }) => {
-  // Return loading screen if question and aswer states are not ready
-  if (Object.keys(answers).length === 0 || questions.length === 0) { 
-    return (
-      <div className='Body'>
-        <LoadingScreen />
-      </div>
-    )
-  }
   
   const previousQuestion = () => {
     if (currentQuestion > 0) {

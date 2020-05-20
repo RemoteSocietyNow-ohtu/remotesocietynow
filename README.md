@@ -95,7 +95,7 @@ Automatically fix most common eslint errors
 
 # Push to Github
 
-Make changes to local copy then
+Make changes to local copy then push to master
 ```bash
 git add .
 git commit -m "your message"

@@ -4,6 +4,7 @@ import questionService from '../services/questionService'
 import Questions from './Questions'
 import QuestionsSidebar from './QuestionsSidebar'
 import ResultsCompany from './ResultsCompany'
+import LoadingScreen from './LoadingScreen'
 
 //answerValues get initial values. It is default value if such is available, otherwise empty string
 const initAnswerValues = questions => {
@@ -31,6 +32,15 @@ const Companies = () => {
         setAnwers(initAnswerValues(res))
       })
   }, [])
+
+  // Return loading screen if question and aswer states are not ready
+  if (Object.keys(answers).length === 0 || questions.length === 0) { 
+    return (
+      <div className='Body'>
+        <LoadingScreen />
+      </div>
+    )
+  }
 
   return (
     <div>

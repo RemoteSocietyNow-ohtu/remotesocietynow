@@ -14,8 +14,10 @@ We use App.css -stylesheet for all css-styling. ClassName-attribute is used to s
 
 **Testing**
 Features are tested as much as to be sure that they are working.
+We are using Jest
 
-Tests location???
+Backend tests are located `/tests`. 
+Tests are diveded to subfolders following the structure of actual sourcefiles. ie. tests covering calculator services are located at `/tests/services/`.
 
 ## CI ##
 Pushing to Github master branch will trigger Travis CI to run tests, linting and make a build of frontend. If succesfull the app is deployed to Heroku for staging and can be run at: https://remotesocietynow.herokuapp.com/
