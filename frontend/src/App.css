@@ -42,6 +42,7 @@ html {
   height: 100%;
   position: fixed;
   left: 0;
+  opacity: 60%;
 }
 
 @keyframes fade {
