@@ -7,7 +7,6 @@ const Question = ({ question, answers, setAnwers }) => {
 
   return (
     <div className='Question'>
-      <div className='Line-separator-full'></div>
       <p>{question.name}</p>
       <Field
         fieldType={question.type}

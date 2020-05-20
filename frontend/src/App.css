@@ -76,6 +76,22 @@ html {
   font-size: calc(10px + 2vmin);
 }
 
+.Content-companies-left {
+  margin-top: 5%;
+  font-size: calc(1px + 3vmin);
+  width: 60%;
+  float: left;
+}
+
+.Content-companies-right {
+  font-size: small;
+  margin-top: 9%;
+  width: 20%;
+  float: right;
+  padding: 3%;
+  border-left: solid #181A1B 2px;
+}
+
 .Project-info {
   font-family: PT Root;
   font-size: calc(10px + 2vmin);
@@ -284,6 +300,7 @@ html {
   font-size: calc(10px + 2vmin);
   border: none;
   height: 40px;
+  max-width: 80%;
   color: white;
   background-color: #181A1B;
   text-align: center;
@@ -369,7 +386,8 @@ html {
 }
 
 .Arrow-icon {
-  height: 50px;
+  margin-top: 5%;
+  height: 60px;
 }
 
 .Arrow-icon:hover {
