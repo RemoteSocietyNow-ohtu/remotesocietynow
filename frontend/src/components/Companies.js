@@ -23,7 +23,7 @@ const Companies = () => {
 
   //Fetch questions and init question and aswer states
   useEffect(() => {
-    questionService.getQuestions()
+    questionService.getQuestionsPeople()
       .then(res => {
         setQuestions(res)
         setAnwers(initAnswerValues(res))

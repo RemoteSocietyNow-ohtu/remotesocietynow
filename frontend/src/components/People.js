@@ -22,7 +22,7 @@ const People = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0)
 
   useEffect(() => {
-    questionService.getQuestions()
+    questionService.getQuestionsPeople()
       .then(res => {
         setQuestions(res)
         setAnwers(initAnswerValues(res))
