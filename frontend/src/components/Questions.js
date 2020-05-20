@@ -2,6 +2,8 @@ import React from 'react'
 import Question from './Question'
 import LoadingScreen from './LoadingScreen'
 
+
+
 const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, setAnwers }) => {
   // Return loading screen if question and aswer states are not ready
   if (Object.keys(answers).length === 0 || questions.length === 0) { 
@@ -12,6 +14,16 @@ const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, se
     )
   }
   
+  const previousQuestion = () => {
+    if (currentQuestion > 0) {
+      setCurrentQuestion(currentQuestion - 1)
+    }
+  }
+
+  const nextQuestion = () => {
+    setCurrentQuestion(currentQuestion + 1)
+  }
+
   return (
     <div>
       <Question
@@ -19,8 +31,8 @@ const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, se
         answers={answers} 
         setAnwers={setAnwers} 
       />
-      <button onClick={() => setCurrentQuestion(currentQuestion - 1)}>&lt;&lt;</button>        
-      <button onClick={() => setCurrentQuestion(currentQuestion + 1)}>&gt;&gt;</button>   
+      <button onClick={previousQuestion}>&lt;&lt;</button>      
+      <button onClick={nextQuestion}>&gt;&gt;</button>   
     </div>
   )
 }
