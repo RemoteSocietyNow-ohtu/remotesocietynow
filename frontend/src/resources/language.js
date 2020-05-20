@@ -6,7 +6,8 @@ export const english = {
     people: 'Calculator',
     calculator: 'calculator',
     aboutTheMath: 'About the math',
-    gdprCompliancy: 'GDPR'
+    gdprCompliancy: 'GDPR',
+    additionalInformation: 'How do you feel about this question? Any comments you would like to give? Are we asking the right questions?',
   },
   content: {
     main: 'The Most Enjoyable Way to Save the Planet! While making more money and saving time.',
