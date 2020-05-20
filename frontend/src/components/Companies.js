@@ -32,7 +32,7 @@ const Companies = () => {
 
   return (
     <div>
-      <div className='Body'>
+      <div className='Container'>
         <div className='Spacer-vertical'></div>
         <p className='Box'>{language.headers.companies}</p>
         <Questions 

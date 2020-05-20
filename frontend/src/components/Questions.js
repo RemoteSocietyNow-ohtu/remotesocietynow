@@ -1,8 +1,8 @@
 import React from 'react'
 import Question from './Question'
 import LoadingScreen from './LoadingScreen'
-
-
+import arrowRight from '../resources/arrow-right.png'
+import arrowLeft from '../resources/arrow-left.png'
 
 const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, setAnwers }) => {
   // Return loading screen if question and aswer states are not ready
@@ -31,8 +31,8 @@ const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, se
         answers={answers} 
         setAnwers={setAnwers} 
       />
-      <button onClick={previousQuestion}>&lt;&lt;</button>      
-      <button onClick={nextQuestion}>&gt;&gt;</button>   
+      <img className='Arrow-icon' src={arrowLeft} alt='previous question' onClick={previousQuestion} />      
+      <img className='Arrow-icon' src={arrowRight} alt='next question' onClick={nextQuestion} />   
     </div>
   )
 }

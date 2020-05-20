@@ -3,7 +3,8 @@ import React from 'react'
 const TextField = ({ handleValueChange, value }) => {
   return (
     <div>
-      <textarea 
+      <textarea
+        className='TextArea-field'
         value={value}
         onChange={handleValueChange}
       >        
