@@ -8,6 +8,13 @@
 Remote-work and remote-life can become new key efforts in limiting CO2 emissions.
 You and your company actually earn real money and save time, plus productivity increases.
 
+## Technologies and platforms ##
+⋅⋅⋅NodeJS Backend  
+⋅⋅⋅React front end  
+⋅⋅⋅Travis CI https://travis-ci.org/RemoteSocietyNow-ohtu/remotesocietynow  
+⋅⋅⋅Staging Heroku https://remotesocietynow.herokuapp.com/  
+⋅⋅⋅Eslint https://github.com/RemoteSocietyNow-ohtu/remotesocietynow/blob/master/.eslintrc.js
+
 ## Coding Conventions ##
 
 [Coding conventions](./docs/conventions.md)
