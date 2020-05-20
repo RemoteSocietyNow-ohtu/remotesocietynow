@@ -2,6 +2,7 @@ import React from 'react'
 import NumberField from './NumberField'
 import SliderField from './SliderField'
 import MultipleChoiceField from './MultipleChoiceField'
+import TextField from './TextField'
 
 const Field = ({ fieldType, options, value, setValue, minValue, maxValue, unit }) => {
   const handleValueChange = (event) => setValue(event.target.value)
@@ -15,7 +16,7 @@ const Field = ({ fieldType, options, value, setValue, minValue, maxValue, unit }
       />
     )
   } else if (fieldType === 'slider') {
-    return(
+    return (
       <SliderField 
         handleValueChange={handleValueChange} 
         value={value} 
@@ -25,8 +26,12 @@ const Field = ({ fieldType, options, value, setValue, minValue, maxValue, unit }
       />
     )
   } else if (fieldType === 'multipleChoice') {
-    return(
+    return (
       <MultipleChoiceField options={options} handleValueChange={handleValueChange} value={value} />
+    )
+  } else if (fieldType === 'textField') {
+    return (
+      <TextField handleValueChange={handleValueChange} value={value} />
     )
   }
   return null
