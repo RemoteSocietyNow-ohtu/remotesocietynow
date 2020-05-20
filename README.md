@@ -4,6 +4,8 @@
 
 ## Instructions ##
 
+[Coding conventions](./docs/conventions.md)
+
 **Clone the repository**
 
 ```bash
