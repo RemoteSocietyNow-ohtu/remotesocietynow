@@ -3,8 +3,6 @@ const remoteWorkCalculator = require('../services/calculations/remoteWorkCalcula
 
 
 calculationRouter.post('/person', (req,res) => {
-  console.log(req.body)
-  
   const distance = +req.body.dailyCommuteKm
   const daysFirst = +req.body.noOfDaysOfUsage
   const remoteDays = +req.body.numberOfRemoteworkDays
@@ -16,9 +14,7 @@ calculationRouter.post('/person', (req,res) => {
   res.json(result)
 })
 
-calculationRouter.post('/company', (req,res) =>{
-  console.log(req.body)
-
+calculationRouter.post('/company', (req,res) => {
   const rent = +req.body.officeRentExpenses
   const officeUpkeep = +req.body.otherUpkeepExpenses
   const employees = +req.body.numberOfEmployees
