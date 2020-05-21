@@ -57,7 +57,7 @@ const People = () => {
                 />
                 :
                 <>
-                  <Results results={results} />
+                  <Results results={results} answers={answers} setAnwers={setAnwers} setResults={setResults} />
                 </>
             }
           </div>

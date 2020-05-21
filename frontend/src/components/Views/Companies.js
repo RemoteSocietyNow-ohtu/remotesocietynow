@@ -58,7 +58,13 @@ const Companies = () => {
               setResults={setResults}
               isCompany={true}
             />
-            : <Results results={results} answers={answers} setAnwers={setAnwers} setResults={setResults} />
+            : <Results 
+              results={results}
+              setResults={setResults} 
+              answers={answers} 
+              setAnwers={setAnwers} 
+              isCompany
+            />
           }
         </div>
         <div className='Content-companies-right'>
