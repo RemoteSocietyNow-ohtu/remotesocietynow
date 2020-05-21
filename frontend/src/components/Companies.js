@@ -34,7 +34,7 @@ const Companies = () => {
   }, [])
 
   // Return loading screen if question and aswer states are not ready
-  if (Object.keys(answers).length === 0 || questions.length === 0) { 
+  if (Object.keys(answers).length === 0 || questions.length === 0) {
     return (
       <div className='Body'>
         <LoadingScreen />
@@ -58,11 +58,12 @@ const Companies = () => {
               setResults={setResults}
               calculation={'company'}
             />
-            : <ResultsCompany results={results} />          
-          }        
+            : <ResultsCompany results={results} />
+          }
         </div>
         <div className='Content-companies-right'>
-          <QuestionsSidebar questions={questions} answers={answers} currentQuestion={currentQuestion} />
+          <QuestionsSidebar questions={questions} answers={answers} currentQuestion={currentQuestion}
+            setCurrentQuestion={setCurrentQuestion} />
         </div>
       </div>
     </div>
