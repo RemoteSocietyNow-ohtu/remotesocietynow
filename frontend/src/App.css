@@ -28,7 +28,7 @@ html {
 .Container {
   width: 70%;
   margin: auto;
-  color: black;
+  color: #181A1B;
 }
 
 .Spacer-vertical {
@@ -131,7 +131,7 @@ html {
   margin: auto;
   width: 40%;
   height: 20px;
-  box-shadow: 15px 15px black;
+  box-shadow: 15px 15px #181A1B;
 }
 
 .Results {
@@ -294,7 +294,7 @@ html {
 
 .Line-separator-full {
   height: 2px;
-  background-color: black;
+  background-color: #181A1B;
   width: 100%;
 }
 
@@ -314,6 +314,44 @@ html {
   color: white;
   background-color: #181A1B;
   text-align: center;
+}
+
+.PrivacyPolicyBar {
+  position: fixed;
+  bottom: 0;
+  height: 150px;
+  width: 100%;
+  background-color: #181A1B;
+  color: white;
+  font-size: calc(1px + 2vmin);
+}
+
+.Button-privacyPolicyBar {
+  width: 100px;
+  height: 60px;
+  border: none;
+  border-radius: 5%;
+}
+
+.Button-privacyPolicyBar:hover {
+  border: solid #2196F3 2px;
+}
+
+.Button-accept-privacy-policy {
+  width: 150px;
+  height: 70px;
+  border: none;
+  border-radius: 5%;
+  margin-top: 5%;
+}
+
+.Button-accept-privacy-policy:hover {
+  background-color: #2196F3;
+  border: #181A1B 2px solid;
+}
+
+.PrivacyPolicy {
+  font-size: calc(1px + 2vmin);
 }
 
 .Choice-button {
@@ -339,7 +377,7 @@ html {
 
 .Laske-button:hover {
   background-color: #2196F3;
-  border: black 2px solid;
+  border: #181A1B 2px solid;
 }
 
 .Choice-button:hover {
