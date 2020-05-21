@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import './App.css'
-import Navbar from './components/Navbar'
-import Main from './components/Main'
-import People from './components/People'
-import Companies from './components/Companies'
-import AboutUs from './components/AboutUs'
-import GDPRCompliancy from './components/GDPRCompliancy'
-import PrivacyPolicyBar from './components/PrivacyPolicyBar'
-import PrivacyPolicy from './components/PrivacyPolicy'
+import Navbar from './components/Navigation/Navbar'
+import Main from './components/Views/Main'
+import People from './components/Views/People'
+import Companies from './components/Views/Companies'
+import AboutUs from './components/Views/AboutUs'
+import GDPRCompliancy from './components/Views/GDPRCompliancy'
+import PrivacyPolicyBar from './components/SubComponents/PrivacyPolicyBar'
+import PrivacyPolicy from './components/Views/PrivacyPolicy'
 
 const App = () => {
 

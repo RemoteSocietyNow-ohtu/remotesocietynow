@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
-import questionService from '../services/questionService'
-import LanguageContext from '../Contexts/LanguageContext'
+import questionService from '../../../services/questionService'
+import LanguageContext from '../../../Contexts/LanguageContext'
 
 const SendAnswersButton = ({ values, setResults, isCompany }) => {
   const language = useContext(LanguageContext)

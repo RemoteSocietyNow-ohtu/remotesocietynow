@@ -1,7 +1,7 @@
 import React from 'react'
-import Projectinfo from './Projectinfo'
-import Mathinfo from './Mathinfo'
-import Video from './Video'
+import Projectinfo from '../SubComponents/Projectinfo'
+import Mathinfo from '../SubComponents/Mathinfo'
+import Video from '../SubComponents/Video'
 
 const AboutUs = () => {
   return (

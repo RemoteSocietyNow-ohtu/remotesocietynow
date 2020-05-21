@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import LanguageContext from '../Contexts/LanguageContext'
+import LanguageContext from '../../Contexts/LanguageContext'
 
 const GDPRCompliancy = () => {
 

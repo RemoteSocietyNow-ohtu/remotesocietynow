@@ -1,5 +1,5 @@
 import React from 'react'
-import loadingAnimation from '../resources/loading.gif'
+import loadingAnimation from '../../resources/loading.gif'
 
 const LoadingScreen = () => {
   return (

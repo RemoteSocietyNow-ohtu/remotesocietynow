@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useContext } from 'react'
-import questionService from '../services/questionService'
-import Questions from './Questions'
-import Results from './Results'
-import LanguageContext from '../Contexts/LanguageContext'
-import QuestionsSidebar from './QuestionsSidebar'
+import questionService from '../../services/questionService'
+import Questions from '../SubComponents/Calculator/Questions'
+import Results from '../SubComponents/Calculator/Results'
+import LanguageContext from '../../Contexts/LanguageContext'
+import QuestionsSidebar from '../SubComponents/Calculator/QuestionsSidebar'
 import LoadingScreen from './LoadingScreen'
 
 const initAnswerValues = questions => {

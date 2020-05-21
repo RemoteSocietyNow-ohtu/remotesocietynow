@@ -1,9 +1,9 @@
 import React, { useState, useContext } from 'react'
-import logo from '../resources/logo512.png'
+import logo from '../../resources/logo512.png'
 import DrawerToggleButton from './DrawerToggleButton'
 import SideDrawer from './SideDrawer'
 import Backdrop from './Backdrop'
-import LanguageContext from '../Contexts/LanguageContext'
+import LanguageContext from '../../Contexts/LanguageContext'
 
 const Navbar = ({ setBody }) => {
   const language = useContext(LanguageContext)

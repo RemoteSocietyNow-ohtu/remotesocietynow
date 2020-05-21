@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
-import background from '../resources/background.mp4'
-import LanguageContext from '../Contexts/LanguageContext'
+import background from '../../resources/background.mp4'
+import LanguageContext from '../../Contexts/LanguageContext'
 
 const Main = () => {
 

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
-import LanguageContext from '../Contexts/LanguageContext'
-import Field from './InputFields/Field'
+import LanguageContext from '../../../Contexts/LanguageContext'
+import Field from '../../InputFields/Field'
 
 const Question = ({ question, answers, setAnwers }) => {
   const language = useContext(LanguageContext)

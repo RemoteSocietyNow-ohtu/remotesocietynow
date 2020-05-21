@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Question from './Question'
-import arrowRight from '../resources/arrow-right.png'
-import arrowLeft from '../resources/arrow-left.png'
+import arrowRight from '../../../resources/arrow-right.png'
+import arrowLeft from '../../../resources/arrow-left.png'
 import SendAnswersButton from './SendAnswersButton'
 
 const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, setAnwers, setResults, isCompany }) => {

@@ -1,9 +1,9 @@
 import React, { useContext, useState, useEffect } from 'react'
-import LanguageContext from '../Contexts/LanguageContext'
-import questionService from '../services/questionService'
-import Questions from './Questions'
-import QuestionsSidebar from './QuestionsSidebar'
-import Results from './Results'
+import LanguageContext from '../../Contexts/LanguageContext'
+import questionService from '../../services/questionService'
+import Questions from '../SubComponents/Calculator/Questions'
+import QuestionsSidebar from '../SubComponents/Calculator/QuestionsSidebar'
+import Results from '../SubComponents/Calculator/Results'
 import LoadingScreen from './LoadingScreen'
 
 //answerValues get initial values. It is default value if such is available, otherwise empty string

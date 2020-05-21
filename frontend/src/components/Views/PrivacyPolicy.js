@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import languageContext from '../Contexts/LanguageContext'
+import languageContext from '../../Contexts/LanguageContext'
 
 const PrivacyPolicy = ({ setAcceptPrivacyPolicy, setBody }) => {
 
