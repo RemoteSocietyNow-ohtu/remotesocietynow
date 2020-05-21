@@ -447,16 +447,22 @@ html {
 }
 
 .question-fade-left {
-  animation: fadeinout 500ms ease-in-out ;  
+  animation: fadeinout 500ms ease-in-out;  
 }
 
 .question-fade-right {    
-  animation: fadeinout 500ms ease-in-out ;
- 
+  animation: fadeinoutRight 500ms ease-in-out ;
 }
 
 @keyframes fadeinout {
   0% { opacity: 1; }
-  50% { opacity: 0; }
+  50% { opacity: 0; transform: translateX(-120px);}
+  50.1% { transform: translateX(120px);}
+  100% { opacity: 1; }
+}
+@keyframes fadeinoutRight {
+  0% { opacity: 1; }
+  50% { opacity: 00; transform: translateX(120px);}
+  50.1% { transform: translateX(-120px);}
   100% { opacity: 1; }
 }
