@@ -35,7 +35,7 @@ const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, se
       </div>
       
       {
-        currentQuestion > 1 ? 
+        currentQuestion > 0 ? 
           <img className='Arrow-icon' src={arrowLeft} alt='previous question' onClick={previousQuestion} /> 
           : null 
       }

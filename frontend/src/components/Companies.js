@@ -3,7 +3,7 @@ import LanguageContext from '../Contexts/LanguageContext'
 import questionService from '../services/questionService'
 import Questions from './Questions'
 import QuestionsSidebar from './QuestionsSidebar'
-import ResultsCompany from './ResultsCompany'
+import Results from './Results'
 import LoadingScreen from './LoadingScreen'
 
 //answerValues get initial values. It is default value if such is available, otherwise empty string
@@ -58,7 +58,7 @@ const Companies = () => {
               setResults={setResults}
               calculation={'company'}
             />
-            : <ResultsCompany results={results} />          
+            : <Results results={results} />          
           }        
         </div>
         <div className='Content-companies-right'>
