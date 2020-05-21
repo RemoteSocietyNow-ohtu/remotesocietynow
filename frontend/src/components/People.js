@@ -54,7 +54,6 @@ const People = () => {
                   setResults={setResults}
                   currentQuestion={currentQuestion}
                   setCurrentQuestion={setCurrentQuestion}
-                  calculation={'people'}
                 />
                 : 
                 <>

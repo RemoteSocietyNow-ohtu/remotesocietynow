@@ -28,10 +28,18 @@ const calculateBenefitsForPerson = (distance,daysFirst,daysSecond,firstVehicle,s
   const co2EmissionsWithRemoteWorking = emissionsOfPersonInDay*distanceInDay*shareOfWorkDoneAtOffice*avgNumberOfWorkDaysInAYear
   const reducedEmissions = co2Emissions - co2EmissionsWithRemoteWorking
 
-  const result = {
-    co2: roundEmissionsToKg(co2Emissions),
-    co2reduce: roundEmissionsToKg(reducedEmissions)
-  }  
+  const result = [
+    {
+      title: 'Annual CO2 pollution',
+      value: roundEmissionsToKg(co2Emissions),
+      unit: 'kg'
+    },
+    {
+      title: 'Annual CO2 saved by working remotely',
+      value: roundEmissionsToKg(reducedEmissions),
+      unit: 'kg'
+    }
+  ]  
 
   return(result)
 }
@@ -40,10 +48,18 @@ const calculateBenefitsForCompany = (rent, officeUpkeep, employees, businessTrav
   const totalExpenses = (rent + officeUpkeep) * 12
   const moneySaved = remoteShare*totalExpenses/100
   
-  const result = {
-    totalExpenses,
-    moneySaved
-  }
+  const result = [
+    {
+      title: 'Annual money used',
+      value: totalExpenses,
+      unit: '€'
+    },
+    {
+      title: 'Annual money saved',
+      value: moneySaved,
+      unit: '€'
+    }
+  ]
 
   return(result)
 }

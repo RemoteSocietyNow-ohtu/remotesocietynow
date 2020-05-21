@@ -1,44 +1,47 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Question from './Question'
 import arrowRight from '../resources/arrow-right.png'
 import arrowLeft from '../resources/arrow-left.png'
-import SendCompanyAnswersButton from './SendCompanyAnswersButton'
 import SendAnswersButton from './SendAnswersButton'
 
-const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, setAnwers, setResults, calculation }) => {
+const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, setAnwers, setResults, isCompany }) => {
+  const [fade, setFade] = useState('question-no-fade')
   
   const previousQuestion = () => {
     if (currentQuestion > 0) {
-      setCurrentQuestion(currentQuestion - 1)
+      setFade('question-fade-right')      
+      setTimeout(() => {setCurrentQuestion(currentQuestion - 1)}, 250)
     }
   }
 
   const nextQuestion = () => {
     if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1)
-    }
-    
+      setFade('question-fade-left')
+      setTimeout(() => {setCurrentQuestion(currentQuestion + 1)}, 250)      
+    }    
   }
 
   return (
-    <div>
+    <div>      
+      <div className={fade} onAnimationEnd={() => setFade('question-no-fade')}>
+        <Question
+          question={questions[currentQuestion]} 
+          answers={answers} 
+          setAnwers={setAnwers} 
+        />
+      </div>
       
-          
-      <Question
-        question={questions[currentQuestion]} 
-        answers={answers} 
-        setAnwers={setAnwers} 
-      />
-      <img className='Arrow-icon' src={arrowLeft} alt='previous question' onClick={previousQuestion} />
       {
+        currentQuestion > 0 ? 
+          <img className='Arrow-icon' src={arrowLeft} alt='previous question' onClick={previousQuestion} /> 
+          : null 
+      }
+      {        
         currentQuestion < questions.length - 1  ?  
           <img className='Arrow-icon' src={arrowRight} alt='next question' onClick={nextQuestion} /> 
-          : 
-          calculation === 'company' ?
-          <SendCompanyAnswersButton values={answers} setResults={setResults} /> :
-          <SendAnswersButton values={answers} setResults={setResults} />
-      }
-       
+          :           
+          <SendAnswersButton values={answers} setResults={setResults} isCompany={isCompany} />
+      }       
     </div>
   )
 }
