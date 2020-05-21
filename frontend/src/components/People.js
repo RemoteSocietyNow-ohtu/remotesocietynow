@@ -5,6 +5,7 @@ import Results from './Results'
 import SendAnswersButton from './SendAnswersButton'
 import LanguageContext from '../Contexts/LanguageContext'
 import QuestionsSidebar from './QuestionsSidebar'
+import LoadingScreen from './LoadingScreen'
 
 const initAnswerValues = questions => {
   return questions.reduce((newObject, question) => {
@@ -30,6 +31,14 @@ const People = () => {
       })
   }, [])
 
+  if (Object.keys(answers).length === 0 || questions.length === 0) { 
+    return (
+      <div className='Body'>
+        <LoadingScreen />
+      </div>
+    )
+  }
+
   return (
     <div>
       <div className='Body'>
@@ -38,18 +47,18 @@ const People = () => {
           <p className='Box'>{language.headers.people}</p>
           <div className='Content-companies-left'>
             {
-              currentQuestion < questions.length ? 
+              Object.keys(results).length === 0  ? 
                 <Questions 
                   questions={questions} 
                   answers={answers} 
                   setAnwers={setAnwers} 
+                  setResults={setResults}
                   currentQuestion={currentQuestion}
                   setCurrentQuestion={setCurrentQuestion}
+                  calculation={'people'}
                 />
                 : 
                 <>
-                  <SendAnswersButton values={answers} setResults={setResults} />          
-                  <div className='Question-separator'></div>
                   <Results results={results} />
                 </>
             }

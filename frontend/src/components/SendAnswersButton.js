@@ -7,7 +7,7 @@ const SendAnswersButton = ({ values, setResults }) => {
   const [ loading, setLoading ] = useState(false)
   const [ error, setError ] = useState(false)
 
-  const sendAnswers = async (event) => {
+  const sendAnswersPeople = async (event) => {
     event.preventDefault()    
     setLoading(true)
     try {
@@ -24,12 +24,12 @@ const SendAnswersButton = ({ values, setResults }) => {
   if(loading === true) return <button disabled>{language.actions.sending}</button>
 
   if(error === true) return <p>{language.errors.errorSendingAnswers}</p>
-
   return (
     <div>
-      <button className='Laske-button' onClick={sendAnswers}>{language.buttons.calculate}</button>
+      <button className='Laske-button' onClick={sendAnswersPeople}>{language.buttons.calculate}</button>
     </div>
   )
+  
 }
 
 export default SendAnswersButton
