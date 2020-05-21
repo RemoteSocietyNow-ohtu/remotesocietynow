@@ -7,7 +7,7 @@ const Main = () => {
   const language = useContext(LanguageContext)
 
   return (
-    <div className='Body'>
+    <div className='Container'>
       <video className='Background-video-main' autoPlay muted loop>
         <source src={background} type='video/mp4' />
       </video>

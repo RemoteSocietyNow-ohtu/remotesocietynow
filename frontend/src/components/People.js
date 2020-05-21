@@ -8,8 +8,8 @@ import LoadingScreen from './LoadingScreen'
 
 const initAnswerValues = questions => {
   return questions.reduce((newObject, question) => {
-    return { 
-      ...newObject, 
+    return {
+      ...newObject,
       [question.identifyingString]: question.defaultValue ? question.defaultValue : ' '
     }
   }, {})
@@ -30,7 +30,7 @@ const People = () => {
       })
   }, [])
 
-  if (Object.keys(answers).length === 0 || questions.length === 0) { 
+  if (Object.keys(answers).length === 0 || questions.length === 0) {
     return (
       <div className='Body'>
         <LoadingScreen />
@@ -46,23 +46,24 @@ const People = () => {
           <p className='Box'>{language.headers.people}</p>
           <div className='Content-companies-left'>
             {
-              Object.keys(results).length === 0  ? 
-                <Questions 
-                  questions={questions} 
-                  answers={answers} 
-                  setAnwers={setAnwers} 
+              Object.keys(results).length === 0 ?
+                <Questions
+                  questions={questions}
+                  answers={answers}
+                  setAnwers={setAnwers}
                   setResults={setResults}
                   currentQuestion={currentQuestion}
                   setCurrentQuestion={setCurrentQuestion}
                 />
-                : 
+                :
                 <>
                   <Results results={results} />
                 </>
             }
           </div>
           <div className='Content-companies-right'>
-            <QuestionsSidebar questions={questions} answers={answers} currentQuestion={currentQuestion} />
+            <QuestionsSidebar questions={questions} answers={answers} currentQuestion={currentQuestion}
+              setCurrentQuestion={setCurrentQuestion} />
           </div>
         </div>
       </div>
