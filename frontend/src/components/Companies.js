@@ -56,7 +56,7 @@ const Companies = () => {
               currentQuestion={currentQuestion}
               setCurrentQuestion={setCurrentQuestion}
               setResults={setResults}
-              calculation={'company'}
+              isCompany={true}
             />
             : <Results results={results} />          
           }        
