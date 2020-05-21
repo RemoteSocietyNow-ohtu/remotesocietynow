@@ -10,17 +10,15 @@ const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, se
   
   const previousQuestion = () => {
     if (currentQuestion > 0) {
-      setFade('question-fade-right')
-      setCurrentQuestion(currentQuestion - 1)
-      
+      setFade('question-fade-right')      
+      setTimeout(() => {setCurrentQuestion(currentQuestion - 1)}, 250)
     }
   }
 
   const nextQuestion = () => {
     if (currentQuestion < questions.length - 1) {
       setFade('question-fade-left')
-      setCurrentQuestion(currentQuestion + 1)
-      
+      setTimeout(() => {setCurrentQuestion(currentQuestion + 1)}, 250)      
     }    
   }
 
@@ -46,8 +44,7 @@ const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, se
           calculation === 'company' ?
             <SendCompanyAnswersButton values={answers} setResults={setResults} /> :
             <SendAnswersButton values={answers} setResults={setResults} />
-      }
-       
+      }       
     </div>
   )
 }

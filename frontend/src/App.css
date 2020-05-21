@@ -447,11 +447,11 @@ html {
 }
 
 .question-fade-left {
-  animation: fadeinout 500ms linear;  
+  animation: fadeinout 500ms ease-in-out;  
 }
 
 .question-fade-right {    
-  animation: fadeinoutRight 500ms linear ;
+  animation: fadeinoutRight 500ms ease-in-out ;
 }
 
 @keyframes fadeinout {
