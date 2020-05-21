@@ -8,7 +8,7 @@ const ResultsCompany = ({ results }) => {
     <div className='Container'>
       <div className='Results'>     
         <p>{language.results.businessMoneyUsage}:</p>
-        <p>{results.upkeep ? results.upkeep : '-'} {language.units.euro}</p> 
+        <p>{results.totalExpenses ? results.totalExpenses : '-'} {language.units.euro}</p> 
         <div className='Line-separator-full' /> 
         <p>{language.results.businessMoneySavings}:</p>
         <p>{results.moneySaved ? results.moneySaved : '-'} {language.units.euro}</p>

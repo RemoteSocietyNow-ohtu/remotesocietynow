@@ -36,4 +36,16 @@ const calculateBenefitsForPerson = (distance,daysFirst,daysSecond,firstVehicle,s
   return(result)
 }
 
-module.exports = {calculateBenefitsForPerson}
+const calculateBenefitsForCompany = (rent, officeUpkeep, employees, businessTravelCost, remoteShare ) => {
+  const totalExpenses = (rent + officeUpkeep) * 12
+  const moneySaved = remoteShare*totalExpenses/100
+  
+  const result = {
+    totalExpenses,
+    moneySaved
+  }
+
+  return(result)
+}
+
+module.exports = {calculateBenefitsForPerson, calculateBenefitsForCompany}
