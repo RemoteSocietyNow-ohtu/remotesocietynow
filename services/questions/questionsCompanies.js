@@ -5,7 +5,8 @@ const questionsCompanies = [
     type: 'field',
     defaultValue:'0',
     minValue: 0,
-    unit: 'employees'
+    unit: 'employees',
+    number: 0
   },
   {
     identifyingString:'officeRentExpenses',
@@ -13,7 +14,8 @@ const questionsCompanies = [
     type: 'field',
     defaultValue:'0',
     minValue: 0,
-    unit: 'euros'
+    unit: 'euros',
+    number: 1
   },
   {
     identifyingString:'otherUpkeepExpenses',
@@ -21,7 +23,8 @@ const questionsCompanies = [
     type: 'field',
     defaultValue:'0',
     minValue: 0,
-    unit: 'euros'
+    unit: 'euros',
+    number: 2
   },
   {
     identifyingString:'averageBusinessTripCost',
@@ -29,7 +32,8 @@ const questionsCompanies = [
     type: 'field',
     defaultValue:'0',
     minValue: 0,
-    unit: 'euros'
+    unit: 'euros',
+    number: 3
   }  
 ]
 
