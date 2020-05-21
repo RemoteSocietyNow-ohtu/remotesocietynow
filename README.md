@@ -8,6 +8,13 @@
 Remote-work and remote-life can become new key efforts in limiting CO2 emissions.
 You and your company actually earn real money and save time, plus productivity increases.
 
+## Technologies and platforms ##
+⋅⋅⋅NodeJS Backend  
+⋅⋅⋅React front end  
+⋅⋅⋅Travis CI https://travis-ci.org/RemoteSocietyNow-ohtu/remotesocietynow  
+⋅⋅⋅Staging Heroku https://remotesocietynow.herokuapp.com/  
+⋅⋅⋅Eslint https://github.com/RemoteSocietyNow-ohtu/remotesocietynow/blob/master/.eslintrc.js
+
 ## Coding Conventions ##
 
 [Coding conventions](./docs/conventions.md)
@@ -38,9 +45,7 @@ Port 3001 will be used by default if not defined in `.env`
 
 http://localhost:3001/
 
-If needed create `.env` file in the root directory.
-
-Define the necessary environment variables in `.env`.
+If needed create `.env` file in the root directory. Define the necessary environment variables in `.env`.
 
 Example contents of `.env`:
 
@@ -60,6 +65,9 @@ npm run build:front
 
 Go to /frontend
 
+Create `.env` file in the /frontend directory with following line
+```REACT_APP_BACKEND_URL=http://localhost:3001```
+
 Before running the app you need to install dependencies
 
 ```bash
@@ -73,7 +81,7 @@ npm start
 ```
 Frontend will be running at http://localhost:3000/
 
-You may want to make sure the backend is running as well.
+Make sure the backend is running as well at the port defined in `.env`.
 
 **Eslint**
 
@@ -87,7 +95,7 @@ Automatically fix most common eslint errors
 
 # Push to Github
 
-Make changes to local copy then
+Make changes to local copy then push to master
 ```bash
 git add .
 git commit -m "your message"

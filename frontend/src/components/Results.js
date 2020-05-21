@@ -7,7 +7,7 @@ const Results = ({ results }) => {
   return (
     <div className='Container'>
       <div className='Results'>
-        <p>{language.results.commuteCO2result}</p>
+        <p>{language.results.commuteCO2result}:</p>
         <p>{results.co2 ? results.co2 : '-'} {language.units.kg}</p>
         <div className='Line-separator-full' /> 
         <p>{language.results.commuteCO2savings}</p>

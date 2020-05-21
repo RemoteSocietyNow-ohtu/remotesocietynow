@@ -4,6 +4,7 @@ import Questions from './Questions'
 import Results from './Results'
 import SendAnswersButton from './SendAnswersButton'
 import LanguageContext from '../Contexts/LanguageContext'
+import QuestionsSidebar from './QuestionsSidebar'
 
 const initAnswerValues = questions => {
   return questions.reduce((newObject, question) => {
@@ -35,22 +36,27 @@ const People = () => {
         <div className='Container'>
           <div className='Spacer-vertical'></div>
           <p className='Box'>{language.headers.people}</p>
-          {
-            currentQuestion < questions.length ? 
-              <Questions 
-                questions={questions} 
-                answers={answers} 
-                setAnwers={setAnwers} 
-                currentQuestion={currentQuestion}
-                setCurrentQuestion={setCurrentQuestion}
-              />
-              : 
-              <>
-                <SendAnswersButton values={answers} setResults={setResults} />          
-                <div className='Question-separator'></div>
-                <Results results={results} />
-              </>
-          }
+          <div className='Content-companies-left'>
+            {
+              currentQuestion < questions.length ? 
+                <Questions 
+                  questions={questions} 
+                  answers={answers} 
+                  setAnwers={setAnwers} 
+                  currentQuestion={currentQuestion}
+                  setCurrentQuestion={setCurrentQuestion}
+                />
+                : 
+                <>
+                  <SendAnswersButton values={answers} setResults={setResults} />          
+                  <div className='Question-separator'></div>
+                  <Results results={results} />
+                </>
+            }
+          </div>
+          <div className='Content-companies-right'>
+            <QuestionsSidebar questions={questions} answers={answers} currentQuestion={currentQuestion} />
+          </div>
         </div>
       </div>
     </div>

@@ -13,7 +13,7 @@ const sendAnswersPeople = ( values ) => {
 }
 
 const getQuestionsCompany = () => {
-  const request = axios.get(`${baseurl}/api/questions/company/`)
+  const request = axios.get(`${baseurl}/api/questions/companies/`)
   return request.then((res) => res.data)
 }
 
@@ -22,4 +22,8 @@ const sendAnswersCompany = ( values ) => {
   return request.then((res) => res.data)
 }
 
-export default { getQuestionsPeople, sendAnswersPeople }
+export default { 
+  getQuestionsPeople, 
+  sendAnswersPeople, 
+  getQuestionsCompany, 
+  sendAnswersCompany }

@@ -1,12 +1,5 @@
 # Coding conventions #
 
-## Technologies and platforms ##
-⋅⋅⋅NodeJS Backend  
-⋅⋅⋅React front end  
-⋅⋅⋅Travis CI https://travis-ci.org/RemoteSocietyNow-ohtu/remotesocietynow  
-⋅⋅⋅Staging Heroku https://remotesocietynow.herokuapp.com/  
-⋅⋅⋅Eslint https://github.com/RemoteSocietyNow-ohtu/remotesocietynow/blob/master/.eslintrc.js  
-
 ## Coding Conventions ##
 **Language:** Use english for naming variables and git commit messages
 
@@ -21,10 +14,12 @@ We use App.css -stylesheet for all css-styling. ClassName-attribute is used to s
 
 **Testing**
 Features are tested as much as to be sure that they are working.
+We are using Jest
 
-Tests location???
+Backend tests are located `/tests`. 
+Tests are diveded to subfolders following the structure of actual sourcefiles. ie. tests covering calculator services are located at `/tests/services/`.
 
 ## CI ##
-Pushing to Github master branch will trigger Travis CI to run tests, linting and make a build of frontend. If succesfull the app is deployed to Heroku for staging and can be run at:
+Pushing to Github master branch will trigger Travis CI to run tests, linting and make a build of frontend. If succesfull the app is deployed to Heroku for staging and can be run at: https://remotesocietynow.herokuapp.com/
 
-https://docs.google.com/drawings/d/1JnighsokIjPMCwBD-mMOFF6KbeqNXLSJPMYhnNM_bwA/edit?usp=sharing
+![CI pipeline](https://github.com/RemoteSocietyNow-ohtu/remotesocietynow/blob/master/docs/CI-flow.png)

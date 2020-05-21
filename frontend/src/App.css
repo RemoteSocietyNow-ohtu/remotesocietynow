@@ -278,6 +278,16 @@ html {
   }
 }
 
+@media (max-width: 850px) {
+  .Content-companies-right {
+    display: none;
+  }
+
+  .Content-companies-left {
+    width: 100%;
+  }
+}
+
 .Question {
   margin-top: 5%;
 }
