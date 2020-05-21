@@ -3,10 +3,11 @@ import Question from './Question'
 import arrowRight from '../resources/arrow-right.png'
 import arrowLeft from '../resources/arrow-left.png'
 import SendCompanyAnswersButton from './SendCompanyAnswersButton'
+import SendAnswersButton from './SendAnswersButton'
 
-const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, setAnwers, setResults }) => {
+const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, setAnwers, setResults, calculation }) => {
   const [fade, setFade] = useState('question-fade')
-
+  
   const previousQuestion = () => {
     if (currentQuestion > 0) {
       setFade('question-fade-right')
@@ -38,13 +39,15 @@ const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, se
           <img className='Arrow-icon' src={arrowLeft} alt='previous question' onClick={previousQuestion} /> 
           : null 
       }
-      {
-        currentQuestion < questions.length - 1  
-          ?
-          <img className='Arrow-icon' src={arrowRight} alt='next question' onClick={nextQuestion} />          
+      {        
+        currentQuestion < questions.length - 1  ?  
+          <img className='Arrow-icon' src={arrowRight} alt='next question' onClick={nextQuestion} /> 
           : 
-          <SendCompanyAnswersButton values={answers} setResults={setResults} />
-      }       
+          calculation === 'company' ?
+            <SendCompanyAnswersButton values={answers} setResults={setResults} /> :
+            <SendAnswersButton values={answers} setResults={setResults} />
+      }
+       
     </div>
   )
 }

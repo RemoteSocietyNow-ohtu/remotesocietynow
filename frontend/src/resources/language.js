@@ -6,6 +6,7 @@ export const english = {
     people: 'Calculator',
     calculator: 'calculator',
     aboutTheMath: 'About the math',
+    privacyPolicy: 'Privacy Policy',
     gdprCompliancy: 'GDPR',
     additionalInformation: 'How do you feel about this question? Any comments you would like to give? Are we asking the right questions?',
   },
@@ -19,6 +20,7 @@ export const english = {
       'You’re allowed to refuse data processing, for example, marketing efforts.'
     ],
     contactInfo: 'Any inquiries can be directed to jr.tasklist@gmail.com',
+    privacyPolicyBar: 'To use our website you need to accept our privacy policy.',
   },
   buttons: {
     calculate: 'Calculate'
@@ -54,5 +56,8 @@ export const english = {
     'Let us show you how! Leave your contact info and we’ll call back.',
     'For each legitimate business talk with a new client we will plant a real tree – for real.'
   ],
-  mathInfo: 'We factor in the following variables: more text to be added'
+  mathInfo: 'We factor in the following variables: more text to be added',
+  privacyPolicy: [
+    'Coming soon.',
+  ]
 }

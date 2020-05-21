@@ -17,9 +17,15 @@ calculationRouter.post('/person', (req,res) => {
 })
 
 calculationRouter.post('/company', (req,res) =>{
-  const result = {
-    moneySaved: 1
-  }
+  console.log(req.body)
+
+  const rent = +req.body.officeRentExpenses
+  const officeUpkeep = +req.body.otherUpkeepExpenses
+  const employees = +req.body.numberOfEmployees
+  const businessTravelCost = +req.body.averageBusinessTripCost
+  const remoteShare = 30
+  
+  const result = remoteWorkCalculator.calculateBenefitsForCompany(rent, officeUpkeep, employees, businessTravelCost, remoteShare)
   res.json(result)
 })
 
