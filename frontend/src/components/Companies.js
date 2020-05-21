@@ -58,13 +58,8 @@ const Companies = () => {
               setResults={setResults}
               isCompany={true}
             />
-<<<<<<< HEAD
-            : <ResultsCompany results={results} />
+            : <Results results={results} />
           }
-=======
-            : <Results results={results} />          
-          }        
->>>>>>> 445ef59103d16c5124fb3c19a0d1f896451bd415
         </div>
         <div className='Content-companies-right'>
           <QuestionsSidebar questions={questions} answers={answers} currentQuestion={currentQuestion}
