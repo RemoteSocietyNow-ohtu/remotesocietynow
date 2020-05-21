@@ -3,8 +3,9 @@ import Question from './Question'
 import arrowRight from '../resources/arrow-right.png'
 import arrowLeft from '../resources/arrow-left.png'
 import SendCompanyAnswersButton from './SendCompanyAnswersButton'
+import SendAnswersButton from './SendAnswersButton'
 
-const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, setAnwers, setResults }) => {
+const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, setAnwers, setResults, calculation }) => {
   
   const previousQuestion = () => {
     if (currentQuestion > 0) {
@@ -30,13 +31,12 @@ const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, se
       />
       <img className='Arrow-icon' src={arrowLeft} alt='previous question' onClick={previousQuestion} />
       {
-        currentQuestion < questions.length - 1  ?
-          
-                  
+        currentQuestion < questions.length - 1  ?  
           <img className='Arrow-icon' src={arrowRight} alt='next question' onClick={nextQuestion} /> 
-         
           : 
-          <SendCompanyAnswersButton values={answers} setResults={setResults} />
+          calculation === 'company' ?
+          <SendCompanyAnswersButton values={answers} setResults={setResults} /> :
+          <SendAnswersButton values={answers} setResults={setResults} />
       }
        
     </div>
