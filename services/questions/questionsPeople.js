@@ -5,8 +5,7 @@ const questionsPeople = [
     type: 'field',
     defaultValue:'0',
     minValue: 0,
-    unit: 'km',
-    number: 0
+    unit: 'km'
   },
   {
     identifyingString:'dailyCommuteMinutes',
@@ -14,8 +13,7 @@ const questionsPeople = [
     type: 'field',
     defaultValue:'0',
     minValue: 0,
-    unit: 'minutes',
-    number: 1
+    unit: 'minutes'
   },
   {
     identifyingString:'typicalVehicle',
@@ -27,8 +25,7 @@ const questionsPeople = [
       {string: 'Train', value: 'train'},
       {string: 'Car', value: 'car'},
       {string: 'Motorcycle', value: 'motorcycle'},
-    ],
-    number: 2
+    ]
   },
   {
     identifyingString:'noOfDaysOfUsage',
@@ -37,8 +34,7 @@ const questionsPeople = [
     defaultValue:'0',
     minValue:'0',
     maxValue:'7',
-    unit: 'days',
-    number: 3
+    unit: 'days'
   },
   {
     identifyingString:'secondVehicle',
@@ -51,8 +47,7 @@ const questionsPeople = [
       {string: 'Train', value: 'train'},
       {string: 'Car', value: 'car'},
       {string: 'Motorcycle', value: 'motorcycle'},
-    ],
-    number: 4
+    ]
   },
   {
     identifyingString:'noOfDaysOfUsageSecond',
@@ -61,8 +56,7 @@ const questionsPeople = [
     defaultValue:'0',
     minValue:'0',
     maxValue:'7',
-    unit: 'days',
-    number: 5
+    unit: 'days'
   },
   {
     identifyingString:'annualCommuteExpenses',
@@ -70,8 +64,7 @@ const questionsPeople = [
     type: 'field',
     defaultValue:'0',
     minValue: 0,
-    unit: 'euros',
-    number: 6
+    unit: 'euros'
   },
   {
     identifyingString:'numberOfRemoteworkDays',
@@ -80,8 +73,7 @@ const questionsPeople = [
     defaultValue:'0',
     minValue:'0',
     maxValue:'7',
-    unit: 'days',
-    number: 7
+    unit: 'days'
   },
   {
     identifyingString:'opinionRemote',
@@ -93,8 +85,7 @@ const questionsPeople = [
       { string: 'neutral', value: 'neutral' },
       { string: 'positive', value: 'positive' },
       { string: 'very positive', value: 'veryPositive' },
-    ],
-    number: 8
+    ]
   },
   {
     identifyingString:'numberOfBusinessTrips',
@@ -102,8 +93,7 @@ const questionsPeople = [
     type: 'field',
     defaultValue:'0',
     minValue: 0,
-    unit: 'trips',
-    number: 9
+    unit: 'trips'
   },
   {
     identifyingString:'numberOfHoursOnPlane',
@@ -111,8 +101,7 @@ const questionsPeople = [
     type: 'field',
     defaultValue:'0',
     minValue: 0,
-    unit: 'hours',
-    number: 10
+    unit: 'hours'
   }
 ]
 

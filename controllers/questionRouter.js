@@ -4,10 +4,12 @@ const questionsPeople = require('../services/questions/questionsPeople')
 const questionsCompanies = require('../services/questions/questionsCompanies')
 
 questionRouter.get('/people/', (req, res) => {
+  questionsPeople.map((question, i) => questionsPeople[i].number = i)
   res.json(questionsPeople)
 })
 
 questionRouter.get('/companies/', (req,res) => {
+  questionsCompanies.map((question, i) => questionsCompanies[i].number = i)
   res.json(questionsCompanies)
 })
 
