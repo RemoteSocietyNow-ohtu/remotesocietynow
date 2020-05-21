@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import questionService from '../../../services/questionService'
 import LanguageContext from '../../../Contexts/LanguageContext'
 
-const SendAnswersButton = ({ values, setResults, isCompany }) => {
+const SendAnswersButton = ({ answers, setResults, isCompany }) => {
   const language = useContext(LanguageContext)
   const [ loading, setLoading ] = useState(false)
   const [ error, setError ] = useState(false)
@@ -13,9 +13,9 @@ const SendAnswersButton = ({ values, setResults, isCompany }) => {
     try {
       let response
       if (isCompany) {
-        response = await questionService.sendAnswersCompany(values)
+        response = await questionService.sendAnswersCompany(answers)
       } else {
-        response = await questionService.sendAnswersPeople(values)
+        response = await questionService.sendAnswersPeople(answers)
       }
       setResults(response)
       setLoading(false)      

@@ -40,7 +40,7 @@ const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, se
         currentQuestion < questions.length - 1  ?  
           <img className='Arrow-icon' src={arrowRight} alt='next question' onClick={nextQuestion} /> 
           :           
-          <SendAnswersButton values={answers} setResults={setResults} isCompany={isCompany} />
+          <SendAnswersButton answers={answers} setResults={setResults} isCompany={isCompany} />
       }       
     </div>
   )

@@ -41,7 +41,7 @@ const Companies = () => {
       </div>
     )
   }
-
+  console.log('results', results)
   return (
     <div>
       <div className='Container'>
@@ -58,7 +58,7 @@ const Companies = () => {
               setResults={setResults}
               isCompany={true}
             />
-            : <Results results={results} />
+            : <Results results={results} answers={answers} setAnwers={setAnwers} setResults={setResults} />
           }
         </div>
         <div className='Content-companies-right'>

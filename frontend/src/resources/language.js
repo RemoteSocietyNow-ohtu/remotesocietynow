@@ -8,6 +8,7 @@ export const english = {
     aboutTheMath: 'About the math',
     privacyPolicy: 'Privacy Policy',
     gdprCompliancy: 'GDPR',
+    workDoneRemotely: '% of work done remotely',
     additionalInformation: 'How do you feel about this question? Any comments you would like to give? Are we asking the right questions?',
   },
   content: {
@@ -30,9 +31,6 @@ export const english = {
     aboutUs: 'About Us',
     forPeople: 'For people',
     forCompany: 'For company'
-  },
-  units: {
-    kg: 'kg'
   },
   errors: {
     errorSendingAnswers: 'An Error occured while sending asnwers'

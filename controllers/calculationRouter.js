@@ -23,7 +23,7 @@ calculationRouter.post('/company', (req,res) =>{
   const officeUpkeep = +req.body.otherUpkeepExpenses
   const employees = +req.body.numberOfEmployees
   const businessTravelCost = +req.body.averageBusinessTripCost
-  const remoteShare = 30
+  const remoteShare = req.body.remoteShare ? req.body.remoteShare : 0
   
   const result = remoteWorkCalculator.calculateBenefitsForCompany(rent, officeUpkeep, employees, businessTravelCost, remoteShare)
   res.json(result)

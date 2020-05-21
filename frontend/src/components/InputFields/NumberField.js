@@ -1,8 +1,7 @@
 import React from 'react'
 
 
-const NumberField = ({ handleValueChange, value, minValue, maxValue}) => {
-  console.log('Value in Number field:', value)
+const NumberField = ({ handleValueChange, value, minValue, maxValue}) => {  
   return(
     <div>
       <input

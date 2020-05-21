@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SliderField = ({ handleValueChange, value, minValue, maxValue, unit }) => {
+const SliderField = ({ handleValueChange, handleRelease, value, minValue, maxValue, unit }) => {
   return(
     <div>
       <input
@@ -8,6 +8,7 @@ const SliderField = ({ handleValueChange, value, minValue, maxValue, unit }) => 
         min={minValue} 
         max={maxValue}
         onChange={handleValueChange}
+        onMouseUp={handleRelease}
         value={value}
         className='slider'
       />
