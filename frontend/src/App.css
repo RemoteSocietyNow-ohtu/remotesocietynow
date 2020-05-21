@@ -403,3 +403,22 @@ html {
 .Arrow-icon:hover {
   transform: scale(1.1);
 }
+
+.question-fade {
+  opacity: 1;   
+}
+
+.question-fade-left {
+  animation: fadeinout 500ms ease-in-out ;  
+}
+
+.question-fade-right {    
+  animation: fadeinout 500ms ease-in-out ;
+ 
+}
+
+@keyframes fadeinout {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}

@@ -3,7 +3,6 @@ import LanguageContext from '../Contexts/LanguageContext'
 
 const Results = ({ results }) => {
   const language = useContext(LanguageContext)
-
   return (
     <div className='Container'>
       <div className='Results'>
@@ -18,3 +17,5 @@ const Results = ({ results }) => {
 }
 
 export default Results
+
+
