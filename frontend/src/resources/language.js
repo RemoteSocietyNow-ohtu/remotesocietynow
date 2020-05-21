@@ -51,7 +51,4 @@ export const english = {
     'For each legitimate business talk with a new client we will plant a real tree – for real.'
   ],
   mathInfo: 'We factor in the following variables: more text to be added',
-  privacyPolicy: [
-    'Coming soon.',
-  ]
 }

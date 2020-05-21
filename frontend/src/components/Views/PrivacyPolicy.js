@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import languageContext from '../../Contexts/LanguageContext'
+import { Document } from 'react-pdf'
 
 const PrivacyPolicy = ({ setAcceptPrivacyPolicy, setBody }) => {
 
@@ -14,7 +15,7 @@ const PrivacyPolicy = ({ setAcceptPrivacyPolicy, setBody }) => {
     <div className='Container'>
       <h4 className='Heading'>{language.headers.privacyPolicy}</h4>
       <div className='PrivacyPolicy'>
-        {language.privacyPolicy.map(line => <p>{line}</p>)}
+        <Document file='src/resources/Privacy-Policy.pdf' />
       </div>
       <button className='Button-accept-privacy-policy' onClick={() => handleClick()}>Accept</button>
     </div>
