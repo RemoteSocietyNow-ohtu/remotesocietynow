@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --verbose --runInBand",
     "start": "node index.js",
     "dev": "nodemon index.js",
     "build:front": "cd ./frontend && npm install && npm run build",
@@ -21,10 +20,9 @@
   "devDependencies": {
     "eslint": "^6.6.0",
     "eslint-plugin-react": "^7.19.0",
-    "jest": "^26.0.1",
     "nodemon": "^2.0.2"
   },
-  "jest":{
+  "jest": {
     "testEnvironment": "node"
   }
 }
