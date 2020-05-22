@@ -32,7 +32,7 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
         }
         {isCompany ?
           <h4>{language.headers.workDoneRemotelyPercent}</h4>
-          : <h4>{language.headers.workDoneRemotelyDays}dddd</h4>
+          : <h4>{language.headers.workDoneRemotelyDays}</h4>
         }
         <SliderField 
           handleValueChange={(event) => setSliderValue(event.target.value)} 
