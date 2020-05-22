@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from 'react'
 import LanguageContext from '../../../Contexts/LanguageContext'
 import questionService from '../../../services/questionService'
 import SliderField from '../../InputFields/SliderField'
+import LoadingScreen from '../../Views/LoadingScreen'
 
 const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
   const language = useContext(LanguageContext)
@@ -9,10 +10,13 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
   const [ error, setError ] = useState(false)
   const [ sliderValue, setSliderValue ] = useState(0)
 
+  // Fetch results from backend based on answers. Triggered when answers changes. 
   useEffect(() => {
     const fetchResults = async () => {
       setLoading(true)
       setError(false)
+      console.log('answers', answers)
+      console.log('results', results)
       try {
         let response
         if (isCompany) {
@@ -20,6 +24,7 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
         } else {
           response = await questionService.sendAnswersPeople(answers)
         }
+        console.log('response', response)
         setResults(response)
         setLoading(false)      
       } catch (error) {
@@ -30,11 +35,13 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
     }
     fetchResults()
   },[answers])
-
-  if(loading === true) return <p>{language.actions.sending}</p>
-
+  
+  // Check if still fetching results or there was an error fetching results
+  if(loading === true) return <LoadingScreen />
   if(error === true) return <p>{language.errors.errorSendingAnswers}</p>
 
+  // Change answers.remoteShare based on slider. 
+  // This will cause component to rerender and fetchResults to run
   const handleRelease = async () => {
     const tempAnswers = {...answers}    
     if (isCompany) {
@@ -57,7 +64,7 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
           )
         }
         {isCompany ?
-          <h4>{language.headers.workDoneRemotelyPercent}</h4>
+          <h4>{language.headers.workDoneRemotelyPercent}</h4> // If this is results for a company use percents
           : <h4>{language.headers.workDoneRemotelyDays}</h4>
         }
         <SliderField 
@@ -66,7 +73,7 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
           value={sliderValue}
           minValue={0}
           maxValue={isCompany ? 100 : 7}
-          unit={isCompany ? '%' : ''}
+          unit={isCompany ? '%' : ''} // If this is results for a company use percents
         />
       </div>
     </div>

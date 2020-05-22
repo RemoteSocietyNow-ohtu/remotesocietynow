@@ -4,9 +4,7 @@ import Field from '../../InputFields/Field'
 
 const Question = ({ question, answers, setAnwers }) => {
   const language = useContext(LanguageContext)
-  if(!question) {
-    return null
-  }
+
   return (
     <div className='Question'>
       <p>{question.name}</p>
@@ -22,8 +20,8 @@ const Question = ({ question, answers, setAnwers }) => {
       <p>{language.headers.additionalInformation}</p>
       <Field 
         fieldType='textField'
-        value={answers[question.identifyingString + 'Open']}
-        setValue={(value) => setAnwers({...answers, [question.identifyingString + 'Open']: value})}
+        value={answers[question.identifyingString + 'OpenField']}
+        setValue={(value) => setAnwers({...answers, [question.identifyingString + 'OpenField']: value})}
       />
     </div>
   )
