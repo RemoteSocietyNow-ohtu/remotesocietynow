@@ -29,6 +29,7 @@ html {
   width: 70%;
   margin: auto;
   color: #181A1B;
+  margin-bottom: 5%;
 }
 
 .Spacer-vertical {
@@ -266,13 +267,13 @@ html {
   margin: 0.5rem 0;
 }
 
-@media (max-width: 790px) {
+@media (max-width: 800px) {
   .Navbar-items {
     display: none;
   }
 }
 
-@media (min-width: 790px) {
+@media (min-width: 800px) {
   .Toggle-Button {
     display: none;
   }
@@ -354,8 +355,26 @@ html {
   border: #181A1B 2px solid;
 }
 
-.PrivacyPolicy {
+.PrivacyPolicy-left {
+  position: fixed;
+  left: 5%;
+  top: 50%;
+}
+
+.PrivacyPolicy-center {
   font-size: calc(1px + 2vmin);
+}
+
+.PDF {
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.PrivacyPolicy-right {
+  position: fixed;
+  right: 5%;
+  top: 50%;
 }
 
 .Choice-button {
