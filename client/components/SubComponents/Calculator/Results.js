@@ -10,13 +10,12 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
   const [ error, setError ] = useState(false)
   const [ sliderValue, setSliderValue ] = useState(0)
 
-  // Fetch results from backend based on answers. Triggered when answers changes. 
+  // Fetch results from backend based on answers. Triggered when answers changes.
+  // Sets results based on response 
   useEffect(() => {
     const fetchResults = async () => {
       setLoading(true)
       setError(false)
-      console.log('answers', answers)
-      console.log('results', results)
       try {
         let response
         if (isCompany) {
@@ -24,7 +23,6 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
         } else {
           response = await questionService.sendAnswersPeople(answers)
         }
-        console.log('response', response)
         setResults(response)
         setLoading(false)      
       } catch (error) {
