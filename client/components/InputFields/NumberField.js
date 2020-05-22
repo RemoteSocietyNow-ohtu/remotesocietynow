@@ -6,10 +6,10 @@ const NumberField = ({ handleValueChange, value, minValue, maxValue}) => {
 
   const validate = (event) => {
     let v = event.target.value
-    console.log('value', v) 
     if (v.length > 0 && !v.match(/^\d+$/)) {       
       setError('Only digits allowed.')   
     } else {
+      setError('')
       handleValueChange(event) 
     }
   }
