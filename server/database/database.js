@@ -1,17 +1,11 @@
-//import companySchema from '../models/'
-//import employeeSchema from '../models/'
-const mongoose = require('mongoose')
-const employeeModel = require('../models/employeeSchema')
-const companyModel = require('../models/companySchema')
-
-const employeeSchema  = employeeModel.employeeSchema
-
 const storeEmployeeData = (typicalVehicle, noOfDaysOfUsage, secondVehicle, noOfDaysOfUsageSecond, dailyCommuteKm,
   dailyCommuteMinutes, numberOfRemoteworkDays, annualCommuteExpenses, opinionRemote, numberOfBusinessTrips, 
   numberOfHoursOnplane) => {
   
   const mongoose = require('mongoose')
-  const Employee = mongoose.model('Employee', employeeSchema)
+  const Employee = require('../models/employeeSchema')
+  const url = process.env.MONGODB_URI
+
   const storedEmployee = new Employee({
     typicalVehicle: typicalVehicle,
     noOfDaysOfUsage: noOfDaysOfUsage,
@@ -26,13 +20,17 @@ const storeEmployeeData = (typicalVehicle, noOfDaysOfUsage, secondVehicle, noOfD
     numberOfHoursOnplane: numberOfHoursOnplane
   })
 
-  const url = `mongodb+srv://remotesocietynow:9aYSpWbLULYHV6vb@cluster0-ffd2w.mongodb.net/remotesocietynowDB?retryWrites=true&w=majority`
+  mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => { 
+      console.log('connected to MongoDB')
+    })
+    .catch((error) => {
+      console.log('error connecting to MongoDB:', error.message)
+    })
 
-  mongoose.connect(url, { useNewUrlParser: true })
-
-  storedEmployee.save().then(response => {
-    console.log('employee data saved!');
-    mongoose.connection.close();
+  storedEmployee.save().then(() => { 
+    console.log('employee data saved!')
+    mongoose.connection.close()
   })
 
 }
@@ -40,7 +38,9 @@ const storeEmployeeData = (typicalVehicle, noOfDaysOfUsage, secondVehicle, noOfD
 const storeCompanyData = (numberOfEmployees, officeRentExpenses, otherUpkeepExpenses, averageBusinessTripCost) => {
   
   const mongoose = require('mongoose')
-  const Company = mongoose.model('Company', companySchema)
+  const Company = require('../models/companySchema')
+  const url = process.env.MONGODB_URI
+
   const storedCompany = new Company({
     numberOfEmployees: numberOfEmployees,
     officeRentExpenses: officeRentExpenses,
@@ -48,18 +48,23 @@ const storeCompanyData = (numberOfEmployees, officeRentExpenses, otherUpkeepExpe
     averageBusinessTripCost: averageBusinessTripCost,
   })
 
-  const url = `mongodb+srv://remotesocietynow:9aYSpWbLULYHV6vb@cluster0-ffd2w.mongodb.net/remotesocietynowDB?retryWrites=true&w=majority`
-  mongoose.connect(url, { useNewUrlParser: true })
+  mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => { 
+      console.log('connected to MongoDB')
+    })
+    .catch((error) => {
+      console.log('error connecting to MongoDB:', error.message)
+    })
 
-  storedCompany.save().then(response => {
-    console.log('company saved!');
-    mongoose.connection.close();
+  storedCompany.save().then(() => { 
+    console.log('company saved!')
+    mongoose.connection.close()
   })
 }
 
 module.exports = {
   storeEmployeeData: storeEmployeeData,
-  storeCompanydata: storeCompanyData
+  storeCompanyData: storeCompanyData
 }
 
 

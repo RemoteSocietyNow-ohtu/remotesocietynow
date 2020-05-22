@@ -2,6 +2,7 @@ const calculationRouter = require('express').Router()
 const remoteWorkCalculator = require('../services/calculations/remoteWorkCalculator')
 const database = require('../database/database')
 const storeEmployeeData = database.storeEmployeeData
+const storeCompanyData = database.storeCompanyData
 
 /** Handles POST requests to (baseUrl)/api/calculations/person from frontend
  * responds with total annual co2 emissions, and the potential saves from moving to more remote work
@@ -24,6 +25,7 @@ calculationRouter.post('/person', (req,res) => {
   const result = remoteWorkCalculator.calculateBenefitsForPerson(distance,daysFirst,daysSecond,firstVehicle,secondVehicle,remoteDays)
   res.json(result)
 
+  /* Calls storeEmployeeData in /server/database/database.js to save all employee input to database. */
   storeEmployeeData(firstVehicle, daysFirst, secondVehicle, daysSecond, distance,
     dailyCommuteMinutes, remoteDays, annualCommuteExpenses, opinionRemote, numberOfBusinessTrips, 
     numberOfHoursOnPlane)
@@ -44,6 +46,10 @@ calculationRouter.post('/company', (req,res) => {
     using parameters gathered above*/
   const result = remoteWorkCalculator.calculateBenefitsForCompany(rent, officeUpkeep, employees, businessTravelCost, remoteShare)
   res.json(result)
+
+  /* Calls storeCompanyData in /server/database/database.js to save all company input to database. */
+  storeCompanyData(employees, rent, officeUpkeep, businessTravelCost)
+
 })
 
 module.exports = calculationRouter
