@@ -4,7 +4,7 @@ import arrowRight from '../../../resources/arrow-right.png'
 import arrowLeft from '../../../resources/arrow-left.png'
 import SendAnswersButton from './SendAnswersButton'
 
-const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, setAnwers, setResults, isCompany }) => {
+const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, setAnwers }) => {
   const [fade, setFade] = useState('question-no-fade')
   
   const previousQuestion = () => {
