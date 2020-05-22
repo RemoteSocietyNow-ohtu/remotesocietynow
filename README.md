@@ -19,9 +19,7 @@ You and your company actually earn real money and save time, plus productivity i
 
 [Coding conventions](./docs/conventions.md)
 
-## Development workflow and scripts ##
-
-**Getting started**
+## Getting started ##
 
 ***1. Clone the repository***
 
@@ -55,6 +53,8 @@ PORT=3001
 
 Backend and frontend are automatically built after making changes to the code in development mode. 
 
+## Linting and testing ##
+
 **Eslint**
 
 Check for eslint-errors
@@ -71,7 +71,7 @@ You can run tests with command
 
 `npm run test`
 
-# Push to Github
+## Push to Github
 
 Make changes to local copy then push to master
 ```bash
