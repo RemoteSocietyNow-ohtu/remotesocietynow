@@ -12,7 +12,7 @@ const initAnswerValues = questions => {
     return {
       ...newObject,
       [question.identifyingString]: question.defaultValue ? question.defaultValue : ' ',
-      [question.identifyingString + 'Open']: ''
+      [question.identifyingString + 'OpenField']: ''
     }
   }, {})
 }
@@ -41,14 +41,14 @@ const Companies = () => {
       </div>
     )
   }
-  
+
   return (
     <div>
       <div className='Container'>
         <div className='Spacer-vertical'></div>
         <p className='Box'>{language.headers.companies}</p>
         <div className='Content-companies-left'>
-          {currentQuestion < questions.length ?
+          {currentQuestion < questions.length ? // If currentQuestion-index is greater than number of questions -> show results instead
             <Questions
               questions={questions}
               answers={answers}
@@ -73,7 +73,6 @@ const Companies = () => {
         </div>
       </div>
     </div>
-
   )
 }
 

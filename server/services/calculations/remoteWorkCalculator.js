@@ -59,7 +59,7 @@ const calculateBenefitsForCompany = (rent, officeUpkeep, employees, businessTrav
       unit: '€'
     },
     {
-      title: 'Annual money saved',
+      title: 'Potential annual money saved',
       value: moneySaved,
       unit: '€'
     }
