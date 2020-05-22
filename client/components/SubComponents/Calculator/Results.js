@@ -13,6 +13,12 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
   // Sets results based on response 
   useEffect(() => {
     const fetchResults = async () => {
+      if(answers.remoteShare) {
+        setSliderValue(answers.remoteShare)
+      }
+      if(answers.numberOfRemoteworkDays) {
+        setSliderValue(answers.numberOfRemoteworkDays)
+      }
       setLoading(true)
       setError(false)
       try {
