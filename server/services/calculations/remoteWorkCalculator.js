@@ -10,6 +10,8 @@ const roundEmissionsToKg = (emissions) =>{
   return Math.round((emissions/1000+ Number.EPSILON) * 100) / 100
 }
 
+//Calculate co2 savings for persone based on calculations at https://docs.google.com/spreadsheets/d/1Webbfedw-tmu-4WKUP6FB50YgrQR_gDCCqT1QPpErhA/edit#gid=0
+//(not automatically updated from the spreadsheet)
 const calculateBenefitsForPerson = (distance,daysFirst,daysSecond,firstVehicle,secondVehicle,remoteDays) =>{
 
   const emissionsOfTheFirstVehicle = calculateEmissionsForVehicle(firstVehicle,daysFirst)
@@ -44,6 +46,8 @@ const calculateBenefitsForPerson = (distance,daysFirst,daysSecond,firstVehicle,s
   return(result)
 }
 
+//Calculate money savings for company based on calculations at https://docs.google.com/spreadsheets/d/1Webbfedw-tmu-4WKUP6FB50YgrQR_gDCCqT1QPpErhA/edit#gid=1035231886
+//(not automatically updated from the spreadsheet)
 const calculateBenefitsForCompany = (rent, officeUpkeep, employees, businessTravelCost, remoteShare ) => {
   const totalExpenses = (rent + officeUpkeep) * 12
   const moneySaved = remoteShare*totalExpenses/100
