@@ -17,7 +17,7 @@ const questionsPeople = [
   },
   {
     identifyingString:'typicalVehicle',
-    name: 'Which trasportation do you use most often for commuting?',
+    name: 'Which transportation do you use most often for commuting?',
     type: 'multipleChoice',
     options: [
       {string: 'Walking/Bike', value: 'walking'},
