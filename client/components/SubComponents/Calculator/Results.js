@@ -2,7 +2,6 @@ import React, { useState, useContext, useEffect } from 'react'
 import LanguageContext from '../../../Contexts/LanguageContext'
 import questionService from '../../../services/questionService'
 import SliderField from '../../InputFields/SliderField'
-import LoadingScreen from '../../Views/LoadingScreen'
 
 const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
   const language = useContext(LanguageContext)
@@ -35,7 +34,7 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
   },[answers])
   
   // Check if still fetching results or there was an error fetching results
-  if(loading === true) return <LoadingScreen />
+  if(loading === true) return <div></div>
   if(error === true) return <p>{language.errors.errorSendingAnswers}</p>
 
   // Change answers.remoteShare based on slider. 

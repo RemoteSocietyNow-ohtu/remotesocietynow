@@ -50,7 +50,6 @@ const App = () => {
   }
 
   if (body === 'companies') {
-    console.log('companies')
     return (
       <div className="App">
         <Navbar setBody={setBody} />
