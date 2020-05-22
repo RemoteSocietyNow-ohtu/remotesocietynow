@@ -51,7 +51,6 @@ Example contents of `.env`:
 
 ```
 PORT=3001
-
 ```
 
 Backend and frontend are automatically built after making changes to the code in development mode. 
