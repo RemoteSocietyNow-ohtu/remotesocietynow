@@ -1,3 +1,5 @@
+const mongoose = require('mongoose')
+
 const companySchema = new mongoose.Schema({
   numberOfEmployees: Number,
   officeRentExpenses: Number,
@@ -5,4 +7,4 @@ const companySchema = new mongoose.Schema({
   averageBusinessTripCost: Number,
 })
 
-module.exports = mongoose.model("Company", companySchema)
+module.exports = mongoose.model('Company', companySchema)

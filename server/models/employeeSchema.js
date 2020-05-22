@@ -1,3 +1,5 @@
+const mongoose = require('mongoose')
+
 const employeeSchema = new mongoose.Schema({
   typicalVehicle: String,
   noOfDaysOfUsage: Number,
@@ -12,6 +14,6 @@ const employeeSchema = new mongoose.Schema({
   numberOfHoursOnplane: Number
 })
 
-module.exports = mongoose.model("Employee", employeeSchema)
+module.exports = mongoose.model('Employee', employeeSchema)
 
 
