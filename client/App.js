@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import './App.css'
 import Navbar from './components/Navigation/Navbar'
 import Main from './components/Views/Main'
-import People from './components/Views/People'
-import Companies from './components/Views/Companies'
 import AboutUs from './components/Views/AboutUs'
 import GDPRCompliancy from './components/Views/GDPRCompliancy'
 import PrivacyPolicyBar from './components/SubComponents/PrivacyPolicyBar'
 import PrivacyPolicy from './components/Views/PrivacyPolicy'
+import People from 'Components/Views/People'
+import Companies from 'Components/Views/Companies'
 
 const App = () => {
 
@@ -50,6 +50,7 @@ const App = () => {
   }
 
   if (body === 'companies') {
+    console.log('companies')
     return (
       <div className="App">
         <Navbar setBody={setBody} />
