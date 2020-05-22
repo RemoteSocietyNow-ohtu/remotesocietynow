@@ -1,7 +1,7 @@
 const calculationRouter = require('express').Router()
 const remoteWorkCalculator = require('../services/calculations/remoteWorkCalculator')
 
-
+//Handles POST requests to (baseUrl)/api/calculations/person from frontend, responds with co2 reduction calculations for person
 calculationRouter.post('/person', (req,res) => {
   const distance = +req.body.dailyCommuteKm
   const daysFirst = +req.body.noOfDaysOfUsage
@@ -14,6 +14,7 @@ calculationRouter.post('/person', (req,res) => {
   res.json(result)
 })
 
+//Handles POST requests to (baseUrl)/api/calculations/company from frontend, responds with money saving calculations for company
 calculationRouter.post('/company', (req,res) => {
   const rent = +req.body.officeRentExpenses
   const officeUpkeep = +req.body.otherUpkeepExpenses
