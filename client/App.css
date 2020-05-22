@@ -470,3 +470,18 @@ html {
   50.1% { transform: translateX(-120px);}
   100% { opacity: 1; }
 }
+
+.Error, .Success {
+  margin: 10px 0px;
+  padding:12px;
+}
+
+.Error {
+  background-color: #FFD2D2;
+  color: #D8000C;
+}
+
+.Success {
+  color: #4F8A10;
+  background-color: #DFF2BF;
+}
