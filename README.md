@@ -21,27 +21,27 @@ You and your company actually earn real money and save time, plus productivity i
 
 ## Development workflow and scripts ##
 
-**Clone the repository**
+**Getting started**
+
+***1. Clone the repository***
 
 ```bash
 git clone <repository>
 ```
 
-**Developing backend**
-
-Before running the app you need to install dependencies
+***2. Install dependencies***
 
 ```bash
 npm install
 ```
 
-Run in development mode (nodemon)
+***3. Start the project in development mode***
 
 ```bash
 npm run dev
 ```
 
-Port 3001 will be used by default if not defined in `.env`
+Port 3001 will be used by default if not defined in `.env`. Project will be open at address:
 
 http://localhost:3001/
 
@@ -50,38 +50,11 @@ If needed create `.env` file in the root directory. Define the necessary environ
 Example contents of `.env`:
 
 ```
-
 PORT=3001
 
 ```
 
-To make a new build of frontend
-
-```bash
-npm run build:front
-```
-
-**Developing frontend**
-
-Go to /frontend
-
-Create `.env` file in the /frontend directory with following line
-```REACT_APP_BACKEND_URL=http://localhost:3001```
-
-Before running the app you need to install dependencies
-
-```bash
-npm install
-```
-
-Run in development mode
-
-```bash
-npm start
-```
-Frontend will be running at http://localhost:3000/
-
-Make sure the backend is running as well at the port defined in `.env`.
+Backend and frontend are automatically built after making changes to the code in development mode. 
 
 **Eslint**
 
@@ -92,6 +65,12 @@ Check for eslint-errors
 Automatically fix most common eslint errors
 
 `npm run fix:lint`
+
+**Jest**
+
+You can run tests with command
+
+`npm run test`
 
 # Push to Github
 
