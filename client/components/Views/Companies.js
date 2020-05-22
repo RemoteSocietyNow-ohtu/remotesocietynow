@@ -41,14 +41,14 @@ const Companies = () => {
       </div>
     )
   }
-  console.log('results', results)
+  
   return (
     <div>
       <div className='Container'>
         <div className='Spacer-vertical'></div>
         <p className='Box'>{language.headers.companies}</p>
         <div className='Content-companies-left'>
-          {Object.keys(results).length === 0 ?
+          {currentQuestion < questions.length ?
             <Questions
               questions={questions}
               answers={answers}

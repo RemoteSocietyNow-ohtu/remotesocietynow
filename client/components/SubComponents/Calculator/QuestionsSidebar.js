@@ -5,13 +5,14 @@ const QuestionsSidebar = ({ questions, answers, currentQuestion, setCurrentQuest
 
   return (
     <div>
-      {questions.map(question => <QuestionSidebarItem 
-        key={question.identifyingString} 
-        question={question}
-        questions={questions} 
-        answers={answers} 
-        currentQuestion={currentQuestion}
-        setCurrentQuestion={setCurrentQuestion} />)}
+      {questions.map(question => 
+        <QuestionSidebarItem 
+          key={question.identifyingString} 
+          question={question}
+          questions={questions} 
+          answers={answers} 
+          currentQuestion={currentQuestion}
+          setCurrentQuestion={setCurrentQuestion} />)}
     </div>
   )
 }

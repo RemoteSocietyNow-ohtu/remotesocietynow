@@ -4,7 +4,9 @@ import Field from '../../InputFields/Field'
 
 const Question = ({ question, answers, setAnwers }) => {
   const language = useContext(LanguageContext)
-
+  if(!question) {
+    return null
+  }
   return (
     <div className='Question'>
       <p>{question.name}</p>
