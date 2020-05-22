@@ -292,6 +292,10 @@ html {
   margin-top: 5%;
 }
 
+.QuestionSidebar-item {
+  cursor: pointer;
+}
+
 .Line-separator-full {
   height: 2px;
   background-color: #181A1B;
