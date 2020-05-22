@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from 'react'
 import LanguageContext from '../../../Contexts/LanguageContext'
 import questionService from '../../../services/questionService'
 import SliderField from '../../InputFields/SliderField'
+import CountUp from 'react-countup'
 
 const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
   const language = useContext(LanguageContext)
@@ -61,8 +62,8 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
         {
           results.map(result => 
             <div key={result.title}>
-              <p >{result.title}</p>
-              <p>{result.value} {result.unit}</p>
+              <p >{result.title}</p>                       
+              <p><CountUp duration={.8} end={result.value} /> {result.unit}</p>
             </div>
           )
         }

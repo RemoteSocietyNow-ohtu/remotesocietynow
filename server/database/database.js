@@ -1,8 +1,12 @@
-import companySchema from '../models/'
-import employeeSchema from '../models/'
+//import companySchema from '../models/'
+//import employeeSchema from '../models/'
+const mongoose = require('mongoose')
+const employeeModel = require('../models/employeeSchema')
+const companyModel = require('../models/companySchema')
 
+const employeeSchema  = employeeModel.employeeSchema
 
-export const StoreEmployeeData = (typicalVehicle, noOfDaysOfUsage, secondVehicle, noOfDaysOfUsageSecond, dailyCommuteKm,
+const storeEmployeeData = (typicalVehicle, noOfDaysOfUsage, secondVehicle, noOfDaysOfUsageSecond, dailyCommuteKm,
   dailyCommuteMinutes, numberOfRemoteworkDays, annualCommuteExpenses, opinionRemote, numberOfBusinessTrips, 
   numberOfHoursOnplane) => {
   
@@ -33,7 +37,7 @@ export const StoreEmployeeData = (typicalVehicle, noOfDaysOfUsage, secondVehicle
 
 }
 
-const StoreCompanyData = (numberOfEmployees, officeRentExpenses, otherUpkeepExpenses, averageBusinessTripCost) => {
+const storeCompanyData = (numberOfEmployees, officeRentExpenses, otherUpkeepExpenses, averageBusinessTripCost) => {
   
   const mongoose = require('mongoose')
   const Company = mongoose.model('Company', companySchema)
