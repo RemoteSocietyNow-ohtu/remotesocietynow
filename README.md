@@ -9,7 +9,7 @@ You and your company actually earn real money and save time, plus productivity i
 
 [Calculations and coefficients used in the aplication](https://github.com/RemoteSocietyNow-ohtu/remotesocietynow/tree/master/server/services/calculations)
 
-[Sreadsheet with parameters and calculations for the corporate and personal calculators](https://docs.google.com/spreadsheets/d/1Webbfedw-tmu-4WKUP6FB50YgrQR_gDCCqT1QPpErhA/edit#gid=0). These have been used as basis for calculations used in the application. Updating the spreadsheet won't update the application.
+[Spreadsheet with parameters and calculations for the corporate and personal calculators](https://docs.google.com/spreadsheets/d/1Webbfedw-tmu-4WKUP6FB50YgrQR_gDCCqT1QPpErhA/edit#gid=0). These have been used as basis for calculations used in the application. Updating the spreadsheet won't update the application.
 
 ## Technologies and platforms ##
 ⋅⋅⋅NodeJS Backend  
@@ -23,6 +23,7 @@ You and your company actually earn real money and save time, plus productivity i
 [Coding conventions](./docs/conventions.md)
 
 ## Getting started ##
+Not familiar with Git? [This is a good place to start.](https://tkt-lapio.github.io/git-en/)
 
 ***1. Clone the repository***
 
@@ -82,5 +83,3 @@ git add .
 git commit -m "your message"
 git push
 ```
-
-
