@@ -62,9 +62,36 @@ const storeCompanyData = (numberOfEmployees, officeRentExpenses, otherUpkeepExpe
   })
 }
 
+const storeQuestionFeedback = (identifyingString, name, feedback) => {
+  
+  const mongoose = require('mongoose')
+  const Company = require('../models/feedbackSchema')
+  const url = process.env.MONGODB_URI
+
+  const storedFeedback = new Feedback({
+    identifyingString: identifyingString,
+    name: name,
+    feedback: feedback
+  })
+
+  mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => { 
+      console.log('connected to MongoDB')
+    })
+    .catch((error) => {
+      console.log('error connecting to MongoDB:', error.message)
+    })
+
+  storedCompany.save().then(() => { 
+    console.log('feedback saved!')
+    mongoose.connection.close()
+  })
+}
+
 module.exports = {
   storeEmployeeData: storeEmployeeData,
-  storeCompanyData: storeCompanyData
+  storeCompanyData: storeCompanyData,
+  storeQuestionFeedback: storeQuestionFeedback
 }
 
 
