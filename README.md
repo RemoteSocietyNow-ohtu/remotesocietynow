@@ -2,11 +2,14 @@
 
 [![Build Status](https://travis-ci.org/RemoteSocietyNow-ohtu/remotesocietynow.svg?branch=master)](https://travis-ci.org/RemoteSocietyNow-ohtu/remotesocietynow)
 
-
 ## Introduction ##
 
 Remote-work and remote-life can become new key efforts in limiting CO2 emissions.
 You and your company actually earn real money and save time, plus productivity increases.
+
+[Calculations and coefficients used in the aplication](https://github.com/RemoteSocietyNow-ohtu/remotesocietynow/tree/master/server/services/calculations)
+
+[Sreadsheet with parameters and calculations for the corporate and personal calculators](https://docs.google.com/spreadsheets/d/1Webbfedw-tmu-4WKUP6FB50YgrQR_gDCCqT1QPpErhA/edit#gid=0). These have been used as basis for calculations used in the application. Updating the spreadsheet won't update the application.
 
 ## Technologies and platforms ##
 ⋅⋅⋅NodeJS Backend  
