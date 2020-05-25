@@ -65,7 +65,7 @@ const storeCompanyData = (numberOfEmployees, officeRentExpenses, otherUpkeepExpe
 const storeQuestionFeedback = (identifyingString, name, feedback) => {
   
   const mongoose = require('mongoose')
-  const Company = require('../models/feedbackSchema')
+  const Feedback = require('../models/feedbackSchema')
   const url = process.env.MONGODB_URI
 
   const storedFeedback = new Feedback({
@@ -82,7 +82,7 @@ const storeQuestionFeedback = (identifyingString, name, feedback) => {
       console.log('error connecting to MongoDB:', error.message)
     })
 
-  storedCompany.save().then(() => { 
+  storedFeedback.save().then(() => { 
     console.log('feedback saved!')
     mongoose.connection.close()
   })
