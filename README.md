@@ -11,6 +11,8 @@ You and your company actually earn real money and save time, plus productivity i
 
 [Spreadsheet with parameters and calculations for the corporate and personal calculators](https://docs.google.com/spreadsheets/d/1Webbfedw-tmu-4WKUP6FB50YgrQR_gDCCqT1QPpErhA/edit#gid=0). These have been used as basis for calculations used in the application. Updating the spreadsheet won't update the application.
 
+[Questions for companies and individuals](https://github.com/RemoteSocietyNow-ohtu/remotesocietynow/tree/master/server/services/questions)
+
 ## Technologies and platforms ##
 ⋅⋅⋅NodeJS Backend  
 ⋅⋅⋅React front end  
