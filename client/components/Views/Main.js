@@ -8,14 +8,14 @@ const Main = () => {
 
   return (
     <div className='Container'>
-      <video className='Background-video-main' autoPlay muted loop>
-        <source src={background} type='video/mp4' />
-      </video>
-      <div className='Content-main-left'></div>
-      <div className='Content-main-right'>
+      <div className='Content-main-left'>
         <p className='Heading'>{language.headers.mainHeader}</p>
         <p className='Content-main'>{language.content.main}</p>
       </div>
+      <div className='Content-main-right'></div>
+      <video className='Background-video-main' autoPlay muted loop>
+        <source src={background} type='video/mp4' />
+      </video> 
     </div>
 
   )
