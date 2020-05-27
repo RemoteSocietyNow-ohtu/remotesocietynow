@@ -2,7 +2,7 @@ language: node_js
 node_js:
 - 11
 before_install:
-
+  - npm install supertest
 script:
 - npm run test
 - npm run fix:lint
