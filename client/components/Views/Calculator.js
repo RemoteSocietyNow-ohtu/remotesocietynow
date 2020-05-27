@@ -1,5 +1,4 @@
-import React, { useContext, useEffect } from 'react'
-import LanguageContext from '../../Contexts/LanguageContext'
+import React, { useEffect } from 'react'
 import questionService from '../../services/questionService'
 import Questions from '../SubComponents/Calculator/Questions'
 import QuestionsSidebar from '../SubComponents/Calculator/QuestionsSidebar'
@@ -18,7 +17,6 @@ const initAnswerValues = questions => {
 }
 
 const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setResults, currentQuestion, setCurrentQuestion, isCompany }) => {
-  const language = useContext(LanguageContext)  
 
   //Fetch questions and init question and aswer states
   useEffect(() => {
@@ -52,9 +50,7 @@ const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setR
   return (
     <div>
       <div className='Container'>
-        <div className='Spacer-vertical'></div>
-        <p className='Box'>{isCompany ? language.headers.companies : language.headers.people}</p>
-        <div className='Content-companies-left'>
+        <div className='Content-calculator-left'>
           {currentQuestion < questions.length ? // If currentQuestion-index is greater than number of questions -> show results instead
             <Questions
               questions={questions}
@@ -74,7 +70,7 @@ const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setR
             />
           }
         </div>
-        <div className='Content-companies-right'>
+        <div className='Content-calculator-right'>
           <QuestionsSidebar questions={questions} answers={answers} currentQuestion={currentQuestion}
             setCurrentQuestion={setCurrentQuestion} />
         </div>

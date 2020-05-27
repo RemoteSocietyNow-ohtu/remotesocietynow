@@ -1,7 +1,7 @@
 export const english = {
   name: 'English',
   headers: {
-    mainHeader: 'Remote Society -Now!',
+    mainHeader: 'The most enjoyable way to save the planet.',
     companies: 'Calculator',
     people: 'Calculator',
     calculator: 'calculator',
@@ -25,7 +25,9 @@ export const english = {
     privacyPolicyBar: 'To use our website you need to accept our privacy policy.',
   },
   buttons: {
-    calculate: 'Calculate'
+    calculate: 'Calculate',
+    main: 'Calculate how',
+    data: 'Your Data'
   },
   navigation: {
     gdprCompliancy: 'GDPR',

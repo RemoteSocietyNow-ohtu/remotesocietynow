@@ -19,7 +19,7 @@ const App = () => {
       <div className="App">
         <Navbar setBody={setBody}/>
         <div className='Body'>
-          <Main />
+          <Main setBody={setBody}/>
           {!acceptPrivacyPolicy && <PrivacyPolicyBar setBody={setBody} />}
         </div>
       </div>
