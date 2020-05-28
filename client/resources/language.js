@@ -58,47 +58,47 @@ export const english = {
   ],
   mathInfo: 'We factor in the following variables: more text to be added',
 
-privacyPolicy: {
-  infoTexts: {
-    privacyPolicyHeadingMain: 'Privacy Policy',
-    applicationHeading:'1. Application',
-    application: 'We take the privacy of your personal data seriously. \
+  privacyPolicy: {
+    infoTexts: {
+      privacyPolicyHeadingMain: 'Privacy Policy',
+      applicationHeading:'1. Application',
+      application: 'We take the privacy of your personal data seriously. \
     Because of that, we have created this Privacy Policy. \
     Please read this Privacy Policy. \
     It includes important information regarding your Personal Data and other information. \
     If you choose to use our website, including filling in RemoteSocietyNow’s surveys,then you agree to the collection and use of information as specified in this policy. \
     The Personal Information that we collect is used for providing and improving our services. \
     We will not use or share your information with anyone except as described in this Privacy Policy.',
-    personalDataHeading: '2. Personal data',
-    dataCollectionHeadingSmall: '2.1 What personal data does RemoteSocietyNow collect from you?',
-    dataCollection: 'When User answers to a survey, we collect company name, and name and email address from users, and response choices. \
+      personalDataHeading: '2. Personal data',
+      dataCollectionHeadingSmall: '2.1 What personal data does RemoteSocietyNow collect from you?',
+      dataCollection: 'When User answers to a survey, we collect company name, and name and email address from users, and response choices. \
     We use this information to provide the User an analysis of the responses, and occasionally to contact Users with surveying insights, opportunities, information, offers and other material. \
     Users can unsubscribe any time from being contacted while still retaining their survey information. \
     We do not share this Personal Information with any third parties.The survey questions exclusively refer to company practices. \
     We do not collect individual information or opinions of the User.',
-    dataViewingHeadingSmall: '2.2 Who can view your personal data',
-    dataViewing: 'The survey answers are not accessible publicly without direct survey results link. \
+      dataViewingHeadingSmall: '2.2 Who can view your personal data',
+      dataViewing: 'The survey answers are not accessible publicly without direct survey results link. \
     Survey answers and the name of User are visible to the User, the Inviting User, and RemoteSocietyNow. \
     With permission from User, they may be shared with other companies.  \
     RemoteSocietyNow uses User’s survey answers for improving the survey content and its analysis. \
     RemoteSocietyNow does not disclose survey answers with personal data to third parties. \
     RemoteSocietyNow may discose anonymized survey answers.',
-    dataStorageHeadingSmall: '2.3 How RemoteSocietyNow stores your data?',
-    dataStorage: 'We take what we believe to be reasonable steps to protect the Personal Data collected via the Services from loss, misuse, unauthorized use, access, inadvertent disclosure, alteration and destruction. \
+      dataStorageHeadingSmall: '2.3 How RemoteSocietyNow stores your data?',
+      dataStorage: 'We take what we believe to be reasonable steps to protect the Personal Data collected via the Services from loss, misuse, unauthorized use, access, inadvertent disclosure, alteration and destruction. \
     However, please remember that no method of transmission over the internet, or method of electronic storage is 100% secure and reliable, and we cannot guarantee its absolute security.',
-    dataAccessHeadingSmall: '2.4 Accessing, updating, correcting or deleting your data',
-    dataAccess: 'In the case of RemoteSocietyNow surveys, the personal information collected (name and email address) are stored as long as the profile is active.  \
+      dataAccessHeadingSmall: '2.4 Accessing, updating, correcting or deleting your data',
+      dataAccess: 'In the case of RemoteSocietyNow surveys, the personal information collected (name and email address) are stored as long as the profile is active.  \
     Regarding survey responses, we store the personal information securely. \
     Respondents can request access to their personal data being stored by us. \
     Please contact us at EMAIL HERE if you want to access, update, correct or delete your personal data.',
-    cookiesHeading: '3. Cookies',
-    cookies: 'Cookies are files with small amount of data that are commonly used as an anonymous unique identifier. \
+      cookiesHeading: '3. Cookies',
+      cookies: 'Cookies are files with small amount of data that are commonly used as an anonymous unique identifier. \
     These are sent to your browser from the website that you visit and are stored on your computer’s hard drive. \
     Our website uses these “cookies” to collect information and to improve our website and services. \
     You have the option to either accept or refuse these cookies, and know when a cookie is being sent to your computer. \
     If you choose to refuse our cookies, you may not be able to use some portions of our website.',
-    contactHeading: '4. Contact us',
-    contact: 'If you have any questions about this Privacy Policy, please contact us under EMAIL HERE'
+      contactHeading: '4. Contact us',
+      contact: 'If you have any questions about this Privacy Policy, please contact us under EMAIL HERE'
+    }
   }
-}
 }
