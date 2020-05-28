@@ -1,0 +1,16 @@
+.bar-div {
+    background-color: #cae8d5;
+    border-radius: .5rem;
+}
+
+.greenbar {
+    background-color: green;
+    height: 10px;
+    border-radius: 1rem;
+}
+
+.redbar {
+    background-color: red;
+    height: 10px;
+    border-radius: 1rem;
+}
