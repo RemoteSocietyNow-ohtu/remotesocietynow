@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import background from '../../resources/background.mp4'
+import background from '../../resources/background.gif'
 import LanguageContext from '../../Contexts/LanguageContext'
 
 const Main = ({ setBody }) => {
@@ -13,9 +13,7 @@ const Main = ({ setBody }) => {
         <button className='Main-button' onClick={() => setBody('calculatorChoice')}>{language.buttons.main}</button>
       </div>
       <div className='Content-main-right'></div>
-      <video className='Background-video-main' autoPlay muted loop controls={false}>
-        <source src={background} type='video/mp4' />
-      </video> 
+      <img className='Background-video-main-gif' src={background} alt='backgroundImage' />
       <p className='Navigation-item' onClick={() => setBody('gdprCompliancy')}>{language.buttons.data}</p>
     </div>
   )

@@ -1,5 +1,5 @@
 html {
-  background-color: #1d3d51;
+  background-color: #204051;
 }
 
 @font-face {
@@ -34,6 +34,7 @@ html {
   margin: auto;
   margin-bottom: 2%;
   animation: fade 500ms ease-in;
+  z-index: 1;
 }
 
 .Container-choice {
@@ -53,12 +54,21 @@ html {
   width: 100%;
 }
 
-.Background-video-main {
+.Background-video-main-mp4 {
   width: 50%;
   height: 50%;
   position: fixed;
   right: 0;
   opacity: 100%;
+  z-index: -1;
+}
+
+.Background-video-main-gif {
+  right: 5%;
+  top: 20%;
+  position: fixed;
+  width: 40%;
+  z-index: -1;
 }
 
 @keyframes fade {

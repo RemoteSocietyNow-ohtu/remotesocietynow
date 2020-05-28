@@ -20,6 +20,7 @@ const NumberField = ({ handleValueChange, value, minValue, maxValue, nextQuestio
       <input
         className='NumberField'
         type="text"
+        inputMode='numeric'
         onChange={(event) => validate(event)}
         id="valueField"
         value={value}
