@@ -12,6 +12,11 @@ const sendAnswersPeople = ( values ) => {
   return request.then((res) => res.data)
 }
 
+const sendAnswersPeopleCalculationOnly = ( values ) => {
+  const request = axios.post(`${baseurl}/api/calculate/person/nosave/`, values)
+  return request.then((res) => res.data)
+}
+
 const getQuestionsCompany = () => {
   const request = axios.get(`${baseurl}/api/questions/companies/`)
   return request.then((res) => res.data)
@@ -22,8 +27,15 @@ const sendAnswersCompany = ( values ) => {
   return request.then((res) => res.data)
 }
 
+const sendAnswersCompanyCalculationOnly = ( values ) => {
+  const request = axios.post(`${baseurl}/api/calculate/company/nosave/`, values)
+  return request.then((res) => res.data)
+}
+
 export default { 
   getQuestionsPeople, 
   sendAnswersPeople, 
   getQuestionsCompany, 
-  sendAnswersCompany }
+  sendAnswersCompany,
+  sendAnswersPeopleCalculationOnly,
+  sendAnswersCompanyCalculationOnly }

@@ -1,14 +1,43 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import LanguageContext from '../../../Contexts/LanguageContext'
+import questionService from '../../../services/questionService'
+import LoadingScreen from '../../Views/LoadingScreen'
 
-const SendAnswersButton = ({ currentQuestion, setCurrentQuestion }) => {
+const SendAnswersButton = ({ setResults, currentQuestion, setCurrentQuestion, isCompany, answers }) => {
   const language = useContext(LanguageContext)
+  const [ loading, setLoading ] = useState(false)
+  const [ error, setError ] = useState(false)
+
+  const handleClick = async () => {
+    setLoading(true)
+    setError(false)
+    try {
+      let response
+      if (isCompany) {
+        response = await questionService.sendAnswersCompany(answers)
+      } else {
+        response = await questionService.sendAnswersPeople(answers)
+      }
+      setResults(response)
+      setLoading(false)     
+      setCurrentQuestion(currentQuestion + 1) 
+    } catch (error) {
+      setError(true)
+      console.log(error)
+      setLoading(false)
+    }    
+  }
+
+  // Check if still fetching results or there was an error fetching results
+  if(loading === true) return <LoadingScreen />
+  if(error === true) return <p>{language.errors.errorSendingAnswers}</p>
 
   return (
     <div>
       <button 
         className='Laske-button' 
-        onClick={() => setCurrentQuestion(currentQuestion + 1)}>{language.buttons.calculate}
+        onClick={handleClick}>
+        {language.buttons.calculate}
       </button>
     </div>
   )

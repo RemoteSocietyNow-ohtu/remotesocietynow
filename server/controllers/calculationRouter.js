@@ -31,25 +31,33 @@ calculationRouter.post('/person', (req,res) => {
     numberOfHoursOnPlane)
 })
 
+const extractCompanyData = (req) => {
+  return {
+    rent: req.body.officeRentExpenses,
+    officeUpkeep: req.body.otherUpkeepExpenses,
+    employees: req.body.numberOfEmployees,
+    businessTravelCost: req.body.averageBusinessTripCost,
+    remoteShare: req.body.remoteShare ? req.body.remoteShare : 0
+  }
+}
+
 /**
  * Handles POST requests to (baseUrl)/api/calculations/company from frontend
  * responds with total annual costs and potential money saved by moving to more remote work
+ * Saves data to database if path does not have additional parameters
  */
-calculationRouter.post('/company', (req,res) => {
-  const rent = +req.body.officeRentExpenses
-  const officeUpkeep = +req.body.otherUpkeepExpenses
-  const employees = +req.body.numberOfEmployees
-  const businessTravelCost = +req.body.averageBusinessTripCost
-  const remoteShare = req.body.remoteShare ? req.body.remoteShare : 0
-  
+calculationRouter.post('/company/:save?', (req,res) => {  
+  const { rent, officeUpkeep, employees, businessTravelCost, remoteShare} = extractCompanyData(req)
   /* Calls the calculateBenefitsForCompany in /services/calculations/remoteWorkCalculator for emissions calculation 
     using parameters gathered above*/
   const result = remoteWorkCalculator.calculateBenefitsForCompany(rent, officeUpkeep, employees, businessTravelCost, remoteShare)
   res.json(result)
-
   /* Calls storeCompanyData in /server/database/database.js to save all company input to database. */
-  storeCompanyData(employees, rent, officeUpkeep, businessTravelCost)
-
+  if (!req.params.save) {
+    console.log('save to database')
+    storeCompanyData(employees, rent, officeUpkeep, businessTravelCost)  }  
 })
+
+
 
 module.exports = calculationRouter
