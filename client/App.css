@@ -35,6 +35,11 @@ html {
   margin-bottom: 2%;
 }
 
+.Container-choice {
+  width: 50%;
+  margin: auto;
+}
+
 .Heading {
   color: gainsboro;
   font-family: 'PT Root Heading';
@@ -79,6 +84,18 @@ html {
   width: 75%;
   position: fixed;
   right: 0;
+}
+
+.Content-choice-left {
+
+  width: 45%;
+  float: left;
+}
+
+.Content-choice-right {
+
+  width: 45%;
+  float: right;
 }
 
 .Navigation-item {
@@ -289,6 +306,8 @@ html {
   color: white;
   font-size: calc(1px + 2vmin);
 }
+
+
 
 .Main-button {
   width: 100%;

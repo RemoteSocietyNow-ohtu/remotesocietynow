@@ -8,6 +8,7 @@ import PrivacyPolicyBar from './components/SubComponents/PrivacyPolicyBar'
 import PrivacyPolicy from './components/Views/PrivacyPolicy'
 import People from 'Components/Views/People'
 import Companies from 'Components/Views/Companies'
+import CalculatorChoice from 'Components/Views/CalculatorChoice'
 
 const App = () => {
 
@@ -32,6 +33,18 @@ const App = () => {
         <Navbar setBody={setBody} />
         <div className='Body'>
           <PrivacyPolicy setAcceptPrivacyPolicy={setAcceptPrivacyPolicy} setBody={setBody} />
+        </div>
+      </div>
+    )
+  }
+
+  if (body === 'calculatorChoice') {
+    return (
+      <div className='App'>
+        <Navbar setBody={setBody} />
+        <div className='Body'>
+          <CalculatorChoice setBody={setBody} />
+          {!acceptPrivacyPolicy && <PrivacyPolicyBar setBody={setBody} />}
         </div>
       </div>
     )

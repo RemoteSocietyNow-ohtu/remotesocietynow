@@ -10,7 +10,7 @@ const Main = ({ setBody }) => {
     <div className='Container'>
       <div className='Content-main-left'>
         <p className='Heading'>{language.headers.mainHeader}</p>
-        <button className='Main-button' onClick={() => setBody('people')}>{language.buttons.main}</button>
+        <button className='Main-button' onClick={() => setBody('calculatorChoice')}>{language.buttons.main}</button>
       </div>
       <div className='Content-main-right'></div>
       <video className='Background-video-main' autoPlay muted loop>
