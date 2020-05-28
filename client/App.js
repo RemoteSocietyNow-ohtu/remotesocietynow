@@ -21,7 +21,7 @@ const App = () => {
         <Navbar setBody={setBody}/>
         <div className='Body'>
           <Main setBody={setBody}/>
-          {!acceptPrivacyPolicy && <PrivacyPolicyBar setBody={setBody} />}
+          {!acceptPrivacyPolicy && <PrivacyPolicyBar setBody={setBody} setAcceptPrivacyPolicy={setAcceptPrivacyPolicy} />}
         </div>
       </div>
     )
@@ -44,7 +44,7 @@ const App = () => {
         <Navbar setBody={setBody} />
         <div className='Body'>
           <CalculatorChoice setBody={setBody} />
-          {!acceptPrivacyPolicy && <PrivacyPolicyBar setBody={setBody} />}
+          {!acceptPrivacyPolicy && <PrivacyPolicyBar setBody={setBody} setAcceptPrivacyPolicy={setAcceptPrivacyPolicy} />}
         </div>
       </div>
     )
@@ -56,7 +56,7 @@ const App = () => {
         <Navbar setBody={setBody} />
         <div className='Body'>
           <People />
-          {!acceptPrivacyPolicy && <PrivacyPolicyBar setBody={setBody} />}
+          {!acceptPrivacyPolicy && <PrivacyPolicyBar setBody={setBody} setAcceptPrivacyPolicy={setAcceptPrivacyPolicy} />}
         </div>
       </div>
     )
@@ -68,7 +68,7 @@ const App = () => {
         <Navbar setBody={setBody} />
         <div className='Body'>
           <Companies />
-          {!acceptPrivacyPolicy && <PrivacyPolicyBar setBody={setBody} />}
+          {!acceptPrivacyPolicy && <PrivacyPolicyBar setBody={setBody} setAcceptPrivacyPolicy={setAcceptPrivacyPolicy} />}
         </div>
       </div>
     )
@@ -80,7 +80,7 @@ const App = () => {
         <Navbar setBody={setBody} />
         <div className='Body'>
           <AboutUs />
-          {!acceptPrivacyPolicy && <PrivacyPolicyBar setBody={setBody} />}
+          {!acceptPrivacyPolicy && <PrivacyPolicyBar setBody={setBody} setAcceptPrivacyPolicy={setAcceptPrivacyPolicy} />}
         </div>
       </div>
     )
@@ -92,7 +92,7 @@ const App = () => {
         <Navbar setBody={setBody} />
         <div className='Body'>
           <GDPRCompliancy />
-          {!acceptPrivacyPolicy && <PrivacyPolicyBar setBody={setBody} />}
+          {!acceptPrivacyPolicy && <PrivacyPolicyBar setBody={setBody} setAcceptPrivacyPolicy={setAcceptPrivacyPolicy} />}
         </div>
       </div>
     )

@@ -129,6 +129,14 @@ html {
   border-left: solid #84a9ac 2px;
 }
 
+.Privacy-policy-main {
+  text-align: left;
+}
+
+.Privacy-policy-paragraph {
+  font-size: calc(10px + 2vmin);
+}
+
 .Project-info {
   font-family: PT Root;
   font-size: calc(10px + 2vmin);
@@ -309,6 +317,19 @@ html {
   font-size: calc(1px + 2vmin);
 }
 
+.Inline {
+  vertical-align: middle;
+  display: inline-block;
+  white-space: nowrap;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.Privacy-policy-link {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 
 
 .Main-button {
@@ -356,6 +377,7 @@ html {
 }
 
 .Button-accept-privacy-policy {
+  background-color: #cae8d5;
   width: 150px;
   height: 70px;
   border: none;
@@ -364,7 +386,7 @@ html {
 }
 
 .Button-accept-privacy-policy:hover {
-  background-color: #2196F3;
+  background-color: #84a9ac;
   border: #181A1B 2px solid;
 }
 
@@ -504,7 +526,7 @@ html {
 }
 
 .Arrow-icon {
-  margin-top: 5%;
+  margin-top: 2%;
   height: 60px;
 }
 
