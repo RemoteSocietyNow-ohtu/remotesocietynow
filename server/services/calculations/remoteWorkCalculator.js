@@ -66,7 +66,7 @@ const calculateBenefitsForCompany = (rent, officeUpkeep, employees, businessTrav
       title: 'Annual money used without remote work',
       value: totalExpenses,
       unit: '€',
-      bartype: 'redbar',
+      bartype: 'hiddenbar',
       percent: 1
 
     },
