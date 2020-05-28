@@ -4,7 +4,7 @@ import arrowRight from '../../../resources/arrow-right.png'
 import arrowLeft from '../../../resources/arrow-left.png'
 import SendAnswersButton from './SendAnswersButton'
 
-const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, setAnwers }) => {
+const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, setAnwers, isCompany, setResults }) => {
   const [fade, setFade] = useState('question-no-fade')
   
   const previousQuestion = () => {
@@ -23,11 +23,12 @@ const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, se
 
   return (
     <div>      
-      <div className={fade} onAnimationEnd={() => setFade('question-no-fade')}>
+      <div className={fade} onAnimationEnd={() => setFade('question-no-fade') } >
         <Question
           question={questions[currentQuestion]} 
           answers={answers} 
           setAnwers={setAnwers} 
+          nextQuestion={nextQuestion}
         />
       </div>
       
@@ -40,7 +41,12 @@ const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, se
         currentQuestion < questions.length - 1  ?  
           <img className='Arrow-icon' src={arrowRight} alt='next question' onClick={nextQuestion} /> 
           :           
-          <SendAnswersButton currentQuestion={currentQuestion} setCurrentQuestion={setCurrentQuestion} />
+          <SendAnswersButton 
+            currentQuestion={currentQuestion} 
+            setCurrentQuestion={setCurrentQuestion} 
+            isCompany={isCompany}
+            answers={answers} 
+            setResults={setResults} />
       }       
     </div>
   )

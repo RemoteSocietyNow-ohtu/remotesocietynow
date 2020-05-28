@@ -56,7 +56,7 @@ const calculateBenefitsForCompany = (rent, officeUpkeep, employees, businessTrav
   
   const result = [
     {
-      title: 'Annual money used',
+      title: 'Annual money used without remote work',
       value: totalExpenses,
       unit: '€'
     },
@@ -64,7 +64,13 @@ const calculateBenefitsForCompany = (rent, officeUpkeep, employees, businessTrav
       title: 'Potential annual money saved',
       value: moneySaved,
       unit: '€'
-    }
+    },
+    {
+      title: 'Annual money used (with remote work)',
+      value: totalExpenses - moneySaved,
+      unit: '€'
+    },
+        
   ]
 
   return(result)

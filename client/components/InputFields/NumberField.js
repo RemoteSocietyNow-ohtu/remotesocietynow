@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 
-const NumberField = ({ handleValueChange, value, minValue, maxValue}) => {  
+const NumberField = ({ handleValueChange, value, minValue, maxValue, nextQuestion}) => {  
   const [error, setError] = useState('')
 
   const validate = (event) => {
@@ -25,6 +25,11 @@ const NumberField = ({ handleValueChange, value, minValue, maxValue}) => {
         value={value}
         min={minValue}
         max={maxValue}
+        onKeyPress={event => {
+          if (event.key === 'Enter') {
+            nextQuestion()
+          }
+        }}     
       />
     </div>
   )

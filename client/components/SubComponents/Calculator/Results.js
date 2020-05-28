@@ -3,6 +3,7 @@ import LanguageContext from '../../../Contexts/LanguageContext'
 import questionService from '../../../services/questionService'
 import SliderField from '../../InputFields/SliderField'
 import CountUp from 'react-countup'
+import LoadingScreen from '../../Views/LoadingScreen'
 
 const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
   const language = useContext(LanguageContext)
@@ -25,9 +26,9 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
       try {
         let response
         if (isCompany) {
-          response = await questionService.sendAnswersCompany(answers)
+          response = await questionService.sendAnswersCompanyCalculationOnly(answers)
         } else {
-          response = await questionService.sendAnswersPeople(answers)
+          response = await questionService.sendAnswersPeopleCalculationOnly(answers)
         }
         setResults(response)
         setLoading(false)      
@@ -41,7 +42,7 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
   },[answers])
   
   // Check if still fetching results or there was an error fetching results
-  if(loading === true) return <div></div>
+  if(loading === true) return <LoadingScreen />
   if(error === true) return <p>{language.errors.errorSendingAnswers}</p>
 
   // Change answers.remoteShare based on slider. 
