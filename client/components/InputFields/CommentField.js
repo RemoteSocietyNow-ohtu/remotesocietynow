@@ -19,6 +19,7 @@ const CommentField = ({ answers, setAnswers, question }) => {
         <>    
           <p>{language.headers.commentFieldHeader}</p>    
           <textarea
+            size="100"
             autoFocus
             className='TextArea-field'
             value={answers[question.identifyingString + 'OpenField']}

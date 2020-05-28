@@ -204,7 +204,32 @@ html {
 }
 
 .Question {
-  margin-top: 5%;
+  margin-top: 20%;
+}
+
+.question-fade {
+  opacity: 1;   
+}
+
+.question-fade-left {
+  animation: fadeinout 500ms ease-in-out;  
+}
+
+.question-fade-right {    
+  animation: fadeinoutRight 500ms ease-in-out ;
+}
+
+@keyframes fadeinout {
+  0% { opacity: 1; }
+  50% { opacity: 0; transform: translateX(-120px);}
+  50.1% { transform: translateX(120px);}
+  100% { opacity: 1; }
+}
+@keyframes fadeinoutRight {
+  0% { opacity: 1; }
+  50% { opacity: 00; transform: translateX(120px);}
+  50.1% { transform: translateX(-120px);}
+  100% { opacity: 1; }
 }
 
 .QuestionSidebar-item {
@@ -425,6 +450,19 @@ html {
   font-family: 'PT Root';
   border: none;
   padding: 1%;
+  resize: none;
+  animation: fade-in-move-down 0.5s;
+}
+
+@keyframes fade-in-move-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .Arrow-icon {
@@ -434,31 +472,6 @@ html {
 
 .Arrow-icon:hover {
   transform: scale(1.1);
-}
-
-.question-fade {
-  opacity: 1;   
-}
-
-.question-fade-left {
-  animation: fadeinout 500ms ease-in-out;  
-}
-
-.question-fade-right {    
-  animation: fadeinoutRight 500ms ease-in-out ;
-}
-
-@keyframes fadeinout {
-  0% { opacity: 1; }
-  50% { opacity: 0; transform: translateX(-120px);}
-  50.1% { transform: translateX(120px);}
-  100% { opacity: 1; }
-}
-@keyframes fadeinoutRight {
-  0% { opacity: 1; }
-  50% { opacity: 00; transform: translateX(120px);}
-  50.1% { transform: translateX(-120px);}
-  100% { opacity: 1; }
 }
 
 .Error, .Success {
