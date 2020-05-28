@@ -23,11 +23,12 @@ const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, se
 
   return (
     <div>      
-      <div className={fade} onAnimationEnd={() => setFade('question-no-fade')}>
+      <div className={fade} onAnimationEnd={() => setFade('question-no-fade') } >
         <Question
           question={questions[currentQuestion]} 
           answers={answers} 
           setAnwers={setAnwers} 
+          nextQuestion={nextQuestion}
         />
       </div>
       

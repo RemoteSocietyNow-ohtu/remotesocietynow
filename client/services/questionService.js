@@ -8,12 +8,12 @@ const getQuestionsPeople = () => {
 }
 
 const sendAnswersPeople = ( values ) => {
-  const request = axios.post(`${baseurl}/api/calculate/person/`, values)
+  const request = axios.post(`${baseurl}/api/calculate/person/save`, values)
   return request.then((res) => res.data)
 }
 
 const sendAnswersPeopleCalculationOnly = ( values ) => {
-  const request = axios.post(`${baseurl}/api/calculate/person/nosave/`, values)
+  const request = axios.post(`${baseurl}/api/calculate/person/`, values)
   return request.then((res) => res.data)
 }
 
@@ -23,12 +23,12 @@ const getQuestionsCompany = () => {
 }
 
 const sendAnswersCompany = ( values ) => {
-  const request = axios.post(`${baseurl}/api/calculate/company/`, values)
+  const request = axios.post(`${baseurl}/api/calculate/company/save/`, values)
   return request.then((res) => res.data)
 }
 
 const sendAnswersCompanyCalculationOnly = ( values ) => {
-  const request = axios.post(`${baseurl}/api/calculate/company/nosave/`, values)
+  const request = axios.post(`${baseurl}/api/calculate/company/`, values)
   return request.then((res) => res.data)
 }
 

@@ -6,8 +6,9 @@ const storeCompanyData = database.storeCompanyData
 
 /** Handles POST requests to (baseUrl)/api/calculations/person from frontend
  * responds with total annual co2 emissions, and the potential saves from moving to more remote work
+ * Post to /person/save additionally saves data to database
  */
-calculationRouter.post('/person', (req,res) => {
+calculationRouter.post('/person/:save?', (req,res) => {
   const distance = +req.body.dailyCommuteKm
   const daysFirst = +req.body.noOfDaysOfUsage
   const remoteDays = +req.body.numberOfRemoteworkDays
@@ -26,9 +27,11 @@ calculationRouter.post('/person', (req,res) => {
   res.json(result)
 
   /* Calls storeEmployeeData in /server/database/database.js to save all employee input to database. */
-  storeEmployeeData(firstVehicle, daysFirst, secondVehicle, daysSecond, distance,
-    dailyCommuteMinutes, remoteDays, annualCommuteExpenses, opinionRemote, numberOfBusinessTrips, 
-    numberOfHoursOnPlane)
+  if(req.params.save === 'save') {
+    storeEmployeeData(firstVehicle, daysFirst, secondVehicle, daysSecond, distance,
+      dailyCommuteMinutes, remoteDays, annualCommuteExpenses, opinionRemote, numberOfBusinessTrips, 
+      numberOfHoursOnPlane)
+  }
 })
 
 const extractCompanyData = (req) => {
@@ -44,7 +47,7 @@ const extractCompanyData = (req) => {
 /**
  * Handles POST requests to (baseUrl)/api/calculations/company from frontend
  * responds with total annual costs and potential money saved by moving to more remote work
- * Saves data to database if path does not have additional parameters
+ * Post to /company/save additionally saves data to database
  */
 calculationRouter.post('/company/:save?', (req,res) => {  
   const { rent, officeUpkeep, employees, businessTravelCost, remoteShare} = extractCompanyData(req)
@@ -53,8 +56,7 @@ calculationRouter.post('/company/:save?', (req,res) => {
   const result = remoteWorkCalculator.calculateBenefitsForCompany(rent, officeUpkeep, employees, businessTravelCost, remoteShare)
   res.json(result)
   /* Calls storeCompanyData in /server/database/database.js to save all company input to database. */
-  if (!req.params.save) {
-    console.log('save to database')
+  if (req.params.save === 'save') {    
     storeCompanyData(employees, rent, officeUpkeep, businessTravelCost)  }  
 })
 

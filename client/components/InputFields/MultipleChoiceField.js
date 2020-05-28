@@ -1,7 +1,6 @@
 import React from 'react'
 
 const MultipleChoiceField = ({ options, handleValueChange, value }) => {
-  console.log(options)
   return(    
     <div>
       {options.map(option => 

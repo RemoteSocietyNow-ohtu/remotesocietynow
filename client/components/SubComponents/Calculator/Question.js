@@ -2,7 +2,7 @@ import React from 'react'
 import Field from '../../InputFields/Field'
 import CommentField from 'Components/InputFields/CommentField'
 
-const Question = ({ question, answers, setAnwers }) => {
+const Question = ({ question, answers, setAnwers, nextQuestion }) => {
 
   return (
     <div className='Question'>
@@ -15,6 +15,7 @@ const Question = ({ question, answers, setAnwers }) => {
         unit={question.unit}
         value={answers[question.identifyingString]}
         setValue={(value) => setAnwers({...answers, [question.identifyingString]: value})} 
+        nextQuestion={nextQuestion}
       />
       <CommentField answers={answers} setAnswers={setAnwers} question={question} />
       

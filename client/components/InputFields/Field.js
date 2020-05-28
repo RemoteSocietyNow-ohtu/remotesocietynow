@@ -4,7 +4,7 @@ import SliderField from './SliderField'
 import MultipleChoiceField from './MultipleChoiceField'
 import TextField from './TextField'
 
-const Field = ({ fieldType, options, value, setValue, minValue, maxValue, unit }) => {
+const Field = ({ fieldType, options, value, setValue, minValue, maxValue, unit, nextQuestion }) => {
   const handleValueChange = (event) => setValue(event.target.value)
   if (fieldType === 'field') {    
     return ( 
@@ -13,6 +13,7 @@ const Field = ({ fieldType, options, value, setValue, minValue, maxValue, unit }
         value={value} 
         minValue={minValue} 
         maxValue={maxValue}
+        nextQuestion={nextQuestion}
       />
     )
   } else if (fieldType === 'slider') {
