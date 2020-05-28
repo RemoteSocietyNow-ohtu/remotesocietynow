@@ -1,10 +1,23 @@
+const mongoose = require('mongoose')
+const Employee = require('../models/employeeSchema')
+const EmployeeFeedback = require('../models/employeeFeedbackSchema')
+const Company = require('../models/companySchema')
+const CompanyFeedback = require('../models/companyFeedbackSchema')
+const url = process.env.MONGODB_URI
+
+const connectToDatabase = () => {
+  mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => { 
+      console.log('connected to MongoDB')
+    })
+    .catch((error) => {
+      console.log('error connecting to MongoDB:', error.message)
+    })
+}
+
 const storeEmployeeData = (typicalVehicle, noOfDaysOfUsage, secondVehicle, noOfDaysOfUsageSecond, dailyCommuteKm,
   dailyCommuteMinutes, numberOfRemoteworkDays, annualCommuteExpenses, opinionRemote, numberOfBusinessTrips, 
   numberOfHoursOnplane) => {
-  
-  const mongoose = require('mongoose')
-  const Employee = require('../models/employeeSchema')
-  const url = process.env.MONGODB_URI
 
   const storedEmployee = new Employee({
     typicalVehicle: typicalVehicle,
@@ -20,27 +33,16 @@ const storeEmployeeData = (typicalVehicle, noOfDaysOfUsage, secondVehicle, noOfD
     numberOfHoursOnplane: numberOfHoursOnplane
   })
 
-  mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => { 
-      console.log('connected to MongoDB')
-    })
-    .catch((error) => {
-      console.log('error connecting to MongoDB:', error.message)
-    })
+  connectToDatabase()
 
   storedEmployee.save().then(() => { 
     console.log('employee data saved!')
     mongoose.connection.close()
   })
-
 }
 
 const storeCompanyData = (numberOfEmployees, officeRentExpenses, otherUpkeepExpenses, averageBusinessTripCost) => {
   
-  const mongoose = require('mongoose')
-  const Company = require('../models/companySchema')
-  const url = process.env.MONGODB_URI
-
   const storedCompany = new Company({
     numberOfEmployees: numberOfEmployees,
     officeRentExpenses: officeRentExpenses,
@@ -48,13 +50,7 @@ const storeCompanyData = (numberOfEmployees, officeRentExpenses, otherUpkeepExpe
     averageBusinessTripCost: averageBusinessTripCost,
   })
 
-  mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => { 
-      console.log('connected to MongoDB')
-    })
-    .catch((error) => {
-      console.log('error connecting to MongoDB:', error.message)
-    })
+  connectToDatabase()
 
   storedCompany.save().then(() => { 
     console.log('company saved!')
@@ -62,36 +58,57 @@ const storeCompanyData = (numberOfEmployees, officeRentExpenses, otherUpkeepExpe
   })
 }
 
-const storeQuestionFeedback = (identifyingString, name, feedback) => {
+const storeCompanyFeedback = (numberOfEmployeesOpenField, officeRentExpensesOpenField, otherUpkeepExpensesOpenField, averageBusinessTripCostOpenField) => {
   
-  const mongoose = require('mongoose')
-  const Feedback = require('../models/feedbackSchema')
-  const url = process.env.MONGODB_URI
-
-  const storedFeedback = new Feedback({
-    identifyingString: identifyingString,
-    name: name,
-    feedback: feedback
+  const storedCompanyFeedback = new CompanyFeedback({
+    numberOfEmployeesOpenField: numberOfEmployeesOpenField,
+    officeRentExpensesOpenField: officeRentExpensesOpenField,
+    otherUpkeepExpensesOpenField: otherUpkeepExpensesOpenField,
+    averageBusinessTripCostOpenField: averageBusinessTripCostOpenField,
   })
 
-  mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => { 
-      console.log('connected to MongoDB')
-    })
-    .catch((error) => {
-      console.log('error connecting to MongoDB:', error.message)
-    })
+  connectToDatabase()
 
-  storedFeedback.save().then(() => { 
-    console.log('feedback saved!')
+  storedCompanyFeedback.save().then(() => { 
+    console.log('company feedback saved!')
+    mongoose.connection.close()
+  })
+}
+
+const storeEmployeeFeedback = (typicalVehicleOpenField, noOfDaysOfUsageOpenField, secondVehicleOpenField, 
+  noOfDaysOfUsageSecondOpenField, dailyCommuteKmOpenField, dailyCommuteMinutesOpenField, numberOfRemoteworkDaysOpenField, 
+  annualCommuteExpensesOpenField, opinionRemoteOpenField, numberOfBusinessTripsOpenField, 
+  numberOfHoursOnplaneOpenField) => {
+
+  const storedEmployeeFeedback = new EmployeeFeedback({
+    typicalVehicleOpenField: typicalVehicleOpenField,
+    noOfDaysOfUsageOpenField: noOfDaysOfUsageOpenField,
+    secondVehicleOpenField: secondVehicleOpenField,
+    noOfDaysOfUsageSecondOpenField: noOfDaysOfUsageSecondOpenField,
+    dailyCommuteKmOpenField: dailyCommuteKmOpenField,
+    dailyCommuteMinutesOpenField: dailyCommuteMinutesOpenField,
+    numberOfRemoteworkDaysOpenField: numberOfRemoteworkDaysOpenField,
+    annualCommuteExpensesOpenField: annualCommuteExpensesOpenField,
+    opinionRemoteOpenField: opinionRemoteOpenField,
+    numberOfBusinessTripsOpenField: numberOfBusinessTripsOpenField,
+    numberOfHoursOnplaneOpenField: numberOfHoursOnplaneOpenField
+  })
+
+  connectToDatabase()
+
+  storedEmployeeFeedback.save().then(() => { 
+    console.log('employee feedback saved!')
     mongoose.connection.close()
   })
 }
 
 module.exports = {
-  storeEmployeeData: storeEmployeeData,
-  storeCompanyData: storeCompanyData,
-  storeQuestionFeedback: storeQuestionFeedback
+  connectToDatabase,
+  storeEmployeeData,
+  storeEmployeeFeedback,
+  storeCompanyData,
+  storeCompanyFeedback
+  
 }
 
 
