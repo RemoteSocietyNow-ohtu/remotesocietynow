@@ -1,9 +1,8 @@
-import React, { useContext } from 'react'
-import LanguageContext from '../../../Contexts/LanguageContext'
+import React from 'react'
 import Field from '../../InputFields/Field'
+import CommentField from 'Components/InputFields/CommentField'
 
 const Question = ({ question, answers, setAnwers }) => {
-  const language = useContext(LanguageContext)
 
   return (
     <div className='Question'>
@@ -17,12 +16,8 @@ const Question = ({ question, answers, setAnwers }) => {
         value={answers[question.identifyingString]}
         setValue={(value) => setAnwers({...answers, [question.identifyingString]: value})} 
       />
-      <p>{language.headers.additionalInformation}</p>
-      <Field 
-        fieldType='textField'
-        value={answers[question.identifyingString + 'OpenField']}
-        setValue={(value) => setAnwers({...answers, [question.identifyingString + 'OpenField']: value})}
-      />
+      <CommentField answers={answers} setAnswers={setAnwers} question={question} />
+      
     </div>
   )
 }
