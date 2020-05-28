@@ -26,6 +26,7 @@ const NumberField = ({ handleValueChange, value, minValue, maxValue, nextQuestio
         value={value}
         min={minValue}
         max={maxValue}
+        placeholder={0}
         onKeyPress={event => {
           if (event.key === 'Enter') {
             nextQuestion()

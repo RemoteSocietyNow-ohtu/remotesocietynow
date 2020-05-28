@@ -59,7 +59,7 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
   }
 
   return (
-    <div className='Container'>
+    <div className='Container' style={{ animation:'none' }}>
       <div className='Results'>
         {
           results.map(result => 

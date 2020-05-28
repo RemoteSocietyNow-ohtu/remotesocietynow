@@ -10,7 +10,7 @@ const initAnswerValues = questions => {
   return questions.reduce((newObject, question) => {
     return {
       ...newObject,
-      [question.identifyingString]: question.defaultValue ? question.defaultValue : ' ',
+      [question.identifyingString]: question.defaultValue ? question.defaultValue : '',
       [question.identifyingString + 'OpenField']: ''
     }
   }, {})

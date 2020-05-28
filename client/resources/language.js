@@ -27,7 +27,7 @@ export const english = {
   },
   buttons: {
     calculate: 'Calculate',
-    main: 'Calculate Now',
+    main: 'Calculate benefits',
     data: 'Your Data',
     leaveComment: 'Help us make this calculator better',
     calculateChoiceMyself: 'Myself',
