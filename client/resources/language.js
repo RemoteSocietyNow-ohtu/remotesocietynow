@@ -2,6 +2,7 @@ export const english = {
   name: 'English',
   headers: {
     mainHeader: 'The most enjoyable way to save the planet.',
+    calculateChoiceHeader: 'I am calculating benefits for...',
     companies: 'Calculator',
     people: 'Calculator',
     calculator: 'calculator',
@@ -28,7 +29,9 @@ export const english = {
     calculate: 'Calculate',
     main: 'Calculate how',
     data: 'Your Data',
-    leaveComment: 'Help us make this calculator better'
+    leaveComment: 'Help us make this calculator better',
+    calculateChoiceMyself: 'Myself',
+    calculateChoiceCompanies: 'My company'
   },
   navigation: {
     gdprCompliancy: 'GDPR',
