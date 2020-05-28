@@ -11,7 +11,7 @@ export const english = {
     gdprCompliancy: 'GDPR',
     workDoneRemotelyPercent: '% of work done remotely',
     workDoneRemotelyDays: 'Days of work done remotely',
-    commentFieldHeader: 'Sheare your ideas! Is this question relevant to you? How can we make it better?',
+    commentFieldHeader: 'Is this question relevant to you? Share your ideas! How can we make it better?',
   },
   content: {
     main: 'The Most Enjoyable Way to Save the Planet! While making more money and saving time.',
@@ -27,7 +27,7 @@ export const english = {
   },
   buttons: {
     calculate: 'Calculate',
-    main: 'Calculate how',
+    main: 'Calculate Now',
     data: 'Your Data',
     leaveComment: 'Help us make this calculator better',
     calculateChoiceMyself: 'Myself',
