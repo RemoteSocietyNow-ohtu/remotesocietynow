@@ -23,24 +23,31 @@ const calculateBenefitsForPerson = (distance,daysFirst,daysSecond,firstVehicle,s
 
   const emissionsOfPersonInDay = totalEmissions/totalCommuteDays
 
-  const shareOfWorkDoneAtOffice = 1-(remoteDays/totalCommuteDays)
+  const shareOfWorkDoneAtOffice = Math.max(1-(remoteDays/totalCommuteDays),0)
 
   const distanceInDay = distance*2
 
   const co2Emissions = emissionsOfPersonInDay*distanceInDay*avgNumberOfWorkDaysInAYear
-  const co2EmissionsWithRemoteWorking = emissionsOfPersonInDay*distanceInDay*shareOfWorkDoneAtOffice*avgNumberOfWorkDaysInAYear
-  const reducedEmissions = co2Emissions - co2EmissionsWithRemoteWorking
+  const co2EmissionsWithRemoteWorking = Math.min(emissionsOfPersonInDay*distanceInDay*shareOfWorkDoneAtOffice
+                                                  *avgNumberOfWorkDaysInAYear,co2Emissions)
+                                                  
+  const reducedEmissions = Math.min(co2Emissions - co2EmissionsWithRemoteWorking, co2Emissions)
+  
 
   const result = [
     {
       title: 'Annual CO2 pollution',
-      value: roundEmissionsToKg(co2Emissions),
-      unit: 'kg'
+      value: roundEmissionsToKg(co2EmissionsWithRemoteWorking),
+      unit: 'kg',
+      bartype: 'redbar',
+      percent: co2EmissionsWithRemoteWorking/co2Emissions
     },
     {
       title: 'Annual CO2 saved by working remotely',
       value: roundEmissionsToKg(reducedEmissions),
-      unit: 'kg'
+      unit: 'kg',
+      bartype: 'greenbar',
+      percent: 1 - (co2EmissionsWithRemoteWorking/co2Emissions)
     }
   ]  
 
@@ -58,17 +65,25 @@ const calculateBenefitsForCompany = (rent, officeUpkeep, employees, businessTrav
     {
       title: 'Annual money used without remote work',
       value: totalExpenses,
-      unit: '€'
+      unit: '€',
+      bartype: 'redbar',
+      percent: 1
+
     },
     {
       title: 'Potential annual money saved',
       value: moneySaved,
-      unit: '€'
+      unit: '€',
+      bartype: 'greenbar',
+      percent: moneySaved/totalExpenses
+
     },
     {
       title: 'Annual money used (with remote work)',
       value: totalExpenses - moneySaved,
-      unit: '€'
+      unit: '€',
+      bartype: 'redbar',
+      percent: 1-(moneySaved/totalExpenses)
     },
         
   ]
