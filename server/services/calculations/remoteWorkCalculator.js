@@ -58,9 +58,10 @@ const calculateBenefitsForPerson = (distance,daysFirst,daysSecond,firstVehicle,s
  * (not automatically updated from the spreadsheet)
  */
 const calculateBenefitsForCompany = (rent, officeUpkeep, employees, businessTravelCost, remoteShare ) => {
-  const totalExpenses = (rent + officeUpkeep) * 12
+  const expenses = parseInt(rent) + parseInt(officeUpkeep)
+  const totalExpenses = expenses * 12
   const moneySaved = remoteShare*totalExpenses/100
-  
+
   const result = [
     {
       title: 'Annual money used without remote work',
