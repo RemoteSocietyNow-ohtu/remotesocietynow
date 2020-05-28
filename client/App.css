@@ -33,11 +33,13 @@ html {
   width: 70%;
   margin: auto;
   margin-bottom: 2%;
+  animation: fade 500ms ease-in;
 }
 
 .Container-choice {
   width: 50%;
   margin: auto;
+  margin-top: 15%;
 }
 
 .Heading {
@@ -87,13 +89,13 @@ html {
 }
 
 .Content-choice-left {
-
+  background-color: #AE19AA;
   width: 45%;
   float: left;
 }
 
 .Content-choice-right {
-
+  background-color: #AE19AA;
   width: 45%;
   float: right;
 }
@@ -320,7 +322,24 @@ html {
   text-decoration: none;
 }
 
+
+
 .Main-button:hover {
+  background-color: #84a9ac;
+}
+
+.Calculator-choice-button {
+  width: 80%;
+  height: 70px;
+  font-family: 'PT Root';
+  font-size: large;
+  background-color: #cae8d5;
+  border: none;
+  border-radius: 5px 25px;
+  margin-top: 3%;
+}
+
+.Calculator-choice-button:hover {
   background-color: #84a9ac;
 }
 

@@ -1,20 +1,23 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import LanguageContext from '../../Contexts/LanguageContext'
 
 const CalculatorChoice = ({ setBody }) => {
-    return(
-        <div className='Container'>
-            <div className='Container-choice'>
-                <div className='Content-choice-left'>
-                    <p>For you</p>
-                    <button onClick={() => setBody('people')}>People</button>
-                </div>
-                <div className='Content-choice-right'>
-                    <p>For companies</p>
-                    <button onClick={() => setBody('companies')}>Companies</button>
-                </div>
-            </div>
-        </div>
-    )
+  const language = useContext(LanguageContext)
+
+  return(
+    <div className='Container'>
+      <div className='Container-choice'>
+        <p>{language.headers.calculateChoiceHeader}</p>
+
+        <button className='Calculator-choice-button' onClick={() => setBody('people')} >
+          {language.buttons.calculateChoiceMyself}
+        </button>
+        <button className='Calculator-choice-button' onClick={() => setBody('companies')} >
+          {language.buttons.calculateChoiceCompanies}
+        </button>
+      </div>
+    </div>
+  )
 }
 
 export default CalculatorChoice
