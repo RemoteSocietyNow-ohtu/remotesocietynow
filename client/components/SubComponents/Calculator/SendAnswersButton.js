@@ -28,12 +28,12 @@ const SendAnswersButton = ({ setResults, currentQuestion, setCurrentQuestion, is
     }    
   }
 
-  // Check if still fetching results or there was an error fetching results
+  // Check if still fetching results
   if(loading === true) return <LoadingScreen />
-  if(error === true) return <p>{language.errors.errorSendingAnswers}</p>
 
   return (
     <div>
+      {error === true && <p className='Error'>{language.errors.errorSendingAnswers}</p>}
       <button 
         className='Laske-button' 
         onClick={handleClick}>
