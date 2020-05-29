@@ -1,11 +1,11 @@
 const peopleAnswers = {
   annualCommuteExpenses: '',
   annualCommuteExpensesOpenField: '',
-  dailyCommuteKm: '',
+  dailyCommuteKm: 20,
   dailyCommuteKmOpenField: '',
   dailyCommuteMinutes: '',
   dailyCommuteMinutesOpenField: '',
-  noOfDaysOfUsage: '0',
+  noOfDaysOfUsage: '5',
   noOfDaysOfUsageOpenField: '',
   noOfDaysOfUsageSecond: '0',
   noOfDaysOfUsageSecondOpenField: '',
@@ -19,7 +19,7 @@ const peopleAnswers = {
   opinionRemoteOpenField: '',
   secondVehicle: 'walking',
   secondVehicleOpenField: '',
-  typicalVehicle: '',
+  typicalVehicle: 'car',
   typicalVehicleOpenField: '',
 }
 
