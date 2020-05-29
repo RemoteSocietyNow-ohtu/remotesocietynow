@@ -36,9 +36,12 @@ const storeEmployeeData = (typicalVehicle, noOfDaysOfUsage, secondVehicle, noOfD
   connectToDatabase()
 
   storedEmployee.save().then(() => { 
-    console.log('employee data saved!')
-    mongoose.connection.close()
+    console.log('employee saved!')
   })
+    .catch((error) => {
+      console.log('error with storing to database:', error.message)
+    })
+    .finally(() => mongoose.connection.close())
 }
 
 const storeCompanyData = (numberOfEmployees, officeRentExpenses, otherUpkeepExpenses, averageBusinessTripCost) => {
@@ -54,8 +57,11 @@ const storeCompanyData = (numberOfEmployees, officeRentExpenses, otherUpkeepExpe
 
   storedCompany.save().then(() => { 
     console.log('company saved!')
-    mongoose.connection.close()
   })
+    .catch((error) => {
+      console.log('error with storing to database:', error.message)
+    })
+    .finally(() => mongoose.connection.close())
 }
 
 const storeCompanyFeedback = (numberOfEmployeesOpenField, officeRentExpensesOpenField, otherUpkeepExpensesOpenField, averageBusinessTripCostOpenField) => {
@@ -71,8 +77,11 @@ const storeCompanyFeedback = (numberOfEmployeesOpenField, officeRentExpensesOpen
 
   storedCompanyFeedback.save().then(() => { 
     console.log('company feedback saved!')
-    mongoose.connection.close()
   })
+    .catch((error) => {
+      console.log('error with storing to database:', error.message)
+    })
+    .finally(() => mongoose.connection.close())
 }
 
 const storeEmployeeFeedback = (typicalVehicleOpenField, noOfDaysOfUsageOpenField, secondVehicleOpenField, 
@@ -98,8 +107,11 @@ const storeEmployeeFeedback = (typicalVehicleOpenField, noOfDaysOfUsageOpenField
 
   storedEmployeeFeedback.save().then(() => { 
     console.log('employee feedback saved!')
-    mongoose.connection.close()
   })
+    .catch((error) => {
+      console.log('error with storing to database:', error.message)
+    })
+    .finally(() => mongoose.connection.close())
 }
 
 module.exports = {
@@ -108,7 +120,6 @@ module.exports = {
   storeEmployeeFeedback,
   storeCompanyData,
   storeCompanyFeedback
-  
 }
 
 
