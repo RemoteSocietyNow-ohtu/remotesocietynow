@@ -129,13 +129,15 @@ html {
 .Content-calculator-left {
   font-size: calc(1px + 3vmin);
   width: 60%;
-  float: left;
+  position: fixed;
+  left: 0;
 }
 
 .Content-calculator-right {
   font-size: small;
   width: 20%;
-  float: right;
+  position: fixed;
+  right: 0;
   padding: 3%;
   border-left: solid #84a9ac 2px;
 }
