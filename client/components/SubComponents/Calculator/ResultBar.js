@@ -3,11 +3,11 @@ import './Bar.css'
 
 const ResultBar = ({ width, percent, type }) => {
 
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(0)
 
   useEffect(() => {
-    setValue(percent * width);
-  });
+    setValue(percent * width)
+  })
 
 
   if(type === 'hiddenbar'){
