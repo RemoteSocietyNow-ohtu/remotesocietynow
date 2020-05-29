@@ -18,9 +18,9 @@ const SendAnswersButton = ({ setResults, currentQuestion, setCurrentQuestion, is
       } else {
         response = await questionService.sendAnswersPeople(answers)
       }
-      setResults(response)
-      setLoading(false)     
-      setCurrentQuestion(currentQuestion + 1) 
+      setResults(response)        
+      setCurrentQuestion(currentQuestion + 1)
+      setLoading(false) 
     } catch (error) {
       setError(true)
       console.log(error)
