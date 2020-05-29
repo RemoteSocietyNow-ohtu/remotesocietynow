@@ -9,7 +9,7 @@
     "build": "webpack --mode=production",
     "lint": "eslint .",
     "fix:lint": "eslint . --fix",
-    "test": "cross-env NODE_ENV=test jest --verbose"
+    "test": "cross-env NODE_ENV=test jest --verbose --runInBand --forceExit"
   },
   "engines": {
     "node": ">=10.15"
