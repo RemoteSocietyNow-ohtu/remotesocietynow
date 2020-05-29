@@ -263,6 +263,7 @@ html {
   50.1% { transform: translateX(120px);}
   100% { opacity: 1; }
 }
+
 @keyframes fadeinoutRight {
   0% { opacity: 1; }
   50% { opacity: 00; transform: translateX(120px);}
@@ -368,6 +369,7 @@ html {
   background-color: #cae8d5;
   border: none;
   border-radius: 5px 25px;
+  text-decoration: none;
   margin-top: 3%;
 }
 
