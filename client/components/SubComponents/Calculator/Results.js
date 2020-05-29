@@ -22,7 +22,6 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
       if(answers.numberOfRemoteworkDays) {
         setSliderValue(answers.numberOfRemoteworkDays)
       }
-      setLoading(true)
       setError(false)
       try {
         let response

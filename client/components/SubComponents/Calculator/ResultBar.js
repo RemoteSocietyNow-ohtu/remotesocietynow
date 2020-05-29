@@ -1,9 +1,14 @@
-import React from 'react'
+import React, {useState,useEffect} from 'react'
 import './Bar.css'
 
 const ResultBar = ({ width, percent, type }) => {
 
-  let progress = percent * width
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    setValue(percent * width);
+  });
+
 
   if(type === 'hiddenbar'){
     return(
@@ -13,7 +18,7 @@ const ResultBar = ({ width, percent, type }) => {
   
   return (
     <div className="bar-div" style={{ width:  `${width}%`}}>
-      <div style={{ width: `${progress}%` }} className={`${type}`}/>
+      <div style={{ width: `${value}%` }} className={`${type}`}/>
     </div>
   )
 }
