@@ -541,7 +541,7 @@ html {
 
 .Arrow-icon {
   margin-top: 2%;
-  height: 60px;
+  height: 80px;
 }
 
 .Arrow-icon:hover {
@@ -556,6 +556,9 @@ html {
 .Error {
   background-color: #FFD2D2;
   color: #D8000C;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 2%;
 }
 
 .Success {
