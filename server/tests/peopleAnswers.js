@@ -1,0 +1,26 @@
+const peopleAnswers = {
+  annualCommuteExpenses: '',
+  annualCommuteExpensesOpenField: '',
+  dailyCommuteKm: '',
+  dailyCommuteKmOpenField: '',
+  dailyCommuteMinutes: '',
+  dailyCommuteMinutesOpenField: '',
+  noOfDaysOfUsage: '0',
+  noOfDaysOfUsageOpenField: '',
+  noOfDaysOfUsageSecond: '0',
+  noOfDaysOfUsageSecondOpenField: '',
+  numberOfBusinessTrips: '',
+  numberOfBusinessTripsOpenField: '',
+  numberOfHoursOnPlane: '',
+  numberOfHoursOnPlaneOpenField: '',
+  numberOfRemoteworkDays: '0',
+  numberOfRemoteworkDaysOpenField: '',
+  opinionRemote: '',
+  opinionRemoteOpenField: '',
+  secondVehicle: 'walking',
+  secondVehicleOpenField: '',
+  typicalVehicle: '',
+  typicalVehicleOpenField: '',
+}
+
+module.exports = peopleAnswers
