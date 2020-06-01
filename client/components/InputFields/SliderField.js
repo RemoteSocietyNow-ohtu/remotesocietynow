@@ -9,6 +9,7 @@ const SliderField = ({ handleValueChange, handleRelease, value, minValue, maxVal
         max={maxValue}
         onChange={handleValueChange}
         onMouseUp={handleRelease}
+        onpointerup={handleRelease}
         value={value}
         className='slider'
       />
