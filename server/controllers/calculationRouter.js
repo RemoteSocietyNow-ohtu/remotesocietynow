@@ -67,10 +67,10 @@ calculationRouter.post('/person/:save?', (req,res) => {
  * Post to /company/save additionally saves data to database
  */
 calculationRouter.post('/company/:save?', (req,res) => {    
-  const rent = req.body.officeRentExpenses
-  const officeUpkeep = req.body.otherUpkeepExpenses
-  const employees = req.body.numberOfEmployees
-  const businessTravelCost = req.body.averageBusinessTripCost
+  const rent = +req.body.officeRentExpenses
+  const officeUpkeep = +req.body.otherUpkeepExpenses
+  const employees = +req.body.numberOfEmployees
+  const businessTravelCost = +req.body.averageBusinessTripCost
   const remoteShare = req.body.remoteShare ? req.body.remoteShare : 0
 
   //validate
@@ -83,9 +83,8 @@ calculationRouter.post('/company/:save?', (req,res) => {
   const result = remoteWorkCalculator.calculateBenefitsForCompany(rent, officeUpkeep, employees, businessTravelCost, remoteShare)
   
   /* Calls storeCompanyData in /server/database/database.js to save all company input to database. */
-  if (req.params.save === 'save') {    
-    database.storeCompanyData(employees, rent, officeUpkeep, businessTravelCost)  
-    
+  if (req.params.save === 'save') {        
+    database.storeCompanyData(employees, rent, officeUpkeep, businessTravelCost)      
     /* Calls storeCompanyFeedback in /server/database/database.js to save question feedback */
     const rentFeedback = req.body.officeRentExpensesOpenField
     const officeUpKeepFeedback = req.body.otherUpkeepExpensesOpenField

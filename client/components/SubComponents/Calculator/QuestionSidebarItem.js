@@ -1,12 +1,19 @@
 import React from 'react'
 
 const QuestionSidebarItem = ({ question, answers, questions, currentQuestion, setCurrentQuestion }) => {
-
+  
+  //If qustion is multichoice question, don't show value but the corresponding string. 
+  const getAnwerString = () => {
+    if(question.options && question.options.find(q => q.value === answers[question.identifyingString])) {
+      return question.options.find(q => q.value === answers[question.identifyingString]).string
+    }
+    return answers[question.identifyingString]
+  }
 
   if (questions[currentQuestion] && questions[currentQuestion].identifyingString === question.identifyingString) {
     return (
       <>
-        <p className='QuestionSidebar-item' key={question.identifyingString} onClick={() => setCurrentQuestion(question.number)}><b>{question.name} <br></br> {answers[question.identifyingString]}</b></p>
+        <p className='QuestionSidebar-item' key={question.identifyingString} onClick={() => setCurrentQuestion(question.number)}><b>{question.name} <br></br> {getAnwerString()}</b></p>
       </>
     )
   }
@@ -19,7 +26,7 @@ const QuestionSidebarItem = ({ question, answers, questions, currentQuestion, se
   }
   return (
     <>
-      <p className='QuestionSidebar-item' key={question.identifyingString}  onClick={() => setCurrentQuestion(question.number)}>{question.name} <br></br> {answers[question.identifyingString]}</p>
+      <p className='QuestionSidebar-item' key={question.identifyingString}  onClick={() => setCurrentQuestion(question.number)}>{question.name} <br></br> {getAnwerString()}</p>
     </>
   )
 }

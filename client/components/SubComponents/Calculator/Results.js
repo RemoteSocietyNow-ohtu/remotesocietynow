@@ -65,7 +65,7 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
             <div key={result.title}>
               <p >{result.title}</p>
               <ResultBar width={100} percent={result.percent} type={result.bartype} />                 
-              <p><CountUp duration={.8} end={result.value} /> {result.unit}</p>
+              <p><CountUp duration={.8} end={result.value ? result.value : 0} /> {result.unit}</p>
             </div>
           )
         }

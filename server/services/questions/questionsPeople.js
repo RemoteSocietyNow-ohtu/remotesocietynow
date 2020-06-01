@@ -38,8 +38,9 @@ const questionsPeople = [
     identifyingString:'secondVehicle',
     name: 'Do you use any other transportation for commuting?',
     type: 'multipleChoice',
-    defaultValue: 'walking',
+    defaultValue: 'no',
     options: [
+      {string: 'No other trasportation', value: 'no'},
       {string: 'Walking/Bike', value: 'walking'},
       {string: 'Bus', value: 'bus'},
       {string: 'Train', value: 'train'},

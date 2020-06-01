@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Calculator from './Calculator'
+import Calculator from '../SubComponents/Calculator/Calculator'
 
 const People = () => { 
   const [questions, setQuestions] = useState([]) // Questions that are presented to user.
