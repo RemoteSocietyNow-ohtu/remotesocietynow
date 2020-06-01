@@ -18,7 +18,7 @@ const NumberField = ({ handleValueChange, value, minValue, maxValue, nextQuestio
     <div>
       {error !== '' && <p className='Error'>{error}</p>}
       <input
-        className='NumberField'
+        className='InputField'
         type="text"
         inputMode='numeric'
         onChange={(event) => validate(event)}

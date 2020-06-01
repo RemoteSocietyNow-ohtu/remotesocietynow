@@ -3,12 +3,13 @@ import React from 'react'
 const TextField = ({ handleValueChange, value }) => {
   return (
     <div>
-      <textarea
-        className='TextArea-field'
+      <input
+        type="text"
+        className='InputField'
         value={value}
         onChange={handleValueChange}
       >        
-      </textarea>
+      </input>
     </div>
   )
 }

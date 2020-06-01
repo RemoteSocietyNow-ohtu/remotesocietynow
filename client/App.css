@@ -288,7 +288,7 @@ html {
   width: 10vw;
 }
 
-.NumberField {
+.InputField {
   -webkit-appearance: none;
   -moz-appearance: textfield;
   appearance: textfield;
@@ -299,6 +299,19 @@ html {
   color: gainsboro;
   background-color: #3b6978;
   text-align: center;
+}
+
+.Comment-field {
+  background-color: #3b6978;
+  width: 80%;
+  height: 50px;
+  color: gainsboro;
+  font-size: large;
+  font-family: 'PT Root';
+  border: none;
+  padding: 1%;
+  resize: none;
+  animation: fade-in-move-down 0.5s;
 }
 
 .Comment-field-button {
@@ -518,18 +531,6 @@ html {
   background-color: #84a9ac;
 }
 
-.TextArea-field {
-  background-color: #3b6978;
-  width: 80%;
-  height: 50px;
-  color: gainsboro;
-  font-size: large;
-  font-family: 'PT Root';
-  border: none;
-  padding: 1%;
-  resize: none;
-  animation: fade-in-move-down 0.5s;
-}
 
 @keyframes fade-in-move-down {
   0% {
