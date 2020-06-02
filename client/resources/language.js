@@ -32,7 +32,8 @@ export const english = {
     leaveComment: 'Help us make this calculator better',
     calculateChoiceMyself: 'Myself',
     calculateChoiceCompanies: 'My company',
-    accept: 'Accept'
+    accept: 'Accept',
+    ok: 'OK'
   },
   navigation: {
     gdprCompliance: 'GDPR',

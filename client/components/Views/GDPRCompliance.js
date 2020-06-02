@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import LanguageContext from '../../Contexts/LanguageContext'
 
-const GDPRCompliance = () => {
+const GDPRCompliance = ({ setBody } ) => {
 
   const language = useContext(LanguageContext)
 
@@ -14,6 +14,7 @@ const GDPRCompliance = () => {
         <div className='Line-separator-vertical'></div>
         <small className='GDPRCompliance-contact-info'>{language.content.contactInfo}</small>
       </div>
+      <button className='PrivacyPolicy-button' onClick={setBody}>{language.buttons.ok}</button>
     </div>
   )
 }

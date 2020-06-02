@@ -84,7 +84,7 @@ const App = () => {
       <div className='App'>
         <Navbar setBody={setBody} />
         <div className='Body'>
-          <GDPRCompliance />          
+          <GDPRCompliance setBody={() => setBody('main')}/>          
         </div>
       </div>
     )

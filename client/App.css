@@ -222,6 +222,23 @@ html {
   font-size: large;
 }
 
+.GDPRCompliance-button {
+  background-color: #cae8d5;
+  margin-top: 6%;
+  margin-bottom: 3%;
+  height: 70px;
+  width: 150px;
+  cursor: pointer;
+  border: #3b6978 2px solid;
+  border-radius: 5%;
+}
+
+.GDPRCompliance-button:hover {
+  color: gainsboro;
+  background-color: #3b6978;
+  border: #181A1B 2px solid;
+}
+
 /* Calculator */
 
 .Calculator-content-left {
