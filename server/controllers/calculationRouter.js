@@ -26,9 +26,7 @@ calculationRouter.post('/person/:save?', async (req,res) => {
     console.log('Invalid value')
     return res.status(400).send({ error: 'Invalid value'})
   }
-  /*
-  && 
-  typeof firstVehicle === 'string' && typeof secondVehicle === 'string' && typeof opinionRemote === 'string'*/
+ 
   /* Calls the calculateBenefitsForPerson in /services/calculations/remoteWorkCalculator for emissions calculation 
     using parameters gathered above*/
   const result = remoteWorkCalculator.calculateBenefitsForPerson(distance,daysFirst,daysSecond,firstVehicle,secondVehicle,remoteDays)
