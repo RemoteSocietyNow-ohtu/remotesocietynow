@@ -7,7 +7,7 @@ const PrivacyPolicy = ({ setAcceptPrivacyPolicy, setBody }) => {
 
   const handleClick = () => {
     setAcceptPrivacyPolicy(true)
-    setBody('calculatorChoice')
+    setBody()
   }
 
   return (

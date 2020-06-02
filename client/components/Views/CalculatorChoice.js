@@ -8,8 +8,8 @@ const CalculatorChoice = ({ setBody, acceptPrivacyPolicy, setAcceptPrivacyPolicy
 
   return(
     <div className='Container'>      
-      <div className='Container-choice'>
-        <p>{language.headers.calculateChoiceHeader}</p>        
+      <div className='CalculatorChoice-container'>
+        <h2 className='CalculatorChoice-header'>{language.headers.calculateChoiceHeader}</h2>        
         <PrivacyCheckbox           
           checked={acceptPrivacyPolicy}
           setChecked={() => setAcceptPrivacyPolicy(!acceptPrivacyPolicy)}
