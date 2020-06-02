@@ -4,7 +4,6 @@ import Navbar from './components/Navigation/Navbar'
 import Main from './components/Views/Main'
 import AboutUs from './components/Views/AboutUs'
 import GDPRCompliancy from './components/Views/GDPRCompliancy'
-import PrivacyPolicyBar from './components/SubComponents/PrivacyPolicyBar'
 import PrivacyPolicy from './components/Views/PrivacyPolicy'
 import People from 'Components/Views/People'
 import Companies from 'Components/Views/Companies'
@@ -20,8 +19,7 @@ const App = () => {
       <div className="App">
         <Navbar setBody={setBody}/>
         <div className='Body'>
-          <Main setBody={setBody}/>
-          {!acceptPrivacyPolicy && <PrivacyPolicyBar setBody={setBody} setAcceptPrivacyPolicy={setAcceptPrivacyPolicy} />}
+          <Main setBody={setBody}/>         
         </div>
       </div>
     )
@@ -43,8 +41,7 @@ const App = () => {
       <div className='App'>
         <Navbar setBody={setBody} />
         <div className='Body'>
-          <CalculatorChoice setBody={setBody} />
-          {!acceptPrivacyPolicy && <PrivacyPolicyBar setBody={setBody} setAcceptPrivacyPolicy={setAcceptPrivacyPolicy} />}
+          <CalculatorChoice setBody={setBody} acceptPrivacyPolicy={acceptPrivacyPolicy} setAcceptPrivacyPolicy={setAcceptPrivacyPolicy} />         
         </div>
       </div>
     )
@@ -55,8 +52,7 @@ const App = () => {
       <div className="App">
         <Navbar setBody={setBody} />
         <div className='Body'>
-          <People />
-          {!acceptPrivacyPolicy && <PrivacyPolicyBar setBody={setBody} setAcceptPrivacyPolicy={setAcceptPrivacyPolicy} />}
+          <People />         
         </div>
       </div>
     )
@@ -67,8 +63,7 @@ const App = () => {
       <div className="App">
         <Navbar setBody={setBody} />
         <div className='Body'>
-          <Companies />
-          {!acceptPrivacyPolicy && <PrivacyPolicyBar setBody={setBody} setAcceptPrivacyPolicy={setAcceptPrivacyPolicy} />}
+          <Companies />        
         </div>
       </div>
     )
@@ -79,8 +74,7 @@ const App = () => {
       <div className='App'>
         <Navbar setBody={setBody} />
         <div className='Body'>
-          <AboutUs />
-          {!acceptPrivacyPolicy && <PrivacyPolicyBar setBody={setBody} setAcceptPrivacyPolicy={setAcceptPrivacyPolicy} />}
+          <AboutUs />         
         </div>
       </div>
     )
@@ -91,8 +85,7 @@ const App = () => {
       <div className='App'>
         <Navbar setBody={setBody} />
         <div className='Body'>
-          <GDPRCompliancy />
-          {!acceptPrivacyPolicy && <PrivacyPolicyBar setBody={setBody} setAcceptPrivacyPolicy={setAcceptPrivacyPolicy} />}
+          <GDPRCompliancy />          
         </div>
       </div>
     )
