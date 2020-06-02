@@ -28,7 +28,7 @@ const PrivacyPolicy = ({ setAcceptPrivacyPolicy, setBody }) => {
           )
         })}
       </div>
-      <button className='Button-accept-privacy-policy' onClick={() => handleClick()}>{language.buttons.accept}</button>
+      <button className='PrivacyPolicy-button' onClick={() => handleClick()}>{language.buttons.accept}</button>
     </div>
   )
 }
