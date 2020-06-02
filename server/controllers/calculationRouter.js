@@ -6,7 +6,7 @@ const database = require('../database/database')
  * responds with total annual co2 emissions, and the potential saves from moving to more remote work
  * Post to /person/save additionally saves data to database
  */
-calculationRouter.post('/person/:save?', (req,res) => {
+calculationRouter.post('/person/:save?', async (req,res) => {
   const distance = +req.body.dailyCommuteKm
   const daysFirst = +req.body.noOfDaysOfUsage
   const remoteDays = +req.body.numberOfRemoteworkDays
@@ -35,7 +35,7 @@ calculationRouter.post('/person/:save?', (req,res) => {
   
   /* Calls storeEmployeeData in /server/database/database.js to save all employee input to database. */
   if(req.params.save === 'save') {
-    database.storeEmployeeData(firstVehicle, daysFirst, secondVehicle, daysSecond, distance,
+    await database.storeEmployeeData(firstVehicle, daysFirst, secondVehicle, daysSecond, distance,
       dailyCommuteMinutes, remoteDays, annualCommuteExpenses, opinionRemote, numberOfBusinessTrips, 
       numberOfHoursOnPlane)
 
@@ -52,7 +52,7 @@ calculationRouter.post('/person/:save?', (req,res) => {
     const numberOfBusinessTripsOpenField = req.body.numberOfBusinessTripsOpenField
     const numberOfHoursOnPlaneOpenField = req.body.numberOfHoursOnPlaneOpenField
 
-    database.storeEmployeeFeedback(distanceOpenField, daysFirstOpenField, remoteDaysOpenField, firstVehicleOpenField,
+    await database.storeEmployeeFeedback(distanceOpenField, daysFirstOpenField, remoteDaysOpenField, firstVehicleOpenField,
       secondVehicleOpenField, daysSecondOpenField, dailyCommuteMinutesOpenField, annualCommuteExpensesOpenField,
       opinionRemoteOpenField, numberOfBusinessTripsOpenField, numberOfHoursOnPlaneOpenField)
   }
