@@ -23,7 +23,7 @@ export const english = {
       'You’re allowed to refuse data processing, for example, marketing efforts.'
     ],
     contactInfo: 'Any inquiries can be directed to jr.tasklist@gmail.com',
-    privacyPolicyBar: 'To use our website you need to accept our ',
+    privacyPolicy: 'To use our website you need to accept our ',
   },
   buttons: {
     calculate: 'Calculate',
