@@ -287,7 +287,7 @@ html {
 .Calculator-resultbar-container {
   background-color: #cae8d5;
   border-radius: 4px 4px 4px 4px;
-  
+  margin: 0 auto;
 }
 
 .greenbar {
