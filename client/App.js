@@ -3,16 +3,15 @@ import './App.css'
 import Navbar from './components/Navigation/Navbar'
 import Main from './components/Views/Main'
 import AboutUs from './components/Views/AboutUs'
-import GDPRCompliancy from './components/Views/GDPRCompliancy'
+import GDPRCompliance from './components/Views/GDPRCompliance'
 import PrivacyPolicy from './components/Views/PrivacyPolicy'
 import People from 'Components/Views/People'
 import Companies from 'Components/Views/Companies'
 import CalculatorChoice from 'Components/Views/CalculatorChoice'
 
 const App = () => {
-
-  const [body, setBody] = useState('main')
   const [acceptPrivacyPolicy, setAcceptPrivacyPolicy] = useState(false)
+  const [body, setBody] = useState('main')
 
   if (body === 'main') {
     return (
@@ -30,7 +29,7 @@ const App = () => {
       <div className="App">
         <Navbar setBody={setBody} />
         <div className='Body'>
-          <PrivacyPolicy setAcceptPrivacyPolicy={setAcceptPrivacyPolicy} setBody={setBody} />
+          <PrivacyPolicy setBody={setBody} />
         </div>
       </div>
     )
@@ -80,12 +79,12 @@ const App = () => {
     )
   }
 
-  if (body === 'gdprCompliancy') {
+  if (body === 'gdprCompliance') {
     return (
       <div className='App'>
         <Navbar setBody={setBody} />
         <div className='Body'>
-          <GDPRCompliancy />          
+          <GDPRCompliance />          
         </div>
       </div>
     )

@@ -5,7 +5,8 @@ const TextField = ({ handleValueChange, value, nextQuestion }) => {
     <div>
       <input
         type="text"
-        className='InputField'
+        className='Calculator-textareafield'
+
         value={value}
         onChange={handleValueChange}
         onKeyPress={event => {

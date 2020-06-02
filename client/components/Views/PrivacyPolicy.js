@@ -12,7 +12,7 @@ const PrivacyPolicy = ({ setAcceptPrivacyPolicy, setBody }) => {
 
   return (
     <div className='Container'>
-      <div className='Privacy-policy-main'>
+      <div className='PrivacyPolicy-container'>
         {Object.entries(language.privacyPolicy.infoTexts).map(([ key, value ]) => { 
           if(key.includes('HeadingSmall')) {
             return <h3 key={key}>{value}</h3>
@@ -24,7 +24,7 @@ const PrivacyPolicy = ({ setAcceptPrivacyPolicy, setBody }) => {
             return <h2 key={key}>{value}</h2>
           }
           return (
-            <p key={key} className='Privacy-policy-paragraph'>{value}</p>
+            <p key={key} className='PrivacyPolicy-paragraph'>{value}</p>
           )
         })}
       </div>

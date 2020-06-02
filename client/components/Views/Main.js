@@ -8,13 +8,13 @@ const Main = ({ setBody }) => {
 
   return (
     <div className='Container'>
-      <div className='Content-main-left'>
+      <div className='Main-content-left'>
         <p className='Heading'>{language.headers.mainHeader}</p>
         <button className='Main-button' onClick={() => setBody('calculatorChoice')}>{language.buttons.main}</button>
       </div>
-      <div className='Content-main-right'></div>
-      <img className='Background-video-main-gif' src={background} alt='backgroundImage' />
-      <p className='Navigation-item' onClick={() => setBody('gdprCompliancy')}>{language.buttons.data}</p>
+      <div className='Main-content-right'></div>
+      <img className='Main-background-video-gif' src={background} alt='backgroundImage' />
+      <p className='Navigation-item' onClick={() => setBody('gdprCompliance')}>{language.buttons.data}</p>
     </div>
   )
 }

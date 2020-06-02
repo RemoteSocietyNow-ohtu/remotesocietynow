@@ -5,7 +5,7 @@ const MultipleChoiceField = ({ options, handleValueChange, value }) => {
     <div>
       {options.map(option => 
         <button 
-          className={value === option.value ? 'Choice-button-chosen' : 'Choice-button'}      
+          className={value === option.value ? 'Calculator-multiplechoice-button-chosen' : 'Calculator-multiplechoice-button'}      
           key={option.value} 
           value={option.value} 
           onClick={handleValueChange}

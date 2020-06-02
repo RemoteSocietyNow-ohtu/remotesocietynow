@@ -5,7 +5,7 @@ const Mathinfo = () => {
   const language = useContext(LanguageContext)
   return (
     <div className='Container'>
-      <div className='Math-info'>
+      <div className='AboutUs-mathinfo-container'>
         <h2>{language.headers.aboutTheMath}</h2>
         <p>{language.mathInfo}</p>
       </div>

@@ -9,11 +9,11 @@ const PrivacyCheckbox = ({ checked, setChecked, setBody }) => {
         className='checkbox-custom'
         type='checkbox'
         checked={checked}    
-        onClick={setChecked}    
+        onChange={setChecked}    
       />
       <label className='checkbox-custom-label' style={{fontSize: '0.3em'}}>
         To use our website you need to accept our 
-        <span className='Privacy-policy-link' onClick={() => setBody('privacy-policy')}> {language.headers.privacyPolicy}.</span>      
+        <span className='CalculatorChoice-privacy-policy-link' onClick={() => setBody('privacy-policy')}> {language.headers.privacyPolicy}.</span>      
       </label>
     </div>
   )

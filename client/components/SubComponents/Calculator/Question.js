@@ -5,7 +5,7 @@ import CommentField from 'Components/InputFields/CommentField'
 const Question = ({ question, answers, setAnwers, nextQuestion }) => {
 
   return (
-    <div className='Question'>
+    <div className='Calculator-question'>
       <p>{question.name}</p>
       <Field
         fieldType={question.type}

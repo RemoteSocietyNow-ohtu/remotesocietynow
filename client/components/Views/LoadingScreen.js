@@ -4,7 +4,7 @@ import loadingAnimation from '../../resources/loading.gif'
 const LoadingScreen = () => {
   return (
     <div className='Container'>
-      <img className='Loading-animation' src={loadingAnimation} alt='loading animation' />
+      <img className='LoadingScreen-loading-animation' src={loadingAnimation} alt='loading animation' />
       <h3>Loading...</h3>
     </div>
   )

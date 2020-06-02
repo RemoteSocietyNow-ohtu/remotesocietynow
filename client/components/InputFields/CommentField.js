@@ -8,7 +8,7 @@ const CommentField = ({ answers, setAnswers, question }) => {
   return(
     <div>
       <button 
-        className="Comment-field-button" 
+        className="Calculator-feedback-toggle" 
         onClick={() => setFieldVisible(!fieldVisible)}>
         {language.buttons.leaveComment} {fieldVisible ? '▲' : '▼'}
       </button>
@@ -19,7 +19,7 @@ const CommentField = ({ answers, setAnswers, question }) => {
           <textarea
             size="100"
             autoFocus
-            className='Comment-field'
+            className='Calculator-comment-field'
             value={answers[question.identifyingString + 'OpenField']}
             onChange={(event) => setAnswers({...answers, [question.identifyingString + 'OpenField']: event.target.value})}
           >        

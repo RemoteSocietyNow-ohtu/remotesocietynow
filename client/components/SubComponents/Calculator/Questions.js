@@ -9,14 +9,14 @@ const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, se
   
   const previousQuestion = () => {
     if (currentQuestion > 0) {
-      setFade('question-fade-right')      
+      setFade('Calculator-question-fade-right')      
       setTimeout(() => {setCurrentQuestion(currentQuestion - 1)}, 250)
     }
   }
 
   const nextQuestion = () => {
     if (currentQuestion < questions.length - 1) {
-      setFade('question-fade-left')
+      setFade('Calculator-question-fade-left')
       setTimeout(() => {setCurrentQuestion(currentQuestion + 1)}, 250)      
     }    
   }
@@ -34,12 +34,12 @@ const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, se
       
       {
         currentQuestion > 0 ? 
-          <img className='Arrow-icon' src={arrowLeft} alt='previous question' onClick={previousQuestion} /> 
+          <img className='Calculator-arrow-icon' src={arrowLeft} alt='previous question' onClick={previousQuestion} /> 
           : null 
       }
       {        
         currentQuestion < questions.length - 1  ?  
-          <img className='Arrow-icon' src={arrowRight} alt='next question' onClick={nextQuestion} /> 
+          <img className='Calculator-arrow-icon' src={arrowRight} alt='next question' onClick={nextQuestion} /> 
           :           
           <SendAnswersButton 
             currentQuestion={currentQuestion} 

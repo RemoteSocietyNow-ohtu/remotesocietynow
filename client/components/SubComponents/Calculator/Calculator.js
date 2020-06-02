@@ -68,7 +68,7 @@ const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setR
   return (
     <div>
       <div className='Container'>
-        <div className='Content-calculator-left'>
+        <div className='Calculator-content-left'>
           {currentQuestion < questions.length ? // If currentQuestion-index is greater than number of questions -> show results instead
             <Questions
               questions={questions}
@@ -88,7 +88,7 @@ const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setR
             />
           }
         </div>
-        <div className='Content-calculator-right'>
+        <div className='Calculator-content-right'>
           <QuestionsSidebar questions={questions} answers={answers} currentQuestion={currentQuestion}
             setCurrentQuestion={setCurrentQuestion} />
         </div>

@@ -54,7 +54,7 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
 
   return (
     <div className='Container' style={{ animation:'none' }}>
-      <div className='Results'>
+      <div className='Calculator-results-container'>
         {
           results.map(result => 
             <div key={result.title}>

@@ -4,7 +4,7 @@ const Video = () => {
   return (
     <div>
       <div className='Container'>
-        <div className='Video-container'>
+        <div className='AboutUs-video-container'>
           <iframe
             style={{
               position: 'absolute',

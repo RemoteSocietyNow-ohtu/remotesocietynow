@@ -8,14 +8,14 @@ export const english = {
     calculator: 'calculator',
     aboutTheMath: 'About the math',
     privacyPolicy: 'Privacy Policy',
-    gdprCompliancy: 'GDPR',
+    gdprCompliance: 'GDPR',
     workDoneRemotelyPercent: '% of work done remotely',
     workDoneRemotelyDays: 'Days of work done remotely',
     commentFieldHeader: 'Is this question relevant to you? Share your ideas! How can we make it better?',
   },
   content: {
     main: 'The Most Enjoyable Way to Save the Planet! While making more money and saving time.',
-    gdprCompliancy: [
+    gdprCompliance: [
       'You’re entitled to know exactly how your data is collected and used.',
       'You can ask what information has been collected about you.',
       'If there are mistakes in your data, you can request to have them corrected.',
@@ -35,7 +35,7 @@ export const english = {
     accept: 'Accept'
   },
   navigation: {
-    gdprCompliancy: 'GDPR',
+    gdprCompliance: 'GDPR',
     aboutUs: 'About Us',
     forPeople: 'For people',
     forCompany: 'For company'

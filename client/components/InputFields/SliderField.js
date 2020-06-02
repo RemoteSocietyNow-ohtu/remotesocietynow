@@ -11,7 +11,7 @@ const SliderField = ({ handleValueChange, handleRelease, value, minValue, maxVal
         onMouseUp={handleRelease}
         onTouchEnd={handleRelease}      
         value={value}
-        className='slider'
+        className='Calculator-sliderfield'
       />
       <p>{value} {unit}</p>
     </div>

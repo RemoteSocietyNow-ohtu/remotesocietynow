@@ -17,13 +17,13 @@ const CalculatorChoice = ({ setBody, acceptPrivacyPolicy, setAcceptPrivacyPolicy
         />
         <button
           disabled={!acceptPrivacyPolicy}
-          className='Calculator-choice-button' 
+          className='CalculatorChoice-button' 
           onClick={() => setBody('people')} >
           {language.buttons.calculateChoiceMyself}
         </button>
         <button
           disabled={!acceptPrivacyPolicy}
-          className='Calculator-choice-button' 
+          className='CalculatorChoice-button' 
           onClick={() => setBody('companies')} >
           {language.buttons.calculateChoiceCompanies}
         </button>
