@@ -4,7 +4,6 @@ import Navbar from './components/Navigation/Navbar'
 import Main from './components/Views/Main'
 import AboutUs from './components/Views/AboutUs'
 import GDPRCompliance from './components/Views/GDPRCompliance'
-import PrivacyPolicyBar from './components/SubComponents/PrivacyPolicyBar'
 import PrivacyPolicy from './components/Views/PrivacyPolicy'
 import People from 'Components/Views/People'
 import Companies from 'Components/Views/Companies'
@@ -30,7 +29,7 @@ const App = () => {
       <div className="App">
         <Navbar setBody={setBody} />
         <div className='Body'>
-          <PrivacyPolicy setAcceptPrivacyPolicy={setAcceptPrivacyPolicy} setBody={setBody} />
+          <PrivacyPolicy setBody={setBody} />
         </div>
       </div>
     )

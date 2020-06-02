@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react'
-import './Bar.css'
+import '../../../App.css'
 
 const ResultBar = ({ width, percent, type }) => {
 
@@ -17,7 +17,7 @@ const ResultBar = ({ width, percent, type }) => {
   }
   
   return (
-    <div className="bar-div" style={{ width:  `${width}%`}}>
+    <div className="Calculator-resultbar-container" style={{ width:  `${width}%`}}>
       <div style={{ width: `${value}%` }} className={`${type}`}/>
     </div>
   )
