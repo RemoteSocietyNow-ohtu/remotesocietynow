@@ -63,14 +63,7 @@ const calculateBenefitsForCompany = (rent, officeUpkeep, employees, businessTrav
   const moneySaved = remoteShare*totalExpenses/100
 
   const result = [
-    {
-      title: 'Annual money used without remote work',
-      value: totalExpenses,
-      unit: '€',
-      bartype: 'hiddenbar',
-      percent: 1
 
-    },
     {
       title: 'Potential annual money saved',
       value: moneySaved,
