@@ -2,7 +2,6 @@ const calculationRouter = require('express').Router()
 const remoteWorkCalculator = require('../services/calculations/remoteWorkCalculator')
 const database = require('../database/database')
 
-
 /** Handles POST requests to (baseUrl)/api/calculations/person from frontend
  * responds with total annual co2 emissions, and the potential saves from moving to more remote work
  * Post to /person/save additionally saves data to database
@@ -66,7 +65,7 @@ calculationRouter.post('/person/:save?', (req,res) => {
  * responds with total annual costs and potential money saved by moving to more remote work
  * Post to /company/save additionally saves data to database
  */
-calculationRouter.post('/company/:save?', (req,res) => {
+calculationRouter.post('/company/:save?', async (req,res) => {
   const companyName = req.body.companyName
   const rent = +req.body.officeRentExpenses
   const officeUpkeep = +req.body.otherUpkeepExpenses
@@ -82,19 +81,19 @@ calculationRouter.post('/company/:save?', (req,res) => {
   /* Calls the calculateBenefitsForCompany in /services/calculations/remoteWorkCalculator for emissions calculation 
     using parameters gathered above*/
   const result = remoteWorkCalculator.calculateBenefitsForCompany(rent, officeUpkeep, employees, businessTravelCost, remoteShare)
-  
+
   /* Calls storeCompanyData in /server/database/database.js to save all company input to database. */
-  if (req.params.save === 'save') {        
-    database.storeCompanyData(companyName, employees, rent, officeUpkeep, businessTravelCost)      
-    /* Calls storeCompanyFeedback in /server/database/database.js to save question feedback */
+  if (req.params.save === 'save') {     
+    await database.storeCompanyData(companyName, employees, rent, officeUpkeep, businessTravelCost)      
+ 
     const companyNameFeedback = req.body.companyNameOpenField
     const rentFeedback = req.body.officeRentExpensesOpenField
     const officeUpKeepFeedback = req.body.otherUpkeepExpensesOpenField
     const employeesFeedback = req.body.numberOfEmployeesOpenField
     const businessTravelCostFeedback = req.body.averageBusinessTripCostOpenField
-    database.storeCompanyFeedback(companyNameFeedback, rentFeedback, officeUpKeepFeedback, employeesFeedback, businessTravelCostFeedback)
-  }  
-  res.json(result)
+    await database.storeCompanyFeedback(companyNameFeedback, rentFeedback, officeUpKeepFeedback, employeesFeedback, businessTravelCostFeedback)
+  }
+  res.json(result)   
 })
 
 module.exports = calculationRouter

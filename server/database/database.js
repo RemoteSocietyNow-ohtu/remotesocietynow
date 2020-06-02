@@ -3,7 +3,7 @@ const Employee = require('../models/employeeSchema')
 const EmployeeFeedback = require('../models/employeeFeedbackSchema')
 const Company = require('../models/companySchema')
 const CompanyFeedback = require('../models/companyFeedbackSchema')
-const url = process.env.MONGODB_URI
+const url = process.env.NODE_ENV === 'test' ? process.env.MONGODB_TEST_URI : process.env.MONGODB_URI
 
 const connectToDatabase = () => {
   mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -44,7 +44,7 @@ const storeEmployeeData = (typicalVehicle, noOfDaysOfUsage, secondVehicle, noOfD
     .finally(() => mongoose.connection.close())
 }
 
-const storeCompanyData = (companyName, numberOfEmployees, officeRentExpenses, otherUpkeepExpenses, averageBusinessTripCost) => {
+const storeCompanyData = async (companyName, numberOfEmployees, officeRentExpenses, otherUpkeepExpenses, averageBusinessTripCost) => {
   
   const storedCompany = new Company({
     companyName: companyName,
@@ -54,18 +54,17 @@ const storeCompanyData = (companyName, numberOfEmployees, officeRentExpenses, ot
     averageBusinessTripCost: averageBusinessTripCost,
   })
 
-  connectToDatabase()
-
-  storedCompany.save().then(() => { 
+  try {
+    await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
+    await storedCompany.save()
     console.log('company saved!')
-  })
-    .catch((error) => {
-      console.log('error with storing to database:', error.message)
-    })
-    .finally(() => mongoose.connection.close())
+  } catch(error) {
+    console.log('error with storing to database:', error.message)
+  }
+  mongoose.connection.close()
 }
 
-const storeCompanyFeedback = (companyNameOpenField, numberOfEmployeesOpenField, officeRentExpensesOpenField, otherUpkeepExpensesOpenField, averageBusinessTripCostOpenField) => {
+const storeCompanyFeedback = async (companyNameOpenField, numberOfEmployeesOpenField, officeRentExpensesOpenField, otherUpkeepExpensesOpenField, averageBusinessTripCostOpenField) => {
   
   const storedCompanyFeedback = new CompanyFeedback({
     companyNameOpenField: companyNameOpenField,
@@ -75,15 +74,15 @@ const storeCompanyFeedback = (companyNameOpenField, numberOfEmployeesOpenField, 
     averageBusinessTripCostOpenField: averageBusinessTripCostOpenField,
   })
 
-  connectToDatabase()
-
-  storedCompanyFeedback.save().then(() => { 
+  try {
+    await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
+    await storedCompanyFeedback.save()
     console.log('company feedback saved!')
-  })
-    .catch((error) => {
-      console.log('error with storing to database:', error.message)
-    })
-    .finally(() => mongoose.connection.close())
+  } catch(error) {
+    console.log('error with storing to database:', error.message)
+  }
+  mongoose.connection.close()
+
 }
 
 const storeEmployeeFeedback = (typicalVehicleOpenField, noOfDaysOfUsageOpenField, secondVehicleOpenField, 
@@ -116,12 +115,39 @@ const storeEmployeeFeedback = (typicalVehicleOpenField, noOfDaysOfUsageOpenField
     .finally(() => mongoose.connection.close())
 }
 
+const saveCompany = async (req, companyName, rent, officeUpkeep, employees, businessTravelCost) => {
+  try {
+    await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
+    const storedCompany = new Company({
+      companyName: companyName,
+      numberOfEmployees: employees,
+      officeRentExpenses: rent,
+      otherUpkeepExpenses: officeUpkeep,
+      averageBusinessTripCost: businessTravelCost,
+    })
+    await storedCompany.save()
+    const storedCompanyFeedback = new CompanyFeedback({
+      companyNameOpenField: req.body.companyNameOpenField,
+      numberOfEmployeesOpenField: req.body.numberOfEmployeesOpenField,
+      officeRentExpensesOpenField: req.body.officeRentExpensesOpenField,
+      otherUpkeepExpensesOpenField: req.body.otherUpkeepExpensesOpenField,
+      averageBusinessTripCostOpenField: req.body.averageBusinessTripCostOpenField,
+    })
+    await storedCompanyFeedback.save()
+  }
+  catch (error) {
+    console.log(error)
+  }
+  await mongoose.connection.close()
+}
+
 module.exports = {
   connectToDatabase,
   storeEmployeeData,
   storeEmployeeFeedback,
   storeCompanyData,
-  storeCompanyFeedback
+  storeCompanyFeedback,
+  saveCompany
 }
 
 
