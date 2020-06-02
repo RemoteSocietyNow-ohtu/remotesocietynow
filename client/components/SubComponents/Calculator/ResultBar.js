@@ -6,7 +6,7 @@ const ResultBar = ({ width, percent, type }) => {
   const [value, setValue] = useState(0)
 
   useEffect(() => {
-    setValue(percent * width)
+    setValue(percent * 100)
   })
 
 
