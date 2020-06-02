@@ -32,7 +32,7 @@ const Field = ({ fieldType, options, value, setValue, minValue, maxValue, unit, 
     )
   } else if (fieldType === 'textField') {
     return (
-      <TextField handleValueChange={handleValueChange} value={value} />
+      <TextField handleValueChange={handleValueChange} value={value} nextQuestion={nextQuestion}/>
     )
   }
   return null

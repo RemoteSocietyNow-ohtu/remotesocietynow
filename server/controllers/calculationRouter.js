@@ -23,7 +23,7 @@ calculationRouter.post('/person/:save?', (req,res) => {
   //validate
   if (isNaN(distance) || isNaN(daysFirst) || isNaN(remoteDays) || isNaN(daysSecond) 
     || isNaN(dailyCommuteMinutes) || isNaN(annualCommuteExpenses) || isNaN(numberOfBusinessTrips) || isNaN(numberOfHoursOnPlane)
-    && typeof firstVehicle === 'string' && typeof secondVehicle === 'string' && typeof opinionRemote === 'string') {
+    || typeof firstVehicle !== 'string' || typeof secondVehicle !== 'string' || typeof opinionRemote !== 'string') {
     console.log('Invalid value')
     return res.status(400).send({ error: 'Invalid value'})
   }
@@ -66,7 +66,8 @@ calculationRouter.post('/person/:save?', (req,res) => {
  * responds with total annual costs and potential money saved by moving to more remote work
  * Post to /company/save additionally saves data to database
  */
-calculationRouter.post('/company/:save?', (req,res) => {    
+calculationRouter.post('/company/:save?', (req,res) => {
+  const companyName = req.body.companyName
   const rent = +req.body.officeRentExpenses
   const officeUpkeep = +req.body.otherUpkeepExpenses
   const employees = +req.body.numberOfEmployees
@@ -74,7 +75,7 @@ calculationRouter.post('/company/:save?', (req,res) => {
   const remoteShare = req.body.remoteShare ? req.body.remoteShare : 0
 
   //validate
-  if (isNaN(rent) || isNaN(officeUpkeep) || isNaN(employees) || isNaN(businessTravelCost) || isNaN(remoteShare)) {
+  if (isNaN(rent) || isNaN(officeUpkeep) || isNaN(employees) || isNaN(businessTravelCost) || isNaN(remoteShare) || typeof companyName !== 'string') {
     console.log('Invalid value')
     return res.status(400).send({ error: 'Invalid value'})
   }
@@ -84,13 +85,14 @@ calculationRouter.post('/company/:save?', (req,res) => {
   
   /* Calls storeCompanyData in /server/database/database.js to save all company input to database. */
   if (req.params.save === 'save') {        
-    database.storeCompanyData(employees, rent, officeUpkeep, businessTravelCost)      
+    database.storeCompanyData(companyName, employees, rent, officeUpkeep, businessTravelCost)      
     /* Calls storeCompanyFeedback in /server/database/database.js to save question feedback */
+    const companyNameFeedback = req.body.companyNameOpenField
     const rentFeedback = req.body.officeRentExpensesOpenField
     const officeUpKeepFeedback = req.body.otherUpkeepExpensesOpenField
     const employeesFeedback = req.body.numberOfEmployeesOpenField
     const businessTravelCostFeedback = req.body.averageBusinessTripCostOpenField
-    database.storeCompanyFeedback(rentFeedback, officeUpKeepFeedback, employeesFeedback, businessTravelCostFeedback)
+    database.storeCompanyFeedback(companyNameFeedback, rentFeedback, officeUpKeepFeedback, employeesFeedback, businessTravelCostFeedback)
   }  
   res.json(result)
 })

@@ -44,9 +44,10 @@ const storeEmployeeData = (typicalVehicle, noOfDaysOfUsage, secondVehicle, noOfD
     .finally(() => mongoose.connection.close())
 }
 
-const storeCompanyData = (numberOfEmployees, officeRentExpenses, otherUpkeepExpenses, averageBusinessTripCost) => {
+const storeCompanyData = (companyName, numberOfEmployees, officeRentExpenses, otherUpkeepExpenses, averageBusinessTripCost) => {
   
   const storedCompany = new Company({
+    companyName: companyName,
     numberOfEmployees: numberOfEmployees,
     officeRentExpenses: officeRentExpenses,
     otherUpkeepExpenses: otherUpkeepExpenses,
@@ -64,9 +65,10 @@ const storeCompanyData = (numberOfEmployees, officeRentExpenses, otherUpkeepExpe
     .finally(() => mongoose.connection.close())
 }
 
-const storeCompanyFeedback = (numberOfEmployeesOpenField, officeRentExpensesOpenField, otherUpkeepExpensesOpenField, averageBusinessTripCostOpenField) => {
+const storeCompanyFeedback = (companyNameOpenField, numberOfEmployeesOpenField, officeRentExpensesOpenField, otherUpkeepExpensesOpenField, averageBusinessTripCostOpenField) => {
   
   const storedCompanyFeedback = new CompanyFeedback({
+    companyNameOpenField: companyNameOpenField,
     numberOfEmployeesOpenField: numberOfEmployeesOpenField,
     officeRentExpensesOpenField: officeRentExpensesOpenField,
     otherUpkeepExpensesOpenField: otherUpkeepExpensesOpenField,

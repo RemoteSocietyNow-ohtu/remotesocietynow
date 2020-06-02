@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TextField = ({ handleValueChange, value }) => {
+const TextField = ({ handleValueChange, value, nextQuestion }) => {
   return (
     <div>
       <input
@@ -8,6 +8,11 @@ const TextField = ({ handleValueChange, value }) => {
         className='InputField'
         value={value}
         onChange={handleValueChange}
+        onKeyPress={event => {
+          if (event.key === 'Enter') {
+            nextQuestion()
+          }
+        }}
       >        
       </input>
     </div>
