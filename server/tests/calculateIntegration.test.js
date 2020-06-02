@@ -11,7 +11,7 @@ const badAnswers = {
   numberOfEmployeesOpenField: 'Open'
 }
 
-test('Backend company returns results', async () => {
+test('Backend calculate company returns results', async () => {
   const response = await supertest(app)
     .post('/calculate/company/')
     .send(companyAnswers)

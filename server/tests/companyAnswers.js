@@ -1,4 +1,6 @@
 const companyAnswers = {
+  companyName: '',
+  companyNameOpenField: 'Comment',
   averageBusinessTripCost: 2,
   averageBusinessTripCostOpenField: 'Open',
   numberOfEmployees: 2,
