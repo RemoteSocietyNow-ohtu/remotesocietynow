@@ -5,13 +5,11 @@ const app = require('../index')
 const companyAnswers = require('./companyAnswers')
 
 test('company data is saved to database', async () => {
-  const response = await supertest(app)
+  await supertest(app)
     .post('/calculate/company/save/')
     .send(companyAnswers)
     .expect(200)
-    .expect('Content-Type', /application\/json/)
-  console.log(response.body)
-  
+    .expect('Content-Type', /application\/json/)  
 })
 afterAll( async () => {
   await mongoose.connection.close()
