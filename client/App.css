@@ -170,6 +170,11 @@ html {
   background-color: #84a9ac;
 }
 
+.CalculatorChoice-button:disabled {
+  pointer-events: none;
+  background-color: #84a9ac;
+}
+
 .CalculatorChoice-checkbox {
   display: none;
 }
