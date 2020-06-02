@@ -4,7 +4,7 @@ const TextField = ({ handleValueChange, value }) => {
   return (
     <div>
       <textarea
-        className='TextArea-field'
+        className='Calculator-textareafield'
         value={value}
         onChange={handleValueChange}
       >        

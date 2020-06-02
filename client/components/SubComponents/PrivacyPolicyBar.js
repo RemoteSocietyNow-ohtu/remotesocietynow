@@ -9,7 +9,7 @@ const PrivacyPolicyBar = ({ setBody, setAcceptPrivacyPolicy }) => {
     <div className='PrivacyPolicyBar'>
       <div className='Inline'>
         <span>{language.content.privacyPolicyBar}</span>
-        <span className='Privacy-policy-link' onClick={() => setBody('privacy-policy')}>{language.headers.privacyPolicy}</span>
+        <span className='CalculatorChoice-privacy-policy-link' onClick={() => setBody('privacy-policy')}>{language.headers.privacyPolicy}</span>
         <span>.</span>
       </div>
       <br></br>

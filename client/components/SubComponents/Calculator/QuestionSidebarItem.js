@@ -6,20 +6,20 @@ const QuestionSidebarItem = ({ question, answers, questions, currentQuestion, se
   if (questions[currentQuestion] && questions[currentQuestion].identifyingString === question.identifyingString) {
     return (
       <>
-        <p className='QuestionSidebar-item' key={question.identifyingString} onClick={() => setCurrentQuestion(question.number)}><b>{question.name} <br></br> {answers[question.identifyingString]}</b></p>
+        <p className='Calculator-questionsidebar-item' key={question.identifyingString} onClick={() => setCurrentQuestion(question.number)}><b>{question.name} <br></br> {answers[question.identifyingString]}</b></p>
       </>
     )
   }
   if (answers[question.identifyingString] === '' || answers[question.identifyingString] === undefined) {
     return (
       <>
-        <p className='QuestionSidebar-item' key={question.identifyingString}  onClick={() => setCurrentQuestion(question.number)}>{question.name} <br></br> - </p>
+        <p className='Calculator-questionsidebar-item' key={question.identifyingString}  onClick={() => setCurrentQuestion(question.number)}>{question.name} <br></br> - </p>
       </>
     )
   }
   return (
     <>
-      <p className='QuestionSidebar-item' key={question.identifyingString}  onClick={() => setCurrentQuestion(question.number)}>{question.name} <br></br> {answers[question.identifyingString]}</p>
+      <p className='Calculator-questionsidebar-item' key={question.identifyingString}  onClick={() => setCurrentQuestion(question.number)}>{question.name} <br></br> {answers[question.identifyingString]}</p>
     </>
   )
 }

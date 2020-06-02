@@ -35,7 +35,7 @@ const SendAnswersButton = ({ setResults, currentQuestion, setCurrentQuestion, is
     <div>
       {error === true && <p className='Error'>{language.errors.errorSendingAnswers}</p>}
       <button 
-        className='Laske-button' 
+        className='Calculator-calculate-button' 
         onClick={handleClick}>
         {language.buttons.calculate}
       </button>

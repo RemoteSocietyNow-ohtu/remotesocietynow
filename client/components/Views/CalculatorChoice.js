@@ -6,13 +6,13 @@ const CalculatorChoice = ({ setBody }) => {
 
   return(
     <div className='Container'>
-      <div className='Container-choice'>
+      <div className='CalculatorChoice-container'>
         <p>{language.headers.calculateChoiceHeader}</p>
 
-        <button className='Calculator-choice-button' onClick={() => setBody('people')} >
+        <button className='CalculatorChoice-button' onClick={() => setBody('people')} >
           {language.buttons.calculateChoiceMyself}
         </button>
-        <button className='Calculator-choice-button' onClick={() => setBody('companies')} >
+        <button className='CalculatorChoice-button' onClick={() => setBody('companies')} >
           {language.buttons.calculateChoiceCompanies}
         </button>
       </div>
