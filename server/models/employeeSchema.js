@@ -14,6 +14,9 @@ const employeeSchema = new mongoose.Schema({
   numberOfHoursOnplane: Number
 })
 
-module.exports = mongoose.model('Employee', employeeSchema)
-
+try {  
+  module.exports = mongoose.model('Employee')
+} catch (e) {
+  module.exports = mongoose.model('Employee', employeeSchema)
+}
 

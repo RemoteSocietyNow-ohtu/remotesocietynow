@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react'
-import questionService from '../../services/questionService'
-import Questions from '../SubComponents/Calculator/Questions'
-import QuestionsSidebar from '../SubComponents/Calculator/QuestionsSidebar'
-import Results from '../SubComponents/Calculator/Results'
-import LoadingScreen from './LoadingScreen'
+import React, { useEffect, useState, useContext } from 'react'
+import questionService from '../../../services/questionService'
+import Questions from './Questions'
+import QuestionsSidebar from './QuestionsSidebar'
+import Results from './Results'
+import LoadingScreen from '../../Views/LoadingScreen'
+import LanguageContext from '@root/client/Contexts/LanguageContext'
 
 //answerValues get initial values. It is default value if such is available, otherwise empty string
 const initAnswerValues = questions => {
@@ -17,32 +18,49 @@ const initAnswerValues = questions => {
 }
 
 const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setResults, currentQuestion, setCurrentQuestion, isCompany }) => {
+  const [ isLoading, setIsLoading ] = useState(true)
+  const [ hasErrored, setHasErrored ] = useState(false)
+  const language = useContext(LanguageContext)
 
   //Fetch questions and init question and aswer states
-  useEffect(() => {
-    const fetchCompanyQuestions =
-    () => questionService.getQuestionsCompany()
-      .then(res => {
+  useEffect(() => {        
+    const fetchQuesions = async () => {      
+      try {
+        let res
+        if (isCompany) {
+          res = await questionService.getQuestionsCompany()
+        } else {
+          res = await questionService.getQuestionsPeople()
+        }
+        
         setQuestions(res)
-        setAnwers(initAnswerValues(res))
-      })
-    const fetchPeopleQuestions = () => questionService.getQuestionsPeople()
-      .then(res => {
-        setQuestions(res)
-        setAnwers(initAnswerValues(res))
-      })
-    if (isCompany) {
-      fetchCompanyQuestions()
-    } else {
-      fetchPeopleQuestions()
+        setAnwers(initAnswerValues(res)) 
+        setIsLoading(false)
+        setHasErrored(false)     
+      } catch (error) {
+        setHasErrored(true)
+        setIsLoading(false)
+        console.log(error)
+      }    
     }
+    setIsLoading(true)
+    setHasErrored(false)
+    fetchQuesions()
   }, [isCompany])
 
   // Return loading screen if question and aswer states are not ready
-  if (Object.keys(answers).length === 0 || questions.length === 0) {
+  if (isLoading) {
     return (
       <div className='Body'>
         <LoadingScreen />
+      </div>
+    )
+  }
+
+  if (hasErrored) {
+    return (
+      <div className='Body'>
+        <p>{language.errors.errorFetchingQuestions}</p>
       </div>
     )
   }

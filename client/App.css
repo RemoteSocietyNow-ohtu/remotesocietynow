@@ -304,6 +304,19 @@ html {
 }
 
 .Calculator-textareafield {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  appearance: textfield;
+  font-size: calc(10px + 2vmin);
+  border: none;
+  height: 40px;
+  max-width: 80%;
+  color: gainsboro;
+  background-color: #3b6978;
+  text-align: center;
+}
+
+.Comment-field {
   background-color: #3b6978;
   width: 80%;
   height: 50px;
@@ -314,6 +327,19 @@ html {
   padding: 1%;
   resize: none;
   animation: fade-in-move-down 0.5s;
+}
+
+.Comment-field-button {
+  background: transparent;
+  font-weight: normal;
+  color: gainsboro;  
+  box-shadow: 0px 0px 0px transparent;
+  border: 0px solid transparent;
+  text-shadow: 0px 0px 0px transparent;
+  cursor: pointer;
+  font-size: 0.5em;  
+  padding: 15px;
+  margin-top: 15px;
 }
 
 .Calculator-multiplechoice-button {

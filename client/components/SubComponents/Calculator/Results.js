@@ -3,12 +3,10 @@ import LanguageContext from '../../../Contexts/LanguageContext'
 import questionService from '../../../services/questionService'
 import SliderField from '../../InputFields/SliderField'
 import CountUp from 'react-countup'
-import LoadingScreen from '../../Views/LoadingScreen'
 import ResultBar from './ResultBar'
 
 const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
   const language = useContext(LanguageContext)
-  const [ loading, setLoading ] = useState(true)
   const [ error, setError ] = useState(false)
   const [ sliderValue, setSliderValue ] = useState(0)
 
@@ -31,18 +29,15 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
           response = await questionService.sendAnswersPeopleCalculationOnly(answers)
         }
         setResults(response)
-        setLoading(false)      
       } catch (error) {
         setError(true)
         console.log(error)
-        setLoading(false)
       }
     }
     fetchResults()
   },[answers])
   
-  // Check if still fetching results or there was an error fetching results
-  if(loading === true) return <LoadingScreen />
+  // Check if there was an error fetching results
   if(error === true) return <p>{language.errors.errorSendingAnswers}</p>
 
   // Change answers.remoteShare based on slider. 
@@ -65,7 +60,7 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
             <div key={result.title}>
               <p >{result.title}</p>
               <ResultBar width={100} percent={result.percent} type={result.bartype} />                 
-              <p><CountUp duration={.8} end={result.value} /> {result.unit}</p>
+              <p><CountUp duration={.8} end={result.value ? result.value : 0} /> {result.unit}</p>
             </div>
           )
         }

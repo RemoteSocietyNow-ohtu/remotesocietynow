@@ -1,20 +1,26 @@
+.bar-container{
+    width: 50%;
+    margin: 0 auto;
+}
+
 .bar-div {
     background-color: #cae8d5;
-    border-radius: .5rem;
+    border-radius: 4px 4px 4px 4px;
+    
 }
 
 .greenbar {
     background-color: green;
-    height: 10px;
-    border-radius: 1rem;
+    height: 30px;
+    border-radius: 4px 4px 4px 4px;
     transition: 1s ease;
     transition-delay: 0.5s;
 }
 
 .redbar {
-    background-color: red;
-    height: 10px;
-    border-radius: 1rem;
+    background-color:#D8000C;
+    height: 30px;
+    border-radius: 4px 4px 4px 4px;
     transition: 1s ease;
     transition-delay: 0.5s;
 }

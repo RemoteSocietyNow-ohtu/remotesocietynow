@@ -14,6 +14,9 @@ const employeeFeedbackSchema = new mongoose.Schema({
   numberOfHoursOnplaneOpenField: String
 })
 
-module.exports = mongoose.model('EmployeeFeedback', employeeFeedbackSchema)
-
+try {
+  module.exports = mongoose.model('EmployeeFeedback')
+} catch (e) {
+  module.exports = mongoose.model('EmployeeFeedback', employeeFeedbackSchema)
+}
 

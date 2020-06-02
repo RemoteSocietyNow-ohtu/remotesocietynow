@@ -41,7 +41,8 @@ export const english = {
     forCompany: 'For company'
   },
   errors: {
-    errorSendingAnswers: 'An Error occured while sending answers'
+    errorSendingAnswers: 'An Error occured while sending answers',
+    errorFetchingQuestions: 'An Error occured while fetching questions'
   },
   actions: {
     sending: 'Sending...'

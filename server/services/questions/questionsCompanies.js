@@ -1,5 +1,11 @@
 const questionsCompanies = [
   {
+    identifyingString:'companyName',
+    // eslint-disable-next-line quotes
+    name: "Your Company's name",
+    type: 'textField'
+  },
+  {
     identifyingString:'numberOfEmployees',
     name: 'How many employees does your company have?',
     type: 'field',

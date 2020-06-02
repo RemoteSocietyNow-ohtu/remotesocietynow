@@ -7,8 +7,9 @@ const SliderField = ({ handleValueChange, handleRelease, value, minValue, maxVal
         type="range" 
         min={minValue} 
         max={maxValue}
-        onChange={handleValueChange}
+        onChange={handleValueChange}  
         onMouseUp={handleRelease}
+        onTouchEnd={handleRelease}      
         value={value}
         className='Calculator-sliderfield'
       />

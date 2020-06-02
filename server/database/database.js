@@ -3,10 +3,10 @@ const Employee = require('../models/employeeSchema')
 const EmployeeFeedback = require('../models/employeeFeedbackSchema')
 const Company = require('../models/companySchema')
 const CompanyFeedback = require('../models/companyFeedbackSchema')
-const url = process.env.MONGODB_URI
+const url = process.env.NODE_ENV === 'test' ? process.env.MONGODB_TEST_URI : process.env.MONGODB_URI
 
 const connectToDatabase = () => {
-  mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
+  return mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => { 
       console.log('connected to MongoDB')
     })
@@ -15,7 +15,7 @@ const connectToDatabase = () => {
     })
 }
 
-const storeEmployeeData = (typicalVehicle, noOfDaysOfUsage, secondVehicle, noOfDaysOfUsageSecond, dailyCommuteKm,
+const storeEmployeeData = async (typicalVehicle, noOfDaysOfUsage, secondVehicle, noOfDaysOfUsageSecond, dailyCommuteKm,
   dailyCommuteMinutes, numberOfRemoteworkDays, annualCommuteExpenses, opinionRemote, numberOfBusinessTrips, 
   numberOfHoursOnplane) => {
 
@@ -33,49 +33,58 @@ const storeEmployeeData = (typicalVehicle, noOfDaysOfUsage, secondVehicle, noOfD
     numberOfHoursOnplane: numberOfHoursOnplane
   })
 
-  connectToDatabase()
-
-  storedEmployee.save().then(() => { 
-    console.log('employee data saved!')
-    mongoose.connection.close()
-  })
+  try {
+    await connectToDatabase()
+    await storedEmployee.save()
+    console.log('employee saved!')
+  } catch(error) {
+    console.log('error with storing to database:', error.message)
+  }
+  mongoose.connection.close()  
 }
 
-const storeCompanyData = (numberOfEmployees, officeRentExpenses, otherUpkeepExpenses, averageBusinessTripCost) => {
+const storeCompanyData = async (companyName, numberOfEmployees, officeRentExpenses, otherUpkeepExpenses, averageBusinessTripCost) => {
   
   const storedCompany = new Company({
+    companyName: companyName,
     numberOfEmployees: numberOfEmployees,
     officeRentExpenses: officeRentExpenses,
     otherUpkeepExpenses: otherUpkeepExpenses,
     averageBusinessTripCost: averageBusinessTripCost,
   })
 
-  connectToDatabase()
-
-  storedCompany.save().then(() => { 
+  try {
+    await connectToDatabase()
+    await storedCompany.save()
     console.log('company saved!')
-    mongoose.connection.close()
-  })
+  } catch(error) {
+    console.log('error with storing to database:', error.message)
+  }
+  mongoose.connection.close()
 }
 
-const storeCompanyFeedback = (numberOfEmployeesOpenField, officeRentExpensesOpenField, otherUpkeepExpensesOpenField, averageBusinessTripCostOpenField) => {
+const storeCompanyFeedback = async (companyNameOpenField, numberOfEmployeesOpenField, officeRentExpensesOpenField, otherUpkeepExpensesOpenField, averageBusinessTripCostOpenField) => {
   
   const storedCompanyFeedback = new CompanyFeedback({
+    companyNameOpenField: companyNameOpenField,
     numberOfEmployeesOpenField: numberOfEmployeesOpenField,
     officeRentExpensesOpenField: officeRentExpensesOpenField,
     otherUpkeepExpensesOpenField: otherUpkeepExpensesOpenField,
     averageBusinessTripCostOpenField: averageBusinessTripCostOpenField,
   })
 
-  connectToDatabase()
-
-  storedCompanyFeedback.save().then(() => { 
+  try {
+    await connectToDatabase()
+    await storedCompanyFeedback.save()
     console.log('company feedback saved!')
-    mongoose.connection.close()
-  })
+  } catch(error) {
+    console.log('error with storing to database:', error.message)
+  }
+  mongoose.connection.close()
+
 }
 
-const storeEmployeeFeedback = (typicalVehicleOpenField, noOfDaysOfUsageOpenField, secondVehicleOpenField, 
+const storeEmployeeFeedback = async (typicalVehicleOpenField, noOfDaysOfUsageOpenField, secondVehicleOpenField, 
   noOfDaysOfUsageSecondOpenField, dailyCommuteKmOpenField, dailyCommuteMinutesOpenField, numberOfRemoteworkDaysOpenField, 
   annualCommuteExpensesOpenField, opinionRemoteOpenField, numberOfBusinessTripsOpenField, 
   numberOfHoursOnplaneOpenField) => {
@@ -94,21 +103,21 @@ const storeEmployeeFeedback = (typicalVehicleOpenField, noOfDaysOfUsageOpenField
     numberOfHoursOnplaneOpenField: numberOfHoursOnplaneOpenField
   })
 
-  connectToDatabase()
-
-  storedEmployeeFeedback.save().then(() => { 
+  try {
+    await connectToDatabase()
+    await storedEmployeeFeedback.save()
     console.log('employee feedback saved!')
-    mongoose.connection.close()
-  })
+  } catch(error) {
+    console.log('error with storing to database:', error.message)
+  }
 }
 
+
 module.exports = {
-  connectToDatabase,
   storeEmployeeData,
   storeEmployeeFeedback,
   storeCompanyData,
   storeCompanyFeedback
-  
 }
 
 

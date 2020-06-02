@@ -1,14 +1,21 @@
 import React from 'react'
 
-const TextField = ({ handleValueChange, value }) => {
+const TextField = ({ handleValueChange, value, nextQuestion }) => {
   return (
     <div>
-      <textarea
+      <input
+        type="text"
         className='Calculator-textareafield'
+
         value={value}
         onChange={handleValueChange}
+        onKeyPress={event => {
+          if (event.key === 'Enter') {
+            nextQuestion()
+          }
+        }}
       >        
-      </textarea>
+      </input>
     </div>
   )
 }
