@@ -6,12 +6,12 @@ const PrivacyCheckbox = ({ checked, setChecked, setBody }) => {
   return (
     <div onClick={setChecked}>
       <input
-        className='checkbox-custom'
+        className='CalculatorChoice-checkbox'
         type='checkbox'
         checked={checked}    
         onChange={setChecked}    
       />
-      <label className='checkbox-custom-label' style={{fontSize: '0.3em'}}>
+      <label className='CalculatorChoice-checkbox-label' >
         To use our website you need to accept our 
         <span className='CalculatorChoice-privacy-policy-link' onClick={() => setBody('privacy-policy')}> {language.headers.privacyPolicy}.</span>      
       </label>

@@ -170,6 +170,47 @@ html {
   background-color: #84a9ac;
 }
 
+.CalculatorChoice-button:disabled {
+  pointer-events: none;
+  background-color: #84a9ac;
+}
+
+.CalculatorChoice-checkbox {
+  display: none;
+}
+.CalculatorChoice-checkbox-label {
+  transform: scale(1.5); 
+  -webkit-transform: scale(1.5);
+  font-size: small;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  margin: 5px;
+  cursor: pointer;
+}
+.CalculatorChoice-checkbox + .CalculatorChoice-checkbox-label:before {
+  content: '';
+  background: #84a9ac;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  display: inline-block;
+  vertical-align: middle;
+  width: 10px; height: 10px;
+  padding: 2px; margin-right: 10px;
+}
+.CalculatorChoice-checkbox:checked + .CalculatorChoice-checkbox-label:after {
+  content: "";
+  padding: 2px;
+  position: absolute;
+  width: 1px;
+  height: 5px;
+  border: solid #3b6978;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+  top: 2px; left: 5px;
+}
+
+
 /* GDPRCompliance */
 .GDPRCompliance-content {
   text-align: left;
@@ -273,6 +314,23 @@ html {
 
 .PrivacyPolicy-paragraph {
   font-size: calc(10px + 2vmin);
+}
+
+.PrivacyPolicy-button {
+  background-color: #cae8d5;
+  margin-top: 6%;
+  margin-bottom: 3%;
+  height: 70px;
+  width: 150px;
+  cursor: pointer;
+  border: #3b6978 2px solid;
+  border-radius: 5%;
+}
+
+.PrivacyPolicy-button:hover {
+  color: gainsboro;
+  background-color: #3b6978;
+  border: #181A1B 2px solid;
 }
 
 /* AboutUs */
