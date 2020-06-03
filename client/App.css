@@ -3,6 +3,10 @@ html {
   background-color: #204051;
 }
 
+td {
+  width:'60px'
+}
+
 @font-face {
   src: url(fonts/PT\ Root\ UI_Light.ttf);
   font-family: PT Root;
@@ -501,9 +505,14 @@ html {
   background-color: #cae8d5;
 }
 
+.Calculator-sliderfield-container {
+  width: 70%;
+  margin: auto;
+}
+
 .Calculator-sliderfield {
   -webkit-appearance: none;
-  width: 70%;
+  width: 100%;
   height: 15px;
   border-radius: 5px;  
   background: #3b6978;
@@ -533,6 +542,13 @@ html {
 
 .Calculator-sliderfield::-moz-range-progress {
   background-color: #84a9ac;
+}
+
+.Calculator-sliderfield-tick {
+  -webkit-appearance: none;
+  border-left: 2px solid gainsboro;
+  height:10px;
+  margin-top: none;
 }
 
 /* Animations */
