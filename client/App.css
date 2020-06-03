@@ -146,7 +146,7 @@ td {
 @media (max-width: 656px) {
   .Main-content-left {      
     margin: auto;    
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
 }
 
@@ -213,42 +213,34 @@ td {
   background-color: #84a9ac;
 }
 
-.CalculatorChoice-checkbox {
-  opacity: 0;
+.CalculatorChoice-checkbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding: 1rem;
 }
 
-
-.CalculatorChoice-checkbox-label { 
-  font-size: 1.2rem;
-  display: inline-block;
-  position: relative;
-  vertical-align: middle;
-  margin-top: 2rem;
-  margin-bottom: 3rem;
-  cursor: pointer;
+.CalculatorChoice-checkbox {    
+    background: none;
+    box-shadow: 0px 0px 0px transparent;
+    border: 0px solid transparent;
+    text-shadow: 0px 0px 0px transparent;
 }
-.CalculatorChoice-checkbox + .CalculatorChoice-checkbox-label:before {
-  content: '';
-  background: #84a9ac;
+
+.CalculatorChoice-checkbox:focus {
+  outline: 1px solid #3b6978;
   border-radius: 50%;
-  border: 2px solid #ddd;
-  display: inline-block;
-  vertical-align: middle;
-  width: 10px; height: 10px;
-  padding: 5px; margin-right: 10px;
-}
-.CalculatorChoice-checkbox:checked + .CalculatorChoice-checkbox-label:after {
-  content: "";
-  padding: 2px;
-  position: absolute;
-  width: 1px;
-  height: 5px;
-  border: solid #3b6978;
-  border-width: 0 3px 3px 0;
-  transform: rotate(45deg);
-  top: 5px; left: 15px;
 }
 
+.CalculatorChoice-checkbox-label {
+  font-size: 1rem;
+}
+
+.CalculatorChoice-checkbox-image {
+  width: 2rem;
+  height: 2rem;
+}
 
 
 /* GDPRCompliance */
