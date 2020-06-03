@@ -5,6 +5,14 @@ const Company = require('../models/companySchema')
 const CompanyFeedback = require('../models/companyFeedbackSchema')
 const url = process.env.NODE_ENV === 'test' ? process.env.MONGODB_TEST_URI : process.env.MONGODB_URI
 
+const formIsEmpty = (...answers) => {
+  let empty = true
+  answers.forEach(element => {
+    if (!(element === '')) empty = false
+  })
+  return empty
+}
+
 const connectToDatabase = () => {
   return mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => { 
@@ -63,54 +71,68 @@ const storeCompanyData = async (companyName, numberOfEmployees, officeRentExpens
   mongoose.connection.close()
 }
 
-const storeCompanyFeedback = async (companyNameOpenField, numberOfEmployeesOpenField, officeRentExpensesOpenField, otherUpkeepExpensesOpenField, averageBusinessTripCostOpenField) => {
+const storeCompanyFeedback = async (companyNameOpenField, numberOfEmployeesOpenField, officeRentExpensesOpenField, 
+  otherUpkeepExpensesOpenField, averageBusinessTripCostOpenField) => {
   
-  const storedCompanyFeedback = new CompanyFeedback({
-    companyNameOpenField: companyNameOpenField,
-    numberOfEmployeesOpenField: numberOfEmployeesOpenField,
-    officeRentExpensesOpenField: officeRentExpensesOpenField,
-    otherUpkeepExpensesOpenField: otherUpkeepExpensesOpenField,
-    averageBusinessTripCostOpenField: averageBusinessTripCostOpenField,
-  })
-
-  try {
-    await connectToDatabase()
-    await storedCompanyFeedback.save()
-    console.log('company feedback saved!')
-  } catch(error) {
-    console.log('error with storing to database:', error.message)
+  if (!formIsEmpty(companyNameOpenField, numberOfEmployeesOpenField, officeRentExpensesOpenField, 
+    otherUpkeepExpensesOpenField, averageBusinessTripCostOpenField)) {
+    
+    const storedCompanyFeedback = new CompanyFeedback({
+      companyNameOpenField: companyNameOpenField,
+      numberOfEmployeesOpenField: numberOfEmployeesOpenField,
+      officeRentExpensesOpenField: officeRentExpensesOpenField,
+      otherUpkeepExpensesOpenField: otherUpkeepExpensesOpenField,
+      averageBusinessTripCostOpenField: averageBusinessTripCostOpenField,
+    })
+  
+    try {
+      await connectToDatabase()
+      await storedCompanyFeedback.save()
+      console.log('company feedback saved!')
+    } catch(error) {
+      console.log('error with storing to database:', error.message)
+    }
+    mongoose.connection.close()
+  } else {
+    console.log('company feedback not stored (empty form)')
   }
-  mongoose.connection.close()
-
 }
 
 const storeEmployeeFeedback = async (typicalVehicleOpenField, noOfDaysOfUsageOpenField, secondVehicleOpenField, 
   noOfDaysOfUsageSecondOpenField, dailyCommuteKmOpenField, dailyCommuteMinutesOpenField, numberOfRemoteworkDaysOpenField, 
   annualCommuteExpensesOpenField, opinionRemoteOpenField, numberOfBusinessTripsOpenField, 
   numberOfHoursOnplaneOpenField) => {
+  
+  if (!formIsEmpty(typicalVehicleOpenField, noOfDaysOfUsageOpenField, secondVehicleOpenField, 
+    noOfDaysOfUsageSecondOpenField, dailyCommuteKmOpenField, dailyCommuteMinutesOpenField, numberOfRemoteworkDaysOpenField, 
+    annualCommuteExpensesOpenField, opinionRemoteOpenField, numberOfBusinessTripsOpenField, 
+    numberOfHoursOnplaneOpenField)) {
 
-  const storedEmployeeFeedback = new EmployeeFeedback({
-    typicalVehicleOpenField: typicalVehicleOpenField,
-    noOfDaysOfUsageOpenField: noOfDaysOfUsageOpenField,
-    secondVehicleOpenField: secondVehicleOpenField,
-    noOfDaysOfUsageSecondOpenField: noOfDaysOfUsageSecondOpenField,
-    dailyCommuteKmOpenField: dailyCommuteKmOpenField,
-    dailyCommuteMinutesOpenField: dailyCommuteMinutesOpenField,
-    numberOfRemoteworkDaysOpenField: numberOfRemoteworkDaysOpenField,
-    annualCommuteExpensesOpenField: annualCommuteExpensesOpenField,
-    opinionRemoteOpenField: opinionRemoteOpenField,
-    numberOfBusinessTripsOpenField: numberOfBusinessTripsOpenField,
-    numberOfHoursOnplaneOpenField: numberOfHoursOnplaneOpenField
-  })
+    const storedEmployeeFeedback = new EmployeeFeedback({
+      typicalVehicleOpenField: typicalVehicleOpenField,
+      noOfDaysOfUsageOpenField: noOfDaysOfUsageOpenField,
+      secondVehicleOpenField: secondVehicleOpenField,
+      noOfDaysOfUsageSecondOpenField: noOfDaysOfUsageSecondOpenField,
+      dailyCommuteKmOpenField: dailyCommuteKmOpenField,
+      dailyCommuteMinutesOpenField: dailyCommuteMinutesOpenField,
+      numberOfRemoteworkDaysOpenField: numberOfRemoteworkDaysOpenField,
+      annualCommuteExpensesOpenField: annualCommuteExpensesOpenField,
+      opinionRemoteOpenField: opinionRemoteOpenField,
+      numberOfBusinessTripsOpenField: numberOfBusinessTripsOpenField,
+      numberOfHoursOnplaneOpenField: numberOfHoursOnplaneOpenField
+    })
 
-  try {
-    await connectToDatabase()
-    await storedEmployeeFeedback.save()
-    console.log('employee feedback saved!')
-  } catch(error) {
-    console.log('error with storing to database:', error.message)
+    try {
+      await connectToDatabase()
+      await storedEmployeeFeedback.save()
+      console.log('employee feedback saved!')
+    } catch(error) {
+      console.log('error with storing to database:', error.message)
+    }
+    mongoose.connection.close()
+  } else {
+    console.log('employee feedback not stored (empty form)')
   }
-  mongoose.connection.close()
 }
 
 
