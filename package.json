@@ -76,6 +76,7 @@
     "@util": "server/util"
   },
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "testTimeout": 30000
   }
 }
