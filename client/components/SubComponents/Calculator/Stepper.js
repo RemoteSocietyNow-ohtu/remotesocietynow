@@ -1,19 +1,21 @@
 import React from 'react'
 
-const Stepper = ({ questions, currentQuestion }) => {
+const Stepper = ({ questions, currentQuestion, setCurrentQuestion }) => {
   return (
-    <ul className='Calculator-stepper'>
-      
-      {questions.map(q => {
-        if(q.number === currentQuestion) {
-          return <li className='active'></li>
-        } else {
-          return <li></li>
-        }                  
-      }
-      )}
-      
-    </ul>
+    <div className='Calculator-stepper-container'>
+      <ul className='Calculator-stepper'>
+        
+        {questions.map(q => {
+          if(q.number === currentQuestion) {
+            return <li className='active' onClick={() => setCurrentQuestion(q.number)}></li>
+          } else {
+            return <li onClick={() => setCurrentQuestion(q.number)}></li>
+          }                  
+        }
+        )}
+        
+      </ul>
+    </div>
   )
 }
 

@@ -374,22 +374,33 @@ td {
   margin: 0 auto;
 }
 
-.Calculator-stepper { 
+.Calculator-stepper-container {
   position: fixed;
   bottom: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 756px) {
+  .Calculator-stepper-container {
+    display: none;
+  }
+}
+
+.Calculator-stepper {   
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  width: 80%;
+  width: 60%;
   margin: auto; 
   padding: 0;
 }
 
 .Calculator-stepper li{
-  list-style-type: none;    
-  text-align: center;
-  height: 20px;
-  width: 20px;   
+  list-style-type: none;  
+  height: 10px;
+  width: 10px;   
   background-color:#3b6978;
   border-radius: 50%;
 }
@@ -398,11 +409,7 @@ td {
   background-color: #cae8d5;
 }
 
-@media (min-width: 756px) {
-  .Calculator-stepper {
-    display: none;
-  }
-}
+
 
 .greenbar {
   background-color: green;
