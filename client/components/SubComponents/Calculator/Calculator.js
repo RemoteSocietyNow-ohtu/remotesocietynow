@@ -5,6 +5,7 @@ import QuestionsSidebar from './QuestionsSidebar'
 import Results from './Results'
 import LoadingScreen from '../../Views/LoadingScreen'
 import LanguageContext from '@root/client/Contexts/LanguageContext'
+import Stepper from './Stepper'
 
 //answerValues get initial values. It is default value if such is available, otherwise empty string
 const initAnswerValues = questions => {
@@ -90,9 +91,11 @@ const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setR
         </div>
         <div className='Calculator-content-right'>
           <QuestionsSidebar questions={questions} answers={answers} currentQuestion={currentQuestion}
-            setCurrentQuestion={setCurrentQuestion} />
+            setCurrentQuestion={setCurrentQuestion} />          
         </div>
+        
       </div>
+      <Stepper questions={questions} currentQuestion={currentQuestion} />
     </div>
   )
 }

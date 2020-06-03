@@ -4,6 +4,7 @@ import arrowRight from '../../../resources/arrow-right.png'
 import arrowLeft from '../../../resources/arrow-left.png'
 import SendAnswersButton from './SendAnswersButton'
 
+
 const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, setAnwers, isCompany, setResults }) => {
   const [fade, setFade] = useState('question-no-fade')
   
@@ -22,7 +23,7 @@ const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, se
   }
 
   return (
-    <div>      
+    <div>          
       <div className={fade} onAnimationEnd={() => setFade('question-no-fade') } >
         <Question
           question={questions[currentQuestion]} 
@@ -52,6 +53,7 @@ const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, se
           <img className='Calculator-arrow-icon' src={arrowRight} alt='next question' onClick={nextQuestion} /> 
           : null
       }       
+       
     </div>
   )
 }

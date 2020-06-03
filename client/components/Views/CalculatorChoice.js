@@ -5,7 +5,6 @@ import PrivacyCheckbox from 'Components/InputFields/PrivacyCheckbox'
 const CalculatorChoice = ({ setBody, acceptPrivacyPolicy, setAcceptPrivacyPolicy }) => {
   const language = useContext(LanguageContext)
  
-
   return(
     <div className='Container'>      
       <div className='CalculatorChoice-container'>
