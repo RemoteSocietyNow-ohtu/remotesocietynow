@@ -110,6 +110,7 @@ const storeEmployeeFeedback = async (typicalVehicleOpenField, noOfDaysOfUsageOpe
   } catch(error) {
     console.log('error with storing to database:', error.message)
   }
+  mongoose.connection.close()
 }
 
 
