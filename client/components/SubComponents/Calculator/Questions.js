@@ -31,6 +31,16 @@ const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, se
           nextQuestion={nextQuestion}
         />
       </div>
+
+      {        
+        currentQuestion >= questions.length - 1  &&      
+          <SendAnswersButton 
+            currentQuestion={currentQuestion} 
+            setCurrentQuestion={setCurrentQuestion} 
+            isCompany={isCompany}
+            answers={answers} 
+            setResults={setResults} />
+      }       
       
       {
         currentQuestion > 0 ? 
@@ -40,13 +50,7 @@ const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, se
       {        
         currentQuestion < questions.length - 1  ?  
           <img className='Calculator-arrow-icon' src={arrowRight} alt='next question' onClick={nextQuestion} /> 
-          :           
-          <SendAnswersButton 
-            currentQuestion={currentQuestion} 
-            setCurrentQuestion={setCurrentQuestion} 
-            isCompany={isCompany}
-            answers={answers} 
-            setResults={setResults} />
+          : null
       }       
     </div>
   )
