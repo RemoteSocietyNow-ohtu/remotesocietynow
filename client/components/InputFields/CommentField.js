@@ -15,7 +15,7 @@ const CommentField = ({ answers, setAnswers, question }) => {
       {
         fieldVisible === true &&  
         <>    
-          <p>{language.headers.commentFieldHeader}</p>    
+          <p size={{fontSize: '1rem'}}>{language.headers.commentFieldHeader}</p>    
           <textarea
             size="100"
             autoFocus

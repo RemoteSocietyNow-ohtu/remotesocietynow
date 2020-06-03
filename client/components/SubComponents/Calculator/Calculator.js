@@ -67,7 +67,7 @@ const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setR
 
   return (
     <div>
-      <div className='Container'>
+      <div className='Calculator-container'>
         <div className='Calculator-content-left'>
           {currentQuestion < questions.length ? // If currentQuestion-index is greater than number of questions -> show results instead
             <Questions

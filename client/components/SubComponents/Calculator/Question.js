@@ -6,7 +6,7 @@ const Question = ({ question, answers, setAnwers, nextQuestion }) => {
 
   return (
     <div className='Calculator-question'>
-      <p>{question.name}</p>
+      <h2 className='Calculator-question-header'>{question.name}</h2>
       <Field
         fieldType={question.type}
         options={question.options}

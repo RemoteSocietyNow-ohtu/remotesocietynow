@@ -27,6 +27,7 @@ html {
 }
 
 .Container {   
+  width: 90%;
   margin: auto;
   margin-bottom: 2%;
   animation: fade 500ms ease-in;
@@ -143,14 +144,13 @@ html {
 
 /* CalculatorChoice */
 .CalculatorChoice-container {  
-  max-width: 52rem;
+  max-width: 48rem;
   margin: auto;
   margin-top: 10%;
 }
 
 .CalculatorChoice-header {
-  font-size: 2rem;
-  margin-bottom: 2rem;
+ font-size: 2rem;
 }
 
 .CalculatorChoice-privacy-policy-link {
@@ -160,7 +160,7 @@ html {
 
 .CalculatorChoice-button {
   width: 100%;
-  height: 5rem;
+  height: 4rem;
   font-family: 'PT Root';
   font-size: 1.4rem;
   background-color: #cae8d5;
@@ -183,8 +183,7 @@ html {
   display: none;
 }
 .CalculatorChoice-checkbox-label {
-  transform: scale(1.8); 
-  -webkit-transform: scale(1.8);
+ 
   font-size: small;
   display: inline-block;
   position: relative;
@@ -246,24 +245,44 @@ html {
 
 /* Calculator */
 
+.Calculator-container {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-between;  
+}
+
 .Calculator-content-left {
   font-size: calc(1px + 3vmin);
-  width: 60%;
-  position: fixed;
-  left: 0;
+  width: 36rem; 
+  margin:auto
+}
+@media (max-width: 756px) {
+  .Calculator-content-left {       
+    margin:auto    
+  }
 }
 
 .Calculator-content-right {
   font-size: small;
-  width: 20%;
-  position: fixed;
-  right: 0;
+  width: 16rem;  
   padding: 3%;
-  border-left: solid #84a9ac 2px;
+  border-left: solid #84a9ac 2px;  
+}
+
+@media (max-width: 756px) {
+  .Calculator-content-right {    
+    display: none;
+  }
 }
 
 .Calculator-question {
-  margin-top: 20%;
+  margin-top: 15%;
+}
+
+.Calculator-question-header {
+  font-size: 1em;
+  margin-bottom: 2rem;
 }
 
 .Calculator-questionsidebar-item {
@@ -278,6 +297,7 @@ html {
   border: 0px solid transparent;
   text-shadow: 0px 0px 0px transparent;
   cursor: pointer; 
+  margin: 1.5rem;
 }
 
 .Calculator-calculate-button {
@@ -403,6 +423,7 @@ html {
   color: gainsboro;
   background-color: #3b6978;
   text-align: center;
+  border-radius: 5px;
 }
 
 .Calculator-textareafield {
