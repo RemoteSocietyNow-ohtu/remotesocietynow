@@ -8,12 +8,19 @@ const Main = ({ setBody }) => {
 
   return (
     <div className='Container'>
-      <div className='Main-content-left'>
-        <p className='Heading'>{language.headers.mainHeader}</p>
-        <button className='Main-button' onClick={() => setBody('calculatorChoice')}>{language.buttons.main}</button>
+      <div className='Main-container'>
+        <div className='Main-content-left'>
+          
+          <h1 className='Heading'>{language.headers.mainHeader}</h1>
+          <button className='Main-button' onClick={() => setBody('calculatorChoice')}>{language.buttons.main}</button>
+          <p style={{fontSize: '0.5em', marginTop: '2rem'}}>Reducing our carbon emissions is Remote work the primary way Remote work to fight climate change Remote work. But it is not enough. Remote work each of us must also start removing.</p>
+        </div>
+        <div className='Main-content-right'>
+          <img className='Main-background-video-gif' src={background} alt='backgroundImage' />
+        </div>
+        
+        
       </div>
-      <div className='Main-content-right'></div>
-      <img className='Main-background-video-gif' src={background} alt='backgroundImage' />
       <p className='Navigation-item' onClick={() => setBody('gdprCompliance')}>{language.buttons.data}</p>
     </div>
   )
