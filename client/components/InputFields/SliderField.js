@@ -1,8 +1,13 @@
 import React from 'react'
 
 const SliderField = ({ handleValueChange, handleRelease, value, minValue, maxValue, unit }) => {
+  const width = {
+    width:'14.13%'
+  }
+  
   return(
     <div>
+      <div className='Calculator-sliderfield-container'>
       <input
         type="range" 
         min={minValue} 
@@ -13,6 +18,33 @@ const SliderField = ({ handleValueChange, handleRelease, value, minValue, maxVal
         value={value}
         className='Calculator-sliderfield'
       />
+      <table style={{marginLeft: '3%'}}>
+        <td style={width}>
+          <div className='Calculator-sliderfield-tick'></div>
+        </td>
+        <td style={width}>
+          <div className='Calculator-sliderfield-tick'></div>
+        </td>
+        <td style={width}>
+          <div className='Calculator-sliderfield-tick'></div>
+        </td>
+        <td style={width}>
+          <div className='Calculator-sliderfield-tick'></div>
+        </td>
+        <td style={width}>
+          <div className='Calculator-sliderfield-tick'></div>
+        </td>
+        <td style={width}>
+          <div className='Calculator-sliderfield-tick'></div>
+        </td>
+        <td style={width}>
+          <div className='Calculator-sliderfield-tick'></div>
+        </td>
+        <td>
+          <div className='Calculator-sliderfield-tick'></div>
+        </td>
+      </table>
+      </div>
       <p>{value} {unit}</p>
     </div>
   )
