@@ -3,15 +3,14 @@
 ## Coding Conventions ##
 **Language:** Use english for naming variables and git commit messages
 
-**Comments:** Comments should be used widely to make code more approchable for beginners
+**Comments:** Comments should be used widely to make code more approchable for non-coders
 
-**Pushing to master:**
+**Pushing to master**
 Changes are pushed to master branch
 
-**CSS:**
-We use App.css stylesheet for all CSS-styling. ClassName-attribute is used to style React components. For example: 
-```<button className='Main-lead-paragraph'>Text</button>```
-The first word of a CSS-class should refer to the View where the class is used (e.g. *Main*). Only the first word should be capitalized but the rest of the class name is up to the developer. The classes are grouped by the View in which the class is used. However, if a CSS-class is used in many Views it should be put in *Global styles* class. The groups are defined by comments in App.css.
+**CSS**
+We use App.css -stylesheet for all css-styling. ClassName-attribute is used to style React components. For example: 
+```<button className='Toggle-Button'>Text</button>```
 
 **Testing**
 Features are tested as much as to be sure that they are working.
