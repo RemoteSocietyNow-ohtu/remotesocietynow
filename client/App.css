@@ -388,6 +388,11 @@ td {
     display: none;
   }
 }
+@media (max-height: 670px) {
+  .Calculator-stepper-container {
+    display: none;
+  }
+}
 
 .Calculator-stepper {   
   display: flex;
@@ -509,7 +514,7 @@ td {
   border-radius: 5px;
 }
 
-.Calculator-textareafield {
+.Calculator-textfield {
   -webkit-appearance: none;
   -moz-appearance: textfield;
   appearance: textfield;
@@ -520,6 +525,19 @@ td {
   color: gainsboro;
   background-color: #3b6978;
   text-align: center;
+  border-radius: 5px;
+}
+
+.Calculator-textAreafield { 
+  font-size: 1rem;
+  padding: 1rem;
+  border: none;
+  height: 6rem;
+  width: 80%;
+  color: gainsboro;
+  background-color: #3b6978;
+  resize: none;
+  border-radius: 5px;
 }
 
 .Calculator-comment-field {
