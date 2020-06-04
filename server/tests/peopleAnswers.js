@@ -5,7 +5,7 @@ const peopleAnswers = {
   dailyCommuteKmOpenField: '',
   dailyCommuteMinutes: '',
   dailyCommuteMinutesOpenField: '',
-  noOfDaysOfUsage: '5',
+  noOfDaysOfUsage: 5,
   noOfDaysOfUsageOpenField: '',
   noOfDaysOfUsageSecond: '0',
   noOfDaysOfUsageSecondOpenField: '',
@@ -21,6 +21,8 @@ const peopleAnswers = {
   secondVehicleOpenField: '',
   typicalVehicle: 'car',
   typicalVehicleOpenField: '',
+  numberOfHoursOnplane: '',
+  numberOfHoursOnplaneOpenField: '' 
 }
 
 module.exports = peopleAnswers
