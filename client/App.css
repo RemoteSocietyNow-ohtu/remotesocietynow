@@ -96,7 +96,7 @@ td {
 /* Icons */
 
 .Calculator-arrow-icon {
-  margin-top: 2%;
+  margin-top: .5em;
   height: 80px;
 }
 
@@ -176,6 +176,12 @@ td {
   background-color: #84a9ac;
 }
 
+.Main-lead-paragraph {
+  font-size: 0.5em;
+  margin-top: 2rem;
+}
+
+
 /* CalculatorChoice */
 .CalculatorChoice-container {  
   max-width: 42rem;
@@ -192,6 +198,29 @@ td {
   text-decoration: underline;
 }
 
+.CalculatorChoice-checkbox {    
+  background: none;
+  box-shadow: 0px 0px 0px transparent;
+  border: 0px solid transparent;
+  text-shadow: 0px 0px 0px transparent;
+}
+
+.CalculatorChoice-checkbox:focus {
+  outline: 1px solid #3b6978;
+  border-radius: 50%; 
+}
+
+.CalculatorChoice-checkbox-label {
+  font-size: 1rem;
+  text-align: left;
+  margin-left: 1rem;
+}
+
+.CalculatorChoice-checkbox-image {
+  width: 2rem;
+  height: 2rem;
+}
+
 .CalculatorChoice-button {
   width: 100%;
   height: 4rem;
@@ -201,7 +230,7 @@ td {
   border: none;
   border-radius: 5px 25px;
   text-decoration: none;
-  margin-top: 3%;
+  margin-top: 1em;
 }
 
 .CalculatorChoice-button:hover {
@@ -218,30 +247,8 @@ td {
     align-items: center;
     justify-content: center;
     margin: auto;
-    padding: 1rem;
+    padding: 1em;   
 }
-
-.CalculatorChoice-checkbox {    
-    background: none;
-    box-shadow: 0px 0px 0px transparent;
-    border: 0px solid transparent;
-    text-shadow: 0px 0px 0px transparent;
-}
-
-.CalculatorChoice-checkbox:focus {
-  outline: 1px solid #3b6978;
-  border-radius: 50%;
-}
-
-.CalculatorChoice-checkbox-label {
-  font-size: 1rem;
-}
-
-.CalculatorChoice-checkbox-image {
-  width: 2rem;
-  height: 2rem;
-}
-
 
 /* GDPRCompliance */
 .GDPRCompliance-content {
@@ -305,7 +312,8 @@ td {
 }
 
 .Calculator-question {
-  margin-top: 15%; 
+  margin-top: 15%;
+  overflow: hidden;  
 }
 
 .Calculator-question-header {
@@ -336,7 +344,7 @@ td {
 
 .Calculator-calculate-button {
   background-color: #cae8d5;
-  margin-top: 6%;
+  margin-top: 1rem;
   margin-bottom: 3%;
   height: 70px;
   width: 150px;
@@ -621,6 +629,11 @@ td {
   margin-top: none;
 }
 
+.Calculator-sliderfield-label {
+  font-size: 1em;
+  margin: 0.5rem
+}
+
 /* Animations */
 @keyframes fade {
   0% {opacity: 0;}
@@ -629,15 +642,15 @@ td {
 
 @keyframes fadeinout {
   0% { opacity: 1; }
-  50% { opacity: 0; transform: translateX(-120px);}
-  50.1% { transform: translateX(120px);}
+  50% { opacity: 0; transform: translateX(-3em);}
+  50.1% { transform: translateX(3em);}
   100% { opacity: 1; }
 }
 
 @keyframes fadeinoutRight {
   0% { opacity: 1; }
-  50% { opacity: 00; transform: translateX(120px);}
-  50.1% { transform: translateX(-120px);}
+  50% { opacity: 00; transform: translateX(3em);}
+  50.1% { transform: translateX(-3em);}
   100% { opacity: 1; }
 }
 

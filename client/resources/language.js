@@ -15,6 +15,7 @@ export const english = {
   },
   content: {
     main: 'The Most Enjoyable Way to Save the Planet! While making more money and saving time.',
+    lead: 'Remote work and remote life can become new key efforts in limiting CO2 emissions. For every employee switching to remote work, a lot of harmful air pollution is reduced, while you and your company actually earn real money and save time.',
     gdprCompliance: [
       'You’re entitled to know exactly how your data is collected and used.',
       'You can ask what information has been collected about you.',
@@ -23,7 +24,7 @@ export const english = {
       'You’re allowed to refuse data processing, for example, marketing efforts.'
     ],
     contactInfo: 'Any inquiries can be directed to jr.tasklist@gmail.com',
-    privacyPolicy: 'To use our website you need to accept our ',
+    privacyPolicy: 'Before we start. By proceeding you acknowledge that your personal data is processed in accordance with our ',
   },
   buttons: {
     calculate: 'Calculate',

@@ -8,44 +8,44 @@ const SliderField = ({ handleValueChange, handleRelease, value, minValue, maxVal
   return(
     <div>
       <div className='Calculator-sliderfield-container'>
-      <input
-        type="range" 
-        min={minValue} 
-        max={maxValue}
-        onChange={handleValueChange}  
-        onMouseUp={handleRelease}
-        onTouchEnd={handleRelease}      
-        value={value}
-        className='Calculator-sliderfield'
-      />
-      <table style={{marginLeft: '3%'}}>
-        <td style={width}>
-          <div className='Calculator-sliderfield-tick'></div>
-        </td>
-        <td style={width}>
-          <div className='Calculator-sliderfield-tick'></div>
-        </td>
-        <td style={width}>
-          <div className='Calculator-sliderfield-tick'></div>
-        </td>
-        <td style={width}>
-          <div className='Calculator-sliderfield-tick'></div>
-        </td>
-        <td style={width}>
-          <div className='Calculator-sliderfield-tick'></div>
-        </td>
-        <td style={width}>
-          <div className='Calculator-sliderfield-tick'></div>
-        </td>
-        <td style={width}>
-          <div className='Calculator-sliderfield-tick'></div>
-        </td>
-        <td>
-          <div className='Calculator-sliderfield-tick'></div>
-        </td>
-      </table>
+        <input
+          type="range" 
+          min={minValue} 
+          max={maxValue}
+          onChange={handleValueChange}  
+          onMouseUp={handleRelease}
+          onTouchEnd={handleRelease}      
+          value={value}
+          className='Calculator-sliderfield'
+        />
+        <table style={{marginLeft: '3%'}}>
+          <td style={width}>
+            <div className='Calculator-sliderfield-tick'></div>
+          </td>
+          <td style={width}>
+            <div className='Calculator-sliderfield-tick'></div>
+          </td>
+          <td style={width}>
+            <div className='Calculator-sliderfield-tick'></div>
+          </td>
+          <td style={width}>
+            <div className='Calculator-sliderfield-tick'></div>
+          </td>
+          <td style={width}>
+            <div className='Calculator-sliderfield-tick'></div>
+          </td>
+          <td style={width}>
+            <div className='Calculator-sliderfield-tick'></div>
+          </td>
+          <td style={width}>
+            <div className='Calculator-sliderfield-tick'></div>
+          </td>
+          <td>
+            <div className='Calculator-sliderfield-tick'></div>
+          </td>
+        </table>
       </div>
-      <p>{value} {unit}</p>
+      <p className='Calculator-sliderfield-label'>{value} {unit}</p>
     </div>
   )
 }

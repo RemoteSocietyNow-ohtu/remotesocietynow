@@ -32,8 +32,7 @@ const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setR
           res = await questionService.getQuestionsCompany()
         } else {
           res = await questionService.getQuestionsPeople()
-        }
-        
+        }        
         setQuestions(res)
         setAnwers(initAnswerValues(res)) 
         setIsLoading(false)
