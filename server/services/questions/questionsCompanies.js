@@ -25,13 +25,6 @@ const questionsCompanies = [
     unit: 'euros'
   },
   {
-    identifyingString:'otherUpkeepExpenses',
-    name: 'How high are your company\'s other office-related costs?',
-    type: 'field',
-    minValue: 0,
-    unit: 'euros'
-  },
-  {
     identifyingString:'topEnergyActivities',
     name: 'List your company’s top 5 biggest energy consuming activities? (if you know) ',
     type: 'textField'
@@ -76,26 +69,7 @@ const questionsCompanies = [
     ]
   },
   {
-    name: 'How high are your company\'s other office-related costs? ',
-    type: 'field',
-    minValue: 0,
-    unit: 'euros'
-  },
-  {
-    identifyingString:'totalCommutingSubsidies',
-    name: 'Total commuting subsidies paid to employees per month ',
-    type: 'field',
-    minValue: 0,
-    unit: 'euros'
-  },
-  {
-    identifyingString:'averageFlightHours',
-    name: 'How many hours does your average employee fly in a month during commuting or business trips?',
-    type: 'field',
-    minValue: 0,
-    unit: 'euros'
-  },
-  {
+    identifyingString:'otherUpkeepExpenses',
     name: 'How high are your company\'s other office-related costs? ',
     type: 'field',
     minValue: 0,
