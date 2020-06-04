@@ -10,7 +10,6 @@ const Main = ({ setBody }) => {
     <div className='Container'>
       <div className='Main-container'>
         <div className='Main-content-left'>
-          
           <h1 className='Heading'>{language.headers.mainHeader}</h1>
           <button className='Main-button' onClick={() => setBody('calculatorChoice')}>{language.buttons.main}</button>
           <p className='Main-lead-paragraph'>{language.content.lead}</p>
@@ -18,8 +17,6 @@ const Main = ({ setBody }) => {
         <div className='Main-content-right'>
           <img className='Main-background-video-gif' src={background} alt='backgroundImage' />
         </div>
-        
-        
       </div>
       <p className='Navigation-item' onClick={() => setBody('gdprCompliance')}>{language.buttons.data}</p>
     </div>
