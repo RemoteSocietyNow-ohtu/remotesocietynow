@@ -32,7 +32,8 @@ const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setR
           res = await questionService.getQuestionsCompany()
         } else {
           res = await questionService.getQuestionsPeople()
-        }        
+        }
+        
         setQuestions(res)
         setAnwers(initAnswerValues(res)) 
         setIsLoading(false)
@@ -93,7 +94,8 @@ const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setR
             setCurrentQuestion={setCurrentQuestion} />          
         </div>
       </div>
-      <Stepper questions={questions} currentQuestion={currentQuestion} setCurrentQuestion={setCurrentQuestion}/>
+      </div>
+      <Stepper questions={questions} currentQuestion={currentQuestion} />
     </div>
   )
 }

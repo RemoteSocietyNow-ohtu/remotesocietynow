@@ -1,9 +1,7 @@
 import React from 'react'
+import TicksSlider from '../SubComponents/TicksSlider'
 
 const SliderField = ({ handleValueChange, handleRelease, value, minValue, maxValue, unit }) => {
-  const width = {
-    width:'14.13%'
-  }
   
   return(
     <div>
@@ -18,34 +16,9 @@ const SliderField = ({ handleValueChange, handleRelease, value, minValue, maxVal
           value={value}
           className='Calculator-sliderfield'
         />
-        <table style={{marginLeft: '3%'}}>
-          <td style={width}>
-            <div className='Calculator-sliderfield-tick'></div>
-          </td>
-          <td style={width}>
-            <div className='Calculator-sliderfield-tick'></div>
-          </td>
-          <td style={width}>
-            <div className='Calculator-sliderfield-tick'></div>
-          </td>
-          <td style={width}>
-            <div className='Calculator-sliderfield-tick'></div>
-          </td>
-          <td style={width}>
-            <div className='Calculator-sliderfield-tick'></div>
-          </td>
-          <td style={width}>
-            <div className='Calculator-sliderfield-tick'></div>
-          </td>
-          <td style={width}>
-            <div className='Calculator-sliderfield-tick'></div>
-          </td>
-          <td>
-            <div className='Calculator-sliderfield-tick'></div>
-          </td>
-        </table>
+        {maxValue === '7' ? <TicksSlider width='14.13%' /> : null}
       </div>
-      <p className='Calculator-sliderfield-label'>{value} {unit}</p>
+      <p>{value} {unit}</p>
     </div>
   )
 }
