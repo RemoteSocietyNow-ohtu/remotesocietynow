@@ -177,6 +177,7 @@ td {
 }
 
 .Main-lead-paragraph {
+  text-align: left;
   font-size: 0.5em;
   margin-top: 2rem;
 }
