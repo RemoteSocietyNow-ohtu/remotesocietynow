@@ -7,52 +7,38 @@ const database = require('../database/database')
  * Post to /person/save additionally saves data to database
  */
 calculationRouter.post('/person/:save?', async (req,res) => {
-  const distance = +req.body.dailyCommuteKm
-  const daysFirst = +req.body.noOfDaysOfUsage
-  const remoteDays = +req.body.numberOfRemoteworkDays
-  const firstVehicle = req.body.typicalVehicle
-  const secondVehicle = req.body.secondVehicle
-  const daysSecond = +req.body.noOfDaysOfUsageSecond
-  const dailyCommuteMinutes = +req.body.dailyCommuteMinutes
-  const annualCommuteExpenses = +req.body.annualCommuteExpenses
-  const opinionRemote = req.body.opinionRemote
-  const numberOfBusinessTrips = +req.body.numberOfBusinessTrips
-  const numberOfHoursOnPlane = +req.body.numberOfHoursOnPlane
-  
-  //validate
-  if (isNaN(distance) || isNaN(daysFirst) || isNaN(remoteDays) || isNaN(daysSecond) 
-    || isNaN(dailyCommuteMinutes) || isNaN(annualCommuteExpenses) || isNaN(numberOfBusinessTrips) || isNaN(numberOfHoursOnPlane)
-    || typeof firstVehicle !== 'string' || typeof secondVehicle !== 'string' || typeof opinionRemote !== 'string') {
-    console.log('Invalid value')
-    return res.status(400).send({ error: 'Invalid value'})
+  const feedbacks = {}
+  const savedData = {}
+  const body = req.body
+
+  const calculateData = [
+    +body.dailyCommuteKm,
+    +body.noOfDaysOfUsage,
+    +body.noOfDaysOfUsageSecond,
+    body.typicalVehicle,
+    body.secondVehicle,
+    +body.numberOfRemoteworkDays
+  ]
+
+  console.log(calculateData)
+  //filter
+  for(key in body){
+    if(key.includes('OpenField')){
+      feedbacks[key]=body[key]
+    }else{
+      savedData[key]=body[key]
+    }
   }
- 
   /* Calls the calculateBenefitsForPerson in /services/calculations/remoteWorkCalculator for emissions calculation 
     using parameters gathered above*/
-  const result = remoteWorkCalculator.calculateBenefitsForPerson(distance,daysFirst,daysSecond,firstVehicle,secondVehicle,remoteDays)
+  const result = remoteWorkCalculator.calculateBenefitsForPerson(...calculateData)
+  console.log(result)
   
   /* Calls storeEmployeeData in /server/database/database.js to save all employee input to database. */
   if(req.params.save === 'save') {
-    await database.storeEmployeeData(firstVehicle, daysFirst, secondVehicle, daysSecond, distance,
-      dailyCommuteMinutes, remoteDays, annualCommuteExpenses, opinionRemote, numberOfBusinessTrips, 
-      numberOfHoursOnPlane)
-
+    await database.storeEmployeeData(savedData)
     /* Calls storeEmployeeFeedback in /server/database/database.js to save employee feedback to database. */
-    const distanceOpenField = req.body.dailyCommuteKmOpenField
-    const daysFirstOpenField = req.body.noOfDaysOfUsageOpenField
-    const remoteDaysOpenField = req.body.numberOfRemoteworkDaysOpenField
-    const firstVehicleOpenField = req.body.typicalVehicleOpenField
-    const secondVehicleOpenField = req.body.secondVehicleOpenField
-    const daysSecondOpenField = req.body.noOfDaysOfUsageSecondOpenField
-    const dailyCommuteMinutesOpenField = req.body.dailyCommuteMinutesOpenField
-    const annualCommuteExpensesOpenField = req.body.annualCommuteExpensesOpenField
-    const opinionRemoteOpenField = req.body.opinionRemoteOpenField
-    const numberOfBusinessTripsOpenField = req.body.numberOfBusinessTripsOpenField
-    const numberOfHoursOnPlaneOpenField = req.body.numberOfHoursOnPlaneOpenField
-
-    await database.storeEmployeeFeedback(distanceOpenField, daysFirstOpenField, remoteDaysOpenField, firstVehicleOpenField,
-      secondVehicleOpenField, daysSecondOpenField, dailyCommuteMinutesOpenField, annualCommuteExpensesOpenField,
-      opinionRemoteOpenField, numberOfBusinessTripsOpenField, numberOfHoursOnPlaneOpenField)
+    await database.storeEmployeeFeedback(feedbacks)
   }
   res.json(result)
 })
