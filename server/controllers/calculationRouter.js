@@ -33,7 +33,7 @@ calculationRouter.post('/person/:save?', async (req,res) => {
     await database.storeEmployeeData(savedData)
     /* Calls storeEmployeeFeedback in /server/database/database.js to save employee feedback to database. */
     if(validator.feedBacksAreNotEmpty(feedbacks)){
-      await database.storeCompanyFeedback(feedbacks)
+      await database.storeEmployeeFeedback(feedbacks)
     }
   }
   res.json(result)
@@ -47,7 +47,6 @@ calculationRouter.post('/person/:save?', async (req,res) => {
  */
 calculationRouter.post('/company/:save?', async (req,res) => {
   const body = req.body
-  const companyName = req.body.companyName
   const rent = +req.body.officeRentExpenses
   const officeUpkeep = +req.body.otherUpkeepExpenses
   const employees = +req.body.numberOfEmployees

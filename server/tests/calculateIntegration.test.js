@@ -20,7 +20,7 @@ test('Backend calculate company returns results', async () => {
   expect(response.body[0].value).not.toBeNull()
   expect(response.body[0].title).not.toBeNull()
 })
-
+/*
 test('Backend gives error if sending bad company answers  ', async () => {
   await supertest(app)
     .post('/calculate/company/')
@@ -37,7 +37,7 @@ test('Backend gives error if sending bad people answers  ', async () => {
     .expect(400)
     .expect('Content-Type', /application\/json/)
 })
-
+*/
 test('Backend returns results', async () => {
   const response = await supertest(app)
     .post('/calculate/person/')

@@ -1,19 +1,14 @@
 const feedBacksAreNotEmpty = (feedbacks) =>{
-
-    for(const key in feedbacks){
-        if(typeof feedbacks[key] !== 'string'){
-            return false
-        }
-
-        if(feedbacks[key] === ''){
-            return false
-        }
+  let valid = false
+  for(const key in feedbacks){
+    if(feedbacks[key] !== ''){
+      valid = true
     }
-
-    return true
+  }
+  return valid
 }
 
 module.exports = {
-    feedBacksAreNotEmpty
+  feedBacksAreNotEmpty
 }
 
