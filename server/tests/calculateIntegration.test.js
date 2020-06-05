@@ -4,12 +4,14 @@ const app = require('../index')
 const { companyAnswers }  = require('./companyAnswers')
 const { peopleAnswers } = require('./peopleAnswers')
 
+/*
 const badAnswers = {
   averageBusinessTripCost: 2,
   averageBusinessTripCostOpenField: 224,
   numberOfEmployees: true,
   numberOfEmployeesOpenField: 'Open'
 }
+*/
 
 test('Backend calculate company returns results', async () => {
   const response = await supertest(app)
