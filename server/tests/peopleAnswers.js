@@ -1,11 +1,11 @@
 const peopleAnswers = {
   annualCommuteExpenses: '',
-  annualCommuteExpensesOpenField: '',
+  annualCommuteExpensesOpenField: 'Kommenttia',
   dailyCommuteKm: 20,
   dailyCommuteKmOpenField: '',
   dailyCommuteMinutes: '',
   dailyCommuteMinutesOpenField: '',
-  noOfDaysOfUsage: '5',
+  noOfDaysOfUsage: 5,
   noOfDaysOfUsageOpenField: '',
   noOfDaysOfUsageSecond: '0',
   noOfDaysOfUsageSecondOpenField: '',
@@ -21,6 +21,35 @@ const peopleAnswers = {
   secondVehicleOpenField: '',
   typicalVehicle: 'car',
   typicalVehicleOpenField: '',
+  numberOfHoursOnplane: '',
+  numberOfHoursOnplaneOpenField: '' 
 }
 
-module.exports = peopleAnswers
+const peopleAnswersAllCommentFieldsEmpty = {
+  annualCommuteExpenses: '',
+  annualCommuteExpensesOpenField: '',
+  dailyCommuteKm: 20,
+  dailyCommuteKmOpenField: '',
+  dailyCommuteMinutes: '',
+  dailyCommuteMinutesOpenField: '',
+  noOfDaysOfUsage: 5,
+  noOfDaysOfUsageOpenField: '',
+  noOfDaysOfUsageSecond: '0',
+  noOfDaysOfUsageSecondOpenField: '',
+  numberOfBusinessTrips: '',
+  numberOfBusinessTripsOpenField: '',
+  numberOfHoursOnPlane: '',
+  numberOfHoursOnPlaneOpenField: '',
+  numberOfRemoteworkDays: '0',
+  numberOfRemoteworkDaysOpenField: '',
+  opinionRemote: '',
+  opinionRemoteOpenField: '',
+  secondVehicle: 'walking',
+  secondVehicleOpenField: '',
+  typicalVehicle: 'car',
+  typicalVehicleOpenField: '',
+  numberOfHoursOnplane: '',
+  numberOfHoursOnplaneOpenField: '' 
+}
+
+module.exports = { peopleAnswers, peopleAnswersAllCommentFieldsEmpty}

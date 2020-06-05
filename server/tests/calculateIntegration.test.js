@@ -1,8 +1,8 @@
 require('@babel/polyfill')
 const supertest = require('supertest')
 const app = require('../index')
-const companyAnswers = require('./companyAnswers')
-const peopleAnswers = require('./peopleAnswers')
+const { companyAnswers }  = require('./companyAnswers')
+const { peopleAnswers } = require('./peopleAnswers')
 
 const badAnswers = {
   averageBusinessTripCost: 2,
