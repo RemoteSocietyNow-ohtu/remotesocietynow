@@ -19,8 +19,4 @@ const TextAreaField = ({ handleValueChange, value, size }) => {
     </textarea>)
 }
 
-<<<<<<< HEAD
-export default TextAreaField
-=======
 export default TextAreaField 
->>>>>>> ca1a456198d9f17ed1c3f591badbdfc574938f76

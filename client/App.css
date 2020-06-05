@@ -217,46 +217,6 @@ td {
   background-color: #84a9ac;
 }
 
-<<<<<<< HEAD
-.CalculatorChoice-checkbox {
-  opacity: 0;
-}
-
-
-.CalculatorChoice-checkbox-label { 
-  font-size: 1.2rem;
-  display: inline-block;
-  position: relative;
-  vertical-align: middle;
-  margin-top: 2rem;
-  margin-bottom: 3rem;
-  cursor: pointer;
-}
-.CalculatorChoice-checkbox + .CalculatorChoice-checkbox-label:before {
-  content: '';
-  background: #84a9ac;
-  border-radius: 50%;
-  border: 2px solid #ddd;
-  display: inline-block;
-  vertical-align: middle;
-  width: 10px; height: 10px;
-  padding: 5px; margin-right: 10px;
-}
-.CalculatorChoice-checkbox:checked + .CalculatorChoice-checkbox-label:after {
-  content: "";
-  padding: 2px;
-  position: absolute;
-  width: 1px;
-  height: 5px;
-  border: solid #3b6978;
-  border-width: 0 3px 3px 0;
-  transform: rotate(45deg);
-  top: 5px; left: 15px;
-}
-
-
-
-=======
 .CalculatorChoice-checkbox-container {
     display: flex;
     align-items: center;
@@ -287,7 +247,6 @@ td {
 }
 
 
->>>>>>> fc85f3ba5ec08c5b72fe886e5956b4081881df45
 /* GDPRCompliance */
 .GDPRCompliance-content {
   text-align: left;
@@ -350,12 +309,8 @@ td {
 }
 
 .Calculator-question {
-<<<<<<< HEAD
-  margin-top: 15%; 
-=======
   margin-top: 15%;
   overflow: hidden;
->>>>>>> fc85f3ba5ec08c5b72fe886e5956b4081881df45
 }
 
 .Calculator-question-header {
@@ -462,9 +417,6 @@ td {
   margin: 0 auto;
 }
 
-<<<<<<< HEAD
-.Calculator-stepper { 
-=======
 .greenbar {
   background-color: green;
   height: 50px;
@@ -482,7 +434,6 @@ td {
 }
 
 .Calculator-stepper-container {
->>>>>>> fc85f3ba5ec08c5b72fe886e5956b4081881df45
   position: fixed;
   bottom: 10%;
   width: 100%;
