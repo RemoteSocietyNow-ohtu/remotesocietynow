@@ -15,23 +15,8 @@ const connectToDatabase = () => {
     })
 }
 
-const storeEmployeeData = async (typicalVehicle, noOfDaysOfUsage, secondVehicle, noOfDaysOfUsageSecond, dailyCommuteKm,
-  dailyCommuteMinutes, numberOfRemoteworkDays, annualCommuteExpenses, opinionRemote, numberOfBusinessTrips, 
-  numberOfHoursOnplane) => {
-
-  const storedEmployee = new Employee({
-    typicalVehicle: typicalVehicle,
-    noOfDaysOfUsage: noOfDaysOfUsage,
-    secondVehicle: secondVehicle,
-    noOfDaysOfUsageSecond: noOfDaysOfUsageSecond,
-    dailyCommuteKm: dailyCommuteKm,
-    dailyCommuteMinutes: dailyCommuteMinutes,
-    numberOfRemoteworkDays: numberOfRemoteworkDays,
-    annualCommuteExpenses: annualCommuteExpenses,
-    opinionRemote: opinionRemote,
-    numberOfBusinessTrips: numberOfBusinessTrips,
-    numberOfHoursOnplane: numberOfHoursOnplane
-  })
+const storeEmployeeData = async (data) => {
+  const storedEmployee = new Employee(data)
 
   try {
     await connectToDatabase()
@@ -84,24 +69,9 @@ const storeCompanyFeedback = async (companyNameOpenField, numberOfEmployeesOpenF
 
 }
 
-const storeEmployeeFeedback = async (typicalVehicleOpenField, noOfDaysOfUsageOpenField, secondVehicleOpenField, 
-  noOfDaysOfUsageSecondOpenField, dailyCommuteKmOpenField, dailyCommuteMinutesOpenField, numberOfRemoteworkDaysOpenField, 
-  annualCommuteExpensesOpenField, opinionRemoteOpenField, numberOfBusinessTripsOpenField, 
-  numberOfHoursOnplaneOpenField) => {
+const storeEmployeeFeedback = async (feedbacks) => {
 
-  const storedEmployeeFeedback = new EmployeeFeedback({
-    typicalVehicleOpenField: typicalVehicleOpenField,
-    noOfDaysOfUsageOpenField: noOfDaysOfUsageOpenField,
-    secondVehicleOpenField: secondVehicleOpenField,
-    noOfDaysOfUsageSecondOpenField: noOfDaysOfUsageSecondOpenField,
-    dailyCommuteKmOpenField: dailyCommuteKmOpenField,
-    dailyCommuteMinutesOpenField: dailyCommuteMinutesOpenField,
-    numberOfRemoteworkDaysOpenField: numberOfRemoteworkDaysOpenField,
-    annualCommuteExpensesOpenField: annualCommuteExpensesOpenField,
-    opinionRemoteOpenField: opinionRemoteOpenField,
-    numberOfBusinessTripsOpenField: numberOfBusinessTripsOpenField,
-    numberOfHoursOnplaneOpenField: numberOfHoursOnplaneOpenField
-  })
+  const storedEmployeeFeedback = new EmployeeFeedback(feedbacks)
 
   try {
     await connectToDatabase()
