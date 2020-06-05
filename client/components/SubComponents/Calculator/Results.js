@@ -70,7 +70,7 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
                     {!isCompany && result.bartype === 'redbar' && <img className='Calculator-resultbar-icon' src={pollutionIcon} alt='Pollution icon' />}
                     <p className='Calculator-result-countup'><b></b><CountUp duration={.8} end={result.value ? result.value : 0} /> {result.unit}</p>
                   </div>
-                  <p className='Calculator-result-title'>{result.title}</p>
+                  <p>{result.title}</p>
                 </div>
               </div>
             )

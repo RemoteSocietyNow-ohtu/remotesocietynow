@@ -389,15 +389,14 @@ td {
 .Calculator-results-container {
   font-size: calc(10px + 2vmin);
   width: 100%;
-  border: solid 3px #cae8d5;
   border-radius: 5px 25px;
-  margin-top: 2rem;
+  margin-top: 5rem;
   margin-bottom: 4%;
 }
 
 .Calculator-results-left {
   position: fixed;
-  left: 5%;
+  left: 6%;
   text-align: left;
   width: 45%;
   border-right: solid 1px #cae8d5;
@@ -407,30 +406,27 @@ td {
 .Calculator-results-money-inline {
   display: flex;
   align-items: center;
-  height: 100px;
+  height: 1.5em;
 }
 
 .Calculator-result-countup {
   margin-top: 13%;;
   font-size: calc(10px + 3vmin);
-  line-height: .2em;
   font-family: PT Root Heading;
-}
-
-.Calculator-result-title {
-  line-height: .2em;
+  margin-bottom: 1.5em;
 }
 
 .Calculator-results-right {
   position: fixed;
-  right: 5%;
+  right: 6%;
   width: 45%;
+  max-width: 600px;
   margin-top: 6%;
   color: #cae8d5;
 }
 
 .Calculator-results-slidertext {
-  line-height: .01em;
+  transform: translateY(-1em);
 }
 
 .Calculator-results-resultbars {
@@ -739,7 +735,7 @@ td {
 
 .Calculator-sliderfield-label {
   font-size: 1em;
-  margin: 0.5rem
+  margin: 0.7rem;
 }
 
 /* Animations */
