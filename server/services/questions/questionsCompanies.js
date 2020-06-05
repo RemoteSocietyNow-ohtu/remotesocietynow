@@ -38,7 +38,7 @@ const questionsCompanies = [
   },
   {
     identifyingString:'energySource',
-    name: 'How high is your office energy cost per month?',
+    name: 'Which energy source is primarily used in your office(s)?',
     type: 'multipleChoice',
     options: [
       {string: 'Solar energy', value: 'solar'},
@@ -58,7 +58,7 @@ const questionsCompanies = [
   },
   {
     identifyingString:'heatingSource',
-    name: 'How high is your office energy cost per month?',
+    name: 'How is heating and cooling generated in your company’s office(s)?',
     type: 'multipleChoice',
     options: [
       {string: 'Electricity', value: 'electricity'},
