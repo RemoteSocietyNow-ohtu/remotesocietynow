@@ -19,29 +19,29 @@ const initAnswerValues = questions => {
 }
 
 const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setResults, currentQuestion, setCurrentQuestion, isCompany }) => {
-  const [ isLoading, setIsLoading ] = useState(true)
-  const [ hasErrored, setHasErrored ] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
+  const [hasErrored, setHasErrored] = useState(false)
   const language = useContext(LanguageContext)
 
   //Fetch questions and init question and aswer states
-  useEffect(() => {        
-    const fetchQuesions = async () => {      
+  useEffect(() => {
+    const fetchQuesions = async () => {
       try {
         let res
         if (isCompany) {
           res = await questionService.getQuestionsCompany()
         } else {
           res = await questionService.getQuestionsPeople()
-        }        
+        }
         setQuestions(res)
-        setAnwers(initAnswerValues(res)) 
+        setAnwers(initAnswerValues(res))
         setIsLoading(false)
-        setHasErrored(false)     
+        setHasErrored(false)
       } catch (error) {
         setHasErrored(true)
         setIsLoading(false)
         console.log(error)
-      }    
+      }
     }
     setIsLoading(true)
     setHasErrored(false)
@@ -68,8 +68,8 @@ const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setR
   return (
     <div>
       <div className='Calculator-container'>
-        <div className='Calculator-content-left'>
-          {currentQuestion < questions.length ? // If currentQuestion-index is greater than number of questions -> show results instead
+        {currentQuestion < questions.length && // If currentQuestion-index is greater than number of questions -> show results instead
+          <div className='Calculator-content-left'>
             <Questions
               questions={questions}
               answers={answers}
@@ -79,22 +79,22 @@ const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setR
               setResults={setResults}
               isCompany={isCompany}
             />
-            : <Results 
-              results={results}
-              setResults={setResults} 
-              answers={answers} 
-              setAnwers={setAnwers} 
-              isCompany={isCompany}
-            />
-          }
-        </div>
+          </div>
+        }
+        {currentQuestion >= questions.length && <Results
+          results={results}
+          setResults={setResults}
+          answers={answers}
+          setAnwers={setAnwers}
+          isCompany={isCompany}
+        />}
         {currentQuestion < questions.length && <div className='Calculator-content-right'>
           <QuestionsSidebar questions={questions} answers={answers} currentQuestion={currentQuestion}
             setCurrentQuestion={setCurrentQuestion} />
         </div>}
-        <Stepper questions={questions} currentQuestion={currentQuestion} setCurrentQuestion={setCurrentQuestion}/>
+        <Stepper questions={questions} currentQuestion={currentQuestion} setCurrentQuestion={setCurrentQuestion} />
       </div>
-     
+
     </div>
   )
 }
