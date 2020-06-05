@@ -50,17 +50,11 @@ test('company data is saved to database', async () => {
   expect(companies.length).toBe(2)
 })
 
-test('company data is saved to database has right properties', async () => {  
+test('company data is saved to database has id property', async () => {  
   await sendCompanies()
   await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   const companies = await Company.find({})   
   expect(companies[0]['_id']).toBeDefined
-  Object.keys(companies[0]._doc).forEach((key) => {
-    if(key !== '_id' && key !== 'id' && key !== '__v') {
-      const expectedResult = (companies[0][key] === companyAnswers[key] || companies[0][key] === Number(companyAnswers[key]))
-      expect(expectedResult).toEqual(true)
-    }    
-  })  
 })
 
 test('companyFeedback data is saved to database', async () => {
@@ -87,17 +81,11 @@ test('people data is saved to database', async () => {
   expect(people.length).toBe(2)
 })
 
-test('people data is saved to database has right properties', async () => { 
+test('people data is saved to database has id property', async () => { 
   await sendPeople()
   await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
-  const people = await Employee.find({}) 
-  expect(people[0]._id).toBeDefined() 
-  Object.keys(people[0]._doc).forEach((key) => {
-    if(key !== '_id' && key !== 'id' && key !== '__v') {
-      const expectedResult = (people[0][key] === peopleAnswers[key] || people[0][key] === Number(peopleAnswers[key]))
-      expect(expectedResult).toEqual(true)
-    }    
-  })  
+  const people = await Employee.find({})
+  expect(people[0]._id).toBeDefined()   
 })
 
 test('peopleFeedback data is saved to database', async () => {

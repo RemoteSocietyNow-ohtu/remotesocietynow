@@ -1,67 +1,33 @@
+
+const questions = require('../services/questions/questionsCompanies')
 const companyAnswers = {
-  companyName: 'Komppany',
-  companyNameOpenField: 'Comment',
-  numberOfEmployees: 2,
-  numberOfEmployeesOpenField: 'Open',
-  topCosts: '1 2 3 4 5',
-  topCostsOpenField: 'Open',
-  officeRentExpenses: 2,
-  officeRentExpensesOpenField: '',
-  topEnergyActivities: '1 2 3 5 6',
-  topEnergyActivitiesOpenField: '',
-  energyCost: 2,
-  energyCostOpenField: '',
-  energySource: 'solar',
-  energySourceOpenField: '',
-  heatingCost: 2,
-  heatingCostOpenField: '',
-  heatingSource: 'electricity',
-  heatingSourceOpenField: '',
-  otherUpkeepExpenses: 2,
-  otherUpkeepExpensesOpenField: '',
-  totalCommutingSubsidies: 2,
-  totalCommutingSubsidiesOpenField: 'open',
-  averageFlightHours: 2,
-  averageFlightHoursOpenField: '',
-  averageCarHours: 2,
-  averageCarHoursOpenField: '',
-  shareOfRemoteWork: 25,
-  shareOfRemoteWorkOpenField: 'Open',
-  remoteWorkEase: 'difficult',
-  remoteWorkEaseOpenField: 'hard'
 }
 
-const companyAnswersAllCommentFieldsEmpty = {
-  companyName: 'Komppany',
-  companyNameOpenField: '',
-  numberOfEmployees: 2,
-  numberOfEmployeesOpenField: '',
-  topCosts: '1 2 3 4 5',
-  topCostsOpenField: '',
-  officeRentExpenses: 2,
-  officeRentExpensesOpenField: '',
-  topEnergyActivities: '1 2 3 5 6',
-  topEnergyActivitiesOpenField: '',
-  energyCost: 2,
-  energyCostOpenField: '',
-  energySource: 'solar',
-  energySourceOpenField: '',
-  heatingCost: 2,
-  heatingCostOpenField: '',
-  heatingSource: 'electricity',
-  heatingSourceOpenField: '',
-  otherUpkeepExpenses: 2,
-  otherUpkeepExpensesOpenField: '',
-  totalCommutingSubsidies: 2,
-  totalCommutingSubsidiesOpenField: '',
-  averageFlightHours: 2,
-  averageFlightHoursOpenField: '',
-  averageCarHours: 2,
-  averageCarHoursOpenField: '',
-  shareOfRemoteWork: 25,
-  shareOfRemoteWorkOpenField: '',
-  remoteWorkEase: 'difficult',
-  remoteWorkEaseOpenField: ''
+const correctAnswerType = (q) => {
+  if (q.type === "text") {
+    return "company"
+  } else if (q.type === 'number') {
+    return 2
+  } else if (q.type === 'multipleChoice') {
+    return q.options[0].value
+  } else if (q.type === 'textArea') {
+    return "1 2 3 4 5"
+  }
 }
+
+questions.map(q => {
+  companyAnswers[q.identifyingString] = correctAnswerType(q),
+  companyAnswers[q.identifyingString + 'OpenSet'] = "open"
+})
+
+const companyAnswersAllCommentFieldsEmpty = {
+}
+
+questions.map(q => {
+  companyAnswersAllCommentFieldsEmpty[q.identifyingString] = correctAnswerType(q),
+  companyAnswersAllCommentFieldsEmpty[q.identifyingString + 'OpenSet'] = ""
+})
+
+
 
 module.exports = { companyAnswers, companyAnswersAllCommentFieldsEmpty}
