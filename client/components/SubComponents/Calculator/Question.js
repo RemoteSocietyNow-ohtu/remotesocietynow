@@ -13,6 +13,7 @@ const Question = ({ question, answers, setAnwers, nextQuestion }) => {
         minValue={question.minValue}
         maxValue={question.maxValue}
         unit={question.unit}
+        placeholder={question.placeholder}
         value={answers[question.identifyingString]}
         setValue={(value) => setAnwers({...answers, [question.identifyingString]: value})} 
         nextQuestion={nextQuestion}
