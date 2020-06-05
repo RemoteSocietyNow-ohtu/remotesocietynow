@@ -1,11 +1,8 @@
 const mongoose = require('mongoose')
 const questions = require('../services/questions/questionsPeople')
+const parser = require('../util/schemaParser')
 
-const model = {}
-
-for(let field of questions){
-  model[field.identifyingString + 'OpenField'] = String
-}
+const model = parser.parseFeedBackSchema(questions)
 
 const employeeFeedbackSchema = new mongoose.Schema(model)
 

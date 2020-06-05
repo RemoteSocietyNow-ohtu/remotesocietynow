@@ -44,8 +44,8 @@ const SliderField = ({ handleValueChange, handleRelease, value, minValue, maxVal
             <div className='Calculator-sliderfield-tick'></div>
           </td>
         </table>
+        <p className='Calculator-sliderfield-label'>{value} {unit}</p>
       </div>
-      <p className='Calculator-sliderfield-label'>{value} {unit}</p>
     </div>
   )
 }

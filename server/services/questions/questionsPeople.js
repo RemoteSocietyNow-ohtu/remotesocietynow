@@ -2,7 +2,7 @@ const questionsPeople = [
   {
     identifyingString:'dailyCommuteKm',
     name: 'How long is your daily one-way commute in kilometers?',
-    type: 'field',
+    type: 'number',
     minValue: 0,
     unit: 'km',
     dataType: Number
@@ -10,7 +10,7 @@ const questionsPeople = [
   {
     identifyingString:'dailyCommuteMinutes',
     name: 'How many minutes does your daily one-way commute take?',
-    type: 'field',
+    type: 'number',
     minValue: 0,
     unit: 'minutes',
     dataType: Number
@@ -66,7 +66,7 @@ const questionsPeople = [
   {
     identifyingString:'annualCommuteExpenses',
     name: 'How much do you pay for commuting annually?',
-    type: 'field',
+    type: 'number',
     minValue: 0,
     unit: 'euros',
     dataType: Number
@@ -97,7 +97,7 @@ const questionsPeople = [
   {
     identifyingString:'numberOfBusinessTrips',
     name: 'How many two-way business trips by plane do you make annually?',
-    type: 'field',
+    type: 'number',
     minValue: 0,
     unit: 'trips',
     dataType: Number
@@ -105,7 +105,7 @@ const questionsPeople = [
   {
     identifyingString:'numberOfHoursOnPlane',
     name: 'And during these trips, how many hours do you spend on a plane annually?',
-    type: 'field',
+    type: 'number',
     minValue: 0,
     unit: 'hours',
     dataType: Number

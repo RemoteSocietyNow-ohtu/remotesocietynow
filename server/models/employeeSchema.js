@@ -1,11 +1,8 @@
 const mongoose = require('mongoose')
 const questions = require('../services/questions/questionsPeople')
+const parser = require('../util/schemaParser')
 
-const model = {}
-
-for(const field of questions){
-  model[field.identifyingString] = field.dataType
-}
+const model = parser.parseSavedDataSchema(questions)
 
 const employeeSchema = new mongoose.Schema(model)
 

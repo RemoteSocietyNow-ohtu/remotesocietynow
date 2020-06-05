@@ -3,38 +3,57 @@ const questionsCompanies = [
     identifyingString:'companyName',
     // eslint-disable-next-line quotes
     name: "Your Company's name",
-    type: 'textField'
+    type: 'text',
+    dataType: String
   },
   {
     identifyingString:'numberOfEmployees',
     name: 'How many employees does your company have?',
-    type: 'field',
+    type: 'number',
     minValue: 0,
-    unit: 'employees'
+    unit: 'employees',
+    dataType: Number
   },
   {
     identifyingString:'topCosts',
-    name: 'How high are your company\'s monthly office rent expenses?',
-    type: 'textField'
+    name: 'What are the top 5 types of costs (of all expenses or cash outflows) for your company?',
+    type: 'textArea',
+    placeholder: 
+`1. Type of cost
+2. Type of cost
+3. Type of cost
+4. Type of cost
+5. Type of cost`,
+    unit: 'euros',
+    dataType: String
   },
   {
     identifyingString:'officeRentExpenses',
-    name: 'How high are your company\'s monthly office rent expenses? ',
-    type: 'field',
+    name: 'How high are your company\'s monthly office rent expenses (€)? ',
+    type: 'number',
     minValue: 0,
-    unit: 'euros'
+    unit: 'euros',
+    dataType: Number
   },
   {
     identifyingString:'topEnergyActivities',
     name: 'List your company’s top 5 biggest energy consuming activities? (if you know) ',
-    type: 'textField'
+    placeholder: 
+`1. Type of cost
+2. Type of cost
+3. Type of cost
+4. Type of cost
+5. Type of cost`,
+    type: 'textArea',
+    dataType: String
   },
   {
     identifyingString:'energyCost',
-    name: 'How high is your office energy cost per month?',
-    type: 'field',
+    name: 'How high is your office energy cost per month (€)?',
+    type: 'number',
     minValue: 0,
-    unit: 'euros'
+    unit: 'euros',
+    dataType: Number
   },
   {
     identifyingString:'energySource',
@@ -47,14 +66,16 @@ const questionsCompanies = [
       {string: 'Hydrogen energy', value: 'hydrogen'},
       {string: 'Biomass energy', value: 'biomass'},
       {string: 'Mixed', value: 'mixed'},
-    ]
+    ],
+    dataType: String
   },
   {
     identifyingString:'heatingCost',
-    name: 'How high is your office heating cost per month?',
-    type: 'field',
+    name: 'How high is your office’s heating cost per month (€)?',
+    type: 'number',
     minValue: 0,
-    unit: 'euros'
+    unit: 'euros',
+    dataType: Number
   },
   {
     identifyingString:'heatingSource',
@@ -66,35 +87,40 @@ const questionsCompanies = [
       {string: 'Heat pumps', value: 'pumps'},
       {string: 'Oil', value: 'oil'},
       {string: 'Solar heating', value: 'solar'}
-    ]
+    ],
+    dataType: String
   },
   {
     identifyingString:'otherUpkeepExpenses',
-    name: 'How high are your company\'s other office-related costs? ',
-    type: 'field',
+    name: 'How high are your company\'s other office-related costs (€)? ',
+    type: 'number',
     minValue: 0,
-    unit: 'euros'
+    unit: 'euros',
+    dataType: Number
   },
   {
     identifyingString:'totalCommutingSubsidies',
-    name: 'Total commuting subsidies paid to employees per month ',
-    type: 'field',
+    name: 'Total commuting subsidies paid to employees per month (€).',
+    type: 'number',
     minValue: 0,
-    unit: 'euros'
+    unit: 'euros',
+    dataType: Number
   },
   {
     identifyingString:'averageFlightHours',
     name: 'How many hours does your average employee fly in a month during commuting or business trips?',
-    type: 'field',
+    type: 'number',
     minValue: 0,
-    unit: 'euros'
+    unit: 'euros',
+    dataType: Number
   },
   {
     identifyingString:'averageCarHours',
     name: 'How many hours does your average employee drive a car in a month during commuting or business trips?',
-    type: 'field',
+    type: 'number',
     minValue: 0,
-    unit: 'euros'
+    unit: 'euros',
+    dataType: Number
   },
   {
     identifyingString:'shareOfRemoteWork',
@@ -103,11 +129,12 @@ const questionsCompanies = [
     defaultValue:'0',
     minValue:'0',
     maxValue:'100',
-    unit: '%'
+    unit: '%',
+    dataType: Number
   },
   {
     identifyingString:'remoteWorkEase',
-    name: 'How easily could your company start working fully remotely?',
+    name: 'How easy would it be for your company to transition to working fully remotely',
     type: 'multipleChoice',
     options: [
       {string: 'Very difficult', value: 'veryDifficult'},
@@ -115,7 +142,8 @@ const questionsCompanies = [
       {string: 'Do not know', value: 'doNotKnow'},
       {string: 'Easy', value: 'easy'},
       {string: 'Very Easy', value: 'veryEasy'}
-    ]
+    ],
+    dataType: String
   },
 ]
 
