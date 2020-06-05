@@ -3,6 +3,7 @@ import NumberField from './NumberField'
 import SliderField from './SliderField'
 import MultipleChoiceField from './MultipleChoiceField'
 import TextField from './TextField'
+import TextAreaField from './TextAreaField'
 
 const Field = ({ fieldType, options, value, setValue, minValue, maxValue, unit, nextQuestion }) => {
   const handleValueChange = (event) => setValue(event.target.value)
@@ -30,9 +31,13 @@ const Field = ({ fieldType, options, value, setValue, minValue, maxValue, unit, 
     return (
       <MultipleChoiceField options={options} handleValueChange={handleValueChange} value={value} />
     )
-  } else if (fieldType === 'textField') {
+  } else if (fieldType === '') {
     return (
       <TextField handleValueChange={handleValueChange} value={value} nextQuestion={nextQuestion}/>
+    )
+  } else if (fieldType === 'textField') {
+    return (
+      <TextAreaField handleValueChange={handleValueChange} value={value} />
     )
   }
   return null

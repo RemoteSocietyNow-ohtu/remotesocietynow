@@ -7,8 +7,8 @@ const CompanyFeedback = require('../models/companyFeedbackSchema')
 const Employee = require('../models/employeeSchema')
 const EmployeeFeedback = require('../models/employeeFeedbackSchema')
 
-const companyAnswers = require('./companyAnswers')
-const peopleAnswers = require('./peopleAnswers')
+const { companyAnswers, companyAnswersAllCommentFieldsEmpty } = require('./companyAnswers')
+const { peopleAnswers, peopleAnswersAllCommentFieldsEmpty } = require('./peopleAnswers')
 
 const url = process.env.NODE_ENV === 'test' ? process.env.MONGODB_TEST_URI : process.env.MONGODB_URI
 
@@ -70,6 +70,16 @@ test('companyFeedback data is saved to database', async () => {
   expect(companiesFeedback.length).toBe(2)
 })
 
+test('If all comment fields in company are empty do not save data at all', async() => {
+  await supertest(app)
+    .post('/calculate/company/save/')
+    .send(companyAnswersAllCommentFieldsEmpty)
+    .expect('Content-Type', /application\/json/)
+  await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
+  const companiesFeedback = await CompanyFeedback.find({})
+  expect(companiesFeedback.length).toBe(0)
+})
+
 test('people data is saved to database', async () => {
   await sendPeople()
   await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -95,6 +105,16 @@ test('peopleFeedback data is saved to database', async () => {
   await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   const peopleFeedback = await EmployeeFeedback.find({})
   expect(peopleFeedback.length).toBe(2)
+})
+
+test('If all comment fields in people are empty do not save data at all', async() => {
+  await supertest(app)
+    .post('/calculate/person/save/')
+    .send(peopleAnswersAllCommentFieldsEmpty)
+    .expect('Content-Type', /application\/json/)
+  await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
+  const peopleFeedback = await EmployeeFeedback.find({})
+  expect(peopleFeedback.length).toBe(0)
 })
 
 afterEach(async () => {

@@ -11,4 +11,17 @@ const companyAnswers = {
   otherUpkeepExpensesOpenField: '' 
 }
 
-module.exports = companyAnswers
+const companyAnswersAllCommentFieldsEmpty = {
+  companyName: 'Komppany',
+  companyNameOpenField: '',
+  averageBusinessTripCost: '2',
+  averageBusinessTripCostOpenField: '',
+  numberOfEmployees: 2,
+  numberOfEmployeesOpenField: '',
+  officeRentExpenses: 2,
+  officeRentExpensesOpenField: '',
+  otherUpkeepExpenses: 2,
+  otherUpkeepExpensesOpenField: '' 
+}
+
+module.exports = { companyAnswers, companyAnswersAllCommentFieldsEmpty}
