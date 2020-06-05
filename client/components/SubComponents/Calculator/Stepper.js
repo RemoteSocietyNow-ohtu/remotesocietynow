@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Stepper = ({ questions, currentQuestion }) => {
+const Stepper = ({ questions, currentQuestion, setCurrentQuestion }) => {
   if (currentQuestion > questions.length - 1) {
     return null
   }
@@ -9,9 +9,14 @@ const Stepper = ({ questions, currentQuestion }) => {
       <ul className='Calculator-stepper'>        
         {questions.map(q => {
           if(q.number === currentQuestion) {
-            return <li className='active'></li>
+            return <li 
+              key={q.number} 
+              className='active'
+              onClick={() => setCurrentQuestion(q.number)}></li>
           } else {
-            return <li></li>
+            return <li 
+              key={q.number}
+              onClick={() => setCurrentQuestion(q.number)}></li>
           }                  
         }
         )}        
