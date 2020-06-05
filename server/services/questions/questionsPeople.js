@@ -4,14 +4,16 @@ const questionsPeople = [
     name: 'How long is your daily one-way commute in kilometers?',
     type: 'field',
     minValue: 0,
-    unit: 'km'
+    unit: 'km',
+    dataType: Number
   },
   {
     identifyingString:'dailyCommuteMinutes',
     name: 'How many minutes does your daily one-way commute take?',
     type: 'field',
     minValue: 0,
-    unit: 'minutes'
+    unit: 'minutes',
+    dataType: Number
   },
   {
     identifyingString:'typicalVehicle',
@@ -23,7 +25,8 @@ const questionsPeople = [
       {string: 'Train', value: 'train'},
       {string: 'Car', value: 'car'},
       {string: 'Motorcycle', value: 'motorcycle'},
-    ]
+    ],
+    dataType: String
   },
   {
     identifyingString:'noOfDaysOfUsage',
@@ -32,7 +35,8 @@ const questionsPeople = [
     defaultValue:'0',
     minValue:'0',
     maxValue:'7',
-    unit: 'days'
+    unit: 'days',
+    dataType: Number
   },
   {
     identifyingString:'secondVehicle',
@@ -46,7 +50,8 @@ const questionsPeople = [
       {string: 'Train', value: 'train'},
       {string: 'Car', value: 'car'},
       {string: 'Motorcycle', value: 'motorcycle'},
-    ]
+    ],
+    dataType:String
   },
   {
     identifyingString:'noOfDaysOfUsageSecond',
@@ -55,14 +60,16 @@ const questionsPeople = [
     defaultValue:'0',
     minValue:'0',
     maxValue:'7',
-    unit: 'days'
+    unit: 'days',
+    dataType: Number
   },
   {
     identifyingString:'annualCommuteExpenses',
     name: 'How much do you pay for commuting annually?',
     type: 'field',
     minValue: 0,
-    unit: 'euros'
+    unit: 'euros',
+    dataType: Number
   },
   {
     identifyingString:'numberOfRemoteworkDays',
@@ -71,7 +78,8 @@ const questionsPeople = [
     defaultValue:'0',
     minValue:'0',
     maxValue:'7',
-    unit: 'days'
+    unit: 'days',
+    dataType: Number
   },
   {
     identifyingString:'opinionRemote',
@@ -83,21 +91,24 @@ const questionsPeople = [
       { string: 'neutral', value: 'neutral' },
       { string: 'positive', value: 'positive' },
       { string: 'very positive', value: 'veryPositive' },
-    ]
+    ],
+    dataType: String
   },
   {
     identifyingString:'numberOfBusinessTrips',
     name: 'How many two-way business trips by plane do you make annually?',
     type: 'field',
     minValue: 0,
-    unit: 'trips'
+    unit: 'trips',
+    dataType: Number
   },
   {
     identifyingString:'numberOfHoursOnPlane',
     name: 'And during these trips, how many hours do you spend on a plane annually?',
     type: 'field',
     minValue: 0,
-    unit: 'hours'
+    unit: 'hours',
+    dataType: Number
   }
 ]
 
