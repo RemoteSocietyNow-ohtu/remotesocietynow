@@ -22,7 +22,7 @@ calculationRouter.post('/person/:save?', async (req,res) => {
 
   console.log(calculateData)
   //filter
-  for(key in body){
+  for(const key in body){
     if(key.includes('OpenField')){
       feedbacks[key]=body[key]
     }else{

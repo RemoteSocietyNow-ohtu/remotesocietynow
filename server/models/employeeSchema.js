@@ -3,7 +3,7 @@ const questions = require('../services/questions/questionsPeople')
 
 const model = {}
 
-for(field of questions){
+for(const field of questions){
   model[field.identifyingString] = field.dataType
 }
 
