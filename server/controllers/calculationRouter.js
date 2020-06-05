@@ -20,7 +20,7 @@ calculationRouter.post('/person/:save?', async (req,res) => {
     +body.numberOfRemoteworkDays
   ]
 
-  console.log(calculateData)
+  
   //filter
   for(const key in body){
     if(key.includes('OpenField')){
@@ -32,7 +32,7 @@ calculationRouter.post('/person/:save?', async (req,res) => {
   /* Calls the calculateBenefitsForPerson in /services/calculations/remoteWorkCalculator for emissions calculation 
     using parameters gathered above*/
   const result = remoteWorkCalculator.calculateBenefitsForPerson(...calculateData)
-  console.log(result)
+  
   
   /* Calls storeEmployeeData in /server/database/database.js to save all employee input to database. */
   if(req.params.save === 'save') {
