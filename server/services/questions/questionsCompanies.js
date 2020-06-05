@@ -14,12 +14,19 @@ const questionsCompanies = [
   },
   {
     identifyingString:'topCosts',
-    name: 'How high are your company\'s monthly office rent expenses?',
-    type: 'number'
+    name: 'What are the top 5 types of costs (of all expenses or cash outflows) for your company?',
+    type: 'textArea',
+    placeholder: 
+    `1. Type of cost
+    2. Type of cost
+    3. Type of cost
+    4. Type of cost
+    5. Type of cost`,
+    unit: 'euros'
   },
   {
     identifyingString:'officeRentExpenses',
-    name: 'How high are your company\'s monthly office rent expenses? ',
+    name: 'How high are your company\'s monthly office rent expenses (€)? ',
     type: 'number',
     minValue: 0,
     unit: 'euros'
@@ -37,7 +44,7 @@ const questionsCompanies = [
   },
   {
     identifyingString:'energyCost',
-    name: 'How high is your office energy cost per month?',
+    name: 'How high is your office energy cost per month (€)?',
     type: 'number',
     minValue: 0,
     unit: 'euros'
@@ -57,7 +64,7 @@ const questionsCompanies = [
   },
   {
     identifyingString:'heatingCost',
-    name: 'How high is your office heating cost per month?',
+    name: 'How high is your office’s heating cost per month (€)?',
     type: 'number',
     minValue: 0,
     unit: 'euros'
@@ -76,14 +83,14 @@ const questionsCompanies = [
   },
   {
     identifyingString:'otherUpkeepExpenses',
-    name: 'How high are your company\'s other office-related costs? ',
+    name: 'How high are your company\'s other office-related costs (€)? ',
     type: 'number',
     minValue: 0,
     unit: 'euros'
   },
   {
     identifyingString:'totalCommutingSubsidies',
-    name: 'Total commuting subsidies paid to employees per month ',
+    name: 'Total commuting subsidies paid to employees per month (€).',
     type: 'number',
     minValue: 0,
     unit: 'euros'
@@ -113,7 +120,7 @@ const questionsCompanies = [
   },
   {
     identifyingString:'remoteWorkEase',
-    name: 'How easily could your company start working fully remotely?',
+    name: 'How easy would it be for your company to transition to working fully remotely',
     type: 'multipleChoice',
     options: [
       {string: 'Very difficult', value: 'veryDifficult'},
