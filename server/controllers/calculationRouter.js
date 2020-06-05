@@ -51,17 +51,15 @@ calculationRouter.post('/company/:save?', async (req,res) => {
   const businessTravelCost = +req.body.averageBusinessTripCost
   const remoteShare = req.body.remoteShare ? req.body.remoteShare : 0
 
-<<<<<<< HEAD
+
   //validate
-  // if (isNaN(rent) || isNaN(officeUpkeep) || isNaN(employees) || isNaN(businessTravelCost) || isNaN(remoteShare) || typeof companyName !== 'string') {
-  //   console.log('Invalid value')
-  //   return res.status(400).send({ error: 'Invalid value'})
-  // }
-=======
+  if (isNaN(rent) || isNaN(officeUpkeep) || isNaN(employees) || isNaN(businessTravelCost) || isNaN(remoteShare) || typeof companyName !== 'string') {
+    console.log('Invalid value')
+    return res.status(400).send({ error: 'Invalid value'})
+  }
   const savedData = bodyParser.parseSavedDataFromBody(body)
   const feedbacks = bodyParser.parseFeedBacksFromBody(body)
 
->>>>>>> 614375168e317b6bc96dc9cfc94962fe8b3b2d48
   /* Calls the calculateBenefitsForCompany in /services/calculations/remoteWorkCalculator for emissions calculation 
     using parameters gathered above*/
   const result = remoteWorkCalculator.calculateBenefitsForCompany(rent, officeUpkeep, employees, businessTravelCost, remoteShare)
