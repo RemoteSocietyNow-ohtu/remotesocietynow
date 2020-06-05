@@ -1,27 +1,27 @@
 const parseFeedBackSchema = (questions) => {
 
-    const model = {}
+  const model = {}
 
-    for (const field of questions) {
-        model[field.identifyingString + 'OpenField'] = String
-    }
+  for (const field of questions) {
+    model[field.identifyingString + 'OpenField'] = String
+  }
 
-    return model
+  return model
 
 }
 
 const parseSavedDataSchema = (questions) => {
-    const model = {}
+  const model = {}
 
-    for (const field of questions) {
-        model[field.identifyingString] = field.dataType
-    }
+  for (const field of questions) {
+    model[field.identifyingString] = field.dataType
+  }
 
-    return model
+  return model
 }
 
 module.exports = {
-    parseFeedBackSchema,
-    parseSavedDataSchema
+  parseFeedBackSchema,
+  parseSavedDataSchema
 }
 
