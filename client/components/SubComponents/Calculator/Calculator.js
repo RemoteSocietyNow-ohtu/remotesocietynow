@@ -88,10 +88,10 @@ const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setR
             />
           }
         </div>
-        <div className='Calculator-content-right'>
+        {currentQuestion < questions.length && <div className='Calculator-content-right'>
           <QuestionsSidebar questions={questions} answers={answers} currentQuestion={currentQuestion}
-            setCurrentQuestion={setCurrentQuestion} />          
-        </div>
+            setCurrentQuestion={setCurrentQuestion} />
+        </div>}
         <Stepper questions={questions} currentQuestion={currentQuestion} setCurrentQuestion={setCurrentQuestion}/>
       </div>
      

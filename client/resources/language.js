@@ -9,7 +9,7 @@ export const english = {
     aboutTheMath: 'About the math',
     privacyPolicy: 'Privacy Policy',
     gdprCompliance: 'GDPR',
-    workDoneRemotelyPercent: '% of work done remotely',
+    workDoneRemotelyPercent: 'of work done remotely',
     workDoneRemotelyDays: 'Days of work done remotely',
     commentFieldHeader: 'Is this question relevant to you? Share your ideas! How can we make it better?',
   },
