@@ -57,7 +57,7 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
   }
 
   return (
-    <div className='Container' style={{ animation: 'none' }}>
+    <div style={{ animation: 'none' }}>
       <div className='Calculator-results-container'>
         <div className='Calculator-results-left'>
           <h1>Your Results</h1>
@@ -70,12 +70,13 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
                     {!isCompany && result.bartype === 'redbar' && <img className='Calculator-resultbar-icon' src={pollutionIcon} alt='Pollution icon' />}
                     <p className='Calculator-result-countup'><b></b><CountUp duration={.8} end={result.value ? result.value : 0} /> {result.unit}</p>
                   </div>
-                  <p>{result.title}</p>
+                  <p className='Calculator-results-result-title'>{result.title}</p>
                 </div>
               </div>
             )
           }
         </div>
+        <div className='Calculator-results-divider'></div>
         <div className='Calculator-results-right'>
           {
             results.map(result =>
