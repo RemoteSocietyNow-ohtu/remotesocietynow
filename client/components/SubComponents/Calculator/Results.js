@@ -5,19 +5,23 @@ import SliderField from '../../InputFields/SliderField'
 import CountUp from 'react-countup'
 import ResultBar from './ResultBar'
 
+import pollutionIcon from '../../../resources/pollution-icon.png'
+import co2SavedIcon from '../../../resources/co2-saved-icon.png'
+import oilIcon from '../../../resources/oil-icon.png'
+
 const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
   const language = useContext(LanguageContext)
-  const [ error, setError ] = useState(false)
-  const [ sliderValue, setSliderValue ] = useState(0)
+  const [error, setError] = useState(false)
+  const [sliderValue, setSliderValue] = useState(0)
 
   // Fetch results from backend based on answers. Triggered when answers changes.
   // Sets results based on response 
   useEffect(() => {
     const fetchResults = async () => {
-      if(answers.remoteShare) {
+      if (answers.remoteShare) {
         setSliderValue(answers.remoteShare)
       }
-      if(answers.numberOfRemoteworkDays) {
+      if (answers.numberOfRemoteworkDays) {
         setSliderValue(answers.numberOfRemoteworkDays)
       }
       setError(false)
@@ -35,50 +39,70 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
       }
     }
     fetchResults()
-  },[answers])
-  
+  }, [answers])
+
   // Check if there was an error fetching results
-  if(error === true) return <p>{language.errors.errorSendingAnswers}</p>
+  if (error === true) return <p>{language.errors.errorSendingAnswers}</p>
 
   // Change answers.remoteShare based on slider. 
   // This will cause component to rerender and fetchResults to run
   const handleRelease = async () => {
-    const tempAnswers = {...answers}    
+    const tempAnswers = { ...answers }
     if (isCompany) {
-      tempAnswers.remoteShare = sliderValue      
+      tempAnswers.remoteShare = sliderValue
     } else {
-      tempAnswers.numberOfRemoteworkDays = sliderValue     
-    }    
+      tempAnswers.numberOfRemoteworkDays = sliderValue
+    }
     setAnwers(tempAnswers)
   }
 
   return (
-    <div className='Container' style={{ animation:'none' }}>
+    <div className='Container' style={{ animation: 'none' }}>
       <div className='Calculator-results-container'>
-        {
-          results.map(result => 
-            <div key={result.title}>
-              <p >{result.title}</p>
-              <ResultBar width={50} percent={result.percent} type={result.bartype} />                 
-              <p><CountUp duration={.8} end={result.value ? result.value : 0} /> {result.unit}</p>
-            </div>
-          )
-        }
-        {isCompany ?
-          <h4>{language.headers.workDoneRemotelyPercent}</h4> // If this is results for a company use percents
-          : <h4>{language.headers.workDoneRemotelyDays}</h4>
-        }
-        <SliderField 
-          handleValueChange={(event) => setSliderValue(event.target.value)} 
-          handleRelease={handleRelease}
-          value={sliderValue}
-          minValue={0}
-          maxValue={isCompany ? 100 : 7}
-          unit={isCompany ? '%' : ''} // If this is results for a company use percents
-        />
+        <div className='Calculator-results-left'>
+          <h1>Your Results</h1>
+          {
+            results.map(result =>
+              <div key={result.title}>
+                <div>
+                  <div className='Calculator-results-money-inline'>
+                    {!isCompany && result.bartype === 'greenbar' && <img className='Calculator-resultbar-icon' src={co2SavedIcon} alt='Pollution icon' />}
+                    {!isCompany && result.bartype === 'redbar' && <img className='Calculator-resultbar-icon' src={pollutionIcon} alt='Pollution icon' />}
+                    <p className='Calculator-result-countup'><b></b><CountUp duration={.8} end={result.value ? result.value : 0} /> {result.unit}</p>
+                  </div>
+                  <p className='Calculator-result-title'>{result.title}</p>
+                </div>
+              </div>
+            )
+          }
+        </div>
+        <div className='Calculator-results-right'>
+          {
+            results.map(result =>
+              <div key={result.bartype} className='Calculator-results-resultbars'>
+                {!isCompany && result.bartype === 'greenbar' && <img className='Calculator-resultbar-icon' src={co2SavedIcon} alt='Pollution icon' />}
+                {!isCompany && result.bartype === 'redbar' && <img className='Calculator-resultbar-icon' src={pollutionIcon} alt='Pollution icon' />}
+                <p></p>
+                <ResultBar width={80} percent={result.percent} type={result.bartype} />
+              </div>
+            )
+          }
+          <SliderField
+            handleValueChange={(event) => setSliderValue(event.target.value)}
+            handleRelease={handleRelease}
+            value={sliderValue}
+            minValue={0}
+            maxValue={isCompany ? 100 : 7}
+            unit={isCompany ? '%' : ''} // If this is results for a company use percents
+          />
+          {isCompany ?
+            <p className='Calculator-results-slidertext'>{language.headers.workDoneRemotelyPercent}</p> // If this is results for a company use percents
+            : <p className='Calculator-results-slidertext'>{language.headers.workDoneRemotelyDays}</p>
+          }
+        </div>
       </div>
     </div>
   )
 }
-  
+
 export default Results

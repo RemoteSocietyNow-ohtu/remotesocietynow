@@ -106,6 +106,10 @@ td {
   }
 }
 
+.Calculator-resultbar-icon {
+  height: 40px;
+}
+
 /* Main */
 .Main-container {
   display: flex;
@@ -213,6 +217,7 @@ td {
   background-color: #84a9ac;
 }
 
+<<<<<<< HEAD
 .CalculatorChoice-checkbox {
   opacity: 0;
 }
@@ -251,6 +256,38 @@ td {
 
 
 
+=======
+.CalculatorChoice-checkbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding: 1em;
+}
+
+.CalculatorChoice-checkbox {    
+    background: none;
+    box-shadow: 0px 0px 0px transparent;
+    border: 0px solid transparent;
+    text-shadow: 0px 0px 0px transparent;
+}
+
+.CalculatorChoice-checkbox:focus {
+  outline: 1px solid #3b6978;
+  border-radius: 50%;
+}
+
+.CalculatorChoice-checkbox-label {
+  font-size: 1rem;
+}
+
+.CalculatorChoice-checkbox-image {
+  width: 2rem;
+  height: 2rem;
+}
+
+
+>>>>>>> fc85f3ba5ec08c5b72fe886e5956b4081881df45
 /* GDPRCompliance */
 .GDPRCompliance-content {
   text-align: left;
@@ -313,7 +350,12 @@ td {
 }
 
 .Calculator-question {
+<<<<<<< HEAD
   margin-top: 15%; 
+=======
+  margin-top: 15%;
+  overflow: hidden;
+>>>>>>> fc85f3ba5ec08c5b72fe886e5956b4081881df45
 }
 
 .Calculator-question-header {
@@ -368,13 +410,79 @@ td {
   margin-bottom: 4%;
 }
 
+.Calculator-results-left {
+  position: fixed;
+  left: 5%;
+  text-align: left;
+  width: 45%;
+  border-right: solid 1px #cae8d5;
+  color: #cae8d5;
+}
+
+.Calculator-results-money-inline {
+  display: flex;
+  align-items: center;
+  height: 100px;
+}
+
+.Calculator-result-countup {
+  margin-top: 13%;;
+  font-size: calc(10px + 3vmin);
+  line-height: .2em;
+  font-family: PT Root Heading;
+}
+
+.Calculator-result-title {
+  line-height: .2em;
+}
+
+.Calculator-results-right {
+  position: fixed;
+  right: 5%;
+  width: 45%;
+  margin-top: 6%;
+  color: #cae8d5;
+}
+
+.Calculator-results-slidertext {
+  line-height: .01em;
+}
+
+.Calculator-results-resultbars {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: auto;
+}
+
 .Calculator-resultbar-container {
   background-color: #cae8d5;
   border-radius: 4px 4px 4px 4px;
   margin: 0 auto;
 }
 
+<<<<<<< HEAD
 .Calculator-stepper { 
+=======
+.greenbar {
+  background-color: green;
+  height: 50px;
+  border-radius: 4px 4px 4px 4px;
+  transition: 1s ease;
+  transition-delay: 0.5s;
+}
+
+.redbar {
+  background-color:#D8000C;
+  height: 50px;
+  border-radius: 4px 4px 4px 4px;
+  transition: 1s ease;
+  transition-delay: 0.5s;
+}
+
+.Calculator-stepper-container {
+>>>>>>> fc85f3ba5ec08c5b72fe886e5956b4081881df45
   position: fixed;
   bottom: 10%;
   width: 100%;
