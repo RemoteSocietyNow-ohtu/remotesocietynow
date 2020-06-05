@@ -19,11 +19,11 @@ const questionsCompanies = [
     name: 'What are the top 5 types of costs (of all expenses or cash outflows) for your company?',
     type: 'textArea',
     placeholder: 
-    `1. Type of cost
-    2. Type of cost
-    3. Type of cost
-    4. Type of cost
-    5. Type of cost`,
+`1. Type of cost
+2. Type of cost
+3. Type of cost
+4. Type of cost
+5. Type of cost`,
     unit: 'euros',
     dataType: String
   },
@@ -39,11 +39,11 @@ const questionsCompanies = [
     identifyingString:'topEnergyActivities',
     name: 'List your company’s top 5 biggest energy consuming activities? (if you know) ',
     placeholder: 
-    `1. Type of cost
-    2. Type of cost
-    3. Type of cost
-    4. Type of cost
-    5. Type of cost`,
+`1. Type of cost
+2. Type of cost
+3. Type of cost
+4. Type of cost
+5. Type of cost`,
     type: 'textArea',
     dataType: String
   },
