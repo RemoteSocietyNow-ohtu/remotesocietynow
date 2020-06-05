@@ -93,9 +93,8 @@ const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setR
           <QuestionsSidebar questions={questions} answers={answers} currentQuestion={currentQuestion}
             setCurrentQuestion={setCurrentQuestion} />          
         </div>
-        
       </div>
-      <Stepper questions={questions} currentQuestion={currentQuestion} />
+      <Stepper questions={questions} currentQuestion={currentQuestion} setCurrentQuestion={setCurrentQuestion}/>
     </div>
   )
 }

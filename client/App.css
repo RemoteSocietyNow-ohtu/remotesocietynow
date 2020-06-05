@@ -393,6 +393,12 @@ td {
   }
 }
 
+@media (max-height: 670px) {
+  .Calculator-stepper-container {
+    display: none;
+  }
+}
+
 .Calculator-stepper {   
   display: flex;
   flex-direction: row;
