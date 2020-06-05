@@ -1,18 +1,13 @@
 const mongoose = require('mongoose')
+const questions = require('../services/questions/questionsPeople')
 
-const employeeSchema = new mongoose.Schema({
-  typicalVehicle: String,
-  noOfDaysOfUsage: Number,
-  secondVehicle: String,
-  noOfDaysOfUsageSecond: Number,
-  dailyCommuteKm: Number,
-  dailyCommuteMinutes: Number,
-  numberOfRemoteworkDays: Number,
-  annualCommuteExpenses: Number,
-  opinionRemote: String,
-  numberOfBusinessTrips: Number,
-  numberOfHoursOnplane: Number
-})
+const model = {}
+
+for(field of questions){
+  model[field.identifyingString] = field.dataType
+}
+
+const employeeSchema = new mongoose.Schema(model)
 
 try {  
   module.exports = mongoose.model('Employee')
