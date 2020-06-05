@@ -317,16 +317,17 @@ td {
 .Calculator-content-left {
   font-size: calc(1px + 3vmin);
   width: 36rem; 
-  margin:auto
+  margin:auto;  
+  margin-top:8rem; 
 }
 @media (max-width: 756px) {
   .Calculator-content-left {       
-    margin:auto    
+    margin:auto;  
   }
 }
 
 .Calculator-content-right {
-  font-size: small;
+  font-size: .8rem;
   width: 16rem;  
   padding: 3%;
   border-left: solid #84a9ac 2px;  
@@ -339,8 +340,7 @@ td {
 }
 
 .Calculator-question {
-  margin-top: 15%;
-  overflow: hidden;
+  overflow: hidden; 
 }
 
 .Calculator-question-header {
@@ -614,10 +614,11 @@ td {
 }
 
 .Calculator-textAreafield { 
+  font-family: inherit;
   font-size: 1rem;
   padding: 1rem;
   border: none;
-  height: 6rem;
+  height: 7rem;
   width: 80%;
   color: gainsboro;
   background-color: #3b6978;

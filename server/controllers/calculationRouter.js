@@ -1,14 +1,13 @@
 const calculationRouter = require('express').Router()
 const remoteWorkCalculator = require('../services/calculations/remoteWorkCalculator')
 const database = require('../database/database')
+const bodyParser = require('../util/calculationBodyParser')
 
 /** Handles POST requests to (baseUrl)/api/calculations/person from frontend
  * responds with total annual co2 emissions, and the potential saves from moving to more remote work
  * Post to /person/save additionally saves data to database
  */
 calculationRouter.post('/person/:save?', async (req,res) => {
-  const feedbacks = {}
-  const savedData = {}
   const body = req.body
 
   const calculateData = [
@@ -20,19 +19,13 @@ calculationRouter.post('/person/:save?', async (req,res) => {
     +body.numberOfRemoteworkDays
   ]
 
-  console.log(calculateData)
-  //filter
-  for(const key in body){
-    if(key.includes('OpenField')){
-      feedbacks[key]=body[key]
-    }else{
-      savedData[key]=body[key]
-    }
-  }
+  const savedData = bodyParser.parseSavedDataFromBody(body)
+  const feedbacks = bodyParser.parseFeedBacksFromBody(body)
+
   /* Calls the calculateBenefitsForPerson in /services/calculations/remoteWorkCalculator for emissions calculation 
     using parameters gathered above*/
   const result = remoteWorkCalculator.calculateBenefitsForPerson(...calculateData)
-  console.log(result)
+  
   
   /* Calls storeEmployeeData in /server/database/database.js to save all employee input to database. */
   if(req.params.save === 'save') {
@@ -50,6 +43,7 @@ calculationRouter.post('/person/:save?', async (req,res) => {
  * Post to /company/save additionally saves data to database
  */
 calculationRouter.post('/company/:save?', async (req,res) => {
+  const body = req.body
   const companyName = req.body.companyName
   const rent = +req.body.officeRentExpenses
   const officeUpkeep = +req.body.otherUpkeepExpenses
@@ -57,25 +51,25 @@ calculationRouter.post('/company/:save?', async (req,res) => {
   const businessTravelCost = +req.body.averageBusinessTripCost
   const remoteShare = req.body.remoteShare ? req.body.remoteShare : 0
 
+<<<<<<< HEAD
   //validate
   // if (isNaN(rent) || isNaN(officeUpkeep) || isNaN(employees) || isNaN(businessTravelCost) || isNaN(remoteShare) || typeof companyName !== 'string') {
   //   console.log('Invalid value')
   //   return res.status(400).send({ error: 'Invalid value'})
   // }
+=======
+  const savedData = bodyParser.parseSavedDataFromBody(body)
+  const feedbacks = bodyParser.parseFeedBacksFromBody(body)
+
+>>>>>>> 614375168e317b6bc96dc9cfc94962fe8b3b2d48
   /* Calls the calculateBenefitsForCompany in /services/calculations/remoteWorkCalculator for emissions calculation 
     using parameters gathered above*/
   const result = remoteWorkCalculator.calculateBenefitsForCompany(rent, officeUpkeep, employees, businessTravelCost, remoteShare)
 
   /* Calls storeCompanyData in /server/database/database.js to save all company input to database. */
   if (req.params.save === 'save') {     
-    await database.storeCompanyData(companyName, employees, rent, officeUpkeep, businessTravelCost)      
- 
-    const companyNameFeedback = req.body.companyNameOpenField
-    const rentFeedback = req.body.officeRentExpensesOpenField
-    const officeUpKeepFeedback = req.body.otherUpkeepExpensesOpenField
-    const employeesFeedback = req.body.numberOfEmployeesOpenField
-    const businessTravelCostFeedback = req.body.averageBusinessTripCostOpenField
-    await database.storeCompanyFeedback(companyNameFeedback, rentFeedback, officeUpKeepFeedback, employeesFeedback, businessTravelCostFeedback)
+    await database.storeCompanyData(savedData)      
+    await database.storeCompanyFeedback(feedbacks)
   }
   res.json(result)   
 })

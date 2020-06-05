@@ -16,6 +16,7 @@ const connectToDatabase = () => {
 }
 
 const storeEmployeeData = async (data) => {
+
   const storedEmployee = new Employee(data)
 
   try {
@@ -28,15 +29,9 @@ const storeEmployeeData = async (data) => {
   mongoose.connection.close()  
 }
 
-const storeCompanyData = async (companyName, numberOfEmployees, officeRentExpenses, otherUpkeepExpenses, averageBusinessTripCost) => {
+const storeCompanyData = async (data) => {
   
-  const storedCompany = new Company({
-    companyName: companyName,
-    numberOfEmployees: numberOfEmployees,
-    officeRentExpenses: officeRentExpenses,
-    otherUpkeepExpenses: otherUpkeepExpenses,
-    averageBusinessTripCost: averageBusinessTripCost,
-  })
+  const storedCompany = new Company(data)
 
   try {
     await connectToDatabase()
@@ -48,15 +43,9 @@ const storeCompanyData = async (companyName, numberOfEmployees, officeRentExpens
   mongoose.connection.close()
 }
 
-const storeCompanyFeedback = async (companyNameOpenField, numberOfEmployeesOpenField, officeRentExpensesOpenField, otherUpkeepExpensesOpenField, averageBusinessTripCostOpenField) => {
+const storeCompanyFeedback = async (data) => {
   
-  const storedCompanyFeedback = new CompanyFeedback({
-    companyNameOpenField: companyNameOpenField,
-    numberOfEmployeesOpenField: numberOfEmployeesOpenField,
-    officeRentExpensesOpenField: officeRentExpensesOpenField,
-    otherUpkeepExpensesOpenField: otherUpkeepExpensesOpenField,
-    averageBusinessTripCostOpenField: averageBusinessTripCostOpenField,
-  })
+  const storedCompanyFeedback = new CompanyFeedback(data)
 
   try {
     await connectToDatabase()

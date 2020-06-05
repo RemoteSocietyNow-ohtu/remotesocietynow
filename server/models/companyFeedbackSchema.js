@@ -1,12 +1,10 @@
 const mongoose = require('mongoose')
+const questions = require('../services/questions/questionsCompanies')
+const parser = require('../util/schemaParser')
 
-const companyFeedbackSchema = new mongoose.Schema({
-  companyNameFeedback: String,
-  numberOfEmployeesOpenField: String,
-  officeRentExpensesOpenField: String,
-  otherUpkeepExpensesOpenField: String,
-  averageBusinessTripCostOpenField: String,
-})
+const model = parser.parseFeedBackSchema(questions)
+
+const companyFeedbackSchema = new mongoose.Schema(model)
 
 try {
   module.exports = mongoose.model('CompanyFeedback')
