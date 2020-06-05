@@ -7,7 +7,7 @@ import ResultBar from './ResultBar'
 
 import pollutionIcon from '../../../resources/pollution-icon.png'
 import co2SavedIcon from '../../../resources/co2-saved-icon.png'
-import oilIcon from '../../../resources/oil-icon.png'
+//import oilIcon from '../../../resources/oil-icon.png'
 
 const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
   const language = useContext(LanguageContext)
