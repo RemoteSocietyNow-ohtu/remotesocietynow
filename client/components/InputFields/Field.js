@@ -29,7 +29,12 @@ const Field = ({ fieldType, options, value, setValue, minValue, maxValue, placeh
     )
   } else if (fieldType === 'multipleChoice') {
     return (
-      <MultipleChoiceField options={options} handleValueChange={handleValueChange} value={value} />
+      <MultipleChoiceField 
+        options={options} 
+        handleValueChange={handleValueChange} 
+        value={value} 
+        nextQuestion={nextQuestion}
+      />
     )
   } else if (fieldType === 'text') {
     return (
