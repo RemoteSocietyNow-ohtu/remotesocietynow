@@ -1,7 +1,7 @@
 export const english = {
   name: 'English',
   headers: {
-    mainHeader: 'The most enjoyable way to save the planet.',
+    mainHeader: 'Remote work- Earn money by saving the planet',//'The most enjoyable way to save the planet.',
     calculateChoiceHeader: 'I am calculating benefits for...',
     companies: 'Calculator',
     people: 'Calculator',
