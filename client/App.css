@@ -395,6 +395,21 @@ td {
   display: flex;
 }
 
+@media(max-width:860px) {
+  .Calculator-results-container {
+    flex-wrap: wrap;
+  }
+  .Calculator-results-left {
+    margin-left: 3.5em;
+  }
+  .Calculator-results-right {
+    margin-right: 2.5em;
+  }
+  .Calculator-results-divider {
+    display: none;
+  }
+}
+
 .Calculator-results-left {
   text-align: left;
   width: 100%;
