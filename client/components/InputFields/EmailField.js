@@ -5,7 +5,7 @@ const EmailField = ({ handleValueChange, value }) => {
     <div>
       <input
         type="text"
-        className='SignIn-emailfield'
+        className='SignUp-emailfield'
         value={value}
         onChange={handleValueChange}
       >        

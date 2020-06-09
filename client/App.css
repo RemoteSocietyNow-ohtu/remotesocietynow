@@ -890,9 +890,9 @@ td {
   margin: 0.7rem;
 }
 
-/* SignIn */
+/* SignUp */
 
-.SignIn-container {
+.SignUp-container {
   color: gainsboro;   
   animation: 'fade 1s ease-in';
   min-width: 19rem;
@@ -900,11 +900,11 @@ td {
   margin: auto
 }
 
-.SignIn-header {
+.SignUp-header {
   font-size: calc(2.3rem + 2px)
 }
 
-.SignIn-passwordfield {
+.SignUp-passwordfield {
   -webkit-appearance: none;
   font-size: calc(0.9rem + 2px);
   border: none;
@@ -919,7 +919,7 @@ td {
   box-sizing: border-box;
 }
 
-.SignIn-emailfield {
+.SignUp-emailfield {
   -webkit-appearance: none;
   font-size: calc(0.9rem + 2px);
   border: none;
@@ -933,7 +933,7 @@ td {
   box-sizing: border-box;
 }
 
-.SignIn-button {
+.SignUp-button {
   margin-top: 2em;
   min-width: 12rem;
   max-width: 30%;
@@ -946,11 +946,11 @@ td {
   text-decoration: none;
 }
 
-.SignIn-button:hover {
+.SignUp-button:hover {
   background-color: #84a9ac;
 }
 
-.SignIn-label {
+.SignUp-label {
   font-size: 1.3rem;
   display: inline-block;
   margin-right: 0.75rem;
@@ -958,7 +958,7 @@ td {
   box-sizing: border-box;  
 }
 
-.SignIn-input-div {
+.SignUp-input-div {
   display:block;
   width: 100%;
   box-sizing:border-box;

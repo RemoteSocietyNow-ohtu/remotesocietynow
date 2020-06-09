@@ -5,7 +5,7 @@ const PasswordField = ({ handleValueChange, value }) => {
     <div>
       <input
         type="password"
-        className='SignIn-passwordfield'
+        className='SignUp-passwordfield'
         value={value}
         onChange={handleValueChange}
       >        

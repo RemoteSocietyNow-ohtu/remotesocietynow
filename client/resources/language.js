@@ -12,7 +12,7 @@ export const english = {
     workDoneRemotelyPercent: 'of work done remotely',
     workDoneRemotelyDays: 'Days of work done remotely',
     loginHeader: 'Login',
-    signInHeader: 'Sign In',
+    signUpHeader: 'Sign Up',
     commentFieldHeader: 'Is this question relevant to you? Share your ideas! How can we make it better?',
     subscribeToOurNewsletter: 'Subscribe to Our Newsletter',
     emailAddress: 'Email Address:',
@@ -32,7 +32,7 @@ export const english = {
     authenticationLabelEmail: 'Email',
     authenticationLabelPassword: 'Password',
     authenticationLabelConfirmPassword: 'Confirm Password',
-    authenticationLoginCreateAccountText: 'Do not have an account? Sign in here',
+    authenticationLoginCreateAccountText: 'Do not have an account? Sign up here',
     privacyPolicy: 'Before we start. By proceeding you acknowledge that your personal data is processed in accordance with our ',
     newsletter: 'Remotework is now more topical than ever. Don"t miss a thing! Signup for our newsletter on latest things related to remote work.',
     newsletterThanksForSubscribing: 'You will soon recieve a welcome email.',    
@@ -47,7 +47,7 @@ export const english = {
     accept: 'Accept',
     ok: 'OK',
     subscribe: 'Subscribe',
-    signIn: 'Sign In',
+    signUp: 'Sign Up',
     login: 'Login'
   },
   navigation: {
