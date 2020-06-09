@@ -17,7 +17,7 @@ const NewsletterBox = () => {
     setLoading(true)
     setHasErrored(false)    
     try {
-      await newsletterService.postMailAddress()
+      await newsletterService.postMailAddress({address: event.target.email.value})
       setHasSendedMailAddress(true)
       setLoading(false)
     } catch {
@@ -26,14 +26,17 @@ const NewsletterBox = () => {
       setLoading(false)
     }        
   }
+  console.log(loading)
   if (open === false) {
     return null
   }
 
   if(loading === true) {
-    <div className='Newsletter-box'>
-      <LoadingScreen />
-    </div>
+    return (
+      <div className='Newsletter-box'>
+        <LoadingScreen />
+      </div>
+    )    
   }
 
   if(hasErrored === true) {
@@ -65,7 +68,7 @@ const NewsletterBox = () => {
       <p className='Newsletter-box-paragraph'>{language.content.newsletter}</p>
       <form onSubmit={(event) => handleSubmit(event)}>
         <label htmlFor='email' className='Newsletter-field-label'>{language.headers.emailAddress}</label>
-        <input type='text' className='Newsletter-field' name='email'/>
+        <input type='email' className='Newsletter-field' name='email'/>
         <input type='submit' className='Newsletter-send-button' value={language.buttons.subscribe} />
       </form>
     </div>

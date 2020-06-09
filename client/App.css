@@ -631,6 +631,7 @@ td {
   background: #3b6978;
   padding: 2rem;  
   width: 60%;    
+  max-height: 12rem;
   bottom: 1rem; 
   left: 15%; 
   border-radius: 5px;  
@@ -664,7 +665,7 @@ td {
   right:0;
   border: 0px solid transparent;  
   font-size: 2rem;
-  color: #181A1B;
+  color: gainsboro;
 }
 
 .Newsletter-send-button {
