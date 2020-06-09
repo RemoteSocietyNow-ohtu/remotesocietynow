@@ -14,6 +14,15 @@ const questionsCompanies = [
     unit: 'employees',
     dataType: Number
   },
+  
+  {
+    identifyingString:'officeRentExpenses',
+    name: 'How high are your company\'s monthly office rent expenses (€)? ',
+    type: 'number',
+    minValue: 0,
+    unit: 'euros',
+    dataType: Number
+  },
   {
     identifyingString:'topCosts',
     name: 'What are your company’s top 5 types of costs (biggest first)',
@@ -29,14 +38,6 @@ const questionsCompanies = [
     placeholder: '1. Type of cost\n2. Type of cost\n3. Type of cost\n4. Type of cost\n5. Type of cost',
     type: 'textArea',
     dataType: String
-  },
-  {
-    identifyingString:'officeRentExpenses',
-    name: 'How high are your company\'s monthly office rent expenses (€)? ',
-    type: 'number',
-    minValue: 0,
-    unit: 'euros',
-    dataType: Number
   },
   {
     identifyingString:'energyCost',

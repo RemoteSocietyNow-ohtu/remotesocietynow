@@ -342,6 +342,7 @@ td {
 
 .Calculator-question {
   overflow: hidden; 
+  margin-top: 1rem;
 }
 
 .Calculator-question-header {
