@@ -116,6 +116,19 @@ td {
   transform: translateY(.4em);
 }
 
+.Calculator-choice-icon {
+  margin-left: .3em;
+  height: 30px;
+  transform: translateY(.2em);
+}
+
+.Calculator-choice-grayed-out-icon {
+  margin-left: .3em;
+  height: 30px;
+  transform: translateY(.2em);
+  opacity: 50%;
+}
+
 /* Main */
 .Main-container {
   display: flex;
