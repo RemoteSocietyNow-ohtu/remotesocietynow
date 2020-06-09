@@ -11,6 +11,7 @@ export const english = {
     gdprCompliance: 'GDPR',
     workDoneRemotelyPercent: 'of work done remotely',
     workDoneRemotelyDays: 'Days of work done remotely',
+    signInHeader: 'Sign In',
     commentFieldHeader: 'Is this question relevant to you? Share your ideas! How can we make it better?',
     subscribeToOurNewsletter: 'Subscribe to Our Newsletter',
     emailAddress: 'Email Address:',
@@ -27,6 +28,9 @@ export const english = {
       'You’re allowed to refuse data processing, for example, marketing efforts.'
     ],
     contactInfo: 'Any inquiries can be directed to jr.tasklist@gmail.com',
+    signInLabelEmail: 'Email:',
+    signInLabelPassword: 'Password:',
+    signInLabelConfirmPassword: 'Confirm Password:',
     privacyPolicy: 'Before we start. By proceeding you acknowledge that your personal data is processed in accordance with our ',
     newsletter: 'Remotework is now more topical than ever. Don"t miss a thing! Signup for our newsletter on latest things related to remote work.',
     newsletterThanksForSubscribing: 'You will soon recieve a welcome email.',    
@@ -40,7 +44,11 @@ export const english = {
     calculateChoiceCompanies: 'My company',
     accept: 'Accept',
     ok: 'OK',
+<<<<<<< HEAD
     subscribe: 'Subscribe'
+=======
+    signIn: 'Sign In',
+>>>>>>> e9005755533e33e15f7f9addb99f9ad45acc6870
   },
   navigation: {
     gdprCompliance: 'GDPR',

@@ -858,6 +858,53 @@ td {
   margin: 0.7rem;
 }
 
+/* SignIn */
+.SignIn-label {
+  font-size: calc(10px + 2vmin);
+}
+
+.SignIn-passwordfield {
+  -webkit-appearance: none;
+  font-size: calc(10px + 2vmin);
+  border: none;
+  height: 50px;
+  max-width: 80%;
+  color: gainsboro;
+  background-color: #3b6978;
+  text-align: center;
+  border-radius: 5px;
+  margin-bottom: 1em;
+}
+
+.SignIn-emailfield {
+  -webkit-appearance: none;
+  font-size: calc(10px + 2vmin);
+  border: none;
+  height: 50px;
+  max-width: 80%;
+  color: gainsboro;
+  background-color: #3b6978;
+  text-align: center;
+  border-radius: 5px;
+  margin-bottom: 1em;
+}
+
+.SignIn-button {
+  margin-top: 2em;
+  width: 30%;
+  height: 70px;
+  font-family: 'PT Root';
+  font-size: large;
+  background-color: #cae8d5;
+  border: none;
+  border-radius: 5px 25px;
+  text-decoration: none;
+}
+
+.SignIn-button:hover {
+  background-color: #84a9ac;
+}
+
 /* Animations */
 @keyframes move-up {
   0% {
