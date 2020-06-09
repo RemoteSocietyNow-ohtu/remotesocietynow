@@ -18,6 +18,9 @@ const SignUp = () => {
     if (password === confirmPassword) {
       setError('')
       await authenticationService.signUp(email, password)
+      setEmail('')
+      setPassword('')
+      setConfirmPassword('')
     } else {
       setError('Passwords do not match.')
     }
