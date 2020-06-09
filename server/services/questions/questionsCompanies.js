@@ -145,6 +145,18 @@ const questionsCompanies = [
     ],
     dataType: String
   },
+  {
+    identifyingString:'remoteWorkBenefts',
+    name: 'What have been the biggest benefits of remote work for your company?',
+    type: 'textArea',
+    dataType: String
+  },
+  {
+    identifyingString:'remoteWorkDisadvantages',
+    name: 'What have been the biggest disadvantages of remote work for your company?',
+    type: 'textArea',
+    dataType: String
+  }
 ]
 
 module.exports = questionsCompanies
