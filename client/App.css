@@ -494,7 +494,7 @@ td {
   }
 }
 
-@media (max-height: 670px) {
+@media (max-height: 480px) {
   .Calculator-stepper-container {
     display: none;
   }

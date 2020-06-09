@@ -36,7 +36,7 @@ const calculateBenefitsForPerson = (distance,daysFirst,daysSecond,firstVehicle,s
 
   const result = [
     {
-      title: 'Annual CO2 pollution',
+      title: 'Annual commute and office related CO2 emissions',
       value: roundEmissionsToKg(co2EmissionsWithRemoteWorking),
       unit: 'kg',
       bartype: 'redbar',
