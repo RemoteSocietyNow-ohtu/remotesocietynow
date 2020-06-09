@@ -8,6 +8,7 @@ import PrivacyPolicy from './components/Views/PrivacyPolicy'
 import People from 'Components/Views/People'
 import Companies from 'Components/Views/Companies'
 import CalculatorChoice from 'Components/Views/CalculatorChoice'
+import SignIn from './components/Views/SignIn'
 
 const App = () => {
   const [acceptPrivacyPolicy, setAcceptPrivacyPolicy] = useState(false)
@@ -18,7 +19,18 @@ const App = () => {
       <div className="App">
         <Navbar setBody={setBody}/>
         <div className='Body'>
-          <Main setBody={setBody}/>         
+          <Main setBody={setBody}/>
+        </div>
+      </div>
+    )
+  }
+
+  if (body === 'signIn') {
+    return (
+      <div className="App">
+        <Navbar setBody={setBody}/>
+        <div className='Body'>
+          <SignIn />
         </div>
       </div>
     )

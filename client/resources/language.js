@@ -11,6 +11,7 @@ export const english = {
     gdprCompliance: 'GDPR',
     workDoneRemotelyPercent: 'of work done remotely',
     workDoneRemotelyDays: 'Days of work done remotely',
+    signInHeader: 'Sign In',
     commentFieldHeader: 'Is this question relevant to you? Share your ideas! How can we make it better?',
   },
   content: {
@@ -24,6 +25,9 @@ export const english = {
       'You’re allowed to refuse data processing, for example, marketing efforts.'
     ],
     contactInfo: 'Any inquiries can be directed to jr.tasklist@gmail.com',
+    signInLabelEmail: 'Email:',
+    signInLabelPassword: 'Password:',
+    signInLabelConfirmPassword: 'Confirm Password:',
     privacyPolicy: 'Before we start. By proceeding you acknowledge that your personal data is processed in accordance with our ',
   },
   buttons: {
@@ -34,7 +38,8 @@ export const english = {
     calculateChoiceMyself: 'Myself',
     calculateChoiceCompanies: 'My company',
     accept: 'Accept',
-    ok: 'OK'
+    ok: 'OK',
+    signIn: 'Sign In',
   },
   navigation: {
     gdprCompliance: 'GDPR',
