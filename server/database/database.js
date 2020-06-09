@@ -3,6 +3,7 @@ const Employee = require('../models/employeeSchema')
 const EmployeeFeedback = require('../models/employeeFeedbackSchema')
 const Company = require('../models/companySchema')
 const CompanyFeedback = require('../models/companyFeedbackSchema')
+const User = require('../models/userSchema')
 const url = process.env.NODE_ENV === 'test' ? process.env.MONGODB_TEST_URI : process.env.MONGODB_URI
 
 const connectToDatabase = () => {
@@ -72,12 +73,27 @@ const storeEmployeeFeedback = async (feedbacks) => {
   mongoose.connection.close()
 }
 
+const storeUser = async (user) =>{
+
+  const storedUser = new User(user)
+
+  try {
+    await connectToDatabase()
+    await storedUser.save()
+    console.log('user saved!')
+  } catch(error) {
+    console.log('error with storing to database:', error.message)
+  }
+  mongoose.connection.close()
+}
+
 
 module.exports = {
   storeEmployeeData,
   storeEmployeeFeedback,
   storeCompanyData,
-  storeCompanyFeedback
+  storeCompanyFeedback,
+  storeUser
 }
 
 
