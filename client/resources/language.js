@@ -12,6 +12,9 @@ export const english = {
     workDoneRemotelyPercent: 'of work done remotely',
     workDoneRemotelyDays: 'Days of work done remotely',
     commentFieldHeader: 'Is this question relevant to you? Share your ideas! How can we make it better?',
+    subscribeToOurNewsletter: 'Subscribe to Our Newsletter',
+    emailAddress: 'Email Address:',
+    newsletterThanksForSubscribing: 'Thank you for subscribing our newsletter!'
   },
   content: {
     main: 'The Most Enjoyable Way to Save the Planet! While making more money and saving time.',
@@ -25,6 +28,8 @@ export const english = {
     ],
     contactInfo: 'Any inquiries can be directed to jr.tasklist@gmail.com',
     privacyPolicy: 'Before we start. By proceeding you acknowledge that your personal data is processed in accordance with our ',
+    newsletter: 'Remotework is now more topical than ever. Don"t miss a thing! Signup for our newsletter on latest things related to remote work.',
+    newsletterThanksForSubscribing: 'You will soon recieve a welcome email.',    
   },
   buttons: {
     calculate: 'Calculate',
@@ -34,7 +39,8 @@ export const english = {
     calculateChoiceMyself: 'Myself',
     calculateChoiceCompanies: 'My company',
     accept: 'Accept',
-    ok: 'OK'
+    ok: 'OK',
+    subscribe: 'Subscribe'
   },
   navigation: {
     gdprCompliance: 'GDPR',
@@ -44,7 +50,8 @@ export const english = {
   },
   errors: {
     errorSendingAnswers: 'An Error occured while sending answers',
-    errorFetchingQuestions: 'An Error occured while fetching questions'
+    errorFetchingQuestions: 'An Error occured while fetching questions',
+    errorSendingEmailAddress: 'An Error occured while subscribing'
   },
   actions: {
     sending: 'Sending...'

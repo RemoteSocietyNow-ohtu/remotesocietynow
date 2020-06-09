@@ -605,6 +605,84 @@ td {
   width: 10vw;
 }
 
+/* Newsletter */
+
+.Newsletter-box {
+  position: fixed;
+  color: white;
+  background: #3b6978;
+  padding: 2rem;  
+  width: 60%;    
+  bottom: 1rem; 
+  left: 15%; 
+  border-radius: 5px;  
+  animation: move-up 300ms linear;
+  z-index:1;
+}
+
+.Newsletter-box-icon {
+  position: absolute;
+  top: -1rem; 
+  left: -1rem; 
+  background-color: gainsboro;
+  border-radius: 50%;
+  padding: 1rem;
+  max-width: 2rem;
+}
+
+.Newsletter-box-header {
+  font-size: 2rem;
+  margin-top: 0;
+}
+.Newsletter-box-paragraph {
+  font-size: 1rem;
+}
+
+.Newsletter-box-close-button {
+  cursor: pointer;
+  background-color: transparent;  
+  position: absolute;
+  top:0;
+  right:0;
+  border: 0px solid transparent;  
+  font-size: 2rem;
+  color: #181A1B;
+}
+
+.Newsletter-send-button {
+  background-color: #cae8d5; 
+  height: 3rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  max-width: 80%;
+  cursor: pointer;
+  border: #3b6978 2px solid;
+  border-radius: 5px;
+}
+
+.Newsletter-send-button:hover {
+  color: gainsboro;
+  background-color: #3b6978;
+  border: #181A1B 2px solid;
+}
+
+.Newsletter-field-label {
+  font-size: 1rem;
+}
+
+.Newsletter-field { 
+    font-size: 1rem;
+    border: none;
+    height: 2rem;  
+    width: 19rem;  
+    max-width: 90%;
+    background-color: gainsboro;
+    text-align: center;
+    border-radius: 5px;  
+    margin: 1rem;
+}
+
+
 /* Fields */
 
 .Calculator-numberfield {
@@ -762,6 +840,17 @@ td {
 }
 
 /* Animations */
+@keyframes move-up {
+  0% {
+    opacity: 0;
+    transform: translateY(5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes fade {
   0% {opacity: 0;}
   100% {opacity: 1;}

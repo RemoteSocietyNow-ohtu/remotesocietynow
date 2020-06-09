@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import background from '../../resources/background.gif'
 import LanguageContext from '../../Contexts/LanguageContext'
+import NewsletterBox from '../SubComponents/Newsletter/NewsletterBox'
 
 const Main = ({ setBody }) => {
 
@@ -19,6 +20,7 @@ const Main = ({ setBody }) => {
         </div>
       </div>
       <p className='Navigation-item' onClick={() => setBody('gdprCompliance')}>{language.buttons.data}</p>
+      <NewsletterBox />
     </div>
   )
 }
