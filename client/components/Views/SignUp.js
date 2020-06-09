@@ -29,21 +29,21 @@ const SignUp = () => {
   return (
     <div className='Container'>
       <div className='SignUp-container'>
-      <h3 className='SignUp-header'>{language.headers.signUpHeader}</h3>
-      {error !== '' && <p className='Error'>{error}</p>}
-      <div className='SignUp-input-div'>
-        <label className='SignUp-label'>{language.content.authenticationLabelEmail}</label>
-        <EmailField handleValueChange={(event) => setEmail(event.target.value)} value={email} />
-      </div>
-      <div className='SignUp-input-div'>
-        <label className='SignUp-label'>{language.content.authenticationLabelPassword}</label>
-        <PasswordField handleValueChange={(event) => setPassword(event.target.value)} value={password} />
-      </div>
-      <div className='SignUp-input-div'>
-        <label className='SignUp-label'>{language.content.authenticationLabelConfirmPassword}</label>
-        <PasswordField handleValueChange={(event) => setConfirmPassword(event.target.value)} value={confirmPassword} />
-      </div>
-      <button className='SignUp-button' onClick={() => signUp()}>{language.buttons.signUp}</button>
+        <h3 className='SignUp-header'>{language.headers.signUpHeader}</h3>
+        {error !== '' && <p className='Error'>{error}</p>}
+        <div className='SignUp-input-div'>
+          <label className='SignUp-label'>{language.content.authenticationLabelEmail}</label>
+          <EmailField handleValueChange={(event) => setEmail(event.target.value)} value={email} />
+        </div>
+        <div className='SignUp-input-div'>
+          <label className='SignUp-label'>{language.content.authenticationLabelPassword}</label>
+          <PasswordField handleValueChange={(event) => setPassword(event.target.value)} value={password} />
+        </div>
+        <div className='SignUp-input-div'>
+          <label className='SignUp-label'>{language.content.authenticationLabelConfirmPassword}</label>
+          <PasswordField handleValueChange={(event) => setConfirmPassword(event.target.value)} value={confirmPassword} />
+        </div>
+        <button className='SignUp-button' onClick={() => signUp()}>{language.buttons.signUp}</button>
       </div>
     </div>
   )
