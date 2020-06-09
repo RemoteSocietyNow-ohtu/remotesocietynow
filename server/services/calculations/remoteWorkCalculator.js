@@ -36,7 +36,7 @@ const calculateBenefitsForPerson = (distance,daysFirst,daysSecond,firstVehicle,s
 
   const result = [
     {
-      title: 'Annual CO2 pollution',
+      title: 'Annual commute and office related CO2 emissions',
       value: roundEmissionsToKg(co2EmissionsWithRemoteWorking),
       unit: 'kg',
       bartype: 'redbar',
@@ -65,7 +65,7 @@ const calculateBenefitsForCompany = (rent, officeUpkeep, employees, businessTrav
   const result = [
 
     {
-      title: 'Potential annual money saved',
+      title: 'Total money earned per year',
       value: moneySaved,
       unit: '€',
       bartype: 'greenbar',
@@ -73,7 +73,7 @@ const calculateBenefitsForCompany = (rent, officeUpkeep, employees, businessTrav
 
     },
     {
-      title: 'Annual money used (with remote work)',
+      title: 'Total yearly expenses',
       value: totalExpenses - moneySaved,
       unit: '€',
       bartype: 'redbar',

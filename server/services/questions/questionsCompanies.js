@@ -14,19 +14,7 @@ const questionsCompanies = [
     unit: 'employees',
     dataType: Number
   },
-  {
-    identifyingString:'topCosts',
-    name: 'What are the top 5 types of costs (of all expenses or cash outflows) for your company?',
-    type: 'textArea',
-    placeholder: 
-`1. Type of cost
-2. Type of cost
-3. Type of cost
-4. Type of cost
-5. Type of cost`,
-    unit: 'euros',
-    dataType: String
-  },
+  
   {
     identifyingString:'officeRentExpenses',
     name: 'How high are your company\'s monthly office rent expenses (€)? ',
@@ -36,14 +24,18 @@ const questionsCompanies = [
     dataType: Number
   },
   {
+    identifyingString:'topCosts',
+    name: 'What are your company’s top 5 types of costs (biggest first)',
+    type: 'textArea',
+    placeholder: '1. Type of cost\n2. Type of cost\n3. Type of cost\n4. Type of cost\n5. Type of cost',
+    unit: 'euros',
+    dataType: String
+  },
+  
+  {
     identifyingString:'topEnergyActivities',
-    name: 'List your company’s top 5 biggest energy consuming activities? (if you know) ',
-    placeholder: 
-`1. Type of cost
-2. Type of cost
-3. Type of cost
-4. Type of cost
-5. Type of cost`,
+    name: 'List your company’s top 5 biggest energy consuming activities? (biggest first) ',
+    placeholder: '1. Type of cost\n2. Type of cost\n3. Type of cost\n4. Type of cost\n5. Type of cost',
     type: 'textArea',
     dataType: String
   },
@@ -92,7 +84,7 @@ const questionsCompanies = [
   },
   {
     identifyingString:'otherUpkeepExpenses',
-    name: 'How high are your company\'s other office-related costs (€)? ',
+    name: 'How high are your company\'s other office-related costs per month(€)? ',
     type: 'number',
     minValue: 0,
     unit: 'euros',

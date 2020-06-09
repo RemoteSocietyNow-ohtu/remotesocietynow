@@ -25,6 +25,6 @@ const parseSavedDataFromBody = (body) => {
 }
 
 module.exports = {
-    parseFeedBacksFromBody,
-    parseSavedDataFromBody
+  parseFeedBacksFromBody,
+  parseSavedDataFromBody
 }

@@ -342,6 +342,7 @@ td {
 
 .Calculator-question {
   overflow: hidden; 
+  margin-top: 1rem;
 }
 
 .Calculator-question-header {
@@ -393,6 +394,21 @@ td {
   width: 100%;
   border-radius: 5px 25px;
   display: flex;
+}
+
+@media(max-width:860px) {
+  .Calculator-results-container {
+    flex-wrap: wrap;
+  }
+  .Calculator-results-left {
+    margin-left: 3.5em;
+  }
+  .Calculator-results-right {
+    margin-right: 2.5em;
+  }
+  .Calculator-results-divider {
+    display: none;
+  }
 }
 
 .Calculator-results-left {
@@ -479,7 +495,7 @@ td {
   }
 }
 
-@media (max-height: 670px) {
+@media (max-height: 480px) {
   .Calculator-stepper-container {
     display: none;
   }
