@@ -45,8 +45,8 @@ td {
 }
 
 .Navigation-item {
-  color:gainsboro;
-  font-size: 1rem;
+  color:white;
+  font-size: 1.2rem;
   cursor: pointer;
   position: fixed;
   bottom: 0;
@@ -109,6 +109,24 @@ td {
 .Calculator-resultbar-icon {
   height: 40px;
   transform: translateY(-.3em);
+}
+
+.Main-your-data-icon {
+  height: 35px;
+  transform: translateY(.4em);
+}
+
+.Calculator-choice-icon {
+  margin-left: .3em;
+  height: 30px;
+  transform: translateY(.2em);
+}
+
+.Calculator-choice-grayed-out-icon {
+  margin-left: .3em;
+  height: 30px;
+  transform: translateY(.2em);
+  opacity: 50%;
 }
 
 /* Main */

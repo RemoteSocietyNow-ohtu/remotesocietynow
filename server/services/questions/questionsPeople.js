@@ -65,7 +65,7 @@ const questionsPeople = [
   },
   {
     identifyingString:'annualCommuteExpenses',
-    name: 'How much do you pay for commuting annually?',
+    name: 'How much do you pay for commuting monthly?',
     type: 'number',
     minValue: 0,
     unit: 'euros',
@@ -96,7 +96,7 @@ const questionsPeople = [
   },
   {
     identifyingString:'numberOfBusinessTrips',
-    name: 'How many two-way business trips by plane do you make annually?',
+    name: 'How many two-way business trips by plane do you make monthly?',
     type: 'number',
     minValue: 0,
     unit: 'trips',
@@ -104,7 +104,7 @@ const questionsPeople = [
   },
   {
     identifyingString:'numberOfHoursOnPlane',
-    name: 'And during these trips, how many hours do you spend on a plane annually?',
+    name: 'And during these trips, how many hours do you spend on a plane monthly?',
     type: 'number',
     minValue: 0,
     unit: 'hours',
