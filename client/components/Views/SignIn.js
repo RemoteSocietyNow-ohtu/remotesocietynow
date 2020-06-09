@@ -24,15 +24,23 @@ const SignIn = () => {
 
   return (
     <div className='Container'>
-      <h3>{language.headers.signInHeader}</h3>
+      <div className='SignIn-container'>
+      <h3 className='SignIn-header'>{language.headers.signInHeader}</h3>
       {error !== '' && <p className='Error'>{error}</p>}
-      <label className='SignIn-label'>{language.content.signInLabelEmail}</label>
-      <EmailField handleValueChange={(event) => setEmail(event.target.value)} value={email} />
-      <label className='SignIn-label'>{language.content.signInLabelPassword}</label>
-      <PasswordField handleValueChange={(event) => setPassword(event.target.value)} value={password} />
-      <label className='SignIn-label'>{language.content.signInLabelConfirmPassword}</label>
-      <PasswordField handleValueChange={(event) => setConfirmPassword(event.target.value)} value={confirmPassword} />
+      <div className='SignIn-input-div'>
+        <label className='SignIn-label'>{language.content.authenticationLabelEmail}</label>
+        <EmailField handleValueChange={(event) => setEmail(event.target.value)} value={email} />
+      </div>
+      <div className='SignIn-input-div'>
+        <label className='SignIn-label'>{language.content.authenticationLabelPassword}</label>
+        <PasswordField handleValueChange={(event) => setPassword(event.target.value)} value={password} />
+      </div>
+      <div className='SignIn-input-div'>
+        <label className='SignIn-label'>{language.content.authenticationLabelConfirmPassword}</label>
+        <PasswordField handleValueChange={(event) => setConfirmPassword(event.target.value)} value={confirmPassword} />
+      </div>
       <button className='SignIn-button' onClick={() => signIn()}>{language.buttons.signIn}</button>
+      </div>
     </div>
   )
 }

@@ -9,6 +9,7 @@ import People from 'Components/Views/People'
 import Companies from 'Components/Views/Companies'
 import CalculatorChoice from 'Components/Views/CalculatorChoice'
 import SignIn from './components/Views/SignIn'
+import Login from './components/Views/Login'
 
 const App = () => {
   const [acceptPrivacyPolicy, setAcceptPrivacyPolicy] = useState(false)
@@ -17,7 +18,7 @@ const App = () => {
   if (body === 'main') {
     return (
       <div className="App">
-        <Navbar setBody={setBody}/>
+        <Navbar body={body} setBody={setBody}/>
         <div className='Body'>
           <Main setBody={setBody}/>
         </div>
@@ -28,9 +29,21 @@ const App = () => {
   if (body === 'signIn') {
     return (
       <div className="App">
-        <Navbar setBody={setBody}/>
+        <Navbar body={body} setBody={setBody}/>
         <div className='Body'>
           <SignIn />
+        </div>
+      </div>
+    )
+  }
+
+  
+  if (body === 'login') {
+    return (
+      <div className="App">
+        <Navbar body={body} setBody={setBody}/>
+        <div className='Body'>
+          <Login setBody={setBody} />
         </div>
       </div>
     )
@@ -39,7 +52,7 @@ const App = () => {
   if (body === 'privacy-policy') {
     return (
       <div className="App">
-        <Navbar setBody={setBody} />
+        <Navbar body={body} setBody={setBody} />
         <div className='Body'>
           <PrivacyPolicy setBody={() => setBody('calculatorChoice')} setAcceptPrivacyPolicy={setAcceptPrivacyPolicy} />
         </div>
@@ -50,7 +63,7 @@ const App = () => {
   if (body === 'calculatorChoice') {
     return (
       <div className='App'>
-        <Navbar setBody={setBody} />
+        <Navbar body={body} setBody={setBody} />
         <div className='Body'>
           <CalculatorChoice setBody={setBody} acceptPrivacyPolicy={acceptPrivacyPolicy} setAcceptPrivacyPolicy={setAcceptPrivacyPolicy} />         
         </div>
@@ -61,7 +74,7 @@ const App = () => {
   if (body === 'people') {
     return (
       <div className="App">
-        <Navbar setBody={setBody} />
+        <Navbar body={body} setBody={setBody} />
         <div className='Body'>
           <People />         
         </div>
@@ -72,7 +85,7 @@ const App = () => {
   if (body === 'companies') {
     return (
       <div className="App">
-        <Navbar setBody={setBody} />
+        <Navbar body={body} setBody={setBody} />
         <div className='Body'>
           <Companies />        
         </div>
@@ -83,7 +96,7 @@ const App = () => {
   if (body === 'about') {
     return (
       <div className='App'>
-        <Navbar setBody={setBody} />
+        <Navbar body={body} setBody={setBody} />
         <div className='Body'>
           <AboutUs />         
         </div>
@@ -94,7 +107,7 @@ const App = () => {
   if (body === 'gdprCompliance') {
     return (
       <div className='App'>
-        <Navbar setBody={setBody} />
+        <Navbar body={body} setBody={setBody} />
         <div className='Body'>
           <GDPRCompliance setBody={() => setBody('main')}/>          
         </div>
