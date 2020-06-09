@@ -2,6 +2,8 @@ import React, { useContext } from 'react'
 import background from '../../resources/background.gif'
 import LanguageContext from '../../Contexts/LanguageContext'
 
+import yourDataIcon from '../../resources/your-data-icon.png'
+
 const Main = ({ setBody }) => {
 
   const language = useContext(LanguageContext)
@@ -18,7 +20,7 @@ const Main = ({ setBody }) => {
           <img className='Main-background-video-gif' src={background} alt='backgroundImage' />
         </div>
       </div>
-      <p className='Navigation-item' onClick={() => setBody('gdprCompliance')}>{language.buttons.data}</p>
+      <p className='Navigation-item' onClick={() => setBody('gdprCompliance')}><img className='Main-your-data-icon' src={yourDataIcon} />{language.buttons.data}</p>
     </div>
   )
 }
