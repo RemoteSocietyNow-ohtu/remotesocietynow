@@ -1,22 +1,21 @@
 const bcrypt = require('bcrypt')
 const userRouter = require('express').Router()
-const User = require('../models/userSchema')
 const database = require('../database/database')
 
 userRouter.post('/', async (request, response) => {
-    const body = request.body
+  const body = request.body
 
-    const saltRounds = 10
-    const passwordHash = await bcrypt.hash(body.password, saltRounds)
+  const saltRounds = 10
+  const passwordHash = await bcrypt.hash(body.password, saltRounds)
 
-    const user = {
-        username: body.username,
-        passwordHash,
-    }
+  const user = {
+    username: body.username,
+    passwordHash,
+  }
 
-    await database.storeUser(user)
+  await database.storeUser(user)
 
-    response.json(user)
+  response.json(user)
 })
 
 module.exports = userRouter
