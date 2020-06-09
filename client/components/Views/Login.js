@@ -25,7 +25,7 @@ const Login = ({ setBody }) => {
             </div>
             <button className='LogIn-button' type='submit'>{language.buttons.login}</button>
           </div>
-        <p className='Login-create-account' onClick={() => setBody('signIn')}>{language.content.authenticationLoginCreateAccountText}</p>
+        <p className='Login-create-account' onClick={() => setBody('signUp')}>{language.content.authenticationLoginCreateAccountText}</p>
     </div>
   )
 }

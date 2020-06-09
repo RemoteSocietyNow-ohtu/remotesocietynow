@@ -8,7 +8,7 @@ import PrivacyPolicy from './components/Views/PrivacyPolicy'
 import People from 'Components/Views/People'
 import Companies from 'Components/Views/Companies'
 import CalculatorChoice from 'Components/Views/CalculatorChoice'
-import SignIn from './components/Views/SignIn'
+import SignUp from './components/Views/SignUp'
 import Login from './components/Views/Login'
 
 const App = () => {
@@ -26,12 +26,12 @@ const App = () => {
     )
   }
 
-  if (body === 'signIn') {
+  if (body === 'signUp') {
     return (
       <div className="App">
         <Navbar body={body} setBody={setBody}/>
         <div className='Body'>
-          <SignIn />
+          <SignUp />
         </div>
       </div>
     )
