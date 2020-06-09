@@ -44,11 +44,8 @@ export const english = {
     calculateChoiceCompanies: 'My company',
     accept: 'Accept',
     ok: 'OK',
-<<<<<<< HEAD
-    subscribe: 'Subscribe'
-=======
+    subscribe: 'Subscribe',
     signIn: 'Sign In',
->>>>>>> e9005755533e33e15f7f9addb99f9ad45acc6870
   },
   navigation: {
     gdprCompliance: 'GDPR',
