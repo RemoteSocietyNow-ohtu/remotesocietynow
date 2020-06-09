@@ -44,14 +44,22 @@ td {
   text-align: left;
 }
 
-.Navigation-item {
-  color:white;
-  font-size: 1.2rem;
-  cursor: pointer;
+.Navigation-bar {
   position: fixed;
   bottom: 0;
   left: 2%;
+  font-size: 1.2rem;
+  color:white;  
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%; 
+}
+
+.Navigation-item {  
+  cursor: pointer;   
   text-decoration: underline;
+  padding-right: 1rem;    
 }
 
 .Navbar {
@@ -138,8 +146,7 @@ td {
 }
 
 .Main-your-data-icon {
-  height: 35px;
-  transform: translateY(.4em);
+  height: 1rem;
 }
 
 .Calculator-choice-icon {
@@ -656,8 +663,7 @@ td {
   color: white;
   background: #3b6978;
   padding: 2rem;  
-  width: 60%;    
-  max-height: 12rem;
+  width: 60%;     
   bottom: 1rem; 
   left: 15%; 
   border-radius: 5px;  

@@ -12,7 +12,7 @@ import SignIn from './components/Views/SignIn'
 import Login from './components/Views/Login'
 
 const App = () => {
-  const [acceptPrivacyPolicy, setAcceptPrivacyPolicy] = useState(false)
+  const [acceptPrivacyPolicy, setAcceptPrivacyPolicy] = useState(false)  
   const [body, setBody] = useState('main')
 
   if (body === 'main') {

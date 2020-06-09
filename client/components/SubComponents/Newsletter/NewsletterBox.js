@@ -1,11 +1,10 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import mailIcon from '../../../resources/mail-icon.png'
 import LanguageContext from '@root/client/Contexts/LanguageContext'
 import newsletterService from '../../../services/newsletterService'
 import LoadingScreen from '../../Views/LoadingScreen'
 
-const NewsletterBox = () => {
-  const [ open, setOpen ] = useState(true)
+const NewsletterBox = ({ open, setOpen }) => {  
   const [ hasSendedMailAddress, setHasSendedMailAddress] = useState(false)
   const [ loading, setLoading ] = useState(false)
   const [ hasErrored, setHasErrored ] = useState(false)
@@ -13,9 +12,8 @@ const NewsletterBox = () => {
 
   const handleSubmit = async (event) => {    
     event.preventDefault()
-    console.log(event.target.email.value)
-    setLoading(true)
-    setHasErrored(false)    
+    setHasErrored(false)  
+    setLoading(true)  
     try {
       await newsletterService.postMailAddress({address: event.target.email.value})
       setHasSendedMailAddress(true)

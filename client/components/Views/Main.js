@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState,useEffect } from 'react'
 import background from '../../resources/background.gif'
 import LanguageContext from '../../Contexts/LanguageContext'
 import NewsletterBox from '../SubComponents/Newsletter/NewsletterBox'
@@ -6,8 +6,13 @@ import NewsletterBox from '../SubComponents/Newsletter/NewsletterBox'
 import yourDataIcon from '../../resources/your-data-icon.png'
 
 const Main = ({ setBody }) => {
-
+  const [ newsletterOpen, setNewsletterOpen ] = useState(false)
   const language = useContext(LanguageContext)
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setNewsletterOpen(true), 10000)
+    return () => clearTimeout(timeout)
+  }, [])
 
   return (
     <div className='Container'>
@@ -21,8 +26,11 @@ const Main = ({ setBody }) => {
           <img className='Main-background-video-gif' src={background} alt='backgroundImage' />
         </div>
       </div>     
-      <NewsletterBox />
-      <p className='Navigation-item' onClick={() => setBody('gdprCompliance')}><img className='Main-your-data-icon' src={yourDataIcon} />{language.buttons.data}</p>
+      <NewsletterBox open={newsletterOpen} setOpen={setNewsletterOpen} />
+      <div className='Navigation-bar'> 
+        <p className='Navigation-item' onClick={() => setBody('gdprCompliance')}><img className='Main-your-data-icon' src={yourDataIcon} />{language.buttons.data}</p>
+        <p className='Navigation-item' onClick={() => setNewsletterOpen(true)}>{language.headers.subscribeToOurNewsletter}</p>
+      </div>
     </div>
   )
 }
