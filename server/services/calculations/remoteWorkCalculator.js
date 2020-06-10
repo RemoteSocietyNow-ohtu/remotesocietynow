@@ -10,6 +10,10 @@ const roundEmissionsToKg = (emissions) =>{
   return Math.round((emissions/1000+ Number.EPSILON) * 100) / 100
 }
 
+const vehicleDaysPerWeek = (vehicle, firstVehicle, secondVehicle, daysFirst, daysSecond) => {
+  return (firstVehicle === vehicle ? daysFirst : secondVehicle === vehicle ? daysSecond : 0)
+}
+
 /** Calculate co2 savings for persone based on calculations at https://docs.google.com/spreadsheets/d/1Webbfedw-tmu-4WKUP6FB50YgrQR_gDCCqT1QPpErhA/edit#gid=0
  * (not automatically updated from the spreadsheet)
  */
@@ -33,6 +37,29 @@ const calculateBenefitsForPerson = (distance,daysFirst,daysSecond,firstVehicle,s
                                                   
   const reducedEmissions = Math.min(co2Emissions - co2EmissionsWithRemoteWorking, co2Emissions)
   
+  const seasonalBusTicketPrice = 50
+  const busTicketPrice = 3
+  const busDaysPerWeek = vehicleDaysPerWeek('bus', firstVehicle, secondVehicle, daysFirst, daysSecond)
+  const busCostPerMonth = Math.min(seasonalBusTicketPrice, busDaysPerWeek * busTicketPrice * 2 * 365 / 52)
+
+  const carDaysPerWeek = vehicleDaysPerWeek('car', firstVehicle, secondVehicle, daysFirst, daysSecond)
+  const fuelPricePerLiter = 1.4
+  const fuelConsumptionPerHundredKm = 7
+  const carCostPerYear = carDaysPerWeek * 52 * distance * 2 * fuelConsumptionPerHundredKm / 100 * fuelPricePerLiter
+
+  // We assume that these are local trains
+
+  const seasonalTrainTicketPrice = 90
+  const trainTicketPrice = 4
+  const trainDaysPerWeek = vehicleDaysPerWeek('train', firstVehicle, secondVehicle, daysFirst, daysSecond)
+  const trainCostPerMonth = Math.min(seasonalTrainTicketPrice, trainDaysPerWeek * trainTicketPrice * 2 * 365/52)
+
+
+  const totalCostPerYear = Math.floor(busCostPerMonth * 12 + carCostPerYear + trainCostPerMonth * 12)
+
+  const moneySavedPerYear = (remoteDays > (daysFirst+daysSecond) ? 1 : (remoteDays/(daysFirst+daysSecond)))*totalCostPerYear
+
+  
 
   const result = [
     {
@@ -48,6 +75,11 @@ const calculateBenefitsForPerson = (distance,daysFirst,daysSecond,firstVehicle,s
       unit: 'kg',
       bartype: 'greenbar',
       percent: 1 - (co2EmissionsWithRemoteWorking/co2Emissions)
+    },
+    {
+      title: 'Annual money saved by working remotely',
+      value: moneySavedPerYear,
+      unit: '€'
     }
   ]  
 

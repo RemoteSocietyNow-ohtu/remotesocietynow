@@ -44,24 +44,6 @@ td {
   text-align: left;
 }
 
-.Navigation-bar {
-  position: fixed;
-  bottom: 0;
-  left: 2%;
-  font-size: 1rem;
-  color:white;  
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%; 
-}
-
-.Navigation-item {  
-  cursor: pointer;   
-  text-decoration: underline;
-  padding-right: 1rem;    
-}
-
 .Navbar {
   margin-top: 2%;
   margin: auto;
@@ -145,8 +127,9 @@ td {
   transform: translateY(-.3em);
 }
 
-.Main-your-data-icon {
-  height: 1rem;
+.Main-bottom-bar-icon {
+  height: 1.5rem;
+  margin-right: .5rem;
 }
 
 .Calculator-choice-icon {
@@ -236,6 +219,26 @@ td {
   text-align: left;
   font-size: 0.5em;
   margin-top: 2rem;
+}
+
+.Main-bottom-navigation-bar {
+  position: fixed;
+  bottom: 0;
+  left: 2%;
+  font-size: 1rem;
+  color:white;  
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%; 
+}
+
+.Main-bottom-navigation-bar-item {  
+  cursor: pointer;   
+  text-decoration: underline;
+  padding-right: 1rem;    
+  display: flex;
+  align-items: center;
 }
 
 

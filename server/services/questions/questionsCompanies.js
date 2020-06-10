@@ -138,7 +138,7 @@ const questionsCompanies = [
     dataType: String
   },
   {
-    identifyingString:'remoteWorkBenefts',
+    identifyingString:'remoteWorkBenefits',
     name: 'What have been the biggest benefits of remote work for your company?',
     type: 'textArea',
     dataType: String
