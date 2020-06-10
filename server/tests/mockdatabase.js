@@ -1,42 +1,42 @@
 
-const mongoose = require('mongoose');
-const { MongoMemoryServer } = require('mongodb-memory-server');
+const mongoose = require('mongoose')
+const { MongoMemoryServer } = require('mongodb-memory-server')
 
-const mongod = new MongoMemoryServer();
+const mongod = new MongoMemoryServer()
 const connect = async () => {
 
-    const uri = await mongod.getConnectionString();
+  const uri = await mongod.getConnectionString()
 
-    const mongooseOpts = {
-        useNewUrlParser: true,
-        autoReconnect: true,
-        reconnectTries: Number.MAX_VALUE,
-        reconnectInterval: 1000
-    };
+  const mongooseOpts = {
+    useNewUrlParser: true,
+    autoReconnect: true,
+    reconnectTries: Number.MAX_VALUE,
+    reconnectInterval: 1000
+  }
 
-    await mongoose.connect(uri, mongooseOpts);
+  await mongoose.connect(uri, mongooseOpts)
 
 }
 
 const closeAndDrop = async () => {
-    await mongoose.connection.dropDatabase();
-    await mongoose.connection.close();
-    await mongod.stop();
+  await mongoose.connection.dropDatabase()
+  await mongoose.connection.close()
+  await mongod.stop()
 }
 
 const clearDB = async () => {
-    const collections = mongoose.connection.collections;
+  const collections = mongoose.connection.collections
 
-    for (const key in collections) {
-        const collection = collections[key];
-        await collection.deleteMany();
-    }
+  for (const key in collections) {
+    const collection = collections[key]
+    await collection.deleteMany()
+  }
 }
 
 module.exports = {
-    connect,
-    closeAndDrop,
-    clearDB
+  connect,
+  closeAndDrop,
+  clearDB
 }
 
 
