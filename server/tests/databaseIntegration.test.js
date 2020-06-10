@@ -1,5 +1,4 @@
 require('@babel/polyfill')
-const mongoose = require('mongoose')
 const supertest = require('supertest')
 const app = require('../index')
 const Company = require('../models/companySchema')
@@ -12,6 +11,8 @@ const mock = require('./mockdatabase')
 const { companyAnswers, companyAnswersAllCommentFieldsEmpty } = require('./companyAnswers')
 const { peopleAnswers, peopleAnswersAllCommentFieldsEmpty } = require('./peopleAnswers')
 
+const api = supertest(app)
+
 beforeAll(async () => await mock.connect())
 
 afterEach(async () => await mock.clearDB())
@@ -19,22 +20,22 @@ afterEach(async () => await mock.clearDB())
 afterAll(async () => await mock.closeAndDrop())
 
 const sendCompanies = async () => {
-  await supertest(app)
+  await api
     .post('/calculate/company/save/')
     .send(companyAnswers)
     .expect('Content-Type', /application\/json/)
-  await supertest(app)
+  await api
     .post('/calculate/company/save/')
     .send(companyAnswers)
     .expect('Content-Type', /application\/json/)
 }
 
 const sendPeople = async () => {
-  await supertest(app)
+  await api
     .post('/calculate/person/save/')
     .send(peopleAnswers)
     .expect('Content-Type', /application\/json/)
-  await supertest(app)
+  await api
     .post('/calculate/person/save/')
     .send(peopleAnswers)
     .expect('Content-Type', /application\/json/)
@@ -59,7 +60,7 @@ test('companyFeedback data is saved to database', async () => {
 })
 
 test('If all comment fields in company are empty do not save data at all', async() => {
-  await supertest(app)
+  await api
     .post('/calculate/company/save/')
     .send(companyAnswersAllCommentFieldsEmpty)
     .expect('Content-Type', /application\/json/)
@@ -86,7 +87,7 @@ test('peopleFeedback data is saved to database', async () => {
 })
 
 test('If all comment fields in people are empty do not save data at all', async() => {
-  await supertest(app)
+  await api
     .post('/calculate/person/save/')
     .send(peopleAnswersAllCommentFieldsEmpty)
     .expect('Content-Type', /application\/json/)
