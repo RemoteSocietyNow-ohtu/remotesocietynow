@@ -18,7 +18,6 @@ beforeEach(async () => {
   await CompanyFeedback.deleteMany({})
   await Employee.deleteMany({})
   await EmployeeFeedback.deleteMany({})
-  await mongoose.connection.close()
 })
 
 const sendCompanies = async () => {
@@ -105,6 +104,3 @@ test('If all comment fields in people are empty do not save data at all', async(
   expect(peopleFeedback.length).toBe(0)
 })
 
-afterEach(async () => {
-  await mongoose.connection.close()
-})
