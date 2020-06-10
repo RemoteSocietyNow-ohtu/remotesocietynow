@@ -1,9 +1,14 @@
 import React from 'react'
 
-const MultipleChoiceField = ({ options, handleValueChange, value, nextQuestion }) => {
+const MultipleChoiceField = ({ options, handleValueChange, value, nextQuestion, skipQuestion }) => {
   const handleOnClick = (event) => {
     handleValueChange(event)
-    nextQuestion()    
+    // if no other transportation is chosen (Myself calculator), skip the question about how many times other transportation is used
+    if (event.target.value === 'no') {
+      skipQuestion()
+    } else {
+      nextQuestion()
+    }
   }
 
   return(    

@@ -2,7 +2,7 @@ import React from 'react'
 import Field from '../../InputFields/Field'
 import CommentField from 'Components/InputFields/CommentField'
 
-const Question = ({ question, answers, setAnwers, nextQuestion }) => {
+const Question = ({ question, answers, setAnwers, nextQuestion, skipQuestion }) => {
 
   return (
     <div className='Calculator-question'>
@@ -17,6 +17,7 @@ const Question = ({ question, answers, setAnwers, nextQuestion }) => {
         value={answers[question.identifyingString]}
         setValue={(value) => setAnwers({...answers, [question.identifyingString]: value})} 
         nextQuestion={nextQuestion}
+        skipQuestion={skipQuestion}
       />
       <CommentField answers={answers} setAnswers={setAnwers} question={question} />
       

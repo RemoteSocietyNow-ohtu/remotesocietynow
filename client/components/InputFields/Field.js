@@ -5,7 +5,7 @@ import MultipleChoiceField from './MultipleChoiceField'
 import TextField from './TextField'
 import TextAreaField from './TextAreaField'
 
-const Field = ({ fieldType, options, value, setValue, minValue, maxValue, placeholder, unit, nextQuestion }) => {
+const Field = ({ fieldType, options, value, setValue, minValue, maxValue, placeholder, unit, nextQuestion, skipQuestion }) => {
   const handleValueChange = (event) => setValue(event.target.value)
   if (fieldType === 'number') {    
     return ( 
@@ -34,6 +34,7 @@ const Field = ({ fieldType, options, value, setValue, minValue, maxValue, placeh
         handleValueChange={handleValueChange} 
         value={value} 
         nextQuestion={nextQuestion}
+        skipQuestion={skipQuestion}
       />
     )
   } else if (fieldType === 'text') {

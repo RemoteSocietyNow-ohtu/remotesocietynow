@@ -22,6 +22,13 @@ const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, se
     }    
   }
 
+  const skipQuestion = () => {
+    if (currentQuestion < questions.length - 1) {
+      setFade('Calculator-question-fade-left')
+      setTimeout(() => {setCurrentQuestion(currentQuestion + 2)}, 250)      
+    }
+  }
+
   return (
     <div>          
       <div className={fade} onAnimationEnd={() => setFade('question-no-fade') } >
@@ -30,6 +37,7 @@ const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, se
           answers={answers} 
           setAnwers={setAnwers} 
           nextQuestion={nextQuestion}
+          skipQuestion={skipQuestion}
         />
       </div>
 
