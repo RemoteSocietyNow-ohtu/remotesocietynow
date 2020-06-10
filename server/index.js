@@ -1,8 +1,6 @@
 require('dotenv').config()
 const express = require('express')
 const app = express()
-const database = require('./database/database')
-database.connectToDatabase()
 
 app.use(express.json())
 
