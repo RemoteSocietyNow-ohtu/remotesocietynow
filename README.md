@@ -20,13 +20,14 @@ You and your company actually earn real money and save time, plus productivity i
 ⋅⋅⋅Staging Heroku https://remotesocietynow.herokuapp.com/  
 ⋅⋅⋅Eslint https://github.com/RemoteSocietyNow-ohtu/remotesocietynow/blob/master/.eslintrc.js
 
-[Product backlog](https://docs.google.com/spreadsheets/d/1H6ewmum8H_-1ys8o97zC2eXteDIf6e95wRCZ0LieV_k/edit#gid=0)
-
-[Project material](https://drive.google.com/drive/u/0/folders/1GVvuDHmdUf5uLAVlLryk453dS2npBOY0?ths=true)
-
 ## Coding Conventions ##
 
 [Coding conventions](./docs/conventions.md)
+
+## Project material ##
+[Product backlog](https://docs.google.com/spreadsheets/d/1H6ewmum8H_-1ys8o97zC2eXteDIf6e95wRCZ0LieV_k/edit#gid=0)
+
+[Project material](https://drive.google.com/drive/u/0/folders/1GVvuDHmdUf5uLAVlLryk453dS2npBOY0?ths=true)
 
 ## Getting started ##
 Not familiar with Git? [This is a good place to start.](https://tkt-lapio.github.io/git-en/)
