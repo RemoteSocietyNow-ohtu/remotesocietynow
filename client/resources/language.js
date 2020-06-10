@@ -16,7 +16,7 @@ export const english = {
     commentFieldHeader: 'Is this question relevant to you? Share your ideas! How can we make it better?',
     subscribeToOurNewsletter: 'Subscribe to Our Newsletter',
     emailAddress: 'Email Address:',
-    newsletterThanksForSubscribing: 'Thank you for subscribing our newsletter!'
+    newsletterThanksForSubscribing: 'Thank you for subscribing to our newsletter!'
   },
   content: {
     main: 'The Most Enjoyable Way to Save the Planet! While making more money and saving time.',
@@ -48,7 +48,8 @@ export const english = {
     ok: 'OK',
     subscribe: 'Subscribe',
     signUp: 'Sign Up',
-    login: 'Login'
+    login: 'Login',
+    tryAgain: 'Please try again'
   },
   navigation: {
     gdprCompliance: 'GDPR',

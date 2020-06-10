@@ -9,11 +9,6 @@ const Main = ({ setBody }) => {
   const [ newsletterOpen, setNewsletterOpen ] = useState(false)
   const language = useContext(LanguageContext)
 
-  useEffect(() => {
-    const timeout = setTimeout(() => setNewsletterOpen(true), 10000)
-    return () => clearTimeout(timeout)
-  }, [])
-
   return (
     <div className='Container'>
       <div className='Main-container'>
