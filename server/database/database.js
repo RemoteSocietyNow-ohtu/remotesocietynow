@@ -4,7 +4,7 @@ const EmployeeFeedback = require('../models/employeeFeedbackSchema')
 const Company = require('../models/companySchema')
 const CompanyFeedback = require('../models/companyFeedbackSchema')
 const User = require('../models/userSchema')
-const url = process.env.NODE_ENV === 'test' ? process.env.MONGODB_TEST_URI : process.env.MONGODB_URI
+const url = require('../util/databaseUrl').getDatabaseUrl()
 
 const connectToDatabase = () => {
   return mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })

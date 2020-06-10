@@ -10,7 +10,7 @@ const EmployeeFeedback = require('../models/employeeFeedbackSchema')
 const { companyAnswers, companyAnswersAllCommentFieldsEmpty } = require('./companyAnswers')
 const { peopleAnswers, peopleAnswersAllCommentFieldsEmpty } = require('./peopleAnswers')
 
-const url = process.env.NODE_ENV === 'test' ? process.env.MONGODB_TEST_URI : process.env.MONGODB_URI
+const url = require('../util/databaseUrl').getDatabaseUrl()
 
 beforeEach(async () => {
   await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
