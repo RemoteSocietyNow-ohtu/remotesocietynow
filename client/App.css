@@ -125,6 +125,7 @@ td {
 .Calculator-resultbar-icon {
   height: 40px;
   transform: translateY(-.3em);
+  margin-right: .3em;
 }
 
 .Main-bottom-bar-icon {
