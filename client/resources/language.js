@@ -11,8 +11,12 @@ export const english = {
     gdprCompliance: 'GDPR',
     workDoneRemotelyPercent: 'of work done remotely',
     workDoneRemotelyDays: 'Days of work done remotely',
-    signInHeader: 'Sign In',
+    loginHeader: 'Login',
+    signUpHeader: 'Sign Up',
     commentFieldHeader: 'Is this question relevant to you? Share your ideas! How can we make it better?',
+    subscribeToOurNewsletter: 'Subscribe to Our Newsletter',
+    emailAddress: 'Email Address:',
+    newsletterThanksForSubscribing: 'Thank you for subscribing to our newsletter!'
   },
   content: {
     main: 'The Most Enjoyable Way to Save the Planet! While making more money and saving time.',
@@ -25,10 +29,13 @@ export const english = {
       'You’re allowed to refuse data processing, for example, marketing efforts.'
     ],
     contactInfo: 'Any inquiries can be directed to jr.tasklist@gmail.com',
-    signInLabelEmail: 'Email:',
-    signInLabelPassword: 'Password:',
-    signInLabelConfirmPassword: 'Confirm Password:',
+    authenticationLabelEmail: 'Email',
+    authenticationLabelPassword: 'Password',
+    authenticationLabelConfirmPassword: 'Confirm Password',
+    authenticationLoginCreateAccountText: 'Do not have an account? Sign up here',
     privacyPolicy: 'Before we start. By proceeding you acknowledge that your personal data is processed in accordance with our ',
+    newsletter: 'Remotework is now more topical than ever. Don"t miss a thing! Signup for our newsletter on latest things related to remote work.',
+    newsletterThanksForSubscribing: 'You will soon recieve a welcome email.',    
   },
   buttons: {
     calculate: 'Calculate',
@@ -39,7 +46,10 @@ export const english = {
     calculateChoiceCompanies: 'My company',
     accept: 'Accept',
     ok: 'OK',
-    signIn: 'Sign In',
+    subscribe: 'Subscribe',
+    signUp: 'Sign Up',
+    login: 'Login',
+    tryAgain: 'Please try again'
   },
   navigation: {
     gdprCompliance: 'GDPR',
@@ -49,7 +59,8 @@ export const english = {
   },
   errors: {
     errorSendingAnswers: 'An Error occured while sending answers',
-    errorFetchingQuestions: 'An Error occured while fetching questions'
+    errorFetchingQuestions: 'An Error occured while fetching questions',
+    errorSendingEmailAddress: 'An Error occured while subscribing'
   },
   actions: {
     sending: 'Sending...'

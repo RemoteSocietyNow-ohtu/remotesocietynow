@@ -1,11 +1,12 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import background from '../../resources/background.gif'
 import LanguageContext from '../../Contexts/LanguageContext'
+import NewsletterBox from '../SubComponents/Newsletter/NewsletterBox'
 
 import yourDataIcon from '../../resources/your-data-icon.png'
 
 const Main = ({ setBody }) => {
-
+  const [ newsletterOpen, setNewsletterOpen ] = useState(false)
   const language = useContext(LanguageContext)
 
   return (
@@ -19,8 +20,12 @@ const Main = ({ setBody }) => {
         <div className='Main-content-right'>
           <img className='Main-background-video-gif' src={background} alt='backgroundImage' />
         </div>
+      </div>     
+      <NewsletterBox open={newsletterOpen} setOpen={setNewsletterOpen} />
+      <div className='Navigation-bar'> 
+        <p className='Navigation-item' onClick={() => setBody('gdprCompliance')}><img className='Main-your-data-icon' src={yourDataIcon} />{language.buttons.data}</p>
+        <p className='Navigation-item' onClick={() => setNewsletterOpen(true)}>{language.headers.subscribeToOurNewsletter}</p>
       </div>
-      <p className='Navigation-item' onClick={() => setBody('gdprCompliance')}><img className='Main-your-data-icon' src={yourDataIcon} />{language.buttons.data}</p>
     </div>
   )
 }
