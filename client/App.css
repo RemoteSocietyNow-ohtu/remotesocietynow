@@ -372,6 +372,8 @@ td {
   flex-wrap: nowrap;
   flex-direction: row;
   justify-content: center;
+  width: 80%;
+  margin: auto;
 }
 
 .Calculator-content-left {
