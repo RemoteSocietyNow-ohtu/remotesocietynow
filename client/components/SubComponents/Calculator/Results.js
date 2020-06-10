@@ -63,7 +63,7 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
 
   return (
     <div style={{ animation: 'none' }}>
-      <div className='Calculator-results-container'>
+      <div className='Calculator-results-container' style={{ animation: 'none' }}>
         <div className='Calculator-results-left'>
           <h1>Your Results</h1>
           {
@@ -119,8 +119,7 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
           <a className='Calculator-results-newsletter-button' onClick={() => setNewsletterOpen(true)}><img className='Main-bottom-bar-icon' src={yourNewsletterIcon} />{language.headers.subscribeToOurNewsletter}</a>
           <a className='Calculator-results-newsletter-button'>Contact by Email</a>
         </div>
-        
-      </div>      
+      </div>
       <NewsletterBox open={newsletterOpen} setOpen={setNewsletterOpen}/>
     </div>
   )
