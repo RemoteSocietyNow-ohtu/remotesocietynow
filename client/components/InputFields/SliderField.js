@@ -19,30 +19,34 @@ const SliderField = ({ handleValueChange, handleRelease, value, minValue, maxVal
           className='Calculator-sliderfield'
         />
         <table style={{marginLeft: '3%'}}>
-          <td style={width}>
-            <div className='Calculator-sliderfield-tick'></div>
-          </td>
-          <td style={width}>
-            <div className='Calculator-sliderfield-tick'></div>
-          </td>
-          <td style={width}>
-            <div className='Calculator-sliderfield-tick'></div>
-          </td>
-          <td style={width}>
-            <div className='Calculator-sliderfield-tick'></div>
-          </td>
-          <td style={width}>
-            <div className='Calculator-sliderfield-tick'></div>
-          </td>
-          <td style={width}>
-            <div className='Calculator-sliderfield-tick'></div>
-          </td>
-          <td style={width}>
-            <div className='Calculator-sliderfield-tick'></div>
-          </td>
-          <td>
-            <div className='Calculator-sliderfield-tick'></div>
-          </td>
+          <tbody>
+            <tr>
+              <td style={width}>
+                <div className='Calculator-sliderfield-tick'></div>
+              </td>
+              <td style={width}>
+                <div className='Calculator-sliderfield-tick'></div>
+              </td>
+              <td style={width}>
+                <div className='Calculator-sliderfield-tick'></div>
+              </td>
+              <td style={width}>
+                <div className='Calculator-sliderfield-tick'></div>
+              </td>
+              <td style={width}>
+                <div className='Calculator-sliderfield-tick'></div>
+              </td>
+              <td style={width}>
+                <div className='Calculator-sliderfield-tick'></div>
+              </td>
+              <td style={width}>
+                <div className='Calculator-sliderfield-tick'></div>
+              </td>
+              <td>
+                <div className='Calculator-sliderfield-tick'></div>
+              </td>
+            </tr>
+          </tbody>
         </table>
         <p className='Calculator-sliderfield-label'>{value} {unit}</p>
       </div>
