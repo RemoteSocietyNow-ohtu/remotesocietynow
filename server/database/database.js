@@ -1,99 +1,18 @@
 const mongoose = require('mongoose')
-const Employee = require('../models/employeeSchema')
-const EmployeeFeedback = require('../models/employeeFeedbackSchema')
-const Company = require('../models/companySchema')
-const CompanyFeedback = require('../models/companyFeedbackSchema')
-const User = require('../models/userSchema')
-const url = require('../util/databaseUrl').getDatabaseUrl()
+const url = process.env.MONGODB_URI
 
 const connectToDatabase = () => {
   return mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => { 
-      console.log('connected to MongoDB')
+    .then(() => {
+      console.log('connected to mongo')
     })
     .catch((error) => {
-      console.log('error connecting to MongoDB:', error.message)
+      console.log(error)
     })
 }
 
-const storeEmployeeData = async (data) => {
-
-  const storedEmployee = new Employee(data)
-
-  try {
-    await connectToDatabase()
-    await storedEmployee.save()
-    console.log('employee saved!')
-  } catch(error) {
-    console.log('error with storing to database:', error.message)
-  }
-  mongoose.connection.close()  
-}
-
-const storeCompanyData = async (data) => {
-  
-  const storedCompany = new Company(data)
-
-  try {
-    await connectToDatabase()
-    await storedCompany.save()
-    console.log('company saved!')
-  } catch(error) {
-    console.log('error with storing to database:', error.message)
-  }
-  mongoose.connection.close()
-}
-
-const storeCompanyFeedback = async (data) => {
-  
-  const storedCompanyFeedback = new CompanyFeedback(data)
-
-  try {
-    await connectToDatabase()
-    await storedCompanyFeedback.save()
-    console.log('company feedback saved!')
-  } catch(error) {
-    console.log('error with storing to database:', error.message)
-  }
-  mongoose.connection.close()
-
-}
-
-const storeEmployeeFeedback = async (feedbacks) => {
-
-  const storedEmployeeFeedback = new EmployeeFeedback(feedbacks)
-
-  try {
-    await connectToDatabase()
-    await storedEmployeeFeedback.save()
-    console.log('employee feedback saved!')
-  } catch(error) {
-    console.log('error with storing to database:', error.message)
-  }
-  mongoose.connection.close()
-}
-
-const storeUser = async (user) =>{
-
-  const storedUser = new User(user)
-
-  try {
-    await connectToDatabase()
-    await storedUser.save()
-    console.log('user saved!')
-  } catch(error) {
-    console.log('error with storing to database:', error.message)
-  }
-  mongoose.connection.close()
-}
-
-
 module.exports = {
-  storeEmployeeData,
-  storeEmployeeFeedback,
-  storeCompanyData,
-  storeCompanyFeedback,
-  storeUser
+  connectToDatabase
 }
 
 

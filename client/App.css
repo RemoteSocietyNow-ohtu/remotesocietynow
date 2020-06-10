@@ -53,7 +53,7 @@ td {
 
 .Navbar-logo {
   vertical-align: middle;
-  height: 3.2rem;
+  height: 2.5rem;
   cursor: pointer;
 }
 
@@ -61,12 +61,13 @@ td {
   display: flex;
   height: 100%;
   align-items: center;
+  justify-content: space-between;
   padding: 0 1rem;
 }
 
 .Navbar-authentication-div {
+  position: relative;
   display: flex;
-  position:fixed;
   width: 8rem;
   right: 2%;
   justify-content: space-evenly;
@@ -76,8 +77,8 @@ td {
 .Navbar-login-button {
   background: #cae8d5;
   color: #204051;
-  width:4rem;
-  height: 1.8rem;
+  width:3rem;
+  height: 1.5rem;
   border-radius: 2px 10px;
 }
 
@@ -88,6 +89,9 @@ td {
 .Navbar-sign-in {
   color: #cae8d5;
   cursor: pointer;
+  font-size: 0.7rem;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .Line-separator-vertical {
@@ -125,6 +129,7 @@ td {
 .Calculator-resultbar-icon {
   height: 40px;
   transform: translateY(-.3em);
+  margin-right: .3em;
 }
 
 .Main-bottom-bar-icon {
@@ -222,20 +227,20 @@ td {
 }
 
 .Main-bottom-navigation-bar {
-  position: fixed;
   bottom: 0;
   left: 2%;
   font-size: 1rem;
   color:white;  
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   width: 100%; 
 }
 
 .Main-bottom-navigation-bar-item {  
   cursor: pointer;   
   text-decoration: underline;
+  font-size: 1rem;
   padding-right: 1rem;    
   display: flex;
   align-items: center;
@@ -957,7 +962,7 @@ td {
 .SignUp-container {
   color: gainsboro;   
   animation: 'fade 1s ease-in';
-  min-width: 19rem;
+  min-width: 14rem;
   max-width: 25%;
   margin: auto
 }
@@ -1039,7 +1044,7 @@ td {
 .Login-container {
   color: gainsboro;   
   animation: 'fade 1s ease-in';
-  min-width: 19rem;
+  min-width: 14rem;
   max-width: 25%;
   margin: auto
 }

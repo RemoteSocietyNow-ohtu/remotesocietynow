@@ -10,6 +10,8 @@ import co2SavedIcon from '../../../resources/co2-saved-icon.png'
 import NewsletterBox from '../Newsletter/NewsletterBox'
 
 import yourNewsletterIcon from '../../../resources/mail-icon-white.png'
+import moneySavedIcon from '../../../resources/money-saved-icon.png'
+import moneySpentIcon from '../../../resources/money-spent-icon.png'
 
 const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
   const language = useContext(LanguageContext)
@@ -71,6 +73,8 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
                   <div className='Calculator-results-money-inline'>
                     {!isCompany && result.bartype === 'greenbar' && <img className='Calculator-resultbar-icon' src={co2SavedIcon} alt='Pollution icon' />}
                     {!isCompany && result.bartype === 'redbar' && <img className='Calculator-resultbar-icon' src={pollutionIcon} alt='Pollution icon' />}
+                    {isCompany && result.bartype === 'greenbar' && <img className='Calculator-resultbar-icon' src={moneySavedIcon} alt='Money saved icon' />}
+                    {isCompany && result.bartype === 'redbar' && <img className='Calculator-resultbar-icon' src={moneySpentIcon} alt='Money spent icon' />}
                     <p className='Calculator-result-countup'><b></b><CountUp duration={.8} end={result.value ? result.value : 0} /> {result.unit}</p>
                   </div>
                   <p className='Calculator-results-result-title'>{result.title}</p>
@@ -86,6 +90,8 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
               <div key={result.bartype} className='Calculator-results-resultbars'>
                 {!isCompany && result.bartype === 'greenbar' && <img className='Calculator-resultbar-icon' src={co2SavedIcon} alt='Pollution icon' />}
                 {!isCompany && result.bartype === 'redbar' && <img className='Calculator-resultbar-icon' src={pollutionIcon} alt='Pollution icon' />}
+                {isCompany && result.bartype === 'greenbar' && <img className='Calculator-resultbar-icon' src={moneySavedIcon} alt='Money saved icon' />}
+                {isCompany && result.bartype === 'redbar' && <img className='Calculator-resultbar-icon' src={moneySpentIcon} alt='Money spent icon' />}
                 <p></p>
                 <ResultBar width={80} percent={result.percent} type={result.bartype} />
               </div>

@@ -3,7 +3,10 @@ require('module-alias/register')
 const chokidar = require('chokidar')
 const express = require('express')
 const path = require('path')
+const database = require('./server/database/database')
 require('express-async-errors')
+
+database.connectToDatabase()
 
 const { PORT, inProduction } = require('@util/common')
 
