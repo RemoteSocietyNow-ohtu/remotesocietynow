@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
-const url = process.env.MONGODB_URI
+const databaseUrl = require('../util/databaseUrl')
+const url = databaseUrl.getDatabaseUrl()
 
 const connectToDatabase = () => {
   return mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
