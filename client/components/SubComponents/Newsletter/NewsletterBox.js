@@ -19,7 +19,7 @@ const NewsletterBox = ({ open, setOpen }) => {
       setHasErrored(true)     
     }        
   }
-
+  
   const handleCloseBox = () => {
     setOpen(false)
     setHasErrored(false)
@@ -36,8 +36,8 @@ const NewsletterBox = ({ open, setOpen }) => {
   }
   
   return (
-    <div className='Newsletter-background'>
-      <div className='Newsletter-box'>
+    <div className='Newsletter-background' onClick={handleCloseBox}>
+      <div className='Newsletter-box' onClick={(event) => event.stopPropagation()}>
         <img className='Newsletter-box-icon' src={mailIcon} alt='mail icon' />
         <button 
           className='Newsletter-box-close-button'

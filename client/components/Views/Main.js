@@ -1,4 +1,4 @@
-import React, { useContext, useState,useEffect } from 'react'
+import React, { useContext, useState } from 'react'
 import background from '../../resources/background.gif'
 import LanguageContext from '../../Contexts/LanguageContext'
 import NewsletterBox from '../SubComponents/Newsletter/NewsletterBox'
