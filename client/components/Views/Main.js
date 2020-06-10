@@ -4,6 +4,7 @@ import LanguageContext from '../../Contexts/LanguageContext'
 import NewsletterBox from '../SubComponents/Newsletter/NewsletterBox'
 
 import yourDataIcon from '../../resources/your-data-icon.png'
+import yourNewsletterIcon from '../../resources/mail-icon-white.png'
 
 const Main = ({ setBody }) => {
   const [ newsletterOpen, setNewsletterOpen ] = useState(false)
@@ -22,9 +23,9 @@ const Main = ({ setBody }) => {
         </div>
       </div>     
       <NewsletterBox open={newsletterOpen} setOpen={setNewsletterOpen} />
-      <div className='Navigation-bar'> 
-        <p className='Navigation-item' onClick={() => setBody('gdprCompliance')}><img className='Main-your-data-icon' src={yourDataIcon} />{language.buttons.data}</p>
-        <p className='Navigation-item' onClick={() => setNewsletterOpen(true)}>{language.headers.subscribeToOurNewsletter}</p>
+      <div className='Main-bottom-navigation-bar'> 
+        <p className='Main-bottom-navigation-bar-item' onClick={() => setBody('gdprCompliance')}><img className='Main-bottom-bar-icon' src={yourDataIcon} />{language.buttons.data}</p>
+        <p className='Main-bottom-navigation-bar-item' onClick={() => setNewsletterOpen(true)}><img className='Main-bottom-bar-icon' src={yourNewsletterIcon} />{language.headers.subscribeToOurNewsletter}</p>
       </div>
     </div>
   )
