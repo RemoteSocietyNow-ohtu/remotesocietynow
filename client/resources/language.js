@@ -34,7 +34,7 @@ export const english = {
     authenticationLabelConfirmPassword: 'Confirm Password',
     authenticationLoginCreateAccountText: 'Do not have an account? Sign up here',
     privacyPolicy: 'Before we start. By proceeding you acknowledge that your personal data is processed in accordance with our ',
-    newsletter: 'Remotework is now more topical than ever. Don"t miss a thing! Signup for our newsletter on latest things related to remote work.',
+    newsletter: 'Remotework is now more topical than ever. Don\'t miss a thing! Signup for our newsletter on latest things related to remote work.',
     newsletterThanksForSubscribing: 'You will soon recieve a welcome email.',    
   },
   buttons: {

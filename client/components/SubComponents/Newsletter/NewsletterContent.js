@@ -9,7 +9,7 @@ const NewsletterContent = ({ hasErrored, hasSendedMailAddress, handleTryAgain, h
       return (
         <>
           <p className='Newsletter-box-paragraph'>{language.errors.errorSendingEmailAddress}</p>
-          <button onClick={handleTryAgain}>{language.buttons.tryAgain}</button>
+          <button className='Newsletter-send-button' onClick={handleTryAgain}>{language.buttons.tryAgain}</button>
         </>
       )    
     } else if (hasSendedMailAddress === true) {

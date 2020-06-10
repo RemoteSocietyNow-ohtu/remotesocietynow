@@ -160,7 +160,7 @@ td {
 @media (max-width: 656px) {
   .Main-container {    
     flex-wrap: wrap;
-    margin-top: 4em;
+    margin-top: 2em;
   }
 }
 
@@ -255,7 +255,7 @@ td {
 }
 
 .CalculatorChoice-header {
- font-size: 2rem;
+ font-size: 1.5rem;
 }
 
 .CalculatorChoice-privacy-policy-link {
@@ -276,7 +276,7 @@ td {
 }
 
 .CalculatorChoice-checkbox-label {
-  font-size: 1rem;
+  font-size: .5rem;
   text-align: left;
   margin-left: 1rem;
 }
@@ -311,8 +311,9 @@ td {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: auto;
-    padding: 1em;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    
 }
 
 .CalculatorChoice-checkbox {    
@@ -526,20 +527,17 @@ td {
   transform: translateY(-.3em);
 }
 
-.Calculator-results-bottom-navigation-bar {    
-  position: relative;
-  margin: auto;
-  margin-top: 1rem;
+.Calculator-results-bottom-navigation-bar {     
+  margin-top: 4rem;
   font-size: 1rem;    
-  width: 90%;   
-  background-color: #84a9ac;
-  color: #181A1B; 
-  padding: .5rem;
+  width: 100%;   
+  background-color: #3b6978;
+  color: whitesmoke; 
+  padding: 1rem;
   border-radius: 5px;
 }
 
-.Calculator-results-bottom-navigation-bar-icon {
-    
+.Calculator-results-bottom-navigation-bar-icon {    
   height: 3rem;    
   border-radius: 50%;
   background-color: #84a9ac; 
@@ -547,6 +545,7 @@ td {
 
 .Calculator-results-bottom-navigation-bar-contacts {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 }
@@ -556,10 +555,12 @@ td {
 }
 
 .Calculator-results-newsletter-button {     
-  border: none;   
+  border: #cae8d5 solid;
+  border-radius: 5px;
   display: flex;
   align-items: center; 
   padding: 1rem;
+  margin: 1rem;
   cursor: pointer;
 }
 

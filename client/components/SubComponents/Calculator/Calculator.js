@@ -6,6 +6,8 @@ import Results from './Results'
 import LoadingScreen from '../../Views/LoadingScreen'
 import LanguageContext from '@root/client/Contexts/LanguageContext'
 import Stepper from './Stepper'
+import ContactInfo from './ContactInfo'
+import NewsletterBox from '../Newsletter/NewsletterBox'
 
 //answerValues get initial values. It is default value if such is available, otherwise empty string
 const initAnswerValues = questions => {
@@ -22,6 +24,7 @@ const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setR
   const [isLoading, setIsLoading] = useState(true)
   const [hasErrored, setHasErrored] = useState(false)
   const language = useContext(LanguageContext)
+  const [newsletterOpen, setNewsletterOpen] = useState(false)
 
   //Fetch questions and init question and aswer states
   useEffect(() => {
@@ -81,7 +84,8 @@ const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setR
             />
           </div>
         }
-        {currentQuestion >= questions.length && <Results
+        {currentQuestion >= questions.length && 
+        <Results
           results={results}
           setResults={setResults}
           answers={answers}
@@ -94,7 +98,10 @@ const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setR
         </div>}
         <Stepper questions={questions} currentQuestion={currentQuestion} setCurrentQuestion={setCurrentQuestion} />
       </div>
-
+      {currentQuestion >= questions.length &&
+      <ContactInfo setNewsletterOpen={setNewsletterOpen} />
+      }
+      <NewsletterBox open={newsletterOpen} setOpen={setNewsletterOpen} />
     </div>
   )
 }
