@@ -7,18 +7,16 @@ const CompanyFeedback = require('../models/companyFeedbackSchema')
 const Employee = require('../models/employeeSchema')
 const EmployeeFeedback = require('../models/employeeFeedbackSchema')
 
+const mock = require('./mockdatabase')
+
 const { companyAnswers, companyAnswersAllCommentFieldsEmpty } = require('./companyAnswers')
 const { peopleAnswers, peopleAnswersAllCommentFieldsEmpty } = require('./peopleAnswers')
 
-const url = process.env.NODE_ENV === 'test' ? process.env.MONGODB_TEST_URI : process.env.MONGODB_URI
+beforeAll(async () => await mock.connect())
 
-beforeEach(async () => {
-  await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
-  await Company.deleteMany({})
-  await CompanyFeedback.deleteMany({})
-  await Employee.deleteMany({})
-  await EmployeeFeedback.deleteMany({})
-})
+afterEach(async () => await mock.clearDB())
+
+afterAll(async () => await mock.closeAndDrop())
 
 const sendCompanies = async () => {
   await supertest(app)
@@ -44,21 +42,18 @@ const sendPeople = async () => {
 
 test('company data is saved to database', async () => { 
   await sendCompanies()
-  await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   const companies = await Company.find({})  
   expect(companies.length).toBe(2)
 })
 
 test('company data is saved to database has id property', async () => {  
   await sendCompanies()
-  await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   const companies = await Company.find({})   
   expect(companies[0]['_id']).toBeDefined
 })
 
 test('companyFeedback data is saved to database', async () => {
   await sendCompanies()
-  await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   const companiesFeedback = await CompanyFeedback.find({})
   expect(companiesFeedback.length).toBe(2)
 })
@@ -68,28 +63,24 @@ test('If all comment fields in company are empty do not save data at all', async
     .post('/calculate/company/save/')
     .send(companyAnswersAllCommentFieldsEmpty)
     .expect('Content-Type', /application\/json/)
-  await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   const companiesFeedback = await CompanyFeedback.find({})
   expect(companiesFeedback.length).toBe(0)
 })
 
 test('people data is saved to database', async () => {
   await sendPeople()
-  await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   const people = await Employee.find({})
   expect(people.length).toBe(2)
 })
 
 test('people data is saved to database has id property', async () => { 
   await sendPeople()
-  await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   const people = await Employee.find({})
   expect(people[0]._id).toBeDefined()   
 })
 
 test('peopleFeedback data is saved to database', async () => {
   await sendPeople()
-  await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   const peopleFeedback = await EmployeeFeedback.find({})
   expect(peopleFeedback.length).toBe(2)
 })
@@ -99,7 +90,6 @@ test('If all comment fields in people are empty do not save data at all', async(
     .post('/calculate/person/save/')
     .send(peopleAnswersAllCommentFieldsEmpty)
     .expect('Content-Type', /application\/json/)
-  await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   const peopleFeedback = await EmployeeFeedback.find({})
   expect(peopleFeedback.length).toBe(0)
 })
