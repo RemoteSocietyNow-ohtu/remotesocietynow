@@ -7,11 +7,15 @@ import ResultBar from './ResultBar'
 
 import pollutionIcon from '../../../resources/pollution-icon.png'
 import co2SavedIcon from '../../../resources/co2-saved-icon.png'
+import NewsletterBox from '../Newsletter/NewsletterBox'
+
+import yourNewsletterIcon from '../../../resources/mail-icon-white.png'
 
 const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
   const language = useContext(LanguageContext)
   const [error, setError] = useState(false)
   const [sliderValue, setSliderValue] = useState(0)
+  const [newsletterOpen, setNewsletterOpen] = useState(false)
 
   // Fetch results from backend based on answers. Triggered when answers changes.
   // Sets results based on response 
@@ -99,8 +103,19 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
             <p className='Calculator-results-slidertext'>{language.headers.workDoneRemotelyPercent}</p> // If this is results for a company use percents
             : <p className='Calculator-results-slidertext'>{language.headers.workDoneRemotelyDays}</p>
           }
-        </div>
+        </div>        
       </div>
+      
+      <div className='Calculator-results-bottom-navigation-bar'>
+        <p>We at RemoteSocietyNow are committed to work for better environment and to help you save money.</p>        
+        <div className='Calculator-results-bottom-navigation-bar-contacts'>
+          <p>Connect with us: </p>
+          <a className='Calculator-results-newsletter-button' onClick={() => setNewsletterOpen(true)}><img className='Main-bottom-bar-icon' src={yourNewsletterIcon} />{language.headers.subscribeToOurNewsletter}</a>
+          <a className='Calculator-results-newsletter-button'>Contact by Email</a>
+        </div>
+        
+      </div>      
+      <NewsletterBox open={newsletterOpen} setOpen={setNewsletterOpen}/>
     </div>
   )
 }

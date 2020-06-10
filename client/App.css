@@ -519,6 +519,38 @@ td {
   transform: translateY(-.3em);
 }
 
+.Calculator-results-bottom-navigation-bar {
+  position: fixed;
+  bottom: 0;
+  left:0;  
+  font-size: 1rem;    
+  width: 100%;   
+  background-color: #84a9ac;
+  color: #181A1B; 
+}
+
+.Calculator-results-bottom-navigation-bar-contacts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Calculator-results-newsletter-header {
+  font-size: 2rem;
+}
+
+.Calculator-results-newsletter-button {     
+  border: none;   
+  display: flex;
+  align-items: center; 
+  padding: 1rem;
+}
+
+.Calculator-results-newsletter-button:hover {  
+  background-color: #3b6978;
+  border: #181A1B 2px solid;
+}
+
 .greenbar {
   background-color: green;
   height: 50px;
