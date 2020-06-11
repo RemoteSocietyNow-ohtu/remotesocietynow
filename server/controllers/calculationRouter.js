@@ -1,4 +1,5 @@
 const calculationRouter = require('express').Router()
+const jwt = require('jsonwebtoken')
 const remoteWorkCalculator = require('../services/calculations/remoteWorkCalculator')
 const bodyParser = require('../util/calculationBodyParser')
 const validator = require('../util/requestValidator')
@@ -6,6 +7,16 @@ const Employee = require('../models/employeeSchema')
 const Company = require('../models/companySchema')
 const EmployeeFeedback = require('../models/employeeFeedbackSchema')
 const CompanyFeedback = require('../models/companyFeedbackSchema')
+const User = require('../models/userSchema')
+
+
+const getTokenFrom = request => {
+  const authorization = request.get('authorization')
+  if (authorization && authorization.toLowerCase().startsWith('bearer ')) {
+    return authorization.substring(7)
+  }
+  return null
+}
 
 /** Handles POST requests to (baseUrl)/api/calculations/person from frontend
  * responds with total annual co2 emissions, and the potential saves from moving to more remote work
@@ -22,9 +33,18 @@ calculationRouter.post('/person/:save?', async (req, res) => {
     body.secondVehicle,
     +body.numberOfRemoteworkDays
   ]
+  const token = getTokenFrom(req)
+  let decodedToken = null
+  let user = null
 
   const savedData = bodyParser.parseSavedDataFromBody(body)
   const feedbacks = bodyParser.parseFeedBacksFromBody(body)
+
+  if(token !== null){
+    decodedToken = jwt.verify(token, process.env.SECRET)
+    user = await User.findById(decodedToken.id)
+    savedData['user'] = user._id
+  }
 
   /* Calls the calculateBenefitsForPerson in /services/calculations/remoteWorkCalculator for emissions calculation 
     using parameters gathered above*/
