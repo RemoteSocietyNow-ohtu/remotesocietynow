@@ -34,15 +34,13 @@ calculationRouter.post('/person/:save?', async (req, res) => {
     +body.numberOfRemoteworkDays
   ]
   const token = getTokenFrom(req)
-  let decodedToken = null
-  let user = null
-
+  
   const savedData = bodyParser.parseSavedDataFromBody(body)
   const feedbacks = bodyParser.parseFeedBacksFromBody(body)
 
   if(token !== null){
-    decodedToken = jwt.verify(token, process.env.SECRET)
-    user = await User.findById(decodedToken.id)
+    const decodedToken = jwt.verify(token, process.env.SECRET)
+    const user = await User.findById(decodedToken.id)
     savedData['user'] = user._id
   }
 
@@ -80,6 +78,14 @@ calculationRouter.post('/company/:save?', async (req, res) => {
   const savedData = bodyParser.parseSavedDataFromBody(body)
   const feedbacks = bodyParser.parseFeedBacksFromBody(body)
 
+  const token = getTokenFrom(req)
+
+  if(token !== null){
+    const decodedToken = jwt.verify(token, process.env.SECRET)
+    const user = await User.findById(decodedToken.id)
+    savedData['user'] = user._id
+  }
+  
   /* Calls the calculateBenefitsForCompany in /services/calculations/remoteWorkCalculator for emissions calculation 
     using parameters gathered above*/
   const result = remoteWorkCalculator.calculateBenefitsForCompany(rent, officeUpkeep, employees, businessTravelCost, remoteShare)
