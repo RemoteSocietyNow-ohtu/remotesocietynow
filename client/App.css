@@ -527,45 +527,47 @@ td {
   transform: translateY(-.3em);
 }
 
-.Calculator-results-bottom-navigation-bar {     
-  margin-top: 4rem;
+.Calculator-results-bottom-bar {     
+  margin: auto;
+  margin-top: 2rem;  
   font-size: 1rem;    
-  width: 100%;   
-  background-color: #3b6978;
+  max-width: 980px;
+  background-color: #204051;
   color: whitesmoke; 
   padding: 1rem;
   border-radius: 5px;
+  
 }
 
-.Calculator-results-bottom-navigation-bar-icon {    
-  height: 3rem;    
-  border-radius: 50%;
-  background-color: #84a9ac; 
-}
-
-.Calculator-results-bottom-navigation-bar-contacts {
+.Calculator-results-bottom-bar-contacts {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 }
 
-.Calculator-results-newsletter-header {
+.Calculator-results-bottom-bar-header {
   font-size: 2rem;
+  margin-bottom: .1rem;
 }
 
-.Calculator-results-newsletter-button {     
+.Calculator-results-bottom-bar-button {     
   border: #cae8d5 solid;
   border-radius: 5px;
-  display: flex;
-  align-items: center; 
+  font-size: 1rem;
   padding: 1rem;
   margin: 1rem;
   cursor: pointer;
 }
 
-.Calculator-results-newsletter-button:hover {  
+.Calculator-results-bottom-bar-button:hover {  
   background-color: #3b6978; 
+}
+
+.Calculator-results-bottom-bar-icon {    
+  height: 3rem;    
+  border-radius: 50%;
+  background-color: #84a9ac; 
 }
 
 .greenbar {
@@ -720,35 +722,23 @@ td {
   overflow: auto; 
   display: flex;
   align-items: center;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.6); 
+  overflow-y: hidden;
 }
 
-.Newsletter-box {
-  position: fixed;
+.Newsletter-box {  
+  position: relative;
   color: white;
   background: #3b6978;
   padding: 2rem;  
-  width: 60%;     
-  bottom: 1rem; 
-  left: 15%; 
-  border-radius: 5px;  
-  animation: move-up 300ms linear;
-  z-index:2;
+  width: 60%;         
+  border-radius: 5px; 
+  margin: auto;
+  z-index:2; 
+  animation: move-up 300ms linear;      
 }
 
-@media (max-width: 480px) {
-  .Newsletter-background {
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.6); 
-  }
-
-  .Newsletter-box {   
-    position: relative;   
-    display: block; 
-    bottom: 0rem;
-    margin: auto;
-    left: 0;
-  }
-}
 
 .Newsletter-box-icon {
   position: absolute;

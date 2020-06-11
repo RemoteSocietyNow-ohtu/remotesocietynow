@@ -105,6 +105,7 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
           <p className='Calculator-results-slidertext'>{language.headers.workDoneRemotelyPercent}</p> // If this is results for a company use percents
           : <p className='Calculator-results-slidertext'>{language.headers.workDoneRemotelyDays}</p>
         }
+        
       </div>
       
     </div>
