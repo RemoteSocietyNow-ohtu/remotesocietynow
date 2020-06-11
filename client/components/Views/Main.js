@@ -13,21 +13,21 @@ const Main = ({ setBody }) => {
   return (
     <div className='Container'>
       <div className='Main-container'>
-      <div className='Main-container-content'>
-        <div className='Main-content-left'>
-          <h1 className='Heading'>{language.headers.mainHeader}</h1>
-          <button className='Main-button' onClick={() => setBody('calculatorChoice')}>{language.buttons.main}</button>
-          <p className='Main-lead-paragraph'>{language.content.lead}</p>
+        <div className='Main-container-content'>
+          <div className='Main-content-left'>
+            <h1 className='Heading'>{language.headers.mainHeader}</h1>
+            <button className='Main-button' onClick={() => setBody('calculatorChoice')}>{language.buttons.main}</button>
+            <p className='Main-lead-paragraph'>{language.content.lead}</p>
+          </div>
+          <div className='Main-content-right'>
+            <img className='Main-background-video-gif' src={background} alt='backgroundImage' />
+          </div>
+        </div>     
+        <NewsletterBox open={newsletterOpen} setOpen={setNewsletterOpen} />
+        <div className='Main-bottom-navigation-bar'> 
+          <p className='Main-bottom-navigation-bar-item' onClick={() => setBody('gdprCompliance')}><img className='Main-bottom-bar-icon' src={yourDataIcon} />{language.buttons.data}</p>
+          <p className='Main-bottom-navigation-bar-item' onClick={() => setNewsletterOpen(true)}><img className='Main-bottom-bar-icon' src={yourNewsletterIcon} />{language.headers.subscribeToOurNewsletter}</p>
         </div>
-        <div className='Main-content-right'>
-          <img className='Main-background-video-gif' src={background} alt='backgroundImage' />
-        </div>
-      </div>     
-      <NewsletterBox open={newsletterOpen} setOpen={setNewsletterOpen} />
-      <div className='Main-bottom-navigation-bar'> 
-        <p className='Main-bottom-navigation-bar-item' onClick={() => setBody('gdprCompliance')}><img className='Main-bottom-bar-icon' src={yourDataIcon} />{language.buttons.data}</p>
-        <p className='Main-bottom-navigation-bar-item' onClick={() => setNewsletterOpen(true)}><img className='Main-bottom-bar-icon' src={yourNewsletterIcon} />{language.headers.subscribeToOurNewsletter}</p>
-      </div>
       </div>
     </div>
   )

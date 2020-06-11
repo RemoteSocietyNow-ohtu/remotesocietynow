@@ -18,7 +18,7 @@ const Login = ({ setBody, Cookies }) => {
     setPassword('')
     if (res.token) {
       setError('')
-      Cookies.set('token', res.token, { expires: 7 })
+      Cookies.set('token', res.token, { expires: 7, sameSite: 'lax' })
       setBody('calculatorChoice')
     }
     if (res.error) {
