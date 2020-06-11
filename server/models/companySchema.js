@@ -6,6 +6,11 @@ const model = parser.parseSavedDataSchema(questions)
 
 const companySchema = new mongoose.Schema(model)
 
+companySchema.add({user:{
+  type: mongoose.Schema.Types.ObjectId,
+  ref: 'User'
+}})
+
 try {
   module.exports = mongoose.model('Company')
 } catch (e) {
