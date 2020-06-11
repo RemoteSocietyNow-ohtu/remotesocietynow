@@ -10,11 +10,14 @@ import Companies from 'Components/Views/Companies'
 import CalculatorChoice from 'Components/Views/CalculatorChoice'
 import SignUp from './components/Views/SignUp'
 import Login from './components/Views/Login'
+import Admin from './components/Views/Admin'
 import Cookies from 'js-cookie'
 
 const App = () => {
   const [acceptPrivacyPolicy, setAcceptPrivacyPolicy] = useState(false)
   const [body, setBody] = useState('main')
+
+  const [saveToDatabase, setSaveToDatabase] = useState(true)
 
   if (body === 'main') {
     return (
@@ -48,6 +51,20 @@ const App = () => {
         </div>
       </div>
     )
+  }
+
+  if (body === 'admin') {
+    // admin access control (NOT DONE)
+    if (Cookies.get('admin_token')) {
+      return (
+        <div className="App">
+          <Navbar body={body} setBody={setBody} Cookies={Cookies} />
+          <div className='Body'>
+            <Admin saveToDatabase={saveToDatabase} setSaveToDatabase={setSaveToDatabase} />
+          </div>
+        </div>
+      )
+    }
   }
 
   if (body === 'privacy-policy') {
