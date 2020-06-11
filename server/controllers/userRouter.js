@@ -3,8 +3,6 @@ const userRouter = require('express').Router()
 const User = require('../models/userSchema')
 const jwt = require('jsonwebtoken')
 
-
-
 userRouter.post('/', async (request, response) => {
   const body = request.body
 
@@ -15,8 +13,14 @@ userRouter.post('/', async (request, response) => {
     username: body.username,
     passwordHash,
   })
-  await user.save()
-  response.json(user)
+  try {
+    await user.save()
+    response.json(user)
+  } catch (ValidationError) {
+    return response.json({
+      error: 'Username must be unique'
+    })
+  }
 })
 
 userRouter.post('/login/', async (req, res) => {
