@@ -10,6 +10,7 @@ import Companies from 'Components/Views/Companies'
 import CalculatorChoice from 'Components/Views/CalculatorChoice'
 import SignUp from './components/Views/SignUp'
 import Login from './components/Views/Login'
+import Cookies from 'js-cookie'
 
 const App = () => {
   const [acceptPrivacyPolicy, setAcceptPrivacyPolicy] = useState(false)  
@@ -43,7 +44,7 @@ const App = () => {
       <div className="App">
         <Navbar body={body} setBody={setBody}/>
         <div className='Body'>
-          <Login setBody={setBody} />
+          <Login setBody={setBody} Cookies={Cookies} />
         </div>
       </div>
     )

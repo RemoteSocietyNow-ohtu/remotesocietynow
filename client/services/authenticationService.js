@@ -7,6 +7,12 @@ const signUp = (username, password) => {
   return request.then((res) => res.data)
 }
 
+const login = (username, password) => {
+  const request = axios.post(`${baseurl}/api/users/login/`, {'username': username, 'password': password})
+  return request.then((res) => res.data)
+}
+
 export default {
   signUp,
+  login,
 }

@@ -63,7 +63,8 @@ export const english = {
   errors: {
     errorSendingAnswers: 'An Error occured while sending answers',
     errorFetchingQuestions: 'An Error occured while fetching questions',
-    errorSendingEmailAddress: 'An Error occured while subscribing'
+    errorSendingEmailAddress: 'An Error occured while subscribing',
+    invalidCredentials: 'Invalid credentials.'
   },
   actions: {
     sending: 'Sending...'
