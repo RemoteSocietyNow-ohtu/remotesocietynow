@@ -16,7 +16,8 @@ export const english = {
     commentFieldHeader: 'Is this question relevant to you? Share your ideas! How can we make it better?',
     subscribeToOurNewsletter: 'Subscribe to Our Newsletter',
     emailAddress: 'Email Address:',
-    newsletterThanksForSubscribing: 'Thank you for subscribing to our newsletter!'
+    newsletterThanksForSubscribing: 'Thank you for subscribing to our newsletter!',
+    connectWithUs: 'Connect with us:',    
   },
   content: {
     main: 'The Most Enjoyable Way to Save the Planet! While making more money and saving time.',
@@ -35,7 +36,8 @@ export const english = {
     authenticationLoginCreateAccountText: 'Do not have an account? Sign up here',
     privacyPolicy: 'Before we start. By proceeding you acknowledge that your personal data is processed in accordance with our ',
     newsletter: 'Remotework is now more topical than ever. Don\'t miss a thing! Signup for our newsletter on latest things related to remote work.',
-    newsletterThanksForSubscribing: 'You will soon recieve a welcome email.',    
+    newsletterThanksForSubscribing: 'You will soon recieve a welcome email.',
+    weAreCommitted: 'We at RemoteSocietyNow are committed to work for better environment and to help you save money! Please take contact and we can find out how we can help make your remote work impact better.'
   },
   buttons: {
     calculate: 'Calculate',
@@ -49,7 +51,8 @@ export const english = {
     subscribe: 'Subscribe',
     signUp: 'Sign Up',
     login: 'Login',
-    tryAgain: 'Please try again'
+    tryAgain: 'Please try again',
+    contactUs: 'Contact us'
   },
   navigation: {
     gdprCompliance: 'GDPR',
