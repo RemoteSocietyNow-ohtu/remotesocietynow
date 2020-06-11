@@ -4,6 +4,7 @@ node_js:
 before_install:
 
 script:
+- npm install 
 - npm run test
 - npm run fix:lint
 - npm run lint

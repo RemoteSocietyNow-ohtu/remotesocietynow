@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Calculator from '../SubComponents/Calculator/Calculator'
 
-const Companies = () => { 
+const Companies = ({ login, signUp }) => { 
   const [questions, setQuestions] = useState([]) // Questions that are presented to user.
   const [answers, setAnwers] = useState({}) // Values of question fields
   const [results, setResults] = useState({}) // Results that are recieved from backend after sending values
@@ -18,6 +18,8 @@ const Companies = () => {
         setResults={setResults}
         currentQuestion={currentQuestion}
         setCurrentQuestion={setCurrentQuestion}
+        login={login}
+        signUp={signUp}
         isCompany
       />
     </div>

@@ -142,6 +142,7 @@ td {
 .Calculator-resultbar-icon {
   height: 40px;
   transform: translateY(-.3em);
+  margin-right: .3em;
 }
 
 .Main-bottom-bar-icon {
@@ -151,14 +152,12 @@ td {
 
 .Calculator-choice-icon {
   margin-left: .3em;
-  height: 30px;
-  transform: translateY(.2em);
+  height: 30px;  
 }
 
 .Calculator-choice-grayed-out-icon {
   margin-left: .3em;
-  height: 30px;
-  transform: translateY(.2em);
+  height: 30px;  
   opacity: 50%;
 }
 
@@ -180,7 +179,7 @@ td {
 @media (max-width: 656px) {
   .Main-container-content {    
     flex-wrap: wrap;
-    margin-top: 4em;
+    margin-top: 2em;
   }
 }
 
@@ -275,7 +274,7 @@ td {
 }
 
 .CalculatorChoice-header {
- font-size: 2rem;
+ font-size: 1.5rem;
 }
 
 .CalculatorChoice-privacy-policy-link {
@@ -296,7 +295,7 @@ td {
 }
 
 .CalculatorChoice-checkbox-label {
-  font-size: 1rem;
+  font-size: .5rem;
   text-align: left;
   margin-left: 1rem;
 }
@@ -316,6 +315,9 @@ td {
   border-radius: 5px 25px;
   text-decoration: none;
   margin-top: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .CalculatorChoice-button:hover {
@@ -331,8 +333,9 @@ td {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: auto;
-    padding: 1em;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    
 }
 
 .CalculatorChoice-checkbox {    
@@ -392,6 +395,8 @@ td {
   flex-wrap: nowrap;
   flex-direction: row;
   justify-content: center;
+  width: 80%;
+  margin: auto;
 }
 
 .Calculator-content-left {
@@ -410,6 +415,7 @@ td {
   font-size: .8rem;
   width: 16rem;  
   padding: 3%;
+  
   border-left: solid #84a9ac 2px;  
 }
 
@@ -431,6 +437,7 @@ td {
 
 .Calculator-questionsidebar-item {
   cursor: pointer;
+  margin: 0;
 }
 
 .Calculator-feedback-toggle {
@@ -468,7 +475,7 @@ td {
 }
 
 .Calculator-results-container {
-  margin-top: 5em;
+  margin-top: 2em;
   font-size: calc(10px + 2vmin);
   width: 100%;
   border-radius: 5px 25px;
@@ -542,6 +549,51 @@ td {
   border-radius: 4px 4px 4px 4px;
   margin: 0 auto;
   transform: translateY(-.3em);
+}
+
+.Calculator-results-bottom-bar {     
+  margin: auto;
+  margin-top: 2rem;  
+  font-size: 1rem;    
+  max-width: 980px;
+  background-color: #204051;
+  color: whitesmoke; 
+  padding: 1rem;
+  border-radius: 5px;
+  
+}
+
+.Calculator-results-bottom-bar-contacts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.Calculator-results-bottom-bar-header {
+  font-size: 2rem;
+  margin-bottom: .1rem;
+}
+
+.Calculator-results-bottom-bar-button {     
+  border: #cae8d5 solid;
+  border-radius: 5px;
+  font-size: 1rem;
+  padding: 1rem;
+  margin: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.Calculator-results-bottom-bar-button:hover {  
+  background-color: #3b6978; 
+}
+
+.Calculator-results-bottom-bar-icon {    
+  height: 3rem;    
+  border-radius: 50%;
+  background-color: #84a9ac; 
 }
 
 .greenbar {
@@ -696,35 +748,23 @@ td {
   overflow: auto; 
   display: flex;
   align-items: center;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.6); 
+  overflow-y: hidden;
 }
 
-.Newsletter-box {
-  position: fixed;
+.Newsletter-box {  
+  position: relative;
   color: white;
   background: #3b6978;
   padding: 2rem;  
-  width: 60%;     
-  bottom: 1rem; 
-  left: 15%; 
-  border-radius: 5px;  
-  animation: move-up 300ms linear;
-  z-index:2;
+  width: 60%;         
+  border-radius: 5px; 
+  margin: auto;
+  z-index:2; 
+  animation: move-up 300ms linear;      
 }
 
-@media (max-width: 480px) {
-  .Newsletter-background {
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.6); 
-  }
-
-  .Newsletter-box {   
-    position: relative;   
-    display: block; 
-    bottom: 0rem;
-    margin: auto;
-    left: 0;
-  }
-}
 
 .Newsletter-box-icon {
   position: absolute;
@@ -943,6 +983,25 @@ td {
 .Calculator-sliderfield-label {
   font-size: 1em;
   margin: 0.7rem;
+}
+
+/* Send anwers */
+
+.Send-answers-container {
+  margin-top: 5rem;
+}
+
+.Send-answers-header {
+  font-size: 2rem;
+}
+
+.Send-answers-paragraph {
+  font-size: 1rem;
+}
+
+.Send-answers-link {
+  color: #84a9ac;
+  cursor: pointer;
 }
 
 /* SignUp */

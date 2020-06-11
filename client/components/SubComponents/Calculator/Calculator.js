@@ -6,6 +6,9 @@ import Results from './Results'
 import LoadingScreen from '../../Views/LoadingScreen'
 import LanguageContext from '@root/client/Contexts/LanguageContext'
 import Stepper from './Stepper'
+import ContactInfo from './ContactInfo'
+import NewsletterBox from '../Newsletter/NewsletterBox'
+import SendAnswers from 'Components/Views/SendAnswers'
 
 //answerValues get initial values. It is default value if such is available, otherwise empty string
 const initAnswerValues = questions => {
@@ -18,10 +21,11 @@ const initAnswerValues = questions => {
   }, {})
 }
 
-const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setResults, currentQuestion, setCurrentQuestion, isCompany }) => {
+const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setResults, currentQuestion, setCurrentQuestion, isCompany, login, signUp }) => {
   const [isLoading, setIsLoading] = useState(true)
   const [hasErrored, setHasErrored] = useState(false)
   const language = useContext(LanguageContext)
+  const [newsletterOpen, setNewsletterOpen] = useState(false)
 
   //Fetch questions and init question and aswer states
   useEffect(() => {
@@ -68,8 +72,9 @@ const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setR
   return (
     <div>
       <div className='Calculator-container'>
-        {currentQuestion < questions.length && // If currentQuestion-index is greater than number of questions -> show results instead
-          <div className='Calculator-content-left'>
+        {currentQuestion <= questions.length &&
+        <div className='Calculator-content-left'>
+          {currentQuestion < questions.length ?
             <Questions
               questions={questions}
               answers={answers}
@@ -79,22 +84,40 @@ const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setR
               setResults={setResults}
               isCompany={isCompany}
             />
-          </div>
+            :
+            <SendAnswers 
+              nextQuestion={() => setCurrentQuestion(currentQuestion + 1)}
+              toFirstQuestion={() => setCurrentQuestion(0)}
+              setResults={setResults}
+              isCompany={isCompany}
+              answers={answers}
+              login={login}
+              signUp={signUp}
+            />
+          }
+        </div>
         }
-        {currentQuestion >= questions.length && <Results
-          results={results}
-          setResults={setResults}
-          answers={answers}
-          setAnwers={setAnwers}
-          isCompany={isCompany}
-        />}
-        {currentQuestion < questions.length && <div className='Calculator-content-right'>
+        
+        {currentQuestion > questions.length &&     
+          <Results
+            results={results}
+            setResults={setResults}
+            answers={answers}
+            setAnwers={setAnwers}
+            isCompany={isCompany}
+          />
+        }
+        {currentQuestion <= questions.length && <div className='Calculator-content-right'>
           <QuestionsSidebar questions={questions} answers={answers} currentQuestion={currentQuestion}
             setCurrentQuestion={setCurrentQuestion} />
         </div>}
         <Stepper questions={questions} currentQuestion={currentQuestion} setCurrentQuestion={setCurrentQuestion} />
-      </div>
-
+        
+      </div>  
+      {currentQuestion > questions.length && 
+        <ContactInfo setNewsletterOpen={setNewsletterOpen} />
+      }    
+      <NewsletterBox open={newsletterOpen} setOpen={setNewsletterOpen} />
     </div>
   )
 }

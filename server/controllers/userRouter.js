@@ -15,10 +15,7 @@ userRouter.post('/', async (request, response) => {
     username: body.username,
     passwordHash,
   })
-  console.log('Pyyntö vastaanotettu')
   await user.save()
-  console.log('asd')
-
   response.json(user)
 })
 
@@ -31,7 +28,7 @@ userRouter.post('/login/', async (req, res) => {
     : await bcrypt.compare(body.password, user.passwordHash)
 
   if (!(user && passwordCorrect)) {
-    return response.status(401).json({
+    return res.json({
       error: 'invalid username or password'
     })
   }

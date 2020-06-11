@@ -3,11 +3,11 @@ import LanguageContext from '../../../Contexts/LanguageContext'
 import questionService from '../../../services/questionService'
 import LoadingScreen from '../../Views/LoadingScreen'
 
-const SendAnswersButton = ({ setResults, currentQuestion, setCurrentQuestion, isCompany, answers }) => {
+const SendAnswersButton = ({ setResults, nextQuestion, isCompany, answers }) => {
   const language = useContext(LanguageContext)
   const [ loading, setLoading ] = useState(false)
   const [ error, setError ] = useState(false)
-
+ 
   const handleClick = async () => {
     setLoading(true)
     setError(false)
@@ -20,7 +20,7 @@ const SendAnswersButton = ({ setResults, currentQuestion, setCurrentQuestion, is
       }
       setResults(response)
       setLoading(false) 
-      setCurrentQuestion(currentQuestion + 1)
+      nextQuestion()
     } catch (error) {
       setError(true)
       console.log(error)
