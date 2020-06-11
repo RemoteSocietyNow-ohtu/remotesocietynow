@@ -1236,6 +1236,7 @@ td {
   animation: fadeinoutRight 500ms ease-in-out ;
 }
 
+/* react-toggle (dependency) */
 .react-toggle {
   touch-action: pan-x;
 
