@@ -34,14 +34,15 @@ calculationRouter.post('/person/:save?', async (req, res) => {
     +body.numberOfRemoteworkDays
   ]
   const token = getTokenFrom(req)
+  let user = null
   
-  const savedData = bodyParser.parseSavedDataFromBody(body)
+  const bodyData = bodyParser.parseSavedDataFromBody(body)
   const feedbacks = bodyParser.parseFeedBacksFromBody(body)
 
   if(token !== null){
     const decodedToken = jwt.verify(token, process.env.SECRET)
-    const user = await User.findById(decodedToken.id)
-    savedData['user'] = user._id
+    user = await User.findById(decodedToken.id)
+    bodyData['user'] = user._id
   }
 
   /* Calls the calculateBenefitsForPerson in /services/calculations/remoteWorkCalculator for emissions calculation 
@@ -50,8 +51,12 @@ calculationRouter.post('/person/:save?', async (req, res) => {
 
   /* Calls storeEmployeeData in /server/database/database.js to save all employee input to database. */
   if (req.params.save === 'save') {
-    const employeeData = new Employee(savedData)
-    await employeeData.save()
+    const employeeData = new Employee(bodyData)
+    const savedData = await employeeData.save()
+    if(user !== null){
+      user.answers = user.answers.concat(savedData._id)
+      await user.save()
+    }
     /* Calls storeEmployeeFeedback in /server/database/database.js to save employee feedback to database. */
     if (validator.feedBacksAreNotEmpty(feedbacks)) {
       const employeeFeedBacks = new EmployeeFeedback(feedbacks)
@@ -75,15 +80,16 @@ calculationRouter.post('/company/:save?', async (req, res) => {
   const businessTravelCost = +req.body.averageBusinessTripCost
   const remoteShare = req.body.remoteShare ? req.body.remoteShare : 0
 
-  const savedData = bodyParser.parseSavedDataFromBody(body)
+  const bodyData = bodyParser.parseSavedDataFromBody(body)
   const feedbacks = bodyParser.parseFeedBacksFromBody(body)
 
   const token = getTokenFrom(req)
+  let user = null
 
   if(token !== null){
     const decodedToken = jwt.verify(token, process.env.SECRET)
-    const user = await User.findById(decodedToken.id)
-    savedData['user'] = user._id
+    user = await User.findById(decodedToken.id)
+    bodyData['user'] = user._id
   }
   
   /* Calls the calculateBenefitsForCompany in /services/calculations/remoteWorkCalculator for emissions calculation 
@@ -92,8 +98,12 @@ calculationRouter.post('/company/:save?', async (req, res) => {
 
   /* Calls storeCompanyData in /server/database/database.js to save all company input to database. */
   if (req.params.save === 'save') {
-    const companyData = new Company(savedData)
-    await companyData.save()
+    const companyData = new Company(bodyData)
+    const savedData = await companyData.save()
+    if(user !== null){
+      user.answers = user.answers.concat(savedData._id)
+      await user.save()
+    }
 
     if (validator.feedBacksAreNotEmpty(feedbacks)) {
       const companyFeedback = new CompanyFeedback(feedbacks)
