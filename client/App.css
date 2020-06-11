@@ -139,14 +139,12 @@ td {
 
 .Calculator-choice-icon {
   margin-left: .3em;
-  height: 30px;
-  transform: translateY(.2em);
+  height: 30px;  
 }
 
 .Calculator-choice-grayed-out-icon {
   margin-left: .3em;
-  height: 30px;
-  transform: translateY(.2em);
+  height: 30px;  
   opacity: 50%;
 }
 
@@ -296,6 +294,9 @@ td {
   border-radius: 5px 25px;
   text-decoration: none;
   margin-top: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .CalculatorChoice-button:hover {
@@ -393,6 +394,7 @@ td {
   font-size: .8rem;
   width: 16rem;  
   padding: 3%;
+  padding-top: 1%;
   border-left: solid #84a9ac 2px;  
 }
 
@@ -414,6 +416,7 @@ td {
 
 .Calculator-questionsidebar-item {
   cursor: pointer;
+  margin: 0;
 }
 
 .Calculator-feedback-toggle {
@@ -558,6 +561,8 @@ td {
   padding: 1rem;
   margin: 1rem;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 .Calculator-results-bottom-bar-button:hover {  
