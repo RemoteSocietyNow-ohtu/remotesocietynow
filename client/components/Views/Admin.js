@@ -1,11 +1,10 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import LanguageContext from '../../Contexts/LanguageContext'
 import Toggle from 'react-toggle'
 
 const Admin = ({ saveToDatabase, setSaveToDatabase }) => {
 
   const language = useContext(LanguageContext)
-  const [error, setError] = useState('')
 
   const toggleSaveToDatabase = () => {
     saveToDatabase ? setSaveToDatabase(false) : setSaveToDatabase(true)
@@ -14,7 +13,6 @@ const Admin = ({ saveToDatabase, setSaveToDatabase }) => {
   return (
     <div className='Container' >
       <div className='Admin-container'>
-        {error != '' && <p className='Error'>{error}</p>}
         <h3 className='Admin-header'>{language.headers.adminHeader}</h3>
         <label>
           <Toggle
