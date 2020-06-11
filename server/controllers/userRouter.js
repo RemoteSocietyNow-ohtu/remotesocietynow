@@ -15,10 +15,7 @@ userRouter.post('/', async (request, response) => {
     username: body.username,
     passwordHash,
   })
-  console.log('Pyyntö vastaanotettu')
   await user.save()
-  console.log('asd')
-
   response.json(user)
 })
 
