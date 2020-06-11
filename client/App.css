@@ -121,7 +121,8 @@ td {
 .Error {
   background-color: #FFD2D2;
   color: #D8000C;
-  width: 80%;
+  width: 100%;
+  font-size: 1.5rem;
   margin: auto;
   margin-bottom: 2%;
 }

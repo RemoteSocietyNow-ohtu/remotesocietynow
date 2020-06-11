@@ -64,7 +64,8 @@ export const english = {
     errorSendingAnswers: 'An Error occured while sending answers',
     errorFetchingQuestions: 'An Error occured while fetching questions',
     errorSendingEmailAddress: 'An Error occured while subscribing',
-    invalidCredentials: 'Invalid credentials.'
+    invalidCredentials: 'Invalid credentials.',
+    usernameNotUnique: 'An account with that email is already registered.',
   },
   actions: {
     sending: 'Sending...'

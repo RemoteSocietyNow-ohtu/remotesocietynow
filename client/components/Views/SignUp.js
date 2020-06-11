@@ -17,11 +17,16 @@ const SignUp = ({ setBody }) => {
   const signUp = async () => {
     if (password === confirmPassword) {
       setError('')
-      await authenticationService.signUp(email, password)
-      setEmail('')
-      setPassword('')
-      setConfirmPassword('')
-      setBody('login')
+      const res = await authenticationService.signUp(email, password)
+      if (res.error) {
+        setError(language.errors.usernameNotUnique)
+      } else {
+        setError('')
+        setEmail('')
+        setPassword('')
+        setConfirmPassword('')
+        setBody('login')
+      }
     } else {
       setError('Passwords do not match.')
     }
