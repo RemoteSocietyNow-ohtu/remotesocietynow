@@ -2,10 +2,9 @@ import React, { useState } from 'react'
 import Question from './Question'
 import arrowRight from '../../../resources/arrow-right.png'
 import arrowLeft from '../../../resources/arrow-left.png'
-import SendAnswersButton from './SendAnswersButton'
 
 
-const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, setAnwers, isCompany, setResults }) => {
+const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, setAnwers }) => {
   const [fade, setFade] = useState('question-no-fade')
   
   const previousQuestion = () => {
@@ -16,7 +15,7 @@ const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, se
   }
 
   const nextQuestion = () => {
-    if (currentQuestion < questions.length - 1) {
+    if (currentQuestion < questions.length) {
       setFade('Calculator-question-fade-left')
       setTimeout(() => {setCurrentQuestion(currentQuestion + 1)}, 250)      
     }    
@@ -40,28 +39,12 @@ const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, se
           skipQuestion={skipQuestion}
         />
       </div>
-
-      {        
-        currentQuestion >= questions.length - 1  &&      
-          <SendAnswersButton 
-            currentQuestion={currentQuestion} 
-            setCurrentQuestion={setCurrentQuestion} 
-            isCompany={isCompany}
-            answers={answers} 
-            setResults={setResults} />
-      }       
-      
       {
         currentQuestion > 0 ? 
           <img className='Calculator-arrow-icon' src={arrowLeft} alt='previous question' onClick={previousQuestion} /> 
           : null 
       }
-      {        
-        currentQuestion < questions.length - 1  ?  
-          <img className='Calculator-arrow-icon' src={arrowRight} alt='next question' onClick={nextQuestion} /> 
-          : null
-      }       
-       
+      <img className='Calculator-arrow-icon' src={arrowRight} alt='next question' onClick={nextQuestion} /> 
     </div>
   )
 }

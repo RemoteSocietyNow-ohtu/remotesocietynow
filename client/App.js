@@ -76,7 +76,7 @@ const App = () => {
       <div className="App">
         <Navbar body={body} setBody={setBody} />
         <div className='Body'>
-          <People />         
+          <People login={() => setBody('login')} signUp={() => setBody('signUp')}/>         
         </div>
       </div>
     )
@@ -87,7 +87,7 @@ const App = () => {
       <div className="App">
         <Navbar body={body} setBody={setBody} />
         <div className='Body'>
-          <Companies />        
+          <Companies login={() => setBody('login')} signUp={() => setBody('signUp')} />        
         </div>
       </div>
     )

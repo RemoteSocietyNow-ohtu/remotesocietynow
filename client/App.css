@@ -394,7 +394,7 @@ td {
   font-size: .8rem;
   width: 16rem;  
   padding: 3%;
-  padding-top: 1%;
+  
   border-left: solid #84a9ac 2px;  
 }
 
@@ -962,6 +962,25 @@ td {
 .Calculator-sliderfield-label {
   font-size: 1em;
   margin: 0.7rem;
+}
+
+/* Send anwers */
+
+.Send-answers-container {
+  margin-top: 5rem;
+}
+
+.Send-answers-header {
+  font-size: 2rem;
+}
+
+.Send-answers-paragraph {
+  font-size: 1rem;
+}
+
+.Send-answers-link {
+  color: #84a9ac;
+  cursor: pointer;
 }
 
 /* SignUp */
