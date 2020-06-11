@@ -18,7 +18,9 @@ const SendAnswers = ({ setResults, nextQuestion, toFirstQuestion, isCompany, ans
         answers={answers} 
         setResults={setResults} 
       />
-      <a className='Send-answers-link' onClick={toFirstQuestion} >Get back to questions</a>
+      <p className='Send-answers-paragraph'>
+        <a className='Send-answers-link' onClick={toFirstQuestion} >Get back to questions</a>
+      </p>
     </div>
   )
 }
