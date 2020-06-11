@@ -3,7 +3,7 @@ const supertest = require('supertest')
 const app = require('../index')
 
 const formData = {
-  address: 'testAddress'
+  address: 'remotesocietynow@protonmail.com'
 }
 
 test('can send address', async () => {

@@ -17,7 +17,8 @@ export const english = {
     subscribeToOurNewsletter: 'Subscribe to Our Newsletter',
     emailAddress: 'Email Address:',
     newsletterThanksForSubscribing: 'Thank you for subscribing to our newsletter!',
-    connectWithUs: 'Connect with us:',    
+    connectWithUs: 'Connect with us:',
+    adminHeader: 'Admin Panel', 
   },
   content: {
     main: 'The Most Enjoyable Way to Save the Planet! While making more money and saving time.',
@@ -64,7 +65,8 @@ export const english = {
     errorSendingAnswers: 'An Error occured while sending answers',
     errorFetchingQuestions: 'An Error occured while fetching questions',
     errorSendingEmailAddress: 'An Error occured while subscribing',
-    invalidCredentials: 'Invalid credentials.'
+    invalidCredentials: 'Invalid credentials.',
+    usernameNotUnique: 'An account with that email is already registered.',
   },
   actions: {
     sending: 'Sending...'
