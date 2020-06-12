@@ -65,6 +65,7 @@ export const english = {
     downloadPersons: 'Person Data',
     downloadCompanyFeedback: 'Feedback (Company)',
     downloadPersonsFeedback: 'Feedback (Person)',
+    admin: 'Admin',
   },
   navigation: {
     gdprCompliance: 'GDPR',
