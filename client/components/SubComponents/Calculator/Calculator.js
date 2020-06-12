@@ -21,7 +21,7 @@ const initAnswerValues = questions => {
   }, {})
 }
 
-const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setResults, currentQuestion, setCurrentQuestion, isCompany, login, signUp, saveToDatabase }) => {
+const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setResults, currentQuestion, setCurrentQuestion, isCompany, login, signUp }) => {
   const [isLoading, setIsLoading] = useState(true)
   const [hasErrored, setHasErrored] = useState(false)
   const language = useContext(LanguageContext)
@@ -92,7 +92,6 @@ const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setR
               answers={answers}
               login={login}
               signUp={signUp}
-              saveToDatabase={saveToDatabase}
             />
           }
         </div>

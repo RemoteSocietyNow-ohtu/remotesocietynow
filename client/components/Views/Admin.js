@@ -17,7 +17,7 @@ const Admin = () => {
         <h3 className='Admin-header'>{language.headers.adminHeader}</h3>
         <label>
           <Toggle
-            defaultChecked={saveToDatabase}
+            defaultChecked={true}
             onChange={() => toggleSaveToDatabase()} />
           <span className='Admin-toggle-text'>Save answers to the database</span>
         </label>
