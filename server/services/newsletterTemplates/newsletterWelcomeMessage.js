@@ -7,7 +7,7 @@ const body =
 <p>And as always, you can contact us and we can help you and your company to achieve your goals.</p>\
 \
 <p>Contact info:</p>\
-<p>jr.tasklist@gmail.com</p>\
+<p>PLACEHOLDER</p>\
 \
 <p>Remote work.\
 Potential impact: Big shift in the way society works, globally.\

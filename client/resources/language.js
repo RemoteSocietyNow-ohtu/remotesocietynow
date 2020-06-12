@@ -32,7 +32,7 @@ export const english = {
       'You can have your data deleted from records.',
       'You’re allowed to refuse data processing, for example, marketing efforts.'
     ],
-    contactInfo: 'Any inquiries can be directed to jr.tasklist@gmail.com',
+    contactInfo: 'Any inquiries can be directed to PLACEHOLDER',
     authenticationLabelEmail: 'Email',
     authenticationLabelPassword: 'Password',
     authenticationLabelConfirmPassword: 'Confirm Password',
