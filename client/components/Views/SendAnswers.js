@@ -1,26 +1,30 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import SendAnswersButton from '../SubComponents/Calculator/SendAnswersButton'
+import Cookies from 'js-cookie'
+import LanguageContext from '@root/client/Contexts/LanguageContext'
 
-const SendAnswers = ({ setResults, nextQuestion, toFirstQuestion, isCompany, answers, login, signUp }) => {
+const SendAnswers = ({ setResults, nextQuestion, isCompany, answers, login, signUp }) => {
+  const language = useContext(LanguageContext)
+
   return (
     <div className='Send-answers-container'>
-      <h2 className='Send-answers-header'>Great! We are finished with the questions.</h2>
-      <p className='Send-answers-paragraph'>If you would like to save your answers and results in order to get back to   them later, please take a step to 
-        <a className='Send-answers-link' onClick={signUp} href='#'> Sign up </a> 
-        or 
-        <a className='Send-answers-link'onClick={login} href='#'> Login </a> 
-        before calculating your results. You can also continue without logging in.
-      </p>   
-      
+      <h2 className='Send-answers-header'>{language.headers.finishedWithQuestions}</h2>
+      {
+        Cookies.get('token') 
+          ? <p className='Send-answers-paragraph'>{language.content.answersWillBeSaved}</p>
+          : <p className='Send-answers-paragraph'>{language.content.ifYouwouldLikeToSavePartOne}
+            <a className='Send-answers-link' onClick={signUp} href='#'>{language.headers.signUpHeader}</a> 
+            {language.content.or} 
+            <a className='Send-answers-link'onClick={login} href='#'>{language.headers.loginHeader}</a> 
+            {language.content.ifYouwouldLikeToSavePartTwo}
+          </p>
+      }
       <SendAnswersButton 
         nextQuestion={nextQuestion}        
         isCompany={isCompany}
         answers={answers} 
         setResults={setResults} 
-      />
-      <p className='Send-answers-paragraph'>
-        <a className='Send-answers-link' onClick={toFirstQuestion} >Get back to questions</a>
-      </p>
+      />      
     </div>
   )
 }

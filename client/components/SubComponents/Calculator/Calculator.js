@@ -50,7 +50,7 @@ const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setR
     setIsLoading(true)
     setHasErrored(false)
     fetchQuesions()
-  }, [isCompany])
+  }, [])
 
   // Return loading screen if question and aswer states are not ready
   if (isLoading) {
@@ -86,13 +86,12 @@ const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setR
             />
             :
             <SendAnswers 
-              nextQuestion={() => setCurrentQuestion(currentQuestion + 1)}
-              toFirstQuestion={() => setCurrentQuestion(0)}
+              nextQuestion={() => setCurrentQuestion(currentQuestion + 1)}              
               setResults={setResults}
               isCompany={isCompany}
               answers={answers}
               login={login}
-              signUp={signUp}
+              signUp={signUp}              
             />
           }
         </div>
@@ -105,6 +104,7 @@ const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setR
             answers={answers}
             setAnwers={setAnwers}
             isCompany={isCompany}
+            toFirstQuestion={() => setCurrentQuestion(0)}
           />
         }
         {currentQuestion <= questions.length && <div className='Calculator-content-right'>
