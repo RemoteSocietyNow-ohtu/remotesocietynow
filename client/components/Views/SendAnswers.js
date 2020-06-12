@@ -5,10 +5,10 @@ const SendAnswers = ({ setResults, nextQuestion, toFirstQuestion, isCompany, ans
   return (
     <div className='Send-answers-container'>
       <h2 className='Send-answers-header'>Great! We are finished with the questions.</h2>
-      <p className='Send-answers-paragraph'>If you would like to save your answers and results in order to get back to   them later, please take a step to 
-        <a className='Send-answers-link' onClick={signUp} href='#'> Sign up </a> 
+      <p className='Send-answers-paragraph'>If you would like to save your answers and results in order to get back to them later, please take a step to &nbsp;
+        <a className='Send-answers-link' onClick={signUp} href='#'>Sign up</a>&nbsp; 
         or 
-        <a className='Send-answers-link'onClick={login} href='#'> Login </a> 
+        &nbsp;<a className='Send-answers-link'onClick={login} href='#'>Login</a> &nbsp;
         before calculating your results. You can also continue without logging in.
       </p>   
       

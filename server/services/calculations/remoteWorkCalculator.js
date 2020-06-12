@@ -89,8 +89,17 @@ const calculateBenefitsForPerson = (distance,daysFirst,daysSecond,firstVehicle,s
 /** Calculate money savings for company based on calculations at https://docs.google.com/spreadsheets/d/1Webbfedw-tmu-4WKUP6FB50YgrQR_gDCCqT1QPpErhA/edit#gid=103523188
  * (not automatically updated from the spreadsheet)
  */
-const calculateBenefitsForCompany = (rent, officeUpkeep, employees, businessTravelCost, remoteShare ) => {
+const calculateBenefitsForCompany = (rent, officeUpkeep, employees, businessTravelCost, remoteShare, averageCarHours) => {
   const expenses = parseInt(rent) + parseInt(officeUpkeep)
+
+  averageCo2PerKm = co2Coefficients['car']
+  averageSpeed = 50
+  const averageCo2PerHour = averageCo2PerKm * averageSpeed
+  const co2FromCarCommute = employees * averageCo2PerHour * averageCarHours
+  const totalCo2Emissions = co2FromCarCommute
+
+  console.log(co2FromCarCommute)
+
   const totalExpenses = expenses * 12
   const moneySaved = remoteShare*totalExpenses/100
 
@@ -111,6 +120,11 @@ const calculateBenefitsForCompany = (rent, officeUpkeep, employees, businessTrav
       bartype: 'redbar',
       percent: 1-(moneySaved/totalExpenses)
     },
+    {
+      title: 'Total yearly co2 reductions',
+      value: totalCo2Emissions,
+      unit: 'g'
+    }
         
   ]
 
