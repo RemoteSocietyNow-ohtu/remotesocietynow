@@ -145,6 +145,7 @@ const App = () => {
             login={() => setBody('login')}
             signUp={() => setBody('signUp')}    
             saveToDatabase={saveToDatabase}
+            isCompany={true}
           />
         </div>
       </div>
