@@ -2,13 +2,13 @@ import React, { useContext } from 'react'
 import LanguageContext from '../../Contexts/LanguageContext'
 import Toggle from 'react-toggle'
 
-const Admin = ({ saveToDatabase, setSaveToDatabase }) => {
+const Admin = () => {
 
   const baseurl = process.env.REACT_APP_BACKEND_URL ? process.env.REACT_APP_BACKEND_URL : ''
   const language = useContext(LanguageContext)
 
   const toggleSaveToDatabase = () => {
-    saveToDatabase ? setSaveToDatabase(false) : setSaveToDatabase(true)
+    // todo
   }
 
   return (

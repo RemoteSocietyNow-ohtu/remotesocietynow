@@ -26,8 +26,6 @@ const App = () => {
   const [companyAnswers, setCompanyAnwers] = useState({}) // Values of question fields
   const [companyResults, setCompanyResults] = useState({}) // Results that are recieved from backend after sending values
   const [currentCompanyQuestion, setCurrentCompanyQuestion] = useState(0) // Current question index 
-
-  const [saveToDatabase, setSaveToDatabase] = useState(true)
  
   if (body === 'main') {
     return (
@@ -69,7 +67,7 @@ const App = () => {
         <div className="App">
           <Navbar body={body} setBody={setBody} Cookies={Cookies} />
           <div className='Body'>
-            <Admin saveToDatabase={saveToDatabase} setSaveToDatabase={setSaveToDatabase} />
+            <Admin />
           </div>
         </div>
       )
