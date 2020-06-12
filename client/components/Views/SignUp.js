@@ -4,7 +4,7 @@ import PasswordField from '../InputFields/PasswordField'
 import EmailField from '../InputFields/EmailField'
 import authenticationService from '../../services/authenticationService'
 
-const SignUp = () => {
+const SignUp = ({ setBody }) => {
 
   const language = useContext(LanguageContext)
 
@@ -17,10 +17,16 @@ const SignUp = () => {
   const signUp = async () => {
     if (password === confirmPassword) {
       setError('')
-      await authenticationService.signUp(email, password)
-      setEmail('')
-      setPassword('')
-      setConfirmPassword('')
+      const res = await authenticationService.signUp(email, password)
+      if (res.error) {
+        setError(language.errors.usernameNotUnique)
+      } else {
+        setError('')
+        setEmail('')
+        setPassword('')
+        setConfirmPassword('')
+        setBody('login')
+      }
     } else {
       setError('Passwords do not match.')
     }

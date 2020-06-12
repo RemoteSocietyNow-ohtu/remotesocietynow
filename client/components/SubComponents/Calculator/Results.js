@@ -11,7 +11,7 @@ import co2SavedIcon from '../../../resources/co2-saved-icon.png'
 import moneySavedIcon from '../../../resources/money-saved-icon.png'
 import moneySpentIcon from '../../../resources/money-spent-icon.png'
 
-const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
+const Results = ({ results, answers, setAnwers, setResults, toFirstQuestion, isCompany }) => {
   const language = useContext(LanguageContext)
   const [error, setError] = useState(false)
   const [sliderValue, setSliderValue] = useState(0)
@@ -107,7 +107,9 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
         }
         
       </div>
-      
+      <p className='Send-answers-paragraph'>
+        <a className='Send-answers-link' onClick={toFirstQuestion} >{language.buttons.getBackToQuestions}</a>
+      </p>
     </div>
   )
 }
