@@ -19,7 +19,8 @@ export const english = {
     newsletterThanksForSubscribing: 'Thank you for subscribing to our newsletter!',
     connectWithUs: 'Connect with us:',
     adminHeader: 'Admin Panel', 
-    finishedWithQuestions: 'Great! We are finished with the questions.'
+    finishedWithQuestions: 'Great! We are finished with the questions.',
+    downloadFiles: 'Download .csv',
   },
   content: {
     main: 'The Most Enjoyable Way to Save the Planet! While making more money and saving time.',
@@ -59,7 +60,11 @@ export const english = {
     login: 'Login',
     tryAgain: 'Please try again',
     contactUs: 'Contact us',
-    getBackToQuestions: 'Get back to questions'
+    getBackToQuestions: 'Get back to questions',
+    downloadCompanies: 'Company Data',
+    downloadPersons: 'Person Data',
+    downloadCompanyFeedback: 'Feedback (Company)',
+    downloadPersonsFeedback: 'Feedback (Person)',
   },
   navigation: {
     gdprCompliance: 'GDPR',

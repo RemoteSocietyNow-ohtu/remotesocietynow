@@ -1106,6 +1106,28 @@ td {
   font-size: 2rem;
 }
 
+.Admin-download-buttons-div {
+  transform: translateY(-1em);
+}
+
+.Admin-download-button {
+  margin-top: 2em;
+  margin-left: 1em;
+  min-width: 12rem;
+  max-width: 30%;
+  height: 70px;
+  font-family: 'PT Root';
+  font-size: large;
+  background-color: #cae8d5;
+  border: none;
+  border-radius: 5px 25px;
+  text-decoration: none;
+}
+
+.Admin-download-button:hover {
+  background-color: #84a9ac;
+}
+
 /* Login */
 .Login-header {
   font-size: calc(2.3rem + 2px)

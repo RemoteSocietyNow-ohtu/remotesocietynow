@@ -10,6 +10,22 @@ const Admin = ({ saveToDatabase, setSaveToDatabase }) => {
     saveToDatabase ? setSaveToDatabase(false) : setSaveToDatabase(true)
   }
 
+  const downloadCompanyData = () => {
+    //
+  }
+
+  const downloadPersonData = () => {
+    //
+  }
+
+  const downloadCompanyFeedback = () => {
+    //
+  }
+
+  const downloadPersonsFeedback = () => {
+    //
+  }
+
   return (
     <div className='Container' >
       <div className='Admin-container'>
@@ -20,6 +36,13 @@ const Admin = ({ saveToDatabase, setSaveToDatabase }) => {
             onChange={() => toggleSaveToDatabase()} />
           <span className='Admin-toggle-text'>Save answers to the database</span>
         </label>
+        <h5>{language.headers.downloadFiles}</h5>
+        <div className='Admin-download-buttons-div'>
+          <button className='Admin-download-button' onClick={() => downloadCompanyData()}>{language.buttons.downloadCompanies}</button>
+          <button className='Admin-download-button' onClick={() => downloadPersonData()}>{language.buttons.downloadPersons}</button>
+          <button className='Admin-download-button' onClick={() => downloadCompanyFeedback()}>{language.buttons.downloadCompanyFeedback}</button>
+          <button className='Admin-download-button' onClick={() => downloadPersonsFeedback()}>{language.buttons.downloadPersonsFeedback}</button>
+        </div>
       </div>
     </div>
   )
