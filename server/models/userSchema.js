@@ -5,9 +5,17 @@ const userSchema = mongoose.Schema({
   username: {
     type: String,
     unique: true,
-    minlength: 4
+    minlength: 4,
+    required: true
   },
-  passwordHash: String,
+  role:{
+    type: String,
+    required: true
+  },
+  passwordHash:{
+    type: String,
+    required: true
+  },
   answers: [
     {
       type: mongoose.Schema.Types.ObjectId,

@@ -23,7 +23,7 @@ const SendAnswers = ({ setResults, nextQuestion, isCompany, answers, login, sign
         nextQuestion={nextQuestion}        
         isCompany={isCompany}
         answers={answers} 
-        setResults={setResults} 
+        setResults={setResults}
       />      
     </div>
   )

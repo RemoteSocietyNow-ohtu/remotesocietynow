@@ -91,7 +91,7 @@ const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setR
               isCompany={isCompany}
               answers={answers}
               login={login}
-              signUp={signUp}              
+              signUp={signUp}
             />
           }
         </div>

@@ -26,8 +26,6 @@ const App = () => {
   const [companyAnswers, setCompanyAnwers] = useState({}) // Values of question fields
   const [companyResults, setCompanyResults] = useState({}) // Results that are recieved from backend after sending values
   const [currentCompanyQuestion, setCurrentCompanyQuestion] = useState(0) // Current question index 
-
-  const [saveToDatabase, setSaveToDatabase] = useState(true)
  
   if (body === 'main') {
     return (
@@ -64,12 +62,12 @@ const App = () => {
 
   if (body === 'admin') {
     // admin access control (NOT DONE)
-    if (Cookies.get('admin_token')) {
+    if (Cookies.get('token')) {
       return (
         <div className="App">
           <Navbar body={body} setBody={setBody} Cookies={Cookies} />
           <div className='Body'>
-            <Admin saveToDatabase={saveToDatabase} setSaveToDatabase={setSaveToDatabase} />
+            <Admin />
           </div>
         </div>
       )
@@ -120,7 +118,7 @@ const App = () => {
             currentQuestion={currentPeopleQuestion}
             setCurrentQuestion={setCurrentPeopleQuestion}
             login={() => setBody('login')}
-            signUp={() => setBody('signUp')}            
+            signUp={() => setBody('signUp')}
           />          
         </div>
       </div>
@@ -142,8 +140,8 @@ const App = () => {
             currentQuestion={currentCompanyQuestion}
             setCurrentQuestion={setCurrentCompanyQuestion}
             login={() => setBody('login')}
-            signUp={() => setBody('signUp')}    
-            isCompany        
+            signUp={() => setBody('signUp')}
+            isCompany={true}
           />
         </div>
       </div>

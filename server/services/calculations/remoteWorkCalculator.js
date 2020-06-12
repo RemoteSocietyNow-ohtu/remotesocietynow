@@ -89,29 +89,31 @@ const calculateBenefitsForPerson = (distance,daysFirst,daysSecond,firstVehicle,s
 /** Calculate money savings for company based on calculations at https://docs.google.com/spreadsheets/d/1Webbfedw-tmu-4WKUP6FB50YgrQR_gDCCqT1QPpErhA/edit#gid=103523188
  * (not automatically updated from the spreadsheet)
  */
-const calculateBenefitsForCompany = (rent, officeUpkeep, employees, businessTravelCost, remoteShare, averageCarHours) => {
+const calculateBenefitsForCompany = (rent, officeUpkeep, employees, businessTravelCost, remoteShare, averageCarHours, energyCost, energySource, averageFlightHours) => {
   const expenses = parseInt(rent) + parseInt(officeUpkeep)
 
-  averageCo2PerKm = co2Coefficients['car']
-  averageSpeed = 50
+  const energyPriceEuroPerKWh = 0.05
+  const energyAmount = energyCost/energyPriceEuroPerKWh
+  const energyEmissions = (energySource !== '' && energyAmount.isNan) ? energyAmount * co2Coefficients[energySource] : 0
+
+  const averageCo2PerKm = co2Coefficients['car']
+  const averageSpeed = 45
+  const averageCo2PerHourFlight = 9900
+  const flightEmissions = employees * averageCo2PerHourFlight * averageFlightHours
   const averageCo2PerHour = averageCo2PerKm * averageSpeed
   const co2FromCarCommute = employees * averageCo2PerHour * averageCarHours
-  const totalCo2Emissions = co2FromCarCommute
-
-  console.log(co2FromCarCommute)
+  const totalCo2Emissions = remoteShare*(co2FromCarCommute + energyEmissions + flightEmissions)*12
 
   const totalExpenses = expenses * 12
   const moneySaved = remoteShare*totalExpenses/100
 
   const result = [
-
     {
       title: 'Total money earned per year',
       value: moneySaved,
       unit: '€',
       bartype: 'greenbar',
       percent: moneySaved/totalExpenses
-
     },
     {
       title: 'Total yearly expenses',
@@ -122,8 +124,8 @@ const calculateBenefitsForCompany = (rent, officeUpkeep, employees, businessTrav
     },
     {
       title: 'Total yearly co2 reductions',
-      value: totalCo2Emissions,
-      unit: 'g'
+      value: roundEmissionsToKg(totalCo2Emissions),
+      unit: 'kg'
     }
         
   ]

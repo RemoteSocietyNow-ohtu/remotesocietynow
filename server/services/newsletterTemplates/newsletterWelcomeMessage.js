@@ -4,10 +4,10 @@ const body =
 \
 <p>You will be hearing from us the latest news on remote work and on how to reduce expenses while also reducing CO2 emissions.</p>\
 \
-<p>And as always, you can contact us and we can help you and your company to archieve your goals.</p>\
+<p>And as always, you can contact us and we can help you and your company to achieve your goals.</p>\
 \
 <p>Contact info:</p>\
-<p>jr.tasklist@gmail.com</p>\
+<p>PLACEHOLDER</p>\
 \
 <p>Remote work.\
 Potential impact: Big shift in the way society works, globally.\
