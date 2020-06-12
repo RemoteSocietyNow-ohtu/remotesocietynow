@@ -14,9 +14,9 @@ const SendAnswersButton = ({ setResults, nextQuestion, isCompany, answers }) => 
     try {
       let response
       if (isCompany) {
-        response = await questionService.sendAnswersCompanyCalculationOnly(answers)
+        response = await questionService.sendAnswersCompany(answers)
       } else {
-        response = await questionService.sendAnswersPeopleCalculationOnly(answers)
+        response = await questionService.sendAnswersPeople(answers)
       }
       setResults(response)
       setLoading(false) 
