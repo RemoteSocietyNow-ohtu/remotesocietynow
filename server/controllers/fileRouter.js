@@ -20,7 +20,7 @@ fileRouter.get('/companyCSV/', async (req, res) => {
     res.write(csv, function () {
       res.end()
     })
-  }else{
+  } else {
     res.send('work in progress')
   }
 })
@@ -37,7 +37,7 @@ fileRouter.get('/employeeCSV/', async (req, res) => {
     res.write(csv, function () {
       res.end()
     })
-  }else{
+  } else {
     res.send('work in progress')
   }
 })
@@ -54,7 +54,7 @@ fileRouter.get('/companyFeedbackCSV/', async (req, res) => {
     res.write(csv, function () {
       res.end()
     })
-  }else{
+  } else {
     res.send('work in progress')
   }
 })
@@ -71,7 +71,8 @@ fileRouter.get('/employeeFeedbackCSV/', async (req, res) => {
     res.write(csv, function () {
       res.end()
     })
-  }else{
+
+  } else {
     res.send('work in progress')
   }
 })
