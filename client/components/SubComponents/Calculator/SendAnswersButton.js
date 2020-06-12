@@ -3,7 +3,7 @@ import LanguageContext from '../../../Contexts/LanguageContext'
 import questionService from '../../../services/questionService'
 import LoadingScreen from '../../Views/LoadingScreen'
 
-const SendAnswersButton = ({ setResults, nextQuestion, isCompany, answers, saveToDatabase }) => {
+const SendAnswersButton = ({ setResults, nextQuestion, isCompany, answers }) => {
   const language = useContext(LanguageContext)
   const [ loading, setLoading ] = useState(false)
   const [ error, setError ] = useState(false)
@@ -14,9 +14,9 @@ const SendAnswersButton = ({ setResults, nextQuestion, isCompany, answers, saveT
     try {
       let response
       if (isCompany) {
-        saveToDatabase ? response = await questionService.sendAnswersCompany(answers) : response = await questionService.sendAnswersCompanyCalculationOnly(answers)
+        response = await questionService.sendAnswersCompany(answers)
       } else {
-        saveToDatabase ? response = await questionService.sendAnswersPeople(answers) : response = await questionService.sendAnswersPeopleCalculationOnly(answers)
+        response = await questionService.sendAnswersPeople(answers)
       }
       setResults(response)
       setLoading(false) 

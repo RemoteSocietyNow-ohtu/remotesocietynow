@@ -120,8 +120,7 @@ const App = () => {
             currentQuestion={currentPeopleQuestion}
             setCurrentQuestion={setCurrentPeopleQuestion}
             login={() => setBody('login')}
-            signUp={() => setBody('signUp')}
-            saveToDatabase={saveToDatabase}        
+            signUp={() => setBody('signUp')} 
           />          
         </div>
       </div>
@@ -143,8 +142,7 @@ const App = () => {
             currentQuestion={currentCompanyQuestion}
             setCurrentQuestion={setCurrentCompanyQuestion}
             login={() => setBody('login')}
-            signUp={() => setBody('signUp')}    
-            saveToDatabase={saveToDatabase}
+            signUp={() => setBody('signUp')}
           />
         </div>
       </div>

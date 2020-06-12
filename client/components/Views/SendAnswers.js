@@ -3,7 +3,7 @@ import SendAnswersButton from '../SubComponents/Calculator/SendAnswersButton'
 import Cookies from 'js-cookie'
 import LanguageContext from '@root/client/Contexts/LanguageContext'
 
-const SendAnswers = ({ setResults, nextQuestion, isCompany, answers, login, signUp, saveToDatabase }) => {
+const SendAnswers = ({ setResults, nextQuestion, isCompany, answers, login, signUp }) => {
   const language = useContext(LanguageContext)
 
   return (
@@ -24,7 +24,6 @@ const SendAnswers = ({ setResults, nextQuestion, isCompany, answers, login, sign
         isCompany={isCompany}
         answers={answers} 
         setResults={setResults}
-        saveToDatabase={saveToDatabase}
       />      
     </div>
   )
