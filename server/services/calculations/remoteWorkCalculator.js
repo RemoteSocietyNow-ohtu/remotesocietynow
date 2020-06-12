@@ -94,7 +94,7 @@ const calculateBenefitsForCompany = (rent, officeUpkeep, employees, businessTrav
 
   const energyPriceEuroPerKWh = 0.05
   const energyAmount = energyCost/energyPriceEuroPerKWh
-  const energyEmissions = (energySource !== '' && energyAmount !== NaN) ? energyAmount * co2Coefficients[energySource] : 0
+  const energyEmissions = (energySource !== '' && energyAmount.isNan) ? energyAmount * co2Coefficients[energySource] : 0
 
   const averageCo2PerKm = co2Coefficients['car']
   const averageSpeed = 45
@@ -108,14 +108,12 @@ const calculateBenefitsForCompany = (rent, officeUpkeep, employees, businessTrav
   const moneySaved = remoteShare*totalExpenses/100
 
   const result = [
-
     {
       title: 'Total money earned per year',
       value: moneySaved,
       unit: '€',
       bartype: 'greenbar',
       percent: moneySaved/totalExpenses
-
     },
     {
       title: 'Total yearly expenses',
