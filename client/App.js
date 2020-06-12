@@ -34,8 +34,7 @@ const App = () => {
       <div className="App">
         <Navbar body={body} setBody={setBody} Cookies={Cookies} />
         <div className='Body'>
-          {/* <Main setBody={setBody} /> */}
-          <Admin saveToDatabase={saveToDatabase} setSaveToDatabase={setSaveToDatabase} />
+          <Main setBody={setBody} />
         </div>
       </div>
     )
