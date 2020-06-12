@@ -1,31 +1,41 @@
 const nodemailer = require('nodemailer')
+const util = require('util')
 
-const sendMail = async (address, subject, body) => {
-  let transporter = await nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 465,
-    secure: true, // use SSL
-    auth: {
-      user: process.env.MAIL_USERNAME,
-      pass: process.env.MAIL_PASSWORD
+let transporter
+ 
+const createTransport = async () => {
+  let mailConfig
+  if (process.env.NODE_ENV === 'production' ) {
+    mailConfig = {
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true, // use SSL
+      auth: {
+        user: process.env.MAIL_USERNAME,
+        pass: process.env.MAIL_PASSWORD
+      }
     }
-  })
-
-  var mailOptions = {
-    from: process.env.MAIL_USERNAME,
-    to: address,
-    subject: subject,
-    html: body
+  } else {  
+    const createTestAccount = util.promisify(nodemailer.createTestAccount)
+    const testAccout = await createTestAccount()
+    mailConfig = {
+      host: 'smtp.ethereal.email',
+      port: 587,
+      auth: {
+        user: testAccout.user,
+        pass: testAccout.pass
+      }
+    }
   }
-  
-  await transporter.sendMail(mailOptions, function(error, info){
-    if (error) {
-      console.log(error)
-    } else {
-      console.log('Email sent: ' + info.response)
-    }
-  })  
-  
+  transporter = nodemailer.createTransport(mailConfig)
+}
+
+const sendMail = async (mailOptions) => {
+  await createTransport()
+  const sentMail = await transporter.sendMail(mailOptions)
+  if (process.env.NODE_ENV !== 'production')
+    console.log('test message: ', nodemailer.getTestMessageUrl(sentMail))
+  return sentMail
 }
 
 module.exports = { sendMail }

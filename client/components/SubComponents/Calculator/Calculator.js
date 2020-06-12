@@ -21,7 +21,7 @@ const initAnswerValues = questions => {
   }, {})
 }
 
-const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setResults, currentQuestion, setCurrentQuestion, isCompany, login, signUp }) => {
+const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setResults, currentQuestion, setCurrentQuestion, isCompany, login, signUp, saveToDatabase }) => {
   const [isLoading, setIsLoading] = useState(true)
   const [hasErrored, setHasErrored] = useState(false)
   const language = useContext(LanguageContext)
@@ -50,7 +50,7 @@ const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setR
     setIsLoading(true)
     setHasErrored(false)
     fetchQuesions()
-  }, [isCompany])
+  }, [])
 
   // Return loading screen if question and aswer states are not ready
   if (isLoading) {
@@ -86,13 +86,13 @@ const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setR
             />
             :
             <SendAnswers 
-              nextQuestion={() => setCurrentQuestion(currentQuestion + 1)}
-              toFirstQuestion={() => setCurrentQuestion(0)}
+              nextQuestion={() => setCurrentQuestion(currentQuestion + 1)}              
               setResults={setResults}
               isCompany={isCompany}
               answers={answers}
               login={login}
               signUp={signUp}
+              saveToDatabase={saveToDatabase}
             />
           }
         </div>
@@ -105,6 +105,7 @@ const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setR
             answers={answers}
             setAnwers={setAnwers}
             isCompany={isCompany}
+            toFirstQuestion={() => setCurrentQuestion(0)}
           />
         }
         {currentQuestion <= questions.length && <div className='Calculator-content-right'>

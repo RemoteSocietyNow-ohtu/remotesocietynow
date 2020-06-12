@@ -7,8 +7,15 @@ import myselfIconGrayedOut from '../../resources/myself-grayed-out-icon.png'
 import myCompanyIcon from '../../resources/my-company-icon.png'
 import myCompanyGrayedOut from '../../resources/my-company-grayed-out-icon.png'
 
-const CalculatorChoice = ({ setBody, acceptPrivacyPolicy, setAcceptPrivacyPolicy }) => {
+const CalculatorChoice = ({ setBody, setActiveCalculator, acceptPrivacyPolicy, setAcceptPrivacyPolicy, setCurrentCompanyQuestion, setCurrentPeopleQuestion }) => {
   const language = useContext(LanguageContext)
+
+  const handleOnClick = (body) => {
+    setCurrentCompanyQuestion(0)
+    setCurrentPeopleQuestion(0)    
+    setActiveCalculator(body)
+    setBody(body)
+  }
 
   return (
     <div className='Container'>
@@ -22,13 +29,13 @@ const CalculatorChoice = ({ setBody, acceptPrivacyPolicy, setAcceptPrivacyPolicy
         <button
           disabled={!acceptPrivacyPolicy}
           className='CalculatorChoice-button'
-          onClick={() => setBody('people')} >
+          onClick={() => handleOnClick('people')} >
           {language.buttons.calculateChoiceMyself}{!acceptPrivacyPolicy && <img className='Calculator-choice-grayed-out-icon' src={myselfIconGrayedOut} />}{acceptPrivacyPolicy && <img className='Calculator-choice-icon' src={myselfIcon} />}
         </button>
         <button
           disabled={!acceptPrivacyPolicy}
           className='CalculatorChoice-button'
-          onClick={() => setBody('companies')} >
+          onClick={() => handleOnClick('companies')} >
           {language.buttons.calculateChoiceCompanies}{!acceptPrivacyPolicy && <img className='Calculator-choice-grayed-out-icon' src={myCompanyGrayedOut} />}{acceptPrivacyPolicy && <img className='Calculator-choice-icon' src={myCompanyIcon} />}
         </button>
       </div>

@@ -19,6 +19,8 @@ export const english = {
     newsletterThanksForSubscribing: 'Thank you for subscribing to our newsletter!',
     connectWithUs: 'Connect with us:',
     adminHeader: 'Admin Panel', 
+    finishedWithQuestions: 'Great! We are finished with the questions.',
+    downloadFiles: 'Download .csv',
   },
   content: {
     main: 'The Most Enjoyable Way to Save the Planet! While making more money and saving time.',
@@ -38,10 +40,14 @@ export const english = {
     privacyPolicy: 'Before we start. By proceeding you acknowledge that your personal data is processed in accordance with our ',
     newsletter: 'Remotework is now more topical than ever. Don\'t miss a thing! Signup for our newsletter on latest things related to remote work.',
     newsletterThanksForSubscribing: 'You will soon recieve a welcome email.',
-    weAreCommitted: 'We at RemoteSocietyNow are committed to work for better environment and to help you save money! Please take contact and we can find out how we can help make your remote work impact better.'
+    weAreCommitted: 'We at RemoteSocietyNow are committed to work for better environment and to help you save money! Please take contact and we can find out how we can help make your remote work impact better.',
+    answersWillBeSaved: 'You are logged in and your answers will be saved. You will be able to get back to them later.',
+    ifYouwouldLikeToSavePartOne: 'If you would like to save your answers and results in order to get back to them later, please take a step to',
+    or: ' or ',
+    ifYouwouldLikeToSavePartTwo: 'before calculating your results. You can also continue without logging in.'
   },
   buttons: {
-    calculate: 'Calculate',
+    calculate: 'View Results',
     main: 'Calculate benefits',
     data: 'Your Data',
     leaveComment: 'Help us make this calculator better',
@@ -53,7 +59,12 @@ export const english = {
     signUp: 'Sign Up',
     login: 'Login',
     tryAgain: 'Please try again',
-    contactUs: 'Contact us'
+    contactUs: 'Contact us',
+    getBackToQuestions: 'Get back to questions',
+    downloadCompanies: 'Company Data',
+    downloadPersons: 'Person Data',
+    downloadCompanyFeedback: 'Feedback (Company)',
+    downloadPersonsFeedback: 'Feedback (Person)',
   },
   navigation: {
     gdprCompliance: 'GDPR',
