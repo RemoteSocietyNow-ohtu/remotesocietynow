@@ -80,6 +80,9 @@ export const english = {
     invalidCredentials: 'Invalid credentials.',
     usernameNotUnique: 'An account with that email is already registered.',
   },
+  success: {
+    loggedIn: 'Logged in.',
+  },
   actions: {
     sending: 'Sending...'
   },

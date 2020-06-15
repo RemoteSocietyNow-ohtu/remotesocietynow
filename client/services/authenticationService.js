@@ -12,7 +12,14 @@ const login = (username, password) => {
   return request.then((res) => res.data)
 }
 
+const logout = (Cookies) => {
+  Cookies.remove('token')
+  Cookies.remove('adminToken')
+  window.location.reload()
+}
+
 export default {
   signUp,
   login,
+  logout,
 }

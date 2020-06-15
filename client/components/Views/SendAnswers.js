@@ -3,11 +3,12 @@ import SendAnswersButton from '../SubComponents/Calculator/SendAnswersButton'
 import Cookies from 'js-cookie'
 import LanguageContext from '@root/client/Contexts/LanguageContext'
 
-const SendAnswers = ({ setResults, nextQuestion, isCompany, answers, login, signUp }) => {
+const SendAnswers = ({ setResults, nextQuestion, isCompany, answers, login, signUp, success }) => {
   const language = useContext(LanguageContext)
 
   return (
     <div className='Send-answers-container'>
+      {success != '' && <p className='Success'>{language.success.loggedIn}</p>}
       <h2 className='Send-answers-header'>{language.headers.finishedWithQuestions}</h2>
       {
         Cookies.get('token') 
