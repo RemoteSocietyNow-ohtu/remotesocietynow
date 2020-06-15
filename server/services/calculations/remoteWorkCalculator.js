@@ -110,7 +110,7 @@ const calculateBenefitsForCompany = (rent, officeUpkeep, employees, businessTrav
 
   const result = [
     {
-      title: 'Total money earned per year',
+      title: 'Total money saved per year',
       value: moneySaved,
       unit: '€',
       bartype: 'greenbar',
