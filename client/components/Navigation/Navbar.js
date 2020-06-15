@@ -9,7 +9,10 @@ const Navbar = ({ body, setBody, Cookies, setSuccess }) => {
 
   const handleLogout = () => {
     authenticationService.logout(Cookies)
-    setSuccess(language.success.loggedOut)   
+    setSuccess(language.success.loggedOut)
+    setTimeout(() => {
+      setSuccess('')
+    }, 5000)
   }
 
   return (

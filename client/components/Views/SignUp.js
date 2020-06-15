@@ -4,7 +4,7 @@ import PasswordField from '../InputFields/PasswordField'
 import EmailField from '../InputFields/EmailField'
 import authenticationService from '../../services/authenticationService'
 
-const SignUp = ({ setBody }) => {
+const SignUp = ({ setBody, setSuccess }) => {
 
   const language = useContext(LanguageContext)
 
@@ -25,6 +25,10 @@ const SignUp = ({ setBody }) => {
         setEmail('')
         setPassword('')
         setConfirmPassword('')
+        setSuccess(language.success.accountCreated)
+        setTimeout(() => {
+          setSuccess('')
+        }, 5000)
         setBody('login')
       }
     } else {

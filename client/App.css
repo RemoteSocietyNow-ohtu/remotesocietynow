@@ -126,6 +126,7 @@ td {
 .Error, .Success {
   margin: 10px 0px;
   padding:12px;
+  box-sizing: border-box;
 }
 
 .Error {
