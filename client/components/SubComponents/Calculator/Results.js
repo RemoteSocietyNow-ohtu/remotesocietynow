@@ -69,8 +69,10 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
                 <div className='Calculator-results-money-inline'>
                   {!isCompany && result.bartype === 'greenbar' && <img className='Calculator-resultbar-icon' src={co2SavedIcon} alt='Pollution icon' />}
                   {!isCompany && result.bartype === 'redbar' && <img className='Calculator-resultbar-icon' src={pollutionIcon} alt='Pollution icon' />}
+                  {!isCompany && result.bartype === 'nobar' && <img className='Calculator-resultbar-icon' src={moneySavedIcon} alt='Money saved icon' />}
                   {isCompany && result.bartype === 'greenbar' && <img className='Calculator-resultbar-icon' src={moneySavedIcon} alt='Money saved icon' />}
                   {isCompany && result.bartype === 'redbar' && <img className='Calculator-resultbar-icon' src={moneySpentIcon} alt='Money spent icon' />}
+                  {isCompany  && result.bartype === 'nobar' && <img className='Calculator-resultbar-icon' src={co2SavedIcon} alt='Pollution icon' />}
                   <p className='Calculator-result-countup'><b></b><CountUp duration={.8} end={result.value ? result.value : 0} /> {result.unit}</p>
                 </div>
                 <p className='Calculator-results-result-title'>{result.title}</p>

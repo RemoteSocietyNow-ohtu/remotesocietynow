@@ -143,7 +143,7 @@ const questionsCompanies = [
     type: 'textArea',
     placeholder: 'Describe how you implement remote work in your company.',
     dataType: String
-    }
+  },
   {
     identifyingString:'remoteWorkBenefits',
     name: 'What have been the biggest benefits of remote work for your company?',
