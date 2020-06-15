@@ -25,7 +25,9 @@ const App = () => {
   const [companyQuestions, setCompanyQuestions] = useState([]) // Questions that are presented to user.
   const [companyAnswers, setCompanyAnwers] = useState({}) // Values of question fields
   const [companyResults, setCompanyResults] = useState({}) // Results that are recieved from backend after sending values
-  const [currentCompanyQuestion, setCurrentCompanyQuestion] = useState(0) // Current question index 
+  const [currentCompanyQuestion, setCurrentCompanyQuestion] = useState(0) // Current question index
+
+  const [success, setSuccess] = useState('')
  
   if (body === 'main') {
     return (
@@ -54,14 +56,13 @@ const App = () => {
       <div className="App">
         <Navbar body={body} setBody={setBody} Cookies={Cookies} />
         <div className='Body'>
-          <Login setBody={setBody} activeCalculator={activeCalculator} Cookies={Cookies} />
+          <Login setBody={setBody} activeCalculator={activeCalculator} Cookies={Cookies} setSuccess={setSuccess} />
         </div>
       </div>
     )
   }
 
   if (body === 'admin') {
-    // admin access control (NOT DONE)
     if (Cookies.get('adminToken')) {
       return (
         <div className="App">
@@ -90,6 +91,7 @@ const App = () => {
       <div className='App'>
         <Navbar body={body} setBody={setBody} Cookies={Cookies} />
         <div className='Body'>
+          {success != '' && <p className='Success'>{success}</p>}
           <CalculatorChoice 
             setBody={setBody}
             setActiveCalculator={setActiveCalculator}
@@ -119,6 +121,7 @@ const App = () => {
             setCurrentQuestion={setCurrentPeopleQuestion}
             login={() => setBody('login')}
             signUp={() => setBody('signUp')}
+            success={success}
           />          
         </div>
       </div>
@@ -142,6 +145,7 @@ const App = () => {
             login={() => setBody('login')}
             signUp={() => setBody('signUp')}
             isCompany={true}
+            success={success}
           />
         </div>
       </div>

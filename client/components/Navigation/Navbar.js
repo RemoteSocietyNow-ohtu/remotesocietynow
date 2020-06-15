@@ -3,12 +3,13 @@ import logo from '../../resources/logo512.png'
 import LanguageContext from '../../Contexts/LanguageContext'
 import authenticationService from '../../services/authenticationService'
 
-const Navbar = ({ body, setBody, Cookies }) => {
+const Navbar = ({ body, setBody, Cookies, setSuccess }) => {
 
   const language = useContext(LanguageContext)
 
   const handleLogout = () => {
-    authenticationService.logout(Cookies)    
+    authenticationService.logout(Cookies)
+    setSuccess(language.success.loggedOut)   
   }
 
   return (

@@ -4,7 +4,7 @@ import PasswordField from '../InputFields/PasswordField'
 import EmailField from '../InputFields/EmailField'
 import authenticationService from '../../services/authenticationService'
 
-const Login = ({ setBody, Cookies, activeCalculator }) => {
+const Login = ({ setBody, Cookies, activeCalculator, setSuccess }) => {
 
   const language = useContext(LanguageContext)
   const [error, setError] = useState('')
@@ -19,6 +19,7 @@ const Login = ({ setBody, Cookies, activeCalculator }) => {
     if (res.token) {
       setError('')
       Cookies.set('token', res.token, { expires: 7, sameSite: 'lax' })
+      setSuccess(language.success.loggedIn)
       activeCalculator ? setBody(activeCalculator) : setBody('calculatorChoice')
     }
     if (res.adminToken) {
