@@ -79,7 +79,8 @@ const calculateBenefitsForPerson = (distance,daysFirst,daysSecond,firstVehicle,s
     {
       title: 'Annual money saved by working remotely',
       value: moneySavedPerYear,
-      unit: '€'
+      unit: '€',
+      bartype: 'nobar'
     }
   ]  
 
@@ -125,7 +126,8 @@ const calculateBenefitsForCompany = (rent, officeUpkeep, employees, businessTrav
     {
       title: 'Total yearly co2 reductions',
       value: roundEmissionsToKg(totalCo2Emissions),
-      unit: 'kg'
+      unit: 'kg',
+      bartype: 'nobar'
     }
         
   ]

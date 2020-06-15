@@ -11,7 +11,7 @@ import co2SavedIcon from '../../../resources/co2-saved-icon.png'
 import moneySavedIcon from '../../../resources/money-saved-icon.png'
 import moneySpentIcon from '../../../resources/money-spent-icon.png'
 
-const Results = ({ results, answers, setAnwers, setResults, toFirstQuestion, isCompany }) => {
+const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
   const language = useContext(LanguageContext)
   const [error, setError] = useState(false)
   const [sliderValue, setSliderValue] = useState(0)
@@ -69,8 +69,10 @@ const Results = ({ results, answers, setAnwers, setResults, toFirstQuestion, isC
                 <div className='Calculator-results-money-inline'>
                   {!isCompany && result.bartype === 'greenbar' && <img className='Calculator-resultbar-icon' src={co2SavedIcon} alt='Pollution icon' />}
                   {!isCompany && result.bartype === 'redbar' && <img className='Calculator-resultbar-icon' src={pollutionIcon} alt='Pollution icon' />}
+                  {!isCompany && result.bartype === 'nobar' && <img className='Calculator-resultbar-icon' src={moneySavedIcon} alt='Money saved icon' />}
                   {isCompany && result.bartype === 'greenbar' && <img className='Calculator-resultbar-icon' src={moneySavedIcon} alt='Money saved icon' />}
                   {isCompany && result.bartype === 'redbar' && <img className='Calculator-resultbar-icon' src={moneySpentIcon} alt='Money spent icon' />}
+                  {isCompany  && result.bartype === 'nobar' && <img className='Calculator-resultbar-icon' src={co2SavedIcon} alt='Pollution icon' />}
                   <p className='Calculator-result-countup'><b></b><CountUp duration={.8} end={result.value ? result.value : 0} /> {result.unit}</p>
                 </div>
                 <p className='Calculator-results-result-title'>{result.title}</p>
@@ -106,10 +108,7 @@ const Results = ({ results, answers, setAnwers, setResults, toFirstQuestion, isC
           : <p className='Calculator-results-slidertext'>{language.headers.workDoneRemotelyDays}</p>
         }
         
-      </div>
-      <p className='Send-answers-paragraph'>
-        <a className='Send-answers-link' onClick={toFirstQuestion} >{language.buttons.getBackToQuestions}</a>
-      </p>
+      </div>      
     </div>
   )
 }
