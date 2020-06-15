@@ -6,7 +6,7 @@ const Admin = ({ Cookies }) => {
 
   const baseurl = process.env.REACT_APP_BACKEND_URL ? process.env.REACT_APP_BACKEND_URL : ''
   const language = useContext(LanguageContext)
-  const token = Cookies.get('token')
+  const adminToken = Cookies.get('adminToken')
 
   const toggleSaveToDatabase = () => {
     // todo
@@ -24,10 +24,10 @@ const Admin = ({ Cookies }) => {
         </label>
         <h5>{language.headers.downloadFiles}</h5>
         <div className='Admin-download-buttons-div'>
-          <a href={`${baseurl}/api/files/companyCSV?token=${token}`}><button className='Admin-download-button'>{language.buttons.downloadCompanies}</button></a>
-          <a href={`${baseurl}/api/files/employeeCSV?token=${token}`}><button className='Admin-download-button'>{language.buttons.downloadPersons}</button></a>
-          <a href={`${baseurl}/api/files/companyFeedbackCSV?token=${token}`}><button className='Admin-download-button'>{language.buttons.downloadCompanyFeedback}</button></a>
-          <a href={`${baseurl}/api/files/employeeFeedbackCSV?token=${token}`}><button className='Admin-download-button'>{language.buttons.downloadPersonsFeedback}</button></a>
+          <a href={`${baseurl}/api/files/companyCSV?token=${adminToken}`}><button className='Admin-download-button'>{language.buttons.downloadCompanies}</button></a>
+          <a href={`${baseurl}/api/files/employeeCSV?token=${adminToken}`}><button className='Admin-download-button'>{language.buttons.downloadPersons}</button></a>
+          <a href={`${baseurl}/api/files/companyFeedbackCSV?token=${adminToken}`}><button className='Admin-download-button'>{language.buttons.downloadCompanyFeedback}</button></a>
+          <a href={`${baseurl}/api/files/employeeFeedbackCSV?token=${adminToken}`}><button className='Admin-download-button'>{language.buttons.downloadPersonsFeedback}</button></a>
         </div>
       </div>
     </div>

@@ -19,7 +19,12 @@ const Login = ({ setRole, setBody, Cookies, activeCalculator }) => {
     if (res.token) {
       setError('')
       setRole(res.role)
-      Cookies.set('token', res.token, { expires: 7, sameSite: 'lax' })
+      if (res.token) {
+        Cookies.set('token', res.token, { expires: 7, sameSite: 'lax' })
+      }
+      if (res.adminToken) {
+        Cookies.set('adminToken', res.adminToken, { expires: 7, sameSite: 'lax' })
+      }
       res.role === 'ADMIN' ? setBody('admin') : activeCalculator ? setBody(activeCalculator) : setBody('calculatorChoice')
     }
     if (res.error) {
