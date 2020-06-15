@@ -63,7 +63,7 @@ const App = () => {
 
   if (body === 'admin') {
     // admin access control (NOT DONE)
-    if (Cookies.get('token')) {
+    if (Cookies.get('adminToken')) {
       return (
         <div className="App">
           <Navbar body={body} setBody={setBody} Cookies={Cookies} />
