@@ -6,10 +6,12 @@ const CompanyFeedback = require('../models/companyFeedbackSchema')
 const EmployeeFeedback = require('../models/employeeFeedbackSchema')
 const companyQuestions = require('../services/questions/questionsCompanies')
 const employeeQuestions = require('../services/questions/questionsPeople')
+const auth = require('../util/userAuthenticator')
 
-fileRouter.get('/companyCSV/', async (req, res) => {
+fileRouter.get('/companyCSV/:token?', async (req, res) => {
 
-  if (process.env.NODE_ENV === 'development') {
+  const token = req.params.token
+  if (auth.isAdmin(token)) {
 
     const csv = await db.dataToCSV(companyQuestions, Company)
 
@@ -19,14 +21,16 @@ fileRouter.get('/companyCSV/', async (req, res) => {
     res.write(csv, function () {
       res.end()
     })
-  } else {
-    res.send('work in progress')
+  }
+  else {
+    res.send('Unauthorized')
   }
 })
 
-fileRouter.get('/employeeCSV/', async (req, res) => {
+fileRouter.get('/employeeCSV/:token?', async (req, res) => {
 
-  if (process.env.NODE_ENV === 'development') {
+  const token = req.params.token
+  if (auth.isAdmin(token)) {
 
     const csv = await db.dataToCSV(employeeQuestions, Employee)
 
@@ -36,16 +40,19 @@ fileRouter.get('/employeeCSV/', async (req, res) => {
     res.write(csv, function () {
       res.end()
     })
-  } else {
-    res.send('work in progress')
   }
+  else {
+    res.send('Unauthorized')
+  }
+
 })
 
-fileRouter.get('/companyFeedbackCSV/', async (req, res) => {
+fileRouter.get('/companyFeedbackCSV/:token?', async (req, res) => {
 
-  if (process.env.NODE_ENV === 'development') {
+  const token = req.params.token
+  if (auth.isAdmin(token)) {
 
-    const csv = await db.feedbackToCSV(companyQuestions, CompanyFeedback)
+    const csv = await db.dataToCSV(companyQuestions, CompanyFeedback)
 
     res.setHeader('Content-disposition', 'attachment; filename=companyFeedback.csv')
     res.setHeader('Content-type', 'text/csv')
@@ -53,16 +60,17 @@ fileRouter.get('/companyFeedbackCSV/', async (req, res) => {
     res.write(csv, function () {
       res.end()
     })
-  } else {
-    res.send('work in progress')
+  }
+  else {
+    res.send('Unauthorized')
   }
 })
 
-fileRouter.get('/employeeFeedbackCSV/', async (req, res) => {
+fileRouter.get('/employeeFeedbackCSV/:token?', async (req, res) => {
+  const token = req.params.token
+  if (auth.isAdmin(token)) {
 
-  if (process.env.NODE_ENV === 'development') {
-
-    const csv = await db.feedbackToCSV(employeeQuestions, EmployeeFeedback)
+    const csv = await db.dataToCSV(employeeQuestions, EmployeeFeedback)
 
     res.setHeader('Content-disposition', 'attachment; filename=employeeFeedback.csv')
     res.setHeader('Content-type', 'text/csv')
@@ -70,9 +78,9 @@ fileRouter.get('/employeeFeedbackCSV/', async (req, res) => {
     res.write(csv, function () {
       res.end()
     })
-
-  } else {
-    res.send('work in progress')
+  }
+  else {
+    res.send('Unauthorized')
   }
 })
 

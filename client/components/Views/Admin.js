@@ -24,10 +24,10 @@ const Admin = ({ Cookies }) => {
         </label>
         <h5>{language.headers.downloadFiles}</h5>
         <div className='Admin-download-buttons-div'>
-          <a href={`${baseurl}/api/files/companyCSV?token=${token}`}><button className='Admin-download-button'>{language.buttons.downloadCompanies}</button></a>
-          <a href={`${baseurl}/api/files/employeeCSV?token=${token}`}><button className='Admin-download-button'>{language.buttons.downloadPersons}</button></a>
-          <a href={`${baseurl}/api/files/companyFeedbackCSV?token=${token}`}><button className='Admin-download-button'>{language.buttons.downloadCompanyFeedback}</button></a>
-          <a href={`${baseurl}/api/files/employeeFeedbackCSV?token=${token}`}><button className='Admin-download-button'>{language.buttons.downloadPersonsFeedback}</button></a>
+          <a href={`${baseurl}/api/files/companyCSV/${token}`}><button className='Admin-download-button'>{language.buttons.downloadCompanies}</button></a>
+          <a href={`${baseurl}/api/files/employeeCSV/${token}`}><button className='Admin-download-button'>{language.buttons.downloadPersons}</button></a>
+          <a href={`${baseurl}/api/files/companyFeedbackCSV/${token}`}><button className='Admin-download-button'>{language.buttons.downloadCompanyFeedback}</button></a>
+          <a href={`${baseurl}/api/files/employeeFeedbackCSV/${token}`}><button className='Admin-download-button'>{language.buttons.downloadPersonsFeedback}</button></a>
         </div>
       </div>
     </div>
