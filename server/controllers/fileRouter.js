@@ -52,7 +52,7 @@ fileRouter.get('/companyFeedbackCSV/:token?', async (req, res) => {
   const token = req.params.token
   if (auth.isAdmin(token)) {
 
-    const csv = await db.dataToCSV(companyQuestions, CompanyFeedback)
+    const csv = await db.feedbackToCSV(companyQuestions, CompanyFeedback)
 
     res.setHeader('Content-disposition', 'attachment; filename=companyFeedback.csv')
     res.setHeader('Content-type', 'text/csv')
@@ -70,7 +70,7 @@ fileRouter.get('/employeeFeedbackCSV/:token?', async (req, res) => {
   const token = req.params.token
   if (auth.isAdmin(token)) {
 
-    const csv = await db.dataToCSV(employeeQuestions, EmployeeFeedback)
+    const csv = await db.feedbackToCSV(employeeQuestions, EmployeeFeedback)
 
     res.setHeader('Content-disposition', 'attachment; filename=employeeFeedback.csv')
     res.setHeader('Content-type', 'text/csv')
