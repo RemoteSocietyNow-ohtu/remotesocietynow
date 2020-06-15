@@ -96,6 +96,15 @@ td {
   border: none;
 }
 
+.Navbar-logout-button {
+  background: #cae8d5;
+  color: #204051;
+  width:4rem;
+  height: 2rem;
+  border-radius: 2px 10px;
+  border: none;
+}
+
 .Navbar-login-button:hover {
   background-color: #84a9ac;
 }
@@ -114,14 +123,25 @@ td {
   width: 100%;
 }
 
-.Error {
+.Error, .Success {
   margin: 10px 0px;
   padding:12px;
+  box-sizing: border-box;
 }
 
 .Error {
   background-color: #FFD2D2;
   color: #D8000C;
+  width: 100%;
+  font-size: 1.5rem;
+  margin: auto;
+  margin-bottom: 2%;
+}
+
+.Success {
+  transform: translateY(1em);
+  color: #204051;
+  background-color: #CAE8D5;
   width: 100%;
   font-size: 1.5rem;
   margin: auto;
@@ -594,6 +614,11 @@ td {
   cursor: pointer;
   display: flex;
   align-items: center;
+  text-decoration: none;
+}
+
+.Calculator-results-bottom-bar a {   
+  color: whitesmoke;
 }
 
 .Calculator-results-bottom-bar-button:hover {  
@@ -1090,37 +1115,6 @@ td {
   margin-top:0.3rem;
   margin-bottom:0.3rem;
   text-align: left;
-}
-
-/* SignUpConfirmation */
-
-.SignUpConfirmation-container {
-  color: gainsboro;   
-  font-size: calc(1.4rem + 2px);
-  animation: 'fade 1s ease-in';
-  min-width: 14rem;
-  max-width: 25%;
-  margin: auto;
-  margin-top: 8%;
-  text-align: center;
-}
-
-.SignUpConfirmation-button {
-  margin-top: 2em;
-  min-width: 12rem;
-  max-width: 30%;
-  height: 70px;
-  font-family: 'PT Root';
-  font-size: large;
-  background-color: #cae8d5;
-  border: none;
-  border-radius: 5px 25px;
-  text-decoration: none;
-  margin: auto; 
-}
-
-.SignUpConfirmation-button:hover {
-  background-color: #84a9ac;
 }
 
 /* Admin */

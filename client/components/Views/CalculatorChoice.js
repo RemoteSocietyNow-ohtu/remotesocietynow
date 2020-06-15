@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import LanguageContext from '../../Contexts/LanguageContext'
 import PrivacyCheckbox from 'Components/InputFields/PrivacyCheckbox'
 
@@ -8,11 +8,12 @@ import myCompanyIcon from '../../resources/my-company-icon.png'
 import myCompanyGrayedOut from '../../resources/my-company-grayed-out-icon.png'
 
 const CalculatorChoice = ({ setBody, setActiveCalculator, acceptPrivacyPolicy, setAcceptPrivacyPolicy, setCurrentCompanyQuestion, setCurrentPeopleQuestion }) => {
+  
   const language = useContext(LanguageContext)
 
   const handleOnClick = (body) => {
     setCurrentCompanyQuestion(0)
-    setCurrentPeopleQuestion(0)    
+    setCurrentPeopleQuestion(0)
     setActiveCalculator(body)
     setBody(body)
   }

@@ -14,7 +14,7 @@ const prepareAdminMail = (address) => {
 const prepareSubscriberMail = (address) => {
   return {
     from: process.env.MAIL_USERNAME,
-    to: process.env.MAIL_USERNAME,
+    to: process.env.CONTACT_MAIL,
     subject: 'New RemoteSocietyNow-newsletter Subscription',
     text: `${address} wants to join RemoteSocietyNow-newsletter`
   }

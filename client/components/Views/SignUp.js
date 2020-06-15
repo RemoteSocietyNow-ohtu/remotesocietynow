@@ -4,7 +4,7 @@ import PasswordField from '../InputFields/PasswordField'
 import EmailField from '../InputFields/EmailField'
 import authenticationService from '../../services/authenticationService'
 
-const SignUp = ({ setBody }) => {
+const SignUp = ({ setBody, setSuccess }) => {
 
   const language = useContext(LanguageContext)
 
@@ -25,7 +25,8 @@ const SignUp = ({ setBody }) => {
         setEmail('')
         setPassword('')
         setConfirmPassword('')
-        setBody('signUpConfirmation')
+        setSuccess(language.success.accountCreated)
+        setBody('login')
       }
     } else {
       setError('Passwords do not match.')

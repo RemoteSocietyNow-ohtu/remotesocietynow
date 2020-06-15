@@ -110,6 +110,7 @@ calculationRouter.post('/company/:save?', async (req, res) => {
     }
 
     if (validator.feedBacksAreNotEmpty(feedbacks)) {
+      feedbacks['companyName'] = body.companyName
       const companyFeedback = new CompanyFeedback(feedbacks)
       await companyFeedback.save()
 

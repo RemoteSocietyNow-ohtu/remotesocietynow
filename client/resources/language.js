@@ -32,7 +32,7 @@ export const english = {
       'You can have your data deleted from records.',
       'You’re allowed to refuse data processing, for example, marketing efforts.'
     ],
-    contactInfo: 'Any inquiries can be directed to PLACEHOLDER',
+    contactInfo: 'Any inquiries can be directed to remotesocietynow@protonmail.com',
     authenticationLabelEmail: 'Email',
     authenticationLabelPassword: 'Password',
     authenticationLabelConfirmPassword: 'Confirm Password',
@@ -79,6 +79,10 @@ export const english = {
     errorSendingEmailAddress: 'An Error occured while subscribing',
     invalidCredentials: 'Invalid credentials.',
     usernameNotUnique: 'An account with that email is already registered.',
+  },
+  success: {
+    loggedIn: 'Logged in.',
+    accountCreated: 'Account created. You can log in now.',
   },
   actions: {
     sending: 'Sending...'
