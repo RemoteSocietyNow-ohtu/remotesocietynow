@@ -16,7 +16,6 @@ const App = () => {
   const [acceptPrivacyPolicy, setAcceptPrivacyPolicy] = useState(false)
   const [body, setBody] = useState('main')
   const [activeCalculator, setActiveCalculator] = useState(null)
-  const [role, setRole] = useState('')
 
   const [peopleQuestions, setPeopleQuestions] = useState([]) // Questions that are presented to user.
   const [peopleAnswers, setPeopleAnwers] = useState({}) // Values of question fields
@@ -31,7 +30,7 @@ const App = () => {
   if (body === 'main') {
     return (
       <div className="App">
-        <Navbar role={role} body={body} setBody={setBody} Cookies={Cookies} />
+        <Navbar body={body} setBody={setBody} Cookies={Cookies} />
         <div className='Body'>
           <Main setBody={setBody} />
         </div>
@@ -55,7 +54,7 @@ const App = () => {
       <div className="App">
         <Navbar body={body} setBody={setBody} Cookies={Cookies} />
         <div className='Body'>
-          <Login setRole={setRole} setBody={setBody} activeCalculator={activeCalculator} Cookies={Cookies} />
+          <Login setBody={setBody} activeCalculator={activeCalculator} Cookies={Cookies} />
         </div>
       </div>
     )

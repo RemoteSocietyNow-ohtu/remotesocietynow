@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import logo from '../../resources/logo512.png'
 import LanguageContext from '../../Contexts/LanguageContext'
 
-const Navbar = ({ role, body, setBody, Cookies }) => {
+const Navbar = ({ body, setBody, Cookies }) => {
 
   const language = useContext(LanguageContext)
 

@@ -4,7 +4,7 @@ import PasswordField from '../InputFields/PasswordField'
 import EmailField from '../InputFields/EmailField'
 import authenticationService from '../../services/authenticationService'
 
-const Login = ({ setRole, setBody, Cookies, activeCalculator }) => {
+const Login = ({ setBody, Cookies, activeCalculator }) => {
 
   const language = useContext(LanguageContext)
   const [error, setError] = useState('')
@@ -18,14 +18,13 @@ const Login = ({ setRole, setBody, Cookies, activeCalculator }) => {
     setPassword('')
     if (res.token) {
       setError('')
-      setRole(res.role)
-      if (res.token) {
-        Cookies.set('token', res.token, { expires: 7, sameSite: 'lax' })
-      }
-      if (res.adminToken) {
-        Cookies.set('adminToken', res.adminToken, { expires: 7, sameSite: 'lax' })
-      }
-      res.role === 'ADMIN' ? setBody('admin') : activeCalculator ? setBody(activeCalculator) : setBody('calculatorChoice')
+      Cookies.set('token', res.token, { expires: 7, sameSite: 'lax' })
+      activeCalculator ? setBody(activeCalculator) : setBody('calculatorChoice')
+    }
+    if (res.adminToken) {
+      setError('')
+      Cookies.set('adminToken', res.adminToken, { expires: 7, sameSite: 'lax' })
+      setBody('admin')
     }
     if (res.error) {
       setError(language.errors.invalidCredentials)
