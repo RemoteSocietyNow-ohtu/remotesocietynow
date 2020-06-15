@@ -67,7 +67,7 @@ const App = () => {
         <div className="App">
           <Navbar body={body} setBody={setBody} Cookies={Cookies} />
           <div className='Body'>
-            <Admin />
+            <Admin Cookies={Cookies} />
           </div>
         </div>
       )
