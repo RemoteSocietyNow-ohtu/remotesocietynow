@@ -4,7 +4,7 @@ const converter = require('json-2-csv')
 const User = require('../models/userSchema')
 const bcrypt = require('bcrypt')
 const url = databaseUrl.getDatabaseUrl()
-
+const parser = require('../util/schemaParser')
 
 const initializeAdmin = async() => {
   const saltrounds = 10
@@ -34,32 +34,24 @@ const connectToDatabase = async () => {
 }
 
 const dataToCSV = async (questions, model) => {
-  const objectArray = await model.find({})
-  const columnNames = []
-  questions.forEach(element => {
-    columnNames.push(element.identifyingString)
-  })
+  const data = await model.find({})
+  const dataModel = parser.parseSavedDataSchema(questions)
+  const columnNames = Object.keys(dataModel)
 
-  let options = {
-    keys: columnNames
-  }
+  let options = { keys: columnNames }
   
-  let str = await converter.json2csvAsync(objectArray, options)
+  let str = await converter.json2csvAsync(data, options)
   return str
 }
 
 const feedbackToCSV = async (questions, model) => {
-  const objectArray = await model.find({})
-  const columnNames = []
-  questions.forEach(element => {
-    columnNames.push(element.identifyingString + 'OpenField')
-  })
-
-  let options = {
-    keys: columnNames
-  }
+  const data = await model.find({})
+  const dataModel = parser.parseFeedBackSchema(questions)
+  const columnNames = Object.keys(dataModel)
+ 
+  let options = { keys: columnNames }
   
-  let str = await converter.json2csvAsync(objectArray, options)
+  let str = await converter.json2csvAsync(data, options)
   return str
 }
 
