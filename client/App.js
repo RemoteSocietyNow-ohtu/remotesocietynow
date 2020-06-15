@@ -28,7 +28,7 @@ const App = () => {
   const [currentCompanyQuestion, setCurrentCompanyQuestion] = useState(0) // Current question index
 
   const [success, setSuccess] = useState('')
- 
+
   if (body === 'main') {
     return (
       <div className="App">
@@ -45,7 +45,7 @@ const App = () => {
       <div className="App">
         <Navbar body={body} setBody={setBody} Cookies={Cookies} />
         <div className='Body'>
-          <SignUp setBody={setBody} />
+          <SignUp setBody={setBody} setSuccess={setSuccess} />
         </div>
       </div>
     )
@@ -55,6 +55,7 @@ const App = () => {
     return (
       <div className="App">
         <Navbar body={body} setBody={setBody} Cookies={Cookies} />
+        {success != '' && <p className='Success'>{success}</p>}
         <div className='Body'>
           <Login setBody={setBody} activeCalculator={activeCalculator} Cookies={Cookies} setSuccess={setSuccess} />
         </div>
@@ -92,11 +93,11 @@ const App = () => {
         <Navbar body={body} setBody={setBody} Cookies={Cookies} />
         <div className='Body'>
           {success != '' && <p className='Success'>{success}</p>}
-          <CalculatorChoice 
+          <CalculatorChoice
             setBody={setBody}
             setActiveCalculator={setActiveCalculator}
             acceptPrivacyPolicy={acceptPrivacyPolicy}
-            setAcceptPrivacyPolicy={setAcceptPrivacyPolicy} 
+            setAcceptPrivacyPolicy={setAcceptPrivacyPolicy}
             setCurrentCompanyQuestion={setCurrentCompanyQuestion}
             setCurrentPeopleQuestion={setCurrentPeopleQuestion}
           />
@@ -110,7 +111,7 @@ const App = () => {
       <div className="App">
         <Navbar body={body} setBody={setBody} Cookies={Cookies} />
         <div className='Body'>
-          <Calculator 
+          <Calculator
             questions={peopleQuestions}
             setQuestions={setPeopleQuestions}
             answers={peopleAnswers}
@@ -122,7 +123,7 @@ const App = () => {
             login={() => setBody('login')}
             signUp={() => setBody('signUp')}
             success={success}
-          />          
+          />
         </div>
       </div>
     )
@@ -133,7 +134,7 @@ const App = () => {
       <div className="App">
         <Navbar body={body} setBody={setBody} Cookies={Cookies} />
         <div className='Body'>
-          <Calculator 
+          <Calculator
             questions={companyQuestions}
             setQuestions={setCompanyQuestions}
             answers={companyAnswers}
