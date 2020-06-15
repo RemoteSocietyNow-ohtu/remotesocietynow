@@ -22,14 +22,16 @@ const initAnswerValues = questions => {
 }
 
 const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setResults, currentQuestion, setCurrentQuestion, isCompany, login, signUp, success }) => {
-  const [isLoading, setIsLoading] = useState(true)
-  const [hasErrored, setHasErrored] = useState(false)
-  const language = useContext(LanguageContext)
+  const [isLoading, setIsLoading] = useState(false)
+  const [hasErrored, setHasErrored] = useState(false)  
   const [newsletterOpen, setNewsletterOpen] = useState(false)
-  console.log('reload')
+  const language = useContext(LanguageContext)
+ 
   //Fetch questions and init question and aswer states
   useEffect(() => {
     const fetchQuesions = async () => {
+      setIsLoading(true)
+      setHasErrored(false)
       try {
         let res
         if (isCompany) {
@@ -38,7 +40,7 @@ const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setR
           res = await questionService.getQuestionsPeople()
         }
         setQuestions(res)
-        if (!answers) setAnwers(initAnswerValues(res))
+        setAnwers(initAnswerValues(res))
         setIsLoading(false)
         setHasErrored(false)
       } catch (error) {
@@ -47,9 +49,9 @@ const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setR
         console.log(error)
       }
     }
-    setIsLoading(true)
-    setHasErrored(false)
-    fetchQuesions()
+    if (questions.length === 0) {      
+      fetchQuesions()
+    }    
   }, [])
 
   // Return loading screen if question and aswer states are not ready
