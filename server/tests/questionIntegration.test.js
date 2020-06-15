@@ -1,11 +1,11 @@
 require('@babel/polyfill')
 const supertest = require('supertest')
 const app = require('../index')
-const questionsPeople = require('../services/questions/questionsPeople')
-const questionsCompanies = require('../services/questions/questionsCompanies')
+// const questionsPeople = require('../services/questions/questionsPeople')
+// const questionsCompanies = require('../services/questions/questionsCompanies')
 
 test('Dummy test', async () => {
-  const response = await supertest(app)
+  await supertest(app)
     .get('/questions/companies/')
   expect(1).toBe(1)
 })
