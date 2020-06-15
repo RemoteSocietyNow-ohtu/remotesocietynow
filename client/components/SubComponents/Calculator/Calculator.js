@@ -103,8 +103,7 @@ const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setR
             setResults={setResults}
             answers={answers}
             setAnwers={setAnwers}
-            isCompany={isCompany}
-            toFirstQuestion={() => setCurrentQuestion(0)}
+            isCompany={isCompany}            
           />
         }
         {currentQuestion <= questions.length && <div className='Calculator-content-right'>
@@ -115,7 +114,10 @@ const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setR
         
       </div>  
       {currentQuestion > questions.length && 
+      <>        
         <ContactInfo setNewsletterOpen={setNewsletterOpen} />
+        <a className='Send-answers-link' onClick={() => setCurrentQuestion(0)} >{language.buttons.getBackToQuestions}</a>
+      </>
       }    
       <NewsletterBox open={newsletterOpen} setOpen={setNewsletterOpen} />
     </div>
