@@ -19,7 +19,7 @@ const Login = ({ setBody, Cookies, activeCalculator }) => {
     if (res.token) {
       setError('')
       Cookies.set('token', res.token, { expires: 7, sameSite: 'lax' })
-      activeCalculator ? setBody(activeCalculator) : setBody('calculatorChoice')
+      res.role === 'ADMIN' ? setBody('admin') : activeCalculator ? setBody(activeCalculator) : setBody('calculatorChoice')
     }
     if (res.error) {
       setError(language.errors.invalidCredentials)
