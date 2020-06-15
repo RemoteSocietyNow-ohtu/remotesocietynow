@@ -1092,6 +1092,37 @@ td {
   text-align: left;
 }
 
+/* SignUpConfirmation */
+
+.SignUpConfirmation-container {
+  color: gainsboro;   
+  font-size: calc(1.4rem + 2px);
+  animation: 'fade 1s ease-in';
+  min-width: 14rem;
+  max-width: 25%;
+  margin: auto;
+  margin-top: 8%;
+  text-align: center;
+}
+
+.SignUpConfirmation-button {
+  margin-top: 2em;
+  min-width: 12rem;
+  max-width: 30%;
+  height: 70px;
+  font-family: 'PT Root';
+  font-size: large;
+  background-color: #cae8d5;
+  border: none;
+  border-radius: 5px 25px;
+  text-decoration: none;
+  margin: auto; 
+}
+
+.SignUpConfirmation-button:hover {
+  background-color: #84a9ac;
+}
+
 /* Admin */
 .Admin-container {
   color: gainsboro;   

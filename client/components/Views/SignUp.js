@@ -25,7 +25,7 @@ const SignUp = ({ setBody }) => {
         setEmail('')
         setPassword('')
         setConfirmPassword('')
-        setBody('login')
+        setBody('signUpConfirmation')
       }
     } else {
       setError('Passwords do not match.')

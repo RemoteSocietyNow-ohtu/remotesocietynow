@@ -7,6 +7,7 @@ import GDPRCompliance from './components/Views/GDPRCompliance'
 import PrivacyPolicy from './components/Views/PrivacyPolicy'
 import CalculatorChoice from 'Components/Views/CalculatorChoice'
 import SignUp from './components/Views/SignUp'
+import SignUpConfirmation from './components/Views/SignUpConfirmation'
 import Login from './components/Views/Login'
 import Admin from './components/Views/Admin'
 import Cookies from 'js-cookie'
@@ -44,6 +45,17 @@ const App = () => {
         <Navbar body={body} setBody={setBody} Cookies={Cookies} />
         <div className='Body'>
           <SignUp setBody={setBody} />
+        </div>
+      </div>
+    )
+  }
+
+  if (body === 'signUpConfirmation') {
+    return (
+      <div className="app">
+        <Navbar body={body} setBody={setBody} Cookies={Cookies} />
+        <div className='Body'>
+          <SignUpConfirmation setBody={setBody} />
         </div>
       </div>
     )
