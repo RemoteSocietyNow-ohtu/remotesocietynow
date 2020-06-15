@@ -594,6 +594,11 @@ td {
   cursor: pointer;
   display: flex;
   align-items: center;
+  text-decoration: none;
+}
+
+.Calculator-results-bottom-bar a {   
+  color: whitesmoke;
 }
 
 .Calculator-results-bottom-bar-button:hover {  

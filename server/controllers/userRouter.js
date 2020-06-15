@@ -49,11 +49,11 @@ userRouter.post('/login/', async (req, res) => {
   if (user.role === 'ADMIN') {
     res
       .status(200)
-      .send({ adminToken: token, username: user.username, role: user.role})
+      .send({ adminToken: token, username: user.username})
   } else {
     res
       .status(200)
-      .send({ token, username: user.username, role: user.role})
+      .send({ token, username: user.username})
   }
 })
 
