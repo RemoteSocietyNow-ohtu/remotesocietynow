@@ -20,6 +20,9 @@ const Login = ({ setBody, Cookies, activeCalculator, setSuccess }) => {
       setError('')
       Cookies.set('token', res.token, { expires: 7, sameSite: 'lax' })
       setSuccess(language.success.loggedIn)
+      setTimeout(() => {
+        setSuccess('')
+      }, 5000)
       activeCalculator ? setBody(activeCalculator) : setBody('calculatorChoice')
     }
     if (res.adminToken) {

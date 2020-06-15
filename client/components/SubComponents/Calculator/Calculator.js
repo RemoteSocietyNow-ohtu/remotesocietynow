@@ -71,6 +71,7 @@ const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setR
 
   return (
     <div>
+      {success != '' && <p className='Success'>{success}</p>}
       <div className='Calculator-container'>
         {currentQuestion <= questions.length &&
         <div className='Calculator-content-left'>
@@ -92,7 +93,6 @@ const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setR
               answers={answers}
               login={login}
               signUp={signUp}
-              success={success}
             />
           }
         </div>

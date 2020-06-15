@@ -26,6 +26,9 @@ const SignUp = ({ setBody, setSuccess }) => {
         setPassword('')
         setConfirmPassword('')
         setSuccess(language.success.accountCreated)
+        setTimeout(() => {
+          setSuccess('')
+        }, 5000)
         setBody('login')
       }
     } else {
