@@ -1,14 +1,30 @@
 import React, { useContext } from 'react'
 import LanguageContext from '../../Contexts/LanguageContext'
 import Toggle from 'react-toggle'
+import fileService from '../../services/fileService'
 
 const Admin = () => {
 
-  const baseurl = process.env.REACT_APP_BACKEND_URL ? process.env.REACT_APP_BACKEND_URL : ''
   const language = useContext(LanguageContext)
 
   const toggleSaveToDatabase = () => {
     // todo
+  }
+
+  const getCompanyData = async () => {
+    await fileService.getCompanyCSV()
+  }
+
+  const getEmployeeData = async () => {
+    await fileService.getEmployeeCSV()
+  }
+
+  const getCompanyFeedbackData = async () => {
+    await fileService.getCompanyFeedbackCSV()
+  }
+
+  const getEmployeeFeedbackData = async () => {
+    await fileService.getEmployeeFeedbackCSV()
   }
 
   return (
@@ -23,10 +39,10 @@ const Admin = () => {
         </label>
         <h5>{language.headers.downloadFiles}</h5>
         <div className='Admin-download-buttons-div'>
-          <a href={`${baseurl}/api/files/companyCSV`}><button className='Admin-download-button'>{language.buttons.downloadCompanies}</button></a>
-          <a href={`${baseurl}/api/files/employeeCSV`}><button className='Admin-download-button'>{language.buttons.downloadPersons}</button></a>
-          <a href={`${baseurl}/api/files/companyFeedbackCSV`}><button className='Admin-download-button'>{language.buttons.downloadCompanyFeedback}</button></a>
-          <a href={`${baseurl}/api/files/employeeFeedbackCSV`}><button className='Admin-download-button'>{language.buttons.downloadPersonsFeedback}</button></a>
+          <button className='Admin-download-button' onClick={() => getCompanyData()}>{language.buttons.downloadCompanies}</button>
+          <button className='Admin-download-button' onClick={() => getEmployeeData()}>{language.buttons.downloadPersons}</button>
+          <button className='Admin-download-button' onClick={() => getCompanyFeedbackData()}>{language.buttons.downloadCompanyFeedback}</button>
+          <button className='Admin-download-button' onClick={() => getEmployeeFeedbackData()}>{language.buttons.downloadPersonsFeedback}</button>
         </div>
       </div>
     </div>
