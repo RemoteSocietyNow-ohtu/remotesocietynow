@@ -14,7 +14,7 @@ const Navbar = ({ body, setBody, Cookies }) => {
         <nav className='Navbar-navigation'>
           <img className='Navbar-logo' src={logo} alt='RemoteSocietyNow' onClick={() => setBody('main')} />
           {Cookies.get('adminToken') && <p className='Navbar-sign-in' onClick={() => setBody('admin')}>{language.buttons.admin}</p>}
-          {!Cookies.get('token') && <div className='Navbar-authentication-div'>
+          {!Cookies.get('token') && !Cookies.get('adminToken') && <div className='Navbar-authentication-div'>
             {body !== 'login' && <button className='Navbar-login-button' onClick={() => setBody('login')}>Login</button>}
             {body !== 'signUp' && <p className='Navbar-sign-in' onClick={() => setBody('signUp')}>{language.buttons.signUp}</p>}
           </div>}
