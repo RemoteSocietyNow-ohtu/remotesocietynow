@@ -48,7 +48,7 @@ userRouter.post('/login/', async (req, res) => {
 
   res
     .status(200)
-    .send({ token, username: user.username})
+    .send({ token, username: user.username, role: user.role})
 })
 
 module.exports = userRouter
