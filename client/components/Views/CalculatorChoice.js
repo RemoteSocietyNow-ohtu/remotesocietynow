@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import LanguageContext from '../../Contexts/LanguageContext'
 import PrivacyCheckbox from 'Components/InputFields/PrivacyCheckbox'
 
