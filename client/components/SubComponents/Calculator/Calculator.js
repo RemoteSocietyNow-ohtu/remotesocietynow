@@ -26,7 +26,7 @@ const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setR
   const [hasErrored, setHasErrored] = useState(false)
   const language = useContext(LanguageContext)
   const [newsletterOpen, setNewsletterOpen] = useState(false)
-
+  console.log('reload')
   //Fetch questions and init question and aswer states
   useEffect(() => {
     const fetchQuesions = async () => {
@@ -38,7 +38,7 @@ const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setR
           res = await questionService.getQuestionsPeople()
         }
         setQuestions(res)
-        setAnwers(initAnswerValues(res))
+        if (!answers) setAnwers(initAnswerValues(res))
         setIsLoading(false)
         setHasErrored(false)
       } catch (error) {
