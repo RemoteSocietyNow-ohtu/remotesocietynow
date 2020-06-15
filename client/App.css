@@ -96,6 +96,15 @@ td {
   border: none;
 }
 
+.Navbar-logout-button {
+  background: #cae8d5;
+  color: #204051;
+  width:4rem;
+  height: 2rem;
+  border-radius: 2px 10px;
+  border: none;
+}
+
 .Navbar-login-button:hover {
   background-color: #84a9ac;
 }
