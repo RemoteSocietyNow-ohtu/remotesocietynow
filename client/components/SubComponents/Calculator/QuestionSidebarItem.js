@@ -7,7 +7,7 @@ const QuestionSidebarItem = ({ question, answers, questions, currentQuestion, se
     if(question.options && question.options.find(q => q.value === answers[question.identifyingString])) {
       return question.options.find(q => q.value === answers[question.identifyingString]).string
     }
-    return answers[question.identifyingString]
+    return answers[question.identifyingString] !== '' ? answers[question.identifyingString] : '-'
   }
 
   if (questions[currentQuestion] && questions[currentQuestion].identifyingString === question.identifyingString) {
