@@ -63,7 +63,7 @@ export const english = {
     login: 'Login',
     tryAgain: 'Please try again',
     contactUs: 'Contact us',
-    getBackToQuestions: 'Get back to questions',
+    getBackToQuestions: 'Back to questions',
     downloadCompanies: 'Company Data',
     downloadPersons: 'Person Data',
     downloadCompanyFeedback: 'Feedback (Company)',

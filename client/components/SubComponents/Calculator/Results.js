@@ -11,7 +11,7 @@ import co2SavedIcon from '../../../resources/co2-saved-icon.png'
 import moneySavedIcon from '../../../resources/money-saved-icon.png'
 import moneySpentIcon from '../../../resources/money-spent-icon.png'
 
-const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
+const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurrentQuestion }) => {
   const language = useContext(LanguageContext)
   const [error, setError] = useState(false)
   const [sliderValue, setSliderValue] = useState(0)
@@ -61,6 +61,7 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
   return (
     <div className='Calculator-results-container' style={{ animation: 'none' }}>
       <div className='Calculator-results-left'>
+        <a className='Send-answers-link' onClick={() => setCurrentQuestion(0)} >{language.buttons.getBackToQuestions}</a>
         <h1>{language.headers.yourResults}</h1>
         {
           results.map(result =>
