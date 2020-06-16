@@ -109,6 +109,12 @@ const questionsPeople = [
     minValue: 0,
     unit: 'hours',
     dataType: Number
+  },
+  {
+    identifyingString:'howWouldYouChangeWorkArrangements',
+    name:'If you had a superpower, what would you change in your company\'s work arrangements? And how?',
+    type: 'textArea',
+    dataType: String
   }
 ]
 
