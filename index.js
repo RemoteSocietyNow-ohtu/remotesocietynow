@@ -12,9 +12,10 @@ const { PORT, inProduction } = require('@util/common')
 
 const app = express()
 
+app.enable('trust proxy')
 app.use('*', (req, res, next) => {
   console.log(req.protocol)
-  if(req.secure) {
+  if(req.secure === true) {
     console.log('secure')
     next()
   } else {
