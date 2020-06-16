@@ -21,6 +21,9 @@ Backend tests are located `/tests`.
 Tests are diveded to subfolders following the structure of actual sourcefiles. ie. tests covering calculator services are located at `/tests/services/`.
 
 ## CI ##
-Pushing to Github master branch will trigger Travis CI to run tests, linting and make a build of frontend. If succesfull the app is deployed to Heroku for staging and can be run at: https://remotesocietynow.herokuapp.com/
+- Pushing to Github master branch will trigger Travis CI to run tests, lint and make a build of frontend. 
+- If succesfull the app is deployed to Heroku for staging and can be run at: https://remotesocietynow.herokuapp.com/. 
+- Production version is also running in Heroku, https://remotesocietynow.herokuapp.com/. 
+- Staging version can manually be promoted to production in Heroku dashboad.
 
-![CI pipeline](https://github.com/RemoteSocietyNow-ohtu/remotesocietynow/blob/master/docs/CI-flow.png)
+Local -> (push to master) -> Github -> Travis CI -> Heroku staging -> (promote) -> Heroku production
