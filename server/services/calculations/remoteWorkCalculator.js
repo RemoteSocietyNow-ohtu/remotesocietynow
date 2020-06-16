@@ -54,12 +54,9 @@ const calculateBenefitsForPerson = (distance,daysFirst,daysSecond,firstVehicle,s
   const trainDaysPerWeek = vehicleDaysPerWeek('train', firstVehicle, secondVehicle, daysFirst, daysSecond)
   const trainCostPerMonth = Math.min(seasonalTrainTicketPrice, trainDaysPerWeek * trainTicketPrice * 2 * 365/52)
 
-
   const totalCostPerYear = Math.floor(busCostPerMonth * 12 + carCostPerYear + trainCostPerMonth * 12)
 
   const moneySavedPerYear = (remoteDays > (daysFirst+daysSecond) ? 1 : (remoteDays/(daysFirst+daysSecond)))*totalCostPerYear
-
-  
 
   const result = [
     {
@@ -90,20 +87,22 @@ const calculateBenefitsForPerson = (distance,daysFirst,daysSecond,firstVehicle,s
 /** Calculate money savings for company based on calculations at https://docs.google.com/spreadsheets/d/1Webbfedw-tmu-4WKUP6FB50YgrQR_gDCCqT1QPpErhA/edit#gid=103523188
  * (not automatically updated from the spreadsheet)
  */
-const calculateBenefitsForCompany = (rent, officeUpkeep, employees, remoteShare, averageCarHours, energyCost, energySource, averageFlightHours) => {
-  const expenses = parseInt(rent) + parseInt(officeUpkeep)
+const calculateBenefitsForCompany = (rent, officeUpkeep, employees, remoteShare, averageCarHours, energyCost, energySource, averageFlightHours, totalCommutingSubsidies) => {
+  const expenses = parseInt(rent) + parseInt(officeUpkeep) + parseInt(totalCommutingSubsidies)
 
+  const kWhToMJConversionFactor = 3.6
   const energyPriceEuroPerKWh = 0.05
-  const energyAmount = energyCost/energyPriceEuroPerKWh
-  const energyEmissions = (energySource !== '' && energyAmount.isNan) ? energyAmount * co2Coefficients[energySource] : 0
+  const energyAmountInMJ = energyCost / energyPriceEuroPerKWh / kWhToMJConversionFactor
+  const energyEmissions = (energySource !== '' && !energyAmountInMJ.isNaN) ? energyAmountInMJ * co2Coefficients[energySource] : 0
 
-  const averageCo2PerKm = co2Coefficients['car']
-  const averageSpeed = 45
-  const averageCo2PerHourFlight = 9900
+  const averageCo2PerKmByCar = co2Coefficients['car']
+  const averageCarSpeed = 45
+  const averagePlaneSpeed = 926
+  const averageCo2PerHourFlight = averagePlaneSpeed * co2Coefficients['plane']
   const flightEmissions = employees * averageCo2PerHourFlight * averageFlightHours
-  const averageCo2PerHour = averageCo2PerKm * averageSpeed
-  const co2FromCarCommute = employees * averageCo2PerHour * averageCarHours
-  const totalCo2Emissions = remoteShare*(co2FromCarCommute + energyEmissions + flightEmissions)*12
+  const averageCo2PerHourByCar = averageCo2PerKmByCar * averageCarSpeed
+  const co2FromCarCommute = employees * averageCo2PerHourByCar * averageCarHours
+  const totalCo2Emissions = remoteShare * (co2FromCarCommute + energyEmissions + flightEmissions) * 12 / 100
 
   const totalExpenses = expenses * 12
   const moneySaved = remoteShare*totalExpenses/100
@@ -129,9 +128,7 @@ const calculateBenefitsForCompany = (rent, officeUpkeep, employees, remoteShare,
       unit: 'kg',
       bartype: 'nobar'
     }
-        
   ]
-
   return(result)
 }
 

@@ -47,14 +47,16 @@ const questionsCompanies = [
   },
   {
     identifyingString:'energySource',
-    name: 'Which energy source is primarily used in your office(s)?',
+    name: 'What energy source is primarily used for electricity in your office(s)?',
     type: 'multipleChoice',
     options: [
       {string: 'Solar energy', value: 'solar'},
       {string: 'Wind energy', value: 'wind'},
-      {string: 'Geothermal energy', value: 'geothermal'},
-      {string: 'Hydrogen energy', value: 'hydrogen'},
-      {string: 'Biomass energy', value: 'biomass'},
+      {string: 'Hydro power', value: 'hydro'},
+      {string: 'Biomass', value: 'biomass'},
+      {string: 'Coal', value: 'coal'},
+      {string: 'Natural gas', value: 'natgas'},
+      {string: 'Nuclear energy', value: 'nuclear'},
       {string: 'Mixed', value: 'mixed'},
     ],
     dataType: String
