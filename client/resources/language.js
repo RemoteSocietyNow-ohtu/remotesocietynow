@@ -23,6 +23,7 @@ export const english = {
     adminHeader: 'Admin Panel', 
     finishedWithQuestions: 'Great! We are finished with the questions.',
     downloadFiles: 'Download .csv',
+    yourResults: 'Your Results',
   },
   content: {
     main: 'The Most Enjoyable Way to Save the Planet! While making more money and saving time.',

@@ -61,7 +61,7 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
   return (
     <div className='Calculator-results-container' style={{ animation: 'none' }}>
       <div className='Calculator-results-left'>
-        <h1>Your Results</h1>
+        <h1>{language.headers.yourResults}</h1>
         {
           results.map(result =>
             <div key={result.title}>
@@ -72,7 +72,7 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
                   {!isCompany && result.bartype === 'nobar' && <img className='Calculator-resultbar-icon' src={moneySavedIcon} alt='Money saved icon' />}
                   {isCompany && result.bartype === 'greenbar' && <img className='Calculator-resultbar-icon' src={moneySavedIcon} alt='Money saved icon' />}
                   {isCompany && result.bartype === 'redbar' && <img className='Calculator-resultbar-icon' src={moneySpentIcon} alt='Money spent icon' />}
-                  {isCompany  && result.bartype === 'nobar' && <img className='Calculator-resultbar-icon' src={co2SavedIcon} alt='Pollution icon' />}
+                  {isCompany && result.bartype === 'nobar' && <img className='Calculator-resultbar-icon' src={co2SavedIcon} alt='Pollution icon' />}
                   <p className='Calculator-result-countup'><b></b><CountUp duration={.8} end={result.value ? result.value : 0} /> {result.unit}</p>
                 </div>
                 <p className='Calculator-results-result-title'>{result.title}</p>
@@ -107,8 +107,8 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany }) => {
           <p className='Calculator-results-slidertext'>{language.headers.workDoneRemotelyPercent}</p> // If this is results for a company use percents
           : <p className='Calculator-results-slidertext'>{language.headers.workDoneRemotelyDays}</p>
         }
-        
-      </div>      
+
+      </div>
     </div>
   )
 }
