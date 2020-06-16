@@ -77,7 +77,6 @@ calculationRouter.post('/company/:save?', async (req, res) => {
   const rent = +req.body.officeRentExpenses
   const officeUpkeep = +req.body.otherUpkeepExpenses
   const employees = +req.body.numberOfEmployees
-  const businessTravelCost = +req.body.averageBusinessTripCost
   const remoteShare = req.body.remoteShare ? req.body.remoteShare : 0
   const averageCarHours = +req.body.averageCarHours
   const energyCost = +req.body.energyCost
@@ -98,7 +97,7 @@ calculationRouter.post('/company/:save?', async (req, res) => {
   
   /* Calls the calculateBenefitsForCompany in /services/calculations/remoteWorkCalculator for emissions calculation 
     using parameters gathered above*/
-  const result = remoteWorkCalculator.calculateBenefitsForCompany(rent, officeUpkeep, employees, businessTravelCost, remoteShare, averageCarHours, energyCost, energySource, averageFlightHours)
+  const result = remoteWorkCalculator.calculateBenefitsForCompany(rent, officeUpkeep, employees, remoteShare, averageCarHours, energyCost, energySource, averageFlightHours)
 
   /* Calls storeCompanyData in /server/database/database.js to save all company input to database. */
   if (req.params.save === 'save') {

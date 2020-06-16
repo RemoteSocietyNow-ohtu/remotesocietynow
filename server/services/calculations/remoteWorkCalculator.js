@@ -14,7 +14,7 @@ const vehicleDaysPerWeek = (vehicle, firstVehicle, secondVehicle, daysFirst, day
   return (firstVehicle === vehicle ? daysFirst : secondVehicle === vehicle ? daysSecond : 0)
 }
 
-/** Calculate co2 savings for person based on calculations at https://docs.google.com/spreadsheets/d/1Webbfedw-tmu-4WKUP6FB50YgrQR_gDCCqT1QPpErhA/edit#gid=0
+/** Calculate co2 savings for persone based on calculations at https://docs.google.com/spreadsheets/d/1Webbfedw-tmu-4WKUP6FB50YgrQR_gDCCqT1QPpErhA/edit#gid=0
  * (not automatically updated from the spreadsheet)
  */
 const calculateBenefitsForPerson = (distance,daysFirst,daysSecond,firstVehicle,secondVehicle,remoteDays) =>{
@@ -92,8 +92,6 @@ const calculateBenefitsForPerson = (distance,daysFirst,daysSecond,firstVehicle,s
  */
 const calculateBenefitsForCompany = (rent, officeUpkeep, employees, remoteShare, averageCarHours, energyCost, energySource, averageFlightHours) => {
   const expenses = parseInt(rent) + parseInt(officeUpkeep)
-
-  // SELVITÄ MISTÄ ERRORI JOHTUU!
 
   const energyPriceEuroPerKWh = 0.05
   const energyAmount = energyCost/energyPriceEuroPerKWh
