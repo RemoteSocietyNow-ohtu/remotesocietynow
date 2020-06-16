@@ -14,9 +14,11 @@ const app = express()
 
 app.use('*', (req, res, next) => {
   console.log(req.protocol)
-  if(req.protocol === 'https') {
+  if(req.secure) {
+    console.log('secure')
     next()
   } else {
+    console.log('unsecure')
     res.redirect('https://' + req.headers.host + req.url)
   }
 })
