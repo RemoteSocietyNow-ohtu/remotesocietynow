@@ -41,7 +41,7 @@ const questionsCompanies = [
   },
   {
     identifyingString:'energyCost',
-    name: 'How high is your office energy cost per month (€)?',
+    name: 'How high (€) is your office energy cost per month (including heating)?',
     type: 'number',
     minValue: 0,
     unit: 'euros',
@@ -61,7 +61,7 @@ const questionsCompanies = [
     ],
     dataType: String
   },
-  {
+  /*{
     identifyingString:'heatingCost',
     name: 'How high is your office’s heating cost per month (€)?',
     type: 'number',
@@ -81,10 +81,10 @@ const questionsCompanies = [
       {string: 'Solar heating', value: 'solar'}
     ],
     dataType: String
-  },
+  },*/
   {
     identifyingString:'otherUpkeepExpenses',
-    name: 'How high are your company\'s other office-related costs per month(€)? ',
+    name: 'How high (€) are your company\'s other office-related costs per month (cleaning, printing etc.)?',
     type: 'number',
     minValue: 0,
     unit: 'euros',
@@ -153,6 +153,12 @@ const questionsCompanies = [
   {
     identifyingString:'remoteWorkDisadvantages',
     name: 'What have been the biggest disadvantages of remote work for your company?',
+    type: 'textArea',
+    dataType: String
+  },
+  {
+    identifyingString:'howWouldYouChangeWorkArrangements',
+    name:'If you had a superpower, what would you change in your company\'s work arrangements? And how?',
     type: 'textArea',
     dataType: String
   }

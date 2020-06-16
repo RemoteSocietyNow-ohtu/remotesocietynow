@@ -25,6 +25,11 @@ td {
   font-family: PT Root Heading;
 }
 
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgba(211, 211, 211, 0.555);
+  opacity: 1; /* Firefox */
+}
+
 .App {
   text-align: center;
   font-family: PT Root;
@@ -475,7 +480,7 @@ td {
 }
 
 .Calculator-feedback-header {
-  font-size: 1em;
+  font-size: 1rem;
   font-weight: normal;
   margin-top: 0;
 }
@@ -907,6 +912,7 @@ td {
   resize: none;
   border-radius: 5px;
 }
+
 
 .Calculator-comment-field {
   background-color: #3b6978;
