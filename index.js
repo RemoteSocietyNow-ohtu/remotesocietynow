@@ -14,13 +14,10 @@ const app = express()
 
 app.enable('trust proxy')
 app.use('*', (req, res, next) => {
-  console.log(req.protocol)
-  if(req.secure === true) {
-    console.log('secure')
-    next()
-  } else {
-    console.log('unsecure')
+  if(req.secure === false && inProduction == true) {
     res.redirect('https://' + req.headers.host + req.url)
+  } else {   
+    next()
   }
 })
 
