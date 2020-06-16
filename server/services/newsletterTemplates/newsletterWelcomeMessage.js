@@ -1,3 +1,5 @@
+const mailConfig = require('../../../config/mailConfig')
+
 const subject = 'RemoteSocietyNow-newsletter Subscription'
 const body = 
 '<h1>Thank you for subscribing to RemotesocietyNow&quot;s newsletter!</h1>\
@@ -7,7 +9,7 @@ const body =
 <p>And as always, you can contact us and we can help you and your company to achieve your goals.</p>\
 \
 <p>Contact info:</p>\
-<p>' + process.env.CONTACT_MAIL + '</p>\
+<p>' + mailConfig.CONTACT_MAIL + '</p>\
 \
 <p>Remote work.\
 Potential impact: Big shift in the way society works, globally.\

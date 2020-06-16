@@ -1,24 +1,17 @@
 const nodemailer = require('nodemailer')
 const util = require('util')
+const mailConfig = require('../../../config/mailConfig')
 
 let transporter
  
 const createTransport = async () => {
-  let mailConfig
+  let config
   if (process.env.NODE_ENV === 'production' ) {
-    mailConfig = {
-      host: 'smtp.gmail.com',
-      port: 465,
-      secure: true, // use SSL
-      auth: {
-        user: process.env.MAIL_USERNAME,
-        pass: process.env.MAIL_PASSWORD
-      }
-    }
+    config = mailConfig.productionMailConfig
   } else {  
     const createTestAccount = util.promisify(nodemailer.createTestAccount)
     const testAccout = await createTestAccount()
-    mailConfig = {
+    config = {
       host: 'smtp.ethereal.email',
       port: 587,
       auth: {
@@ -27,7 +20,7 @@ const createTransport = async () => {
       }
     }
   }
-  transporter = nodemailer.createTransport(mailConfig)
+  transporter = nodemailer.createTransport(config)
 }
 
 const sendMail = async (mailOptions) => {

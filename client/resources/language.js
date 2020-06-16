@@ -1,3 +1,5 @@
+import mailConfig from '../../config/mailConfig'
+
 export const english = {
   name: 'English',
   headers: {
@@ -32,7 +34,7 @@ export const english = {
       'You can have your data deleted from records.',
       'You’re allowed to refuse data processing, for example, marketing efforts.'
     ],
-    contactInfo: 'Any inquiries can be directed to remotesocietynow@protonmail.com',
+    contactInfo: 'Any inquiries can be directed to ' + mailConfig.CONTACT_MAIL,
     authenticationLabelEmail: 'Email',
     authenticationLabelPassword: 'Password',
     authenticationLabelConfirmPassword: 'Confirm Password',
@@ -131,7 +133,7 @@ export const english = {
       dataAccess: 'In the case of RemoteSocietyNow surveys, the personal information collected (name and email address) are stored as long as the profile is active.  \
     Regarding survey responses, we store the personal information securely. \
     Respondents can request access to their personal data being stored by us. \
-    Please contact us at EMAIL HERE if you want to access, update, correct or delete your personal data.',
+    Please contact us at ' + mailConfig.CONTACT_MAIL + ' if you want to access, update, correct or delete your personal data.',
       cookiesHeading: '3. Cookies',
       cookies: 'Cookies are files with small amount of data that are commonly used as an anonymous unique identifier. \
     These are sent to your browser from the website that you visit and are stored on your computer’s hard drive. \
@@ -139,7 +141,7 @@ export const english = {
     You have the option to either accept or refuse these cookies, and know when a cookie is being sent to your computer. \
     If you choose to refuse our cookies, you may not be able to use some portions of our website.',
       contactHeading: '4. Contact us',
-      contact: 'If you have any questions about this Privacy Policy, please contact us under EMAIL HERE'
+      contact: 'If you have any questions about this Privacy Policy, please contact us under ' + mailConfig.CONTACT_MAIL
     }
   }
 }
