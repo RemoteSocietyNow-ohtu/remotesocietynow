@@ -60,6 +60,14 @@ const questionsCompaniesFinnish = [
     ],
     dataType: String
   },
+  /*{
+    identifyingString:'heatingCost',
+    name: 'Kuinka paljon yrityksesi maksaa toimiston lämmityksestä ja/tai jäähdytyksestä kuussa (€)?',
+    type: 'number',
+    minValue: 0,
+    unit: 'euroa',
+    dataType: Number
+  },
   {
     identifyingString:'heatingSource',
     name: 'Mikä on toimistonne lämmityksen ja jäähdytyksen energianlähde?',
@@ -73,6 +81,7 @@ const questionsCompaniesFinnish = [
     ],
     dataType: String
   },
+  */
   {
     identifyingString:'otherUpkeepExpenses',
     name: 'Kuinka korkeat ovat yrityksenne muut toimistoon liittyvät kuukausittaiset kustannukset (€)?',
@@ -150,7 +159,7 @@ const questionsCompaniesFinnish = [
     dataType: String
   },
   {
-    identifyingString:'workArrangementChanges',
+    identifyingString:'howWouldYouChangeWorkArrangements',
     name: 'Jos sinulla olisi supervoimia, mitä muuttaisit yrityksesi työskentelyjärjestelyissä?',
     type: 'textArea',
     dataType: String

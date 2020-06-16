@@ -14,7 +14,6 @@ const questionsCompanies = [
     unit: 'employees',
     dataType: Number
   },
-  
   {
     identifyingString:'officeRentExpenses',
     name: 'How high are your company\'s monthly office rent expenses (€)? ',
@@ -31,7 +30,6 @@ const questionsCompanies = [
     unit: 'euros',
     dataType: String
   },
-  
   {
     identifyingString:'topEnergyActivities',
     name: 'List your company’s top 5 biggest energy consuming activities? (biggest first) ',
