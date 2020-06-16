@@ -8,7 +8,7 @@ import LanguageContext from '@root/client/Contexts/LanguageContext'
 import Stepper from './Stepper'
 import ContactInfo from './ContactInfo'
 import NewsletterBox from '../Newsletter/NewsletterBox'
-import SendAnswers from 'Components/Views/SendAnswers'
+import SendAnswers from 'Components/SubComponents/Calculator/SendAnswers'
 
 //answerValues get initial values. It is default value if such is available, otherwise empty string
 const initAnswerValues = questions => {
