@@ -426,11 +426,11 @@ td {
   margin: auto;
 }
 
-.Calculator-content-left {
-  font-size: calc(1px + 3vmin);
+.Calculator-content-left {  
   width: 36rem; 
   margin:auto; 
-  margin-top: 15%; 
+  margin-top: 15vh;
+   
 }
 @media (max-width: 756px) {
   .Calculator-content-left {       
