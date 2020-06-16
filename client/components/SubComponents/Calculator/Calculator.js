@@ -89,7 +89,8 @@ const Calculator = ({ questions, setQuestions, answers, setAnwers, results, setR
             />
             :
             <SendAnswers 
-              nextQuestion={() => setCurrentQuestion(currentQuestion + 1)}              
+              nextQuestion={() => setCurrentQuestion(currentQuestion + 1)}
+              previousQuestion={() => setCurrentQuestion(currentQuestion - 1)}           
               setResults={setResults}
               isCompany={isCompany}
               answers={answers}

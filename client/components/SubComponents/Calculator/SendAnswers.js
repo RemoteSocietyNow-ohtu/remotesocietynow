@@ -2,12 +2,14 @@ import React, { useContext } from 'react'
 import SendAnswersButton from './SendAnswersButton'
 import Cookies from 'js-cookie'
 import LanguageContext from '@root/client/Contexts/LanguageContext'
+import leftArrow from '../../../resources/arrow-left.png'
 
-const SendAnswers = ({ setResults, nextQuestion, isCompany, answers, login, signUp }) => {
+const SendAnswers = ({ setResults, nextQuestion, previousQuestion, isCompany, answers, login, signUp }) => {
   const language = useContext(LanguageContext)
 
   return (
     <div className='Send-answers-container'>
+      <img className='Calculator-arrow-icon' src={leftArrow} onClick={() => previousQuestion()} alt='Back to questions' />
       <h2 className='Send-answers-header'>{language.headers.finishedWithQuestions}</h2>
       {
         Cookies.get('token') 
