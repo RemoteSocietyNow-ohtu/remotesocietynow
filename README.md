@@ -24,6 +24,14 @@ You and your company actually earn real money and save time, plus productivity i
 
 [Coding conventions](./docs/conventions.md)
 
+## CI ##
+- Pushing to Github master branch will trigger Travis CI to run tests, lint and make a build of frontend. 
+- If succesfull the app is deployed to Heroku for staging and can be run at: https://remotesocietynow.herokuapp.com/. 
+- Production version is also running in Heroku, https://remotesocietynow.herokuapp.com/. 
+- Staging version can manually be promoted to production in Heroku dashboad.
+
+Local -> (push to master) -> Github -> Travis CI -> Heroku staging -> (promote) -> Heroku production
+
 ## Project material ##
 [Product backlog](https://docs.google.com/spreadsheets/d/1H6ewmum8H_-1ys8o97zC2eXteDIf6e95wRCZ0LieV_k/edit#gid=0)
 
