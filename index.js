@@ -12,6 +12,7 @@ const { PORT, inProduction } = require('@util/common')
 
 const app = express()
 
+// Redirect HTTP -> HTTPS
 app.enable('trust proxy')
 app.use('*', (req, res, next) => {
   if(req.secure === false && inProduction == true) {
