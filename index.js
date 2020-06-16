@@ -12,6 +12,15 @@ const { PORT, inProduction } = require('@util/common')
 
 const app = express()
 
+app.use('*', (req, res, next) => {
+  console.log(req.protocol)
+  if(req.protocol === 'https') {
+    next()
+  } else {
+    res.redirect('https://' + req.headers.host + req.url)
+  }
+})
+
 // Require is here so we can delete it from cache when files change (*)
 app.use('/api', (req, res, next) => require('@root/server')(req, res, next)) // eslint-disable-line
 
