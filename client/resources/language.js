@@ -44,9 +44,9 @@ export const english = {
     newsletterThanksForSubscribing: 'You will soon recieve a welcome email.',
     weAreCommitted: 'We at RemoteSocietyNow are committed to work for better environment and to help you save money! Please take contact and we can find out how we can help make your remote work impact better.',
     answersWillBeSaved: 'You are logged in and your answers will be saved. You will be able to get back to them later.',
-    ifYouwouldLikeToSavePartOne: 'If you would like to save your answers and results in order to get back to them later, please take a step to',
+    ifYouwouldLikeToSavePartOne: 'If you would like to save your answers and results in order to get back to them later, please take a step to ',
     or: ' or ',
-    ifYouwouldLikeToSavePartTwo: 'before calculating your results. You can also continue without logging in.'
+    ifYouwouldLikeToSavePartTwo: ' before calculating your results. You can also continue without logging in.'
   },
   buttons: {
     calculate: 'View Results',
