@@ -16,7 +16,7 @@ const app = express()
 app.enable('trust proxy')
 app.use('*', (req, res, next) => {
   if(req.secure === false && inProduction == true) {
-    res.redirect('https://' + req.headers.host + req.url)
+    res.redirect(301, 'https://' + req.headers.host + req.url)
   } else {   
     next()
   }
