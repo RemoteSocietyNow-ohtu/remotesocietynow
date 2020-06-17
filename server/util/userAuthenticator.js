@@ -1,15 +1,25 @@
 const jwt = require('jsonwebtoken')
+const User = require('../models/userSchema')
 
 
-const isAdmin = (token) => {
+const isAdmin = async (token) => {
 
   if (token !== null) {
-    const decodedToken = jwt.verify(token, process.env.SECRET)
+    let decodedToken = null
+    try {
+      decodedToken = jwt.verify(token, process.env.SECRET)
+    } catch (e) {
+      console.log(e)
+      return false
+    }
+    const id = decodedToken.id
 
-    if (decodedToken.role === 'ADMIN')
+    const user = await User.findById(id)
+
+    if (user.role === 'ADMIN') {
       return true
+    }
   }
-
   return false
 }
 

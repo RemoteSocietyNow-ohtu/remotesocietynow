@@ -115,6 +115,7 @@ export const english = {
       personalDataHeading: '2. Personal data',
       dataCollectionHeadingSmall: '2.1 What personal data does RemoteSocietyNow collect from you?',
       dataCollection: 'When User answers to a survey, we collect company name, (and email address if logged in) from users, and response choices. \
+      Please do not reveal highly confidential company information in your answers. \
     We use this information to provide the User an analysis of the responses, and occasionally to contact Users with surveying insights, opportunities, information, offers and other material. \
     Users can unsubscribe any time from being contacted while still retaining their survey information.',
       dataViewingHeadingSmall: '2.2 Who can view your personal data',
@@ -122,7 +123,7 @@ export const english = {
     Survey answers and the name of User are visible to the User and RemoteSocietyNow. \
     With permission from User, they may be shared with other companies.  \
     RemoteSocietyNow uses User’s survey answers for improving the survey content and its analysis.\
-    RemoteSocietyNow may discose anonymized survey answers.',
+    RemoteSocietyNow may disclose anonymized survey answers.',
       dataStorageHeadingSmall: '2.3 How RemoteSocietyNow stores your data?',
       dataStorage: 'We take what we believe to be reasonable steps to protect the Personal Data collected via the Services from loss, misuse, unauthorized use, access, inadvertent disclosure, alteration and destruction. \
     However, please remember that no method of transmission over the internet, or method of electronic storage is 100% secure and reliable, and we cannot guarantee its absolute security.',
