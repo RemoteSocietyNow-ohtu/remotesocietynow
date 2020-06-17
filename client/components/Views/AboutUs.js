@@ -6,7 +6,8 @@ import Video from '../SubComponents/Video'
 const AboutUs = () => {
   return (
     <div>
-      <Video />
+      <h1 className='AboutUs-header'>About Us</h1>
+      <Video style={{'maxWidth': '80%'}} />
       <Projectinfo />
       <Mathinfo />
     </div>
