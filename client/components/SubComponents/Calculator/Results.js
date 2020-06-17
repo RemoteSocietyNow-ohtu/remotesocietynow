@@ -20,8 +20,8 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
   // Sets results based on response 
   useEffect(() => {
     const fetchResults = async () => {
-      if (answers.remoteShare) {
-        setSliderValue(answers.remoteShare)
+      if (answers.shareOfRemoteWork) {
+        setSliderValue(answers.shareOfRemoteWork)
       }
       if (answers.numberOfRemoteworkDays) {
         setSliderValue(answers.numberOfRemoteworkDays)
@@ -51,7 +51,7 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
   const handleRelease = async () => {
     const tempAnswers = { ...answers }
     if (isCompany) {
-      tempAnswers.remoteShare = sliderValue
+      tempAnswers.shareOfRemoteWork = sliderValue
     } else {
       tempAnswers.numberOfRemoteworkDays = sliderValue
     }

@@ -73,6 +73,10 @@ module.exports = (env, argv) => {
       // Skip the part where we would make a html template
       new HtmlWebpackPlugin({
         template: 'index.html',
+        favicon: './client/resources/favicon/favicon.ico',
+        favicon16: './client/resources/favicon/favicon-16x16.png',
+        favicon32: './client/resources/favicon/favicon-32x32.png',
+        faviconAppleTouchIcon: './client/resources/favicon/apple-touch-icon.png',
       }),
       ...additionalPlugins,
     ],
