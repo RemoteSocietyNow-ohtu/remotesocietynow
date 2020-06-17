@@ -44,7 +44,7 @@ const questionsPeople = [
     type: 'multipleChoice',
     defaultValue: 'no',
     options: [
-      {string: 'No other trasportation', value: 'no'},
+      {string: 'No other transportation', value: 'no'},
       {string: 'Walking/Bike', value: 'walking'},
       {string: 'Bus', value: 'bus'},
       {string: 'Train', value: 'train'},
@@ -95,16 +95,8 @@ const questionsPeople = [
     dataType: String
   },
   {
-    identifyingString:'numberOfBusinessTrips',
-    name: 'How many two-way business trips by plane do you make monthly?',
-    type: 'number',
-    minValue: 0,
-    unit: 'trips',
-    dataType: Number
-  },
-  {
     identifyingString:'numberOfHoursOnPlane',
-    name: 'And during these trips, how many hours do you spend on a plane monthly?',
+    name: 'How many hours do you spend on a plane on business trips annually?',
     type: 'number',
     minValue: 0,
     unit: 'hours',

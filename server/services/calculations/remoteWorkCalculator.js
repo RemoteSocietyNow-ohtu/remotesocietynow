@@ -102,7 +102,7 @@ const calculateBenefitsForCompany = (rent, officeUpkeep, employees, remoteShare,
   const flightEmissions = employees * averageCo2PerHourFlight * averageFlightHours
   const averageCo2PerHourByCar = averageCo2PerKmByCar * averageCarSpeed
   const co2FromCarCommute = employees * averageCo2PerHourByCar * averageCarHours
-  const totalCo2Emissions = remoteShare * (co2FromCarCommute + energyEmissions + flightEmissions) * 12 / 100
+  const totalCo2Emissions = remoteShare * ((co2FromCarCommute + energyEmissions) * 12  + flightEmissions) / 100
 
   const totalExpenses = expenses * 12
   const moneySaved = remoteShare*totalExpenses/100

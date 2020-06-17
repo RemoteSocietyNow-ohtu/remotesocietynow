@@ -50,14 +50,14 @@ const questionsCompanies = [
     name: 'What energy source is primarily used for electricity in your office(s)?',
     type: 'multipleChoice',
     options: [
-      {string: 'Solar energy', value: 'solar'},
-      {string: 'Wind energy', value: 'wind'},
-      {string: 'Hydro power', value: 'hydro'},
-      {string: 'Biomass', value: 'biomass'},
-      {string: 'Coal', value: 'coal'},
-      {string: 'Natural gas', value: 'natgas'},
-      {string: 'Nuclear energy', value: 'nuclear'},
       {string: 'Mixed', value: 'mixed'},
+      {string: 'Coal', value: 'coal'},
+      {string: 'Nuclear energy', value: 'nuclear'},
+      {string: 'Hydro power', value: 'hydro'},
+      {string: 'Wind energy', value: 'wind'},
+      {string: 'Solar energy', value: 'solar'},
+      {string: 'Biomass', value: 'biomass'},
+      {string: 'Natural gas', value: 'natgas'}
     ],
     dataType: String
   },
@@ -92,7 +92,7 @@ const questionsCompanies = [
   },
   {
     identifyingString:'totalCommutingSubsidies',
-    name: 'Total commuting subsidies paid to employees per month (€).',
+    name: 'Commuting subsidies paid to all employees per month in total (€)?',
     type: 'number',
     minValue: 0,
     unit: 'euros',
@@ -100,18 +100,18 @@ const questionsCompanies = [
   },
   {
     identifyingString:'averageFlightHours',
-    name: 'How many hours does your average employee fly in a month during commuting or business trips?',
+    name: 'How many hours does your average employee fly in a year during commuting or business trips?',
     type: 'number',
     minValue: 0,
-    unit: 'euros',
+    unit: 'hours',
     dataType: Number
   },
   {
     identifyingString:'averageCarHours',
-    name: 'How many hours does your average employee drive a car in a month during commuting or business trips?',
+    name: 'How many hours does your average employee drive a car in a month during commuting or business trips (estimate)?',
     type: 'number',
     minValue: 0,
-    unit: 'euros',
+    unit: 'hours',
     dataType: Number
   },
   {
@@ -131,7 +131,9 @@ const questionsCompanies = [
     options: [
       {string: 'Very difficult', value: 'veryDifficult'},
       {string: 'Difficult', value: 'difficult'},
+      {string: 'Doable, significant effort', value: 'significantEffort'},
       {string: 'Do not know', value: 'doNotKnow'},
+      {string: 'Doable, some effort', value: 'someEffort'},
       {string: 'Easy', value: 'easy'},
       {string: 'Very Easy', value: 'veryEasy'}
     ],
@@ -139,7 +141,7 @@ const questionsCompanies = [
   },
   {
     identifyingString: 'remoteWorkArrangement',
-    name: 'How is remote work arranged in your company?',
+    name: 'Describe the remote work arrangements in your company.',
     type: 'textArea',
     placeholder: 'Describe how you implement remote work in your company.',
     dataType: String
