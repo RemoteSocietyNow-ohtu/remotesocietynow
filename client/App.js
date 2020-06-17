@@ -160,7 +160,7 @@ const App = () => {
       <div className='App'>
         <Navbar body={body} setBody={setBody} Cookies={Cookies} />
         <div className='Body'>
-          <AboutUs />
+          <AboutUs setBody={setBody} />
         </div>
       </div>
     )
