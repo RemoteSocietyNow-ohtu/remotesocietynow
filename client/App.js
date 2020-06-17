@@ -14,6 +14,7 @@ import Calculator from 'Components/SubComponents/Calculator/Calculator'
 
 const App = () => {
   const [acceptPrivacyPolicy, setAcceptPrivacyPolicy] = useState(false)
+  const [acceptCookies, setAcceptCookies] = useState(false)
   const [body, setBody] = useState('main')
   const [activeCalculator, setActiveCalculator] = useState(null)
 
@@ -57,7 +58,8 @@ const App = () => {
         <Navbar body={body} setBody={setBody} Cookies={Cookies} />
         {success != '' && <p className='Success'>{success}</p>}
         <div className='Body'>
-          <Login setBody={setBody} activeCalculator={activeCalculator} Cookies={Cookies} setSuccess={setSuccess} />
+          <Login setBody={setBody} activeCalculator={activeCalculator} Cookies={Cookies}
+            setSuccess={setSuccess} acceptCookies={acceptCookies} setAcceptCookies={setAcceptCookies} />
         </div>
       </div>
     )

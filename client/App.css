@@ -1226,6 +1226,11 @@ td {
   background-color: #84a9ac;
 }
 
+.LogIn-button:disabled {
+  pointer-events: none;
+  background-color: #84a9ac;
+}
+
 .Login-label {
   font-size: 1.3rem;
   display: inline-block;
