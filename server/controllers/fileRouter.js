@@ -11,7 +11,8 @@ const auth = require('../util/userAuthenticator')
 fileRouter.get('/companyCSV/:token?', async (req, res) => {
 
   const token = req.params.token
-  if (auth.isAdmin(token)) {
+  const isAdmin = await auth.isAdmin(token)
+  if (isAdmin) {
 
     const csv = await db.dataToCSV(companyQuestions, Company)
 
@@ -30,7 +31,8 @@ fileRouter.get('/companyCSV/:token?', async (req, res) => {
 fileRouter.get('/employeeCSV/:token?', async (req, res) => {
 
   const token = req.params.token
-  if (auth.isAdmin(token)) {
+  const isAdmin = await auth.isAdmin(token)
+  if (isAdmin) {
 
     const csv = await db.dataToCSV(employeeQuestions, Employee)
 
@@ -50,7 +52,8 @@ fileRouter.get('/employeeCSV/:token?', async (req, res) => {
 fileRouter.get('/companyFeedbackCSV/:token?', async (req, res) => {
 
   const token = req.params.token
-  if (auth.isAdmin(token)) {
+  const isAdmin = await auth.isAdmin(token)
+  if (isAdmin) {
 
     const csv = await db.feedbackToCSV(companyQuestions, CompanyFeedback)
 
@@ -68,7 +71,8 @@ fileRouter.get('/companyFeedbackCSV/:token?', async (req, res) => {
 
 fileRouter.get('/employeeFeedbackCSV/:token?', async (req, res) => {
   const token = req.params.token
-  if (auth.isAdmin(token)) {
+  const isAdmin = await auth.isAdmin(token)
+  if (isAdmin) {
 
     const csv = await db.feedbackToCSV(employeeQuestions, EmployeeFeedback)
 
