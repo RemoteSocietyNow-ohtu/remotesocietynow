@@ -160,6 +160,20 @@ td {
   height: 80px;
 }
 
+.GDPRCompliance-arrow-icon-div {
+  display: flex;
+  align-items: center;
+}
+
+.GDPRCompliance-arrow-icon {
+  margin-top: .5em;
+  height: 80px;
+}
+
+.GDPRCompliance-arrow-icon:hover {
+  transform: scale(1.1);
+}
+
 @media (hover: hover) {
   .Calculator-arrow-icon:hover {
     transform: scale(1.1);
@@ -398,6 +412,18 @@ td {
   font-size: large;
 }
 
+.GDPRCompliance-go-back {
+  font-size: 1rem;
+  transform: translateY(.5em);
+  cursor: pointer;
+}
+
+.GDPRCompliance-button-div {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
 .GDPRCompliance-button {
   background-color: #cae8d5;
   margin-top: 6%;
@@ -405,8 +431,24 @@ td {
   height: 70px;
   width: 150px;
   cursor: pointer;
-  border: #3b6978 2px solid;
-  border-radius: 5%;
+  border: none;
+  border-radius: 5px 25px;
+}
+
+.GDPRCompliance-button-delete {
+  background-color: #FFD2D2;
+  margin-top: 6%;
+  margin-bottom: 3%;
+  height: 70px;
+  width: 150px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px 25px;
+}
+
+.GDPRCompliance-button-delete:hover {
+  background-color: #D8000C;
+  border: solid 2px black;
 }
 
 .GDPRCompliance-button:hover {

@@ -171,7 +171,7 @@ const App = () => {
       <div className='App'>
         <Navbar body={body} setBody={setBody} Cookies={Cookies} />
         <div className='Body'>
-          <GDPRCompliance setBody={() => setBody('main')} />
+          <GDPRCompliance Cookies={Cookies} setBody={setBody} />
         </div>
       </div>
     )
