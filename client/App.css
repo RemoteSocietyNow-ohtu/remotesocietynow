@@ -1102,6 +1102,12 @@ td {
   font-size: 2rem;
 }
 
+.Send-answers-link {
+  color: #84a9ac;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
 .Send-answers-paragraph {
   font-size: 1rem;
 }
