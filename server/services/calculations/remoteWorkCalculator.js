@@ -6,6 +6,12 @@ const calculateEmissionsForVehicle = (vehicle,daysUsed) =>{
   return co2Coefficients[vehicle]*daysUsed
 }
 
+const calculateFlightEmissionsForPerson = (planeHours) => {
+  const averagePlaneSpeed = 926
+  const averageCo2PerHourFlight = averagePlaneSpeed * co2Coefficients['plane']
+  return planeHours * averageCo2PerHourFlight
+}
+
 const roundEmissionsToKg = (emissions) =>{
   return Math.round((emissions/1000+ Number.EPSILON) * 100) / 100
 }
@@ -17,10 +23,12 @@ const vehicleDaysPerWeek = (vehicle, firstVehicle, secondVehicle, daysFirst, day
 /** Calculate co2 savings for persone based on calculations at https://docs.google.com/spreadsheets/d/1Webbfedw-tmu-4WKUP6FB50YgrQR_gDCCqT1QPpErhA/edit#gid=0
  * (not automatically updated from the spreadsheet)
  */
-const calculateBenefitsForPerson = (distance,daysFirst,daysSecond,firstVehicle,secondVehicle,remoteDays) =>{
+const calculateBenefitsForPerson = (distance, commuteTime, daysFirst,daysSecond,firstVehicle,secondVehicle, monthlyCommuteExpenses, remoteDays, numberOfHoursOnPlane) =>{
 
   const emissionsOfTheFirstVehicle = calculateEmissionsForVehicle(firstVehicle,daysFirst)
   const emissionsOfTheSecondVehicle = calculateEmissionsForVehicle(secondVehicle,daysSecond)
+  const flightEmissions = calculateFlightEmissionsForPerson(numberOfHoursOnPlane)
+
   const totalEmissions = emissionsOfTheFirstVehicle + emissionsOfTheSecondVehicle
 
   const totalCommuteDays = daysFirst + daysSecond
@@ -31,9 +39,9 @@ const calculateBenefitsForPerson = (distance,daysFirst,daysSecond,firstVehicle,s
 
   const distanceInDay = distance*2
 
-  const co2Emissions = emissionsOfPersonInDay*distanceInDay*avgNumberOfWorkDaysInAYear
+  const co2Emissions = emissionsOfPersonInDay*distanceInDay*avgNumberOfWorkDaysInAYear + flightEmissions
   const co2EmissionsWithRemoteWorking = Math.min(emissionsOfPersonInDay*distanceInDay*shareOfWorkDoneAtOffice
-                                                  *avgNumberOfWorkDaysInAYear,co2Emissions)
+                                                  *avgNumberOfWorkDaysInAYear + flightEmissions,co2Emissions)
                                                   
   const reducedEmissions = Math.min(co2Emissions - co2EmissionsWithRemoteWorking, co2Emissions)
   
@@ -60,7 +68,7 @@ const calculateBenefitsForPerson = (distance,daysFirst,daysSecond,firstVehicle,s
 
   const result = [
     {
-      title: 'Annual commute and office related CO2 emissions',
+      title: 'Annual commute, business travel and office related CO2 emissions',
       value: roundEmissionsToKg(co2EmissionsWithRemoteWorking),
       unit: 'kg',
       bartype: 'redbar',

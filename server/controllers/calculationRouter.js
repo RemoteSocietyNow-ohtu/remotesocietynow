@@ -27,11 +27,14 @@ calculationRouter.post('/person/:save?', async (req, res) => {
 
   const calculateData = [
     +body.dailyCommuteKm,
+    +body.dailyCommuteMinutes,
     +body.noOfDaysOfUsage,
     +body.noOfDaysOfUsageSecond,
     body.typicalVehicle,
     body.secondVehicle,
-    +body.numberOfRemoteworkDays
+    +body.monthlyCommuteExpenses,
+    +body.numberOfRemoteworkDays,
+    +body.numberOfHoursOnPlane
   ]
   const token = getTokenFrom(req)
   let user = null
@@ -65,7 +68,6 @@ calculationRouter.post('/person/:save?', async (req, res) => {
   }
   res.json(result)
 })
-
 
 /**
  * Handles POST requests to (baseUrl)/api/calculations/company from frontend
