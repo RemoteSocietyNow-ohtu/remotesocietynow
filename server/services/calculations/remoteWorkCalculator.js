@@ -107,6 +107,22 @@ const calculateBenefitsForCompany = (rent, officeUpkeep, employees, remoteShare,
   const totalExpenses = expenses * 12
   const moneySaved = remoteShare*totalExpenses/100
 
+  console.log('employees', employees)
+  console.log('energyAmountInMJ', energyAmountInMJ)
+  console.log('energyCost', energyCost)
+  console.log('energySource', energySource) // toimii
+  console.log('co2Coefficients[energySource]', co2Coefficients[energySource]) // toimii
+  console.log('energyEmissions', energyEmissions) // pitäisi olla 5.5 MJ * 95 g/MJ = 527.78
+  console.log('averageCo2PerKmByCar', averageCo2PerKmByCar) // ok
+  console.log('averageCo2PerHourFlight', averageCo2PerHourFlight) // ok
+  console.log('flightEmissions', flightEmissions) // ok
+  console.log('averageCo2PerHourByCar', averageCo2PerHourByCar) // ok
+  console.log('co2FromCarCommute', co2FromCarCommute)
+  console.log('remoteShare', remoteShare) 
+  console.log('totalCo2Emissions', totalCo2Emissions)
+  console.log('totalExpenses', totalExpenses)
+  console.log('moneySaved', moneySaved)
+
   const result = [
     {
       title: 'Total money saved per year',
