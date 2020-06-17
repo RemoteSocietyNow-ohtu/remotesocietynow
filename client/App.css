@@ -465,6 +465,7 @@ td {
 .Calculator-questionsidebar-item {
   cursor: pointer;
   margin: 0;
+  margin-bottom: 0.3rem;
 }
 
 .Calculator-feedback-toggle {
