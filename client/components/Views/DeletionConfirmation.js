@@ -25,7 +25,7 @@ const DeletionConfirmation = ({ setBody }) => {
           <p>{language.content.deletionConfirmation}</p>
         </div>
         <div className='Line-separator-vertical'></div>
-        <div className='GDPRCompliance-button-div'>
+        <div className='DeletionConfirmation-button-div'>
           <button className='GDPRCompliance-button' onClick={() => setBody('gdprCompliance')}>{language.buttons.no}</button>
           <button className='GDPRCompliance-button-delete' onClick={() => deleteUserData()}>{language.buttons.yes}</button>
         </div>

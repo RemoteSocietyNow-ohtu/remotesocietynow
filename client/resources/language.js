@@ -29,13 +29,13 @@ export const english = {
   content: {
     main: 'The Most Enjoyable Way to Save the Planet! While making more money and saving time.',
     lead: 'Remote work and remote life can become new key efforts in limiting CO2 emissions. For every employee switching to remote work, a lot of harmful air pollution is reduced, while you and your company actually earn real money and save time.',
-    gdprCompliance: [
-      'You’re entitled to know exactly how your data is collected and used.',
-      'You can ask what information has been collected about you.',
-      'If there are mistakes in your data, you can request to have them corrected.',
-      'You can have your data deleted from records.',
-      'You’re allowed to refuse data processing, for example, marketing efforts.'
-    ],
+    gdprCompliance: {
+      rightToKnow: 'You’re entitled to know exactly how your data is collected and used.',
+      rightToAsk: 'You can ask what information has been collected about you.',
+      rightToCorrect: 'If there are mistakes in your data, you can request to have them corrected.',
+      rightToDelete: 'You can have your data deleted from records.',
+      rightToRefuse: 'You’re allowed to refuse data processing, for example, marketing efforts.'
+    },
     goBack: 'Go Back',
     contactInfo: 'Any inquiries can be directed to ' + mailConfig.CONTACT_MAIL,
     authenticationLabelEmail: 'Email',
