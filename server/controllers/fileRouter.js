@@ -48,7 +48,7 @@ fileRouter.get('/employeeCSV/:token?', async (req, res) => {
   const isAdmin = await auth.isAdmin(token)
   if (isAdmin) {
     const csv = await db.dataToCSV(employeeQuestions, Employee)
-    startDownload(res, csv, 'companydata.csv')
+    startDownload(res, csv, 'employeedata.csv')
     return
   }
   const decodedToken = auth.decodeToken(token)
