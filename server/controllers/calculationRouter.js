@@ -56,10 +56,6 @@ calculationRouter.post('/person/:save?', async (req, res) => {
   if (req.params.save === 'save') {
     const employeeData = new Employee(bodyData)
     const savedData = await employeeData.save()
-    if(user !== null){
-      user.answers = user.answers.concat(savedData._id)
-      await user.save()
-    }
     /* Calls storeEmployeeFeedback in /server/database/database.js to save employee feedback to database. */
     if (validator.feedBacksAreNotEmpty(feedbacks)) {
       const employeeFeedBacks = new EmployeeFeedback(feedbacks)
@@ -106,11 +102,7 @@ calculationRouter.post('/company/:save?', async (req, res) => {
   if (req.params.save === 'save') {
     const companyData = new Company(bodyData)
     const savedData = await companyData.save()
-    if(user !== null){
-      user.answers = user.answers.concat(savedData._id)
-      await user.save()
-    }
-
+  
     if (validator.feedBacksAreNotEmpty(feedbacks)) {
       feedbacks['companyName'] = body.companyName
       const companyFeedback = new CompanyFeedback(feedbacks)
