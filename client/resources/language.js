@@ -24,6 +24,7 @@ export const english = {
     finishedWithQuestions: 'Great! We are finished with the questions.',
     downloadFiles: 'Download .csv',
     yourResults: 'Your Results',
+    yourAnswers: 'Your Answers',
   },
   content: {
     main: 'The Most Enjoyable Way to Save the Planet! While making more money and saving time.',
@@ -43,11 +44,12 @@ export const english = {
     privacyPolicy: 'Before we start. By proceeding you acknowledge that your personal data is processed in accordance with our ',
     newsletter: 'Remotework is now more topical than ever. Don\'t miss a thing! Signup for our newsletter on latest things related to remote work.',
     newsletterThanksForSubscribing: 'You will soon recieve a welcome email.',
-    weAreCommitted: 'We at RemoteSocietyNow are committed to work for better environment and to help you save money! Please take contact and we can find out how we can help make your remote work impact better.',
+    weAreCommitted: 'We at RemoteSocietyNow are committed to work for better environment and to help you save money! Please contact us and we can find out how we can help make your remote work impact better.',
     answersWillBeSaved: 'You are logged in and your answers will be saved. You will be able to get back to them later.',
     ifYouwouldLikeToSavePartOne: 'If you would like to save your answers and results in order to get back to them later, please take a step to ',
     or: ' or ',
-    ifYouwouldLikeToSavePartTwo: ' before calculating your results. You can also continue without logging in.'
+    ifYouwouldLikeToSavePartTwo: ' before calculating your results. You can also continue without logging in.',
+    thisPdfWasGenerated: 'This PDF was generated from the answers given at ' + window.location.hostname + '. A web aplication to help you save money and environment by working remote.'
   },
   buttons: {
     calculate: 'View Results',
@@ -69,6 +71,7 @@ export const english = {
     downloadCompanyFeedback: 'Feedback (Company)',
     downloadPersonsFeedback: 'Feedback (Person)',
     admin: 'Admin',
+    downloadResultsasPdf: 'Download Results as a PDF-file!'
   },
   navigation: {
     gdprCompliance: 'GDPR',

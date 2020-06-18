@@ -1,9 +1,13 @@
 import React, { useState, useContext, useEffect } from 'react'
+import { PDFDownloadLink } from '@react-pdf/renderer'
+import ResultsPdfDocument from '../ResultsPdfDocument'
+
 import LanguageContext from '../../../Contexts/LanguageContext'
 import questionService from '../../../services/questionService'
 import SliderField from '../../InputFields/SliderField'
 import CountUp from 'react-countup'
 import ResultBar from './ResultBar'
+
 
 import pollutionIcon from '../../../resources/pollution-icon.png'
 import co2SavedIcon from '../../../resources/co2-saved-icon.png'
@@ -11,7 +15,7 @@ import co2SavedIcon from '../../../resources/co2-saved-icon.png'
 import moneySavedIcon from '../../../resources/money-saved-icon.png'
 import moneySpentIcon from '../../../resources/money-spent-icon.png'
 
-const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurrentQuestion }) => {
+const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurrentQuestion, questions }) => {
   const language = useContext(LanguageContext)
   const [error, setError] = useState(false)
   const [sliderValue, setSliderValue] = useState(0)
@@ -92,7 +96,7 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
               {isCompany && result.bartype === 'greenbar' && <img className='Calculator-resultbar-icon' src={moneySavedIcon} alt='Money saved icon' />}
               {isCompany && result.bartype === 'redbar' && <img className='Calculator-resultbar-icon' src={moneySpentIcon} alt='Money spent icon' />}
               <p></p>
-              <ResultBar width={80} percent={result.percent} type={result.bartype} />
+              <ResultBar width={80} percent={result.percent} type={result.bartype} />              
             </div>
           )
         }
@@ -108,8 +112,20 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
           <p className='Calculator-results-slidertext'>{language.headers.workDoneRemotelyPercent}</p> // If this is results for a company use percents
           : <p className='Calculator-results-slidertext'>{language.headers.workDoneRemotelyDays}</p>
         }
-
+        <div>
+          <PDFDownloadLink document={
+            <ResultsPdfDocument
+              isCompany={isCompany} 
+              questions={questions}
+              answers={answers}
+              results={results}
+              amountOfRemoteWork={sliderValue}
+              language={language}/>} fileName="remote-work-results.pdf">
+            {({ loading }) => (loading ? 'Loading document...' : <a className='Calculator-results-dowloadPdf'>{language.buttons.downloadResultsasPdf}</a>)}
+          </PDFDownloadLink>
+        </div>
       </div>
+      
     </div>
   )
 }
