@@ -605,6 +605,7 @@ td {
   max-width: 600px;
   margin-top: 10%;
   color: #cae8d5;
+ 
 }
 
 .Calculator-results-clickhere {
@@ -642,6 +643,11 @@ td {
 
 .Calculator-results-slidertext {
   transform: translateY(-1em);
+}
+
+.Calculator-results-dowloadPdf {
+  color:#cae8d5;
+  font-size: 1.5rem;
 }
 
 .Calculator-results-resultbars {
@@ -729,22 +735,6 @@ td {
   height: 3rem;    
   border-radius: 50%;
   background-color: #84a9ac; 
-}
-
-.greenbar {
-  background-color: green;
-  height: 50px;
-  border-radius: 4px 4px 4px 4px;
-  transition: 1s ease;
-  transition-delay: 0.5s;
-}
-
-.redbar {
-  background-color:#D8000C;
-  height: 50px;
-  border-radius: 4px 4px 4px 4px;
-  transition: 1s ease;
-  transition-delay: 0.5s;
 }
 
 .Calculator-stepper-container {

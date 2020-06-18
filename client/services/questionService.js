@@ -7,7 +7,10 @@ const getQuestionsPeople = () => {
   return request.then((res) => res.data)
 }
 
-const sendAnswersPeople = ( values ) => {
+const sendAnswersPeople = ( values, token ) => {
+  const config = {
+    headers: { Authorization: `bearer ${token}` }
+}
   const request = axios.post(`${baseurl}/api/calculate/person/save`, values)
   return request.then((res) => res.data)
 }
@@ -22,7 +25,10 @@ const getQuestionsCompany = () => {
   return request.then((res) => res.data)
 }
 
-const sendAnswersCompany = ( values ) => {
+const sendAnswersCompany = ( values, token ) => {
+  const config = {
+    headers: { Authorization: `bearer ${token}` }
+}
   const request = axios.post(`${baseurl}/api/calculate/company/save/`, values)
   return request.then((res) => res.data)
 }

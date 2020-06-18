@@ -21,7 +21,7 @@ const initAnswerValues = questions => {
   }, {})
 }
 
-const Calculator = ({ setBody, questions, setQuestions, answers, setAnwers, results, setResults, currentQuestion, setCurrentQuestion, isCompany, login, signUp, success }) => {
+const Calculator = ({ setBody, questions, setQuestions, answers, setAnwers, results, setResults, currentQuestion, setCurrentQuestion, isCompany, login, signUp, success, Cookies }) => {
   const [isLoading, setIsLoading] = useState(false)
   const [hasErrored, setHasErrored] = useState(false)  
   const [newsletterOpen, setNewsletterOpen] = useState(false)
@@ -96,6 +96,7 @@ const Calculator = ({ setBody, questions, setQuestions, answers, setAnwers, resu
               answers={answers}
               login={login}
               signUp={signUp}
+              Cookies={Cookies}
             />
           }
         </div>
@@ -108,7 +109,8 @@ const Calculator = ({ setBody, questions, setQuestions, answers, setAnwers, resu
             answers={answers}
             setAnwers={setAnwers}
             isCompany={isCompany}
-            setCurrentQuestion={setCurrentQuestion}        
+            setCurrentQuestion={setCurrentQuestion}  
+            questions={questions}      
           />
         }
         {currentQuestion <= questions.length && <div className='Calculator-content-right'>
