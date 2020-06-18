@@ -3,10 +3,11 @@ import LanguageContext from '../../../Contexts/LanguageContext'
 import questionService from '../../../services/questionService'
 import LoadingScreen from '../../Views/LoadingScreen'
 
-const SendAnswersButton = ({ setResults, nextQuestion, isCompany, answers }) => {
+const SendAnswersButton = ({ setResults, nextQuestion, isCompany, answers, Cookies }) => {
   const language = useContext(LanguageContext)
   const [ loading, setLoading ] = useState(false)
   const [ error, setError ] = useState(false)
+  const token = Cookies.get('token')
  
   const handleClick = async () => {
     setLoading(true)
@@ -14,9 +15,9 @@ const SendAnswersButton = ({ setResults, nextQuestion, isCompany, answers }) => 
     try {
       let response
       if (isCompany) {
-        response = await questionService.sendAnswersCompany(answers)
+        response = await questionService.sendAnswersCompany(answers, token)
       } else {
-        response = await questionService.sendAnswersPeople(answers)
+        response = await questionService.sendAnswersPeople(answers, token)
       }
       setResults(response)
       setLoading(false) 

@@ -4,7 +4,7 @@ import Cookies from 'js-cookie'
 import LanguageContext from '@root/client/Contexts/LanguageContext'
 import leftArrow from '../../../resources/arrow-left.png'
 
-const SendAnswers = ({ setResults, nextQuestion, previousQuestion, isCompany, answers, login, signUp }) => {
+const SendAnswers = ({ setResults, nextQuestion, previousQuestion, isCompany, answers, login, signUp, Cookies }) => {
   const language = useContext(LanguageContext)
 
   return (
@@ -26,6 +26,7 @@ const SendAnswers = ({ setResults, nextQuestion, previousQuestion, isCompany, an
         isCompany={isCompany}
         answers={answers} 
         setResults={setResults}
+        Cookies={Cookies}
       />      
     </div>
   )

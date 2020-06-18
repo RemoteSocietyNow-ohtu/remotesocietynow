@@ -12,6 +12,7 @@ import Admin from './components/Views/Admin'
 import Cookies from 'js-cookie'
 import Calculator from 'Components/SubComponents/Calculator/Calculator'
 import DeletionConfirmation from './components/Views/DeletionConfirmation'
+import CookieCheckbox from './components/InputFields/CookieCheckbox'
 
 const App = () => {
   const [acceptPrivacyPolicy, setAcceptPrivacyPolicy] = useState(false)
@@ -127,6 +128,7 @@ const App = () => {
             login={() => setBody('login')}
             signUp={() => setBody('signUp')}
             success={success}
+            Cookies={Cookies}
           />
         </div>
       </div>
@@ -151,6 +153,7 @@ const App = () => {
             signUp={() => setBody('signUp')}
             isCompany={true}
             success={success}
+            Cookies={Cookies}
           />
         </div>
       </div>
