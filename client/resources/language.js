@@ -24,6 +24,7 @@ export const english = {
     finishedWithQuestions: 'Great! We are finished with the questions.',
     downloadFiles: 'Download .csv',
     yourResults: 'Your Results',
+    about: 'About Us'
   },
   content: {
     main: 'The Most Enjoyable Way to Save the Planet! While making more money and saving time.',
@@ -49,7 +50,11 @@ export const english = {
     answersWillBeSaved: 'You are logged in and your answers will be saved. You will be able to get back to them later.',
     ifYouwouldLikeToSavePartOne: 'If you would like to save your answers and results in order to get back to them later, please take a step to ',
     or: ' or ',
-    ifYouwouldLikeToSavePartTwo: ' before calculating your results. You can also continue without logging in.'
+    ifYouwouldLikeToSavePartTwo: ' before calculating your results. You can also continue without logging in.',
+    testReductions: 'Test your reductions now!',
+    aboutUs: 'About us',
+    clickhere: 'Click here!',
+    mathinfo: 'Want to learn more about the math used? ',
   },
   buttons: {
     calculate: 'View Results',

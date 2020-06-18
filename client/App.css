@@ -582,6 +582,11 @@ td {
   color: #cae8d5;
 }
 
+.Calculator-results-clickhere {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .Calculator-results-send-answers-link {
   color: #84a9ac;
   cursor: pointer;
@@ -821,18 +826,44 @@ td {
   margin-bottom: 4%;
 }
 
-.AboutUs-mathinfo-container {
-  font-size: calc(10px + 1vmin);
-  width: 100%;
-  border: solid 3px;
-  margin-top: 5%;
-  margin-bottom: 4%;
-}
 
 .AboutUs-video-container {
   margin-top: 10%;
   position: relative;
   padding-bottom: 56.25%;
+}
+
+.AboutUs-calculatorChoice-button {
+  margin-bottom: 1rem;
+  min-width: 12rem;
+  max-width: 30%;
+  height: 70px;
+  font-family: 'PT Root';
+  font-size: large;
+  background-color: #cae8d5;
+  border: none;
+  border-radius: 5px 25px;
+  text-decoration: none;
+}
+
+/* Mathinfo */
+.Mathinfo-x-button {
+  position: absolute;
+  top: 0.2rem;
+  right: 0.2rem;
+  cursor: pointer;
+}
+
+.Mathinfo-container {
+  font-size: calc(10px + 1vmin);
+  position: absolute;
+  width: 80%;
+  margin: auto;
+  border: solid 3px;
+  margin-top: 5%;
+  margin-bottom: 4%;
+  background: #3b6978;
+  z-index: 3;
 }
 
 /* LoadingScreen */
