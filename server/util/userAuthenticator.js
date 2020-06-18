@@ -23,6 +23,18 @@ const isAdmin = async (token) => {
   return false
 }
 
+const decodeToken = (token) => {
+  let decodedToken = null
+  try{
+    decodedToken = jwt.verify(token,process.env.SECRET)
+  }catch (e){
+    console.log(e)
+    return null
+  }
+  return decodedToken
+}
+ 
 module.exports = {
-  isAdmin
+  isAdmin,
+  decodeToken
 }

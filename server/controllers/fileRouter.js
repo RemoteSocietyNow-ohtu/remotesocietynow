@@ -8,24 +8,37 @@ const companyQuestions = require('../services/questions/questionsCompanies')
 const employeeQuestions = require('../services/questions/questionsPeople')
 const auth = require('../util/userAuthenticator')
 
+
+const startDownload = (res, data, filename) => {
+
+  res.setHeader('Content-disposition', `attachment; filename=${filename}`)
+  res.setHeader('Content-type', 'text/csv')
+
+  res.write(data, function () {
+    res.end()
+  })
+
+}
+
 fileRouter.get('/companyCSV/:token?', async (req, res) => {
 
   const token = req.params.token
   const isAdmin = await auth.isAdmin(token)
   if (isAdmin) {
-
     const csv = await db.dataToCSV(companyQuestions, Company)
-
-    res.setHeader('Content-disposition', 'attachment; filename=companyData.csv')
-    res.setHeader('Content-type', 'text/csv')
-
-    res.write(csv, function () {
-      res.end()
-    })
+    startDownload(res, csv, 'companydata.csv')
+    return
   }
-  else {
+
+  const decodedToken = auth.decodeToken(token)
+  if (decodedToken === null) {
     res.send('Unauthorized')
   }
+
+  const id = decodedToken.id
+  const csv = await db.dataToCSVById(companyQuestions, Company, id)
+  startDownload(res, csv, `${id}.csv`)
+
 })
 
 fileRouter.get('/employeeCSV/:token?', async (req, res) => {
@@ -33,20 +46,18 @@ fileRouter.get('/employeeCSV/:token?', async (req, res) => {
   const token = req.params.token
   const isAdmin = await auth.isAdmin(token)
   if (isAdmin) {
-
     const csv = await db.dataToCSV(employeeQuestions, Employee)
-
-    res.setHeader('Content-disposition', 'attachment; filename=employeeData.csv')
-    res.setHeader('Content-type', 'text/csv')
-
-    res.write(csv, function () {
-      res.end()
-    })
+    startDownload(res, csv, 'companydata.csv')
+    return
   }
-  else {
+  const decodedToken = auth.decodeToken(token)
+  if (decodedToken === null) {
     res.send('Unauthorized')
   }
-
+  
+  const id = decodedToken.id
+  const csv = await db.dataToCSVById(employeeQuestions, Employee, id)
+  startDownload(res, csv, `${id}.csv`)
 })
 
 fileRouter.get('/companyFeedbackCSV/:token?', async (req, res) => {

@@ -5,6 +5,7 @@ const User = require('../models/userSchema')
 const bcrypt = require('bcrypt')
 const url = databaseUrl.getDatabaseUrl()
 const parser = require('../util/schemaParser')
+const { model } = require('../models/userSchema')
 
 const initializeAdmin = async() => {
   const saltrounds = 10
@@ -55,10 +56,24 @@ const feedbackToCSV = async (questions, model) => {
   return str
 }
 
+const dataToCSVById = async (questions,model,id) => {
+  console.log(id)
+  const data = await model.find({'user': `${id}`})
+  console.log(data)
+  const datamodel = parser.parseSavedDataSchema(questions)
+  const columnNames = Object.keys(datamodel)
+
+  let options = {keys:columnNames}
+
+  let str = await converter.json2csvAsync(data,options)
+  return str
+}
+ 
 module.exports = {
   connectToDatabase,
   dataToCSV,
-  feedbackToCSV
+  feedbackToCSV,
+  dataToCSVById
 }
 
 
