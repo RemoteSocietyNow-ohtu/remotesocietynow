@@ -158,7 +158,6 @@ td {
 .DeletionConfirmation-icon {
   height: 40px;
   margin-right: 3%;
-  margin-top: 1.5%;
 }
 
 .Calculator-arrow-icon {
@@ -482,6 +481,7 @@ td {
 .DeletionConfirmation-div {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
 }
 
 .DeletionConfirmation-button-div {
