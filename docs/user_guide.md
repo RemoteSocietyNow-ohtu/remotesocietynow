@@ -53,6 +53,8 @@ You can sign up for a newsletter from the bottom-right corner of the front page 
 ![Newsletter frontpage](pictures/newsletter_front.png)
 
 
+The results page also provides you with the opportunity to know more about the organization behind the website and contact them directly.
+
 ![Newsletter results](pictures/connect.png)
 
 
