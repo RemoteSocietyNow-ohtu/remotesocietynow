@@ -12,7 +12,6 @@ import Admin from './components/Views/Admin'
 import Cookies from 'js-cookie'
 import Calculator from 'Components/SubComponents/Calculator/Calculator'
 import DeletionConfirmation from './components/Views/DeletionConfirmation'
-import CookieCheckbox from './components/InputFields/CookieCheckbox'
 
 const App = () => {
   const [acceptPrivacyPolicy, setAcceptPrivacyPolicy] = useState(false)
