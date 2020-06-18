@@ -155,6 +155,12 @@ td {
 
 /* Icons */
 
+.DeletionConfirmation-icon {
+  height: 40px;
+  transform: translateY(1.6em);
+  margin-right: 3%;
+}
+
 .Calculator-arrow-icon {
   margin-top: .5em;
   height: 80px;
@@ -170,11 +176,6 @@ td {
   align-items: center;
 }
 
-.GDPRCompliance-arrow-icon {
-  margin-top: .5em;
-  height: 80px;
-}
-
 .Results-arrow-icon {
   margin-top: .5em;
   height: 80px;
@@ -182,6 +183,11 @@ td {
 
 .Results-arrow-icon:hover {
   transform: scale(1.1);
+}
+
+.GDPRCompliance-arrow-icon {
+  margin-top: .5em;
+  height: 80px;
 }
 
 .GDPRCompliance-arrow-icon:hover {
@@ -469,6 +475,19 @@ td {
   color: gainsboro;
   background-color: #3b6978;
   border: #181A1B 2px solid;
+}
+
+/* DeletionConfirmation */
+
+.DeletionConfirmation-div {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.DeletionConfirmation-button-div {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
 }
 
 /* Calculator */

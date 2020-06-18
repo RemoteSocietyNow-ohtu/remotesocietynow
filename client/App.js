@@ -11,6 +11,7 @@ import Login from './components/Views/Login'
 import Admin from './components/Views/Admin'
 import Cookies from 'js-cookie'
 import Calculator from 'Components/SubComponents/Calculator/Calculator'
+import DeletionConfirmation from './components/Views/DeletionConfirmation'
 
 const App = () => {
   const [acceptPrivacyPolicy, setAcceptPrivacyPolicy] = useState(false)
@@ -172,6 +173,17 @@ const App = () => {
         <Navbar body={body} setBody={setBody} Cookies={Cookies} />
         <div className='Body'>
           <GDPRCompliance Cookies={Cookies} setBody={setBody} />
+        </div>
+      </div>
+    )
+  }
+
+  if (body === 'deletionConfirmation') {
+    return (
+      <div className='App'>
+        <Navbar body={body} setBody={setBody} Cookies={Cookies} />
+        <div className='Body'>
+          <DeletionConfirmation setBody={setBody} />
         </div>
       </div>
     )

@@ -10,10 +10,6 @@ const GDPRCompliance = ({ Cookies, setBody }) => {
     // todo
   }
 
-  const deleteUserData = () => {
-    // todo
-  }
-
   return (
     <div className='Container'>
       <div className='GDPRCompliance-arrow-icon-div' onClick={() => setBody('main')}>
@@ -29,7 +25,7 @@ const GDPRCompliance = ({ Cookies, setBody }) => {
       </div>
       {Cookies.get('token') && <div className='GDPRCompliance-button-div'>
         <button className='GDPRCompliance-button' onClick={() => downloadUserData()}>{language.buttons.downloadUserData}</button>
-        <button className='GDPRCompliance-button-delete' onClick={() => deleteUserData()}>{language.buttons.deleteUserData}</button>
+        <button className='GDPRCompliance-button-delete' onClick={() => setBody('deletionConfirmation')}>{language.buttons.deleteUserData}</button>
       </div>}
     </div>
   )
