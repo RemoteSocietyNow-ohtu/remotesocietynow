@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Page, Text, View, Document, Image, StyleSheet, Font  } from '@react-pdf/renderer'
 import mailConfig from '../../../config/mailConfig'
 
@@ -10,12 +10,12 @@ import logoImage from '../../resources/logo512.png'
 
 Font.register({
   family: 'sans',
-  src: 'http://fonts.gstatic.com/s/ptsans/v8/UFoEz2uiuMypUGZL1NKoeg.ttf',
+  src: 'https://fonts.gstatic.com/s/ptsans/v8/UFoEz2uiuMypUGZL1NKoeg.ttf',
 })
 
 Font.register({
   family: 'serif',
-  src: 'http://fonts.gstatic.com/s/ptserif/v8/sAo427rn3-QL9sWCbMZXhA.ttf',
+  src: 'https://fonts.gstatic.com/s/ptserif/v8/sAo427rn3-QL9sWCbMZXhA.ttf',
 })
 
 
@@ -97,8 +97,19 @@ const getColor = (bartype) => {
   else return null
 }
 
-const ResultsPdfDocument = ({ language, questions, answers, results, isCompany, amountOfRemoteWork }) => { 
-  
+
+const ResultsPdfDocument = ({ language, questions, answers, results, isCompany }) => { 
+  const [ amountOfRemoteWork, setAmountOfRemoteWork ] = useState()
+
+  useEffect(() => {
+    if (answers.shareOfRemoteWork) {
+      setAmountOfRemoteWork(answers.shareOfRemoteWork)
+    }
+    if (answers.numberOfRemoteworkDays) {
+      setAmountOfRemoteWork(answers.numberOfRemoteworkDays)
+    }
+  }, [answers])
+
   return (
     <Document>
       <Page size="A4" style={styles.page}>      
