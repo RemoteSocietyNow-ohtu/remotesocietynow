@@ -55,7 +55,7 @@ calculationRouter.post('/person/:save?', async (req, res) => {
   /* Calls storeEmployeeData in /server/database/database.js to save all employee input to database. */
   if (req.params.save === 'save') {
     const employeeData = new Employee(bodyData)
-    const savedData = await employeeData.save()
+    await employeeData.save()
     /* Calls storeEmployeeFeedback in /server/database/database.js to save employee feedback to database. */
     if (validator.feedBacksAreNotEmpty(feedbacks)) {
       const employeeFeedBacks = new EmployeeFeedback(feedbacks)
@@ -101,7 +101,7 @@ calculationRouter.post('/company/:save?', async (req, res) => {
   /* Calls storeCompanyData in /server/database/database.js to save all company input to database. */
   if (req.params.save === 'save') {
     const companyData = new Company(bodyData)
-    const savedData = await companyData.save()
+    await companyData.save()
   
     if (validator.feedBacksAreNotEmpty(feedbacks)) {
       feedbacks['companyName'] = body.companyName
