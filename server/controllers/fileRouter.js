@@ -100,12 +100,14 @@ fileRouter.get('/employeeFeedbackCSV/:token?', async (req, res) => {
   }
 })
 
-fileRouter.post('/deleteUser/'), async (req,res) => {
 
+
+fileRouter.post('/deleteUser/', async (req,res) => {
+  
   const token = auth.getTokenFrom(req)
   const decodedToken = auth.decodeToken(token)
   const id = decodedToken.id
-
+  
   if(id !== null){
 
     await Company.find({'user': `${id}`}).deleteMany()
@@ -116,6 +118,6 @@ fileRouter.post('/deleteUser/'), async (req,res) => {
   }else{
     res.send('Error in user deletion')
   }
-}
+})
 
 module.exports = fileRouter
