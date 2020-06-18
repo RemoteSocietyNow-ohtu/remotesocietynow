@@ -1,6 +1,13 @@
 const jwt = require('jsonwebtoken')
 const User = require('../models/userSchema')
 
+const getTokenFrom = req => {
+  const authorization = req.get('authorization')
+  if (authorization && authorization.toLowerCase().startsWith('bearer ')) {
+    return authorization.substring(7)
+  }
+  return null
+}
 
 const isAdmin = async (token) => {
 
@@ -36,5 +43,6 @@ const decodeToken = (token) => {
  
 module.exports = {
   isAdmin,
-  decodeToken
+  decodeToken,
+  getTokenFrom
 }

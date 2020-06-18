@@ -4,6 +4,7 @@ const Company = require('../models/companySchema')
 const Employee = require('../models/employeeSchema')
 const CompanyFeedback = require('../models/companyFeedbackSchema')
 const EmployeeFeedback = require('../models/employeeFeedbackSchema')
+const User = require('../models/userSchema')
 const companyQuestions = require('../services/questions/questionsCompanies')
 const employeeQuestions = require('../services/questions/questionsPeople')
 const auth = require('../util/userAuthenticator')
@@ -54,7 +55,7 @@ fileRouter.get('/employeeCSV/:token?', async (req, res) => {
   if (decodedToken === null) {
     res.send('Unauthorized')
   }
-  
+
   const id = decodedToken.id
   const csv = await db.dataToCSVById(employeeQuestions, Employee, id)
   startDownload(res, csv, `${id}.csv`)
@@ -98,5 +99,17 @@ fileRouter.get('/employeeFeedbackCSV/:token?', async (req, res) => {
     res.send('Unauthorized')
   }
 })
+
+fileRouter.post('/deleteUser/'), async (req,res) => {
+
+  const token = auth.getTokenFrom(req)
+  const decodedToken = auth.decodeToken(token)
+  const id = decodedToken.id
+
+  await Company.find({'user': `${id}`}).deleteMany()
+  await Employee.find({'user': `${id}`}).deleteMany()
+  await User.findByIdAndDelete(id)
+  
+}
 
 module.exports = fileRouter
