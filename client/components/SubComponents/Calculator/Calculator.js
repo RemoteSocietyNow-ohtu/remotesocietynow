@@ -109,7 +109,8 @@ const Calculator = ({ setBody, questions, setQuestions, answers, setAnwers, resu
             answers={answers}
             setAnwers={setAnwers}
             isCompany={isCompany}
-            setCurrentQuestion={setCurrentQuestion}        
+            setCurrentQuestion={setCurrentQuestion}  
+            questions={questions}      
           />
         }
         {currentQuestion <= questions.length && <div className='Calculator-content-right'>

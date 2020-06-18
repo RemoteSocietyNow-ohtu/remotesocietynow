@@ -25,6 +25,7 @@ export const english = {
     finishedWithQuestions: 'Great! We are finished with the questions.',
     downloadFiles: 'Download .csv',
     yourResults: 'Your Results',
+    yourAnswers: 'Your Answers',
     about: 'About Us'
   },
   content: {
@@ -53,6 +54,7 @@ export const english = {
     ifYouwouldLikeToSavePartOne: 'If you would like to save your answers and results in order to get back to them later, please take a step to ',
     or: ' or ',
     ifYouwouldLikeToSavePartTwo: ' before calculating your results. You can also continue without logging in.',
+    thisPdfWasGenerated: 'This PDF was generated from the answers given at ' + window.location.hostname + '. A web aplication to help you save money and environment by working remote.',
     testReductions: 'Test your reductions now!',
     aboutUs: 'About us',
     clickhere: 'Click here!',
@@ -79,6 +81,7 @@ export const english = {
     downloadCompanyFeedback: 'Feedback (Company)',
     downloadPersonsFeedback: 'Feedback (Person)',
     admin: 'Admin',
+    downloadResultsasPdf: 'Download Results as a PDF-file!',
     yes: 'Yes',
     no: 'No',
   },
