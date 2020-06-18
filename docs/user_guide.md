@@ -73,3 +73,12 @@ To delete your account and erase your data, click the 'Delete My Account & Data'
 ![Delete data](pictures/delete_data.png)
 
 
+### Admin access
+
+As the administrator of the site, you have additional features available. You can login as you would as a regular user using the login functionality. Logging in will redirect you to the admin panel.
+
+![Admin panel](pictures/admin.png)
+
+As an admin, you can download all the data inputted by the users as csv files. The data is provided in separate files for companies, individuals and their feedbacks. As an admin, you can also turn data storing off and on using the 'Save answers to the database' toggle. 
+
+While logged in as an admin, the admin panel can be accessed anywhere on the site through the small 'Admin' link situated in the top-center of the screen.
