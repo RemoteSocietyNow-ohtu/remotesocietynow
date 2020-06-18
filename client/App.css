@@ -157,8 +157,8 @@ td {
 
 .DeletionConfirmation-icon {
   height: 40px;
-  transform: translateY(1.6em);
   margin-right: 3%;
+  margin-top: 1.5%;
 }
 
 .Calculator-arrow-icon {
