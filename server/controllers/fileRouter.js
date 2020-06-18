@@ -108,11 +108,11 @@ fileRouter.post('/deleteUser/'), async (req,res) => {
 
   if(id !== null){
 
-  await Company.find({'user': `${id}`}).deleteMany()
-  await Employee.find({'user': `${id}`}).deleteMany()
-  await User.findByIdAndDelete(id)
+    await Company.find({'user': `${id}`}).deleteMany()
+    await Employee.find({'user': `${id}`}).deleteMany()
+    await User.findByIdAndDelete(id)
 
-  res.send(`User ${id} deleted`)
+    res.send(`User ${id} deleted`)
   }else{
     res.send('Error in user deletion')
   }
