@@ -4,6 +4,7 @@ const Company = require('../models/companySchema')
 const Employee = require('../models/employeeSchema')
 const CompanyFeedback = require('../models/companyFeedbackSchema')
 const EmployeeFeedback = require('../models/employeeFeedbackSchema')
+const User = require('../models/userSchema')
 const companyQuestions = require('../services/questions/questionsCompanies')
 const employeeQuestions = require('../services/questions/questionsPeople')
 const auth = require('../util/userAuthenticator')
@@ -47,14 +48,14 @@ fileRouter.get('/employeeCSV/:token?', async (req, res) => {
   const isAdmin = await auth.isAdmin(token)
   if (isAdmin) {
     const csv = await db.dataToCSV(employeeQuestions, Employee)
-    startDownload(res, csv, 'companydata.csv')
+    startDownload(res, csv, 'employeedata.csv')
     return
   }
   const decodedToken = auth.decodeToken(token)
   if (decodedToken === null) {
     res.send('Unauthorized')
   }
-  
+
   const id = decodedToken.id
   const csv = await db.dataToCSVById(employeeQuestions, Employee, id)
   startDownload(res, csv, `${id}.csv`)
@@ -96,6 +97,26 @@ fileRouter.get('/employeeFeedbackCSV/:token?', async (req, res) => {
   }
   else {
     res.send('Unauthorized')
+  }
+})
+
+
+
+fileRouter.post('/deleteUser/', async (req,res) => {
+  
+  const token = auth.getTokenFrom(req)
+  const decodedToken = auth.decodeToken(token)
+  const id = decodedToken.id
+  
+  if(id !== null){
+
+    await Company.find({'user': `${id}`}).deleteMany()
+    await Employee.find({'user': `${id}`}).deleteMany()
+    await User.findByIdAndDelete(id)
+
+    res.send(`User ${id} deleted`)
+  }else{
+    res.send('Error in user deletion')
   }
 })
 

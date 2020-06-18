@@ -9,11 +9,12 @@ import rightToRefuseIcon from '../../resources/right-to-refuse-icon.png'
 
 const GDPRCompliance = ({ Cookies, setBody }) => {
 
+  const baseurl = process.env.REACT_APP_BACKEND_URL ? process.env.REACT_APP_BACKEND_URL : ''
+  
   const language = useContext(LanguageContext)
 
-  const downloadUserData = () => {
-    // todo
-  }
+  let token 
+  Cookies.get('token') ? token = Cookies.get('token') : token = ''
 
   return (
     <div className='Container'>
@@ -47,8 +48,9 @@ const GDPRCompliance = ({ Cookies, setBody }) => {
         <div className='Line-separator-vertical'></div>
         <small className='GDPRCompliance-contact-info'>{language.content.contactInfo}</small>
       </div>
-      {Cookies.get('token') && <div className='GDPRCompliance-button-div'>
-        <button className='GDPRCompliance-button' onClick={() => downloadUserData()}>{language.buttons.downloadUserData}</button>
+      {token != '' && <div className='GDPRCompliance-button-div'>
+        <a href={`${baseurl}/api/files/companyCSV/${token}`}><button className='GDPRCompliance-button'>{language.buttons.downloadUserDataPerson}</button></a>
+        <a href={`${baseurl}/api/files/employeeCSV/${token}`}><button className='GDPRCompliance-button'>{language.buttons.downloadUserDataCompany}</button></a>
         <button className='GDPRCompliance-button-delete' onClick={() => setBody('deletionConfirmation')}>{language.buttons.deleteUserData}</button>
       </div>}
     </div>

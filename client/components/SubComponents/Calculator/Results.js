@@ -132,10 +132,9 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
                 isCompany={isCompany} 
                 questions={questions}
                 answers={answers}
-                results={results}
-                amountOfRemoteWork={sliderValue}
+                results={results}                
                 language={language}/>} fileName="remote-work-results.pdf">
-              {({ loading }) => (loading ? 'Loading document...' : <a className='Calculator-results-dowloadPdf'>{language.buttons.downloadResultsasPdf}</a>)}
+              {({ loading }) => (loading ? 'Loading document...' : <button className='Calculator-results-dowloadPdf-button'>{language.buttons.downloadResultsasPdf}</button>)}
             </PDFDownloadLink>
           </div>
         </div>        

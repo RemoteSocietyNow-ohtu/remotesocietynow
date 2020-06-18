@@ -7,7 +7,8 @@ const SendAnswersButton = ({ setResults, nextQuestion, isCompany, answers, Cooki
   const language = useContext(LanguageContext)
   const [ loading, setLoading ] = useState(false)
   const [ error, setError ] = useState(false)
-  const token = Cookies.get('token')
+  let token
+  Cookies.get('token') ? token = Cookies.get('token') : token = ''
  
   const handleClick = async () => {
     setLoading(true)
