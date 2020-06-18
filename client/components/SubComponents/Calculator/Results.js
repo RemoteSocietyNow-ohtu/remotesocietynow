@@ -15,10 +15,15 @@ import co2SavedIcon from '../../../resources/co2-saved-icon.png'
 import moneySavedIcon from '../../../resources/money-saved-icon.png'
 import moneySpentIcon from '../../../resources/money-spent-icon.png'
 
-const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurrentQuestion, questions }) => {
+import arrowLeft from '../../../resources/arrow-left.png'
+import Mathinfo from '../Mathinfo'
+
+const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurrentQuestion, questions, setBody }) => {
   const language = useContext(LanguageContext)
   const [error, setError] = useState(false)
   const [sliderValue, setSliderValue] = useState(0)
+  const [showMath, setShowMath] = useState(false)
+  
 
   // Fetch results from backend based on answers. Triggered when answers changes.
   // Sets results based on response 
@@ -62,71 +67,82 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
     setAnwers(tempAnswers)
   }
 
-  return (
-    <div className='Calculator-results-container' style={{ animation: 'none' }}>
-      <div className='Calculator-results-left'>
-        <a className='Send-answers-link' onClick={() => setCurrentQuestion(0)} >{language.buttons.getBackToQuestions}</a>
-        <h1>{language.headers.yourResults}</h1>
-        {
-          results.map(result =>
-            <div key={result.title}>
-              <div>
-                <div className='Calculator-results-money-inline'>
-                  {!isCompany && result.bartype === 'greenbar' && <img className='Calculator-resultbar-icon' src={co2SavedIcon} alt='Pollution icon' />}
-                  {!isCompany && result.bartype === 'redbar' && <img className='Calculator-resultbar-icon' src={pollutionIcon} alt='Pollution icon' />}
-                  {!isCompany && result.bartype === 'nobar' && <img className='Calculator-resultbar-icon' src={moneySavedIcon} alt='Money saved icon' />}
-                  {isCompany && result.bartype === 'greenbar' && <img className='Calculator-resultbar-icon' src={moneySavedIcon} alt='Money saved icon' />}
-                  {isCompany && result.bartype === 'redbar' && <img className='Calculator-resultbar-icon' src={moneySpentIcon} alt='Money spent icon' />}
-                  {isCompany && result.bartype === 'nobar' && <img className='Calculator-resultbar-icon' src={co2SavedIcon} alt='Pollution icon' />}
-                  <p className='Calculator-result-countup'><b></b><CountUp duration={.8} end={result.value ? result.value : 0} /> {result.unit}</p>
+  return  (
+    <div>
+      {showMath === true && <Mathinfo onClick={()=> {setShowMath(false)
+        document.getElementById('results-container').style.filter='blur(0px)'}} />}
+      <div id='results-container' className='Calculator-results-container' style={{ animation: 'none'}}>
+        <div className='Calculator-results-left'>
+          <div className='Results-arrow-icon-div' onClick={() => setBody('main')}>
+            <img src={arrowLeft} className='Results-arrow-icon' />
+            <a className='Calculator-results-send-answers-link' onClick={() => setCurrentQuestion(0)} >{language.buttons.getBackToQuestions}</a>
+          </div>
+          <h1>{language.headers.yourResults}</h1>
+          {
+            results.map(result =>
+              <div key={result.title}>
+                <div>
+                  <div className='Calculator-results-money-inline'>
+                    {!isCompany && result.bartype === 'greenbar' && <img className='Calculator-resultbar-icon' src={co2SavedIcon} alt='Pollution icon' />}
+                    {!isCompany && result.bartype === 'redbar' && <img className='Calculator-resultbar-icon' src={pollutionIcon} alt='Pollution icon' />}
+                    {!isCompany && result.bartype === 'nobar' && <img className='Calculator-resultbar-icon' src={moneySavedIcon} alt='Money saved icon' />}
+                    {isCompany && result.bartype === 'greenbar' && <img className='Calculator-resultbar-icon' src={moneySavedIcon} alt='Money saved icon' />}
+                    {isCompany && result.bartype === 'redbar' && <img className='Calculator-resultbar-icon' src={moneySpentIcon} alt='Money spent icon' />}
+                    {isCompany && result.bartype === 'nobar' && <img className='Calculator-resultbar-icon' src={co2SavedIcon} alt='Pollution icon' />}
+                    <p className='Calculator-result-countup'><b></b><CountUp duration={.8} end={result.value ? result.value : 0} /> {result.unit}</p>
+                  </div>
+                  <p className='Calculator-results-result-title'>{result.title}</p>
                 </div>
-                <p className='Calculator-results-result-title'>{result.title}</p>
               </div>
-            </div>
-          )
-        }
-      </div>
-      <div className='Calculator-results-divider'></div>
-      <div className='Calculator-results-right'>
-        {
-          results.map(result =>
-            <div key={result.bartype} className='Calculator-results-resultbars'>
-              {!isCompany && result.bartype === 'greenbar' && <img className='Calculator-resultbar-icon' src={co2SavedIcon} alt='Pollution icon' />}
-              {!isCompany && result.bartype === 'redbar' && <img className='Calculator-resultbar-icon' src={pollutionIcon} alt='Pollution icon' />}
-              {isCompany && result.bartype === 'greenbar' && <img className='Calculator-resultbar-icon' src={moneySavedIcon} alt='Money saved icon' />}
-              {isCompany && result.bartype === 'redbar' && <img className='Calculator-resultbar-icon' src={moneySpentIcon} alt='Money spent icon' />}
-              <p></p>
-              <ResultBar width={80} percent={result.percent} type={result.bartype} />              
-            </div>
-          )
-        }
-        <SliderField
-          handleValueChange={(event) => setSliderValue(event.target.value)}
-          handleRelease={handleRelease}
-          value={sliderValue}
-          minValue={0}
-          maxValue={isCompany ? 100 : 7}
-          unit={isCompany ? '%' : ''} // If this is results for a company use percents
-        />
-        {isCompany ?
-          <p className='Calculator-results-slidertext'>{language.headers.workDoneRemotelyPercent}</p> // If this is results for a company use percents
-          : <p className='Calculator-results-slidertext'>{language.headers.workDoneRemotelyDays}</p>
-        }
-        <div>
-          <PDFDownloadLink document={
-            <ResultsPdfDocument
-              isCompany={isCompany} 
-              questions={questions}
-              answers={answers}
-              results={results}
-              amountOfRemoteWork={sliderValue}
-              language={language}/>} fileName="remote-work-results.pdf">
-            {({ loading }) => (loading ? 'Loading document...' : <a className='Calculator-results-dowloadPdf'>{language.buttons.downloadResultsasPdf}</a>)}
-          </PDFDownloadLink>
+            )
+          }
         </div>
+        <div className='Calculator-results-divider'></div>
+        <div className='Calculator-results-right'>
+          {
+            results.map(result =>
+              <div key={result.bartype} className='Calculator-results-resultbars'>
+                {!isCompany && result.bartype === 'greenbar' && <img className='Calculator-resultbar-icon' src={co2SavedIcon} alt='Pollution icon' />}
+                {!isCompany && result.bartype === 'redbar' && <img className='Calculator-resultbar-icon' src={pollutionIcon} alt='Pollution icon' />}
+                {isCompany && result.bartype === 'greenbar' && <img className='Calculator-resultbar-icon' src={moneySavedIcon} alt='Money saved icon' />}
+                {isCompany && result.bartype === 'redbar' && <img className='Calculator-resultbar-icon' src={moneySpentIcon} alt='Money spent icon' />}
+                <p></p>
+                <ResultBar width={80} percent={result.percent} type={result.bartype} />              
+              </div>
+            )
+          }
+          <SliderField
+            handleValueChange={(event) => setSliderValue(event.target.value)}
+            handleRelease={handleRelease}
+            value={sliderValue}
+            minValue={0}
+            maxValue={isCompany ? 100 : 7}
+            unit={isCompany ? '%' : ''} // If this is results for a company use percents
+          />
+          {isCompany ?
+            <p className='Calculator-results-slidertext'>{language.headers.workDoneRemotelyPercent}</p> // If this is results for a company use percents
+            : <p className='Calculator-results-slidertext'>{language.headers.workDoneRemotelyDays}</p>
+          }
+          <div>
+            <PDFDownloadLink document={
+              <ResultsPdfDocument
+                isCompany={isCompany} 
+                questions={questions}
+                answers={answers}
+                results={results}
+                amountOfRemoteWork={sliderValue}
+                language={language}/>} fileName="remote-work-results.pdf">
+              {({ loading }) => (loading ? 'Loading document...' : <a className='Calculator-results-dowloadPdf'>{language.buttons.downloadResultsasPdf}</a>)}
+            </PDFDownloadLink>
+          </div>
+        </div>        
       </div>
-      
+      <p>{language.content.mathinfo}
+        <a className='Calculator-results-clickhere' onClick={()=> {document.getElementById('results-container').style.filter='blur(5px)'
+          setShowMath(true)}}>{language.content.clickhere}</a>
+      </p>
     </div>
+    
   )
 }
 

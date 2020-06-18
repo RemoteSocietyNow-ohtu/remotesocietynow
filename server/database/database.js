@@ -55,10 +55,23 @@ const feedbackToCSV = async (questions, model) => {
   return str
 }
 
+const dataToCSVById = async (questions,model,id) => {
+ 
+  const data = await model.find({'user': `${id}`})
+  const datamodel = parser.parseSavedDataSchema(questions)
+  const columnNames = Object.keys(datamodel)
+
+  let options = {keys:columnNames}
+
+  let str = await converter.json2csvAsync(data,options)
+  return str
+}
+ 
 module.exports = {
   connectToDatabase,
   dataToCSV,
-  feedbackToCSV
+  feedbackToCSV,
+  dataToCSVById
 }
 
 

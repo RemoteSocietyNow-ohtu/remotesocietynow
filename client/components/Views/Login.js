@@ -3,8 +3,9 @@ import LanguageContext from '../../Contexts/LanguageContext'
 import PasswordField from '../InputFields/PasswordField'
 import EmailField from '../InputFields/EmailField'
 import authenticationService from '../../services/authenticationService'
+import CookieCheckbox from '../InputFields/CookieCheckbox'
 
-const Login = ({ setBody, Cookies, activeCalculator, setSuccess }) => {
+const Login = ({ setBody, Cookies, activeCalculator, setSuccess, acceptCookies, setAcceptCookies }) => {
 
   const language = useContext(LanguageContext)
   const [error, setError] = useState('')
@@ -14,9 +15,10 @@ const Login = ({ setBody, Cookies, activeCalculator, setSuccess }) => {
 
   const login = async () => {
     const res = await authenticationService.login(email, password)
-    setEmail('')
     setPassword('')
     if (res.token) {
+      setEmail('')
+      setPassword('')
       setError('')
       Cookies.set('token', res.token, { expires: 7, sameSite: 'lax' })
       setSuccess(language.success.loggedIn)
@@ -48,7 +50,9 @@ const Login = ({ setBody, Cookies, activeCalculator, setSuccess }) => {
           <label className='Login-label'>{language.content.authenticationLabelPassword}</label>
           <PasswordField handleValueChange={(event) => setPassword(event.target.value)} value={password} />
         </div>
-        <button className='LogIn-button' type='submit' onClick={() => login()}>{language.buttons.login}</button>
+        <CookieCheckbox
+          checked={acceptCookies} setChecked={() => setAcceptCookies(!acceptCookies)} />
+        <button className='LogIn-button' type='submit' disabled={!acceptCookies} onClick={() => login()}>{language.buttons.login}</button>
       </div>
       <p className='Login-create-account' onClick={() => setBody('signUp')}>{language.content.authenticationLoginCreateAccountText}</p>
     </div>

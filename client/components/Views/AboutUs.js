@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Projectinfo from '../SubComponents/Projectinfo'
-import Mathinfo from '../SubComponents/Mathinfo'
 import Video from '../SubComponents/Video'
+import LanguageContext from '@root/client/Contexts/LanguageContext'
 
-const AboutUs = () => {
+const AboutUs = ({ setBody }) => {
+
+  const language = useContext(LanguageContext)
   return (
     <div>
-      <Video />
+      <h1 className='AboutUs-header'>{language.headers.about}</h1>
+      <Video style={{'maxWidth': '80%'}} />
       <Projectinfo />
-      <Mathinfo />
+      <button className='AboutUs-calculatorChoice-button' onClick={() => setBody('calculatorChoice')}>{language.content.testReductions}</button>
     </div>
   )
 }

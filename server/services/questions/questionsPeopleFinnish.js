@@ -59,8 +59,8 @@ const questionsPeopleFinnish = [
     unit: 'päivänä'
   },
   {
-    identifyingString:'annualCommuteExpenses',
-    name: 'Kuinka paljon matkasi töihin maksavat vuodessa?',
+    identifyingString:'monthlyCommuteExpenses',
+    name: 'Kuinka paljon matkasi töihin maksavat kuukaudessa?',
     type: 'field',
     defaultValue:'0',
     minValue: 0,
@@ -86,14 +86,6 @@ const questionsPeopleFinnish = [
       { string: 'positiivisesti', value: 'positive' },
       { string: 'erittäin positiivisesti', value: 'very positive' },
     ]
-  },
-  {
-    identifyingString:'numberOfBusinessTrips',
-    name: 'Kuinka monta työmatkaa (meno-paluu) teet vuodessa lentäen?',
-    type: 'field',
-    defaultValue:'0',
-    minValue: 0,
-    unit: 'matkaa'
   },
   {
     identifyingString:'numberOfHoursOnPlane',

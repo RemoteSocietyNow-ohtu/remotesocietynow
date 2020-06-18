@@ -1,6 +1,6 @@
 const peopleAnswers = {
-  annualCommuteExpenses: '',
-  annualCommuteExpensesOpenField: 'Kommenttia',
+  monthlyCommuteExpenses: '',
+  monthlyCommuteExpensesOpenField: 'Kommenttia',
   dailyCommuteKm: 20,
   dailyCommuteKmOpenField: '',
   dailyCommuteMinutes: '',
@@ -26,8 +26,8 @@ const peopleAnswers = {
 }
 
 const peopleAnswersAllCommentFieldsEmpty = {
-  annualCommuteExpenses: '',
-  annualCommuteExpensesOpenField: '',
+  monthlyCommuteExpenses: '',
+  monthlyCommuteExpensesOpenField: '',
   dailyCommuteKm: 20,
   dailyCommuteKmOpenField: '',
   dailyCommuteMinutes: '',

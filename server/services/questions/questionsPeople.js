@@ -64,7 +64,7 @@ const questionsPeople = [
     dataType: Number
   },
   {
-    identifyingString:'annualCommuteExpenses',
+    identifyingString:'monthlyCommuteExpenses',
     name: 'How much do you pay for commuting monthly?',
     type: 'number',
     minValue: 0,
