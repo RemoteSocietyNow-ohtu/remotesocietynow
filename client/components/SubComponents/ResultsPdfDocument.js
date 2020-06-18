@@ -7,6 +7,7 @@ import moneySavedIcon from '../../resources/money-saved-icon-black.png'
 import co2SavedIcon from '../../resources/co2-saved-icon-black.png'
 import pollutionIcon from '../../resources/pollution-icon-black.png'
 import logoImage from '../../resources/logo512.png'
+import atIcon from '../../resources/at-white.png'
 
 Font.register({
   family: 'sans',
@@ -165,15 +166,17 @@ const ResultsPdfDocument = ({ language, questions, answers, results, isCompany }
             questions.map(q => {
               return (
                 <View key={q.identifyingString}>
-                  <Text style={styles.tinyText}>{q.name} : {answers[q.identifyingString].replace(/\r?\n|\r/g, ', ')}</Text>
-                         
+                  <Text style={styles.tinyText}>{q.name} : {answers[q.identifyingString].replace(/\r?\n|\r/g, ', ')}</Text>                         
                 </View>
               )
             })
           }       
         </View>
         <View style={[styles.section, {backgroundColor: '#cae8d5'}]}>
-          <Text style={styles.header2}>{language.headers.connectWithUs}</Text>
+          <View style={{ flexDirection: 'row', alignItems: 'center'}}>
+            <Image style={styles.icon} src={atIcon}></Image>
+            <Text style={styles.header2}>{language.headers.connectWithUs}</Text>
+          </View>          
           <View style={{ marginTop: 5 }}>
             <Text>{language.content.weAreCommitted}</Text>
           </View>

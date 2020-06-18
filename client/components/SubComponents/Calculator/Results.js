@@ -74,7 +74,7 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
       <div id='results-container' className='Calculator-results-container' onClick={() => {
         setShowMath(false)
         document.getElementById('results-container').style.filter='blur(0px)'}} 
-        style={{ animation: 'none'}}>
+      style={{ animation: 'none'}}>
         <div className='Calculator-results-left'>
           <div className='Results-arrow-icon-div' onClick={() => setBody('main')}>
             <img src={arrowLeft} className='Results-arrow-icon' />
@@ -134,7 +134,7 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
                 answers={answers}
                 results={results}                
                 language={language}/>} fileName="remote-work-results.pdf">
-              {({ loading }) => (loading ? 'Loading document...' : <button className='Calculator-results-dowloadPdf-button'>{language.buttons.downloadResultsasPdf}</button>)}
+              {({ loading }) => (loading ? language.buttons.generatingPdf : <button className='Calculator-results-dowloadPdf-button'>{language.buttons.downloadResultsasPdf}</button>)}
             </PDFDownloadLink>
           </div>
         </div>        
@@ -143,7 +143,7 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
         <a className='Calculator-results-clickhere' onClick={()=> {document.getElementById('results-container').style.filter='blur(5px)'
           setShowMath(true)
           window.scrollTo(0,0)
-          }}>{language.content.clickhere}</a>
+        }}>{language.content.clickhere}</a>
       </p>
     </div>
     
