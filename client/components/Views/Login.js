@@ -15,9 +15,10 @@ const Login = ({ setBody, Cookies, activeCalculator, setSuccess, acceptCookies, 
 
   const login = async () => {
     const res = await authenticationService.login(email, password)
-    setEmail('')
     setPassword('')
     if (res.token) {
+      setEmail('')
+      setPassword('')
       setError('')
       Cookies.set('token', res.token, { expires: 7, sameSite: 'lax' })
       setSuccess(language.success.loggedIn)

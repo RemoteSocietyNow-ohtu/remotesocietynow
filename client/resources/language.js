@@ -10,7 +10,8 @@ export const english = {
     calculator: 'calculator',
     aboutTheMath: 'About the math',
     privacyPolicy: 'Privacy Policy',
-    gdprCompliance: 'GDPR',
+    gdprCompliance: 'GDPR (your data protection rights)',
+    deletionConfirmation: 'Confirm',
     workDoneRemotelyPercent: 'of work done remotely',
     workDoneRemotelyDays: 'Days of work done remotely',
     loginHeader: 'Login',
@@ -29,13 +30,13 @@ export const english = {
   content: {
     main: 'The Most Enjoyable Way to Save the Planet! While making more money and saving time.',
     lead: 'Remote work and remote life can become new key efforts in limiting CO2 emissions. For every employee switching to remote work, a lot of harmful air pollution is reduced, while you and your company actually earn real money and save time.',
-    gdprCompliance: [
-      'You’re entitled to know exactly how your data is collected and used.',
-      'You can ask what information has been collected about you.',
-      'If there are mistakes in your data, you can request to have them corrected.',
-      'You can have your data deleted from records.',
-      'You’re allowed to refuse data processing, for example, marketing efforts.'
-    ],
+    gdprCompliance: {
+      rightToKnow: 'You’re entitled to know exactly how your data is collected and used.',
+      rightToAsk: 'You can ask what information has been collected about you.',
+      rightToCorrect: 'If there are mistakes in your data, you can request to have them corrected.',
+      rightToDelete: 'You can have your data deleted from records.',
+      rightToRefuse: 'You’re allowed to refuse data processing, for example, marketing efforts.'
+    },
     goBack: 'Go Back',
     contactInfo: 'Any inquiries can be directed to ' + mailConfig.CONTACT_MAIL,
     authenticationLabelEmail: 'Email',
@@ -44,6 +45,7 @@ export const english = {
     authenticationLoginCreateAccountText: 'Do not have an account? Sign up here',
     privacyPolicy: 'Before we start. By proceeding you acknowledge that your personal data is processed in accordance with our ',
     cookiePolicy: 'This site uses cookies to work properly for users who have logged in. If you agree to our use of cookies, please check this.',
+    deletionConfirmation: 'Are you sure you want to delete your account and all data related to it? This action cannot be reversed.',
     newsletter: 'Remotework is now more topical than ever. Don\'t miss a thing! Sign up for our newsletter on latest things related to remote work.',
     newsletterThanksForSubscribing: 'You will soon recieve a welcome email.',
     weAreCommitted: 'We at RemoteSocietyNow are committed to work for better environment and to help you save money! Contact us and we can find out together how we can help make your remote work impact better.',
@@ -77,6 +79,8 @@ export const english = {
     downloadCompanyFeedback: 'Feedback (Company)',
     downloadPersonsFeedback: 'Feedback (Person)',
     admin: 'Admin',
+    yes: 'Yes',
+    no: 'No',
   },
   navigation: {
     gdprCompliance: 'GDPR',

@@ -155,6 +155,15 @@ td {
 
 /* Icons */
 
+.GDPRCompliance-icon {
+  margin-right: .5em;
+}
+
+.DeletionConfirmation-icon {
+  height: 40px;
+  margin-right: 3%;
+}
+
 .Calculator-arrow-icon {
   margin-top: .5em;
   height: 80px;
@@ -170,11 +179,6 @@ td {
   align-items: center;
 }
 
-.GDPRCompliance-arrow-icon {
-  margin-top: .5em;
-  height: 80px;
-}
-
 .Results-arrow-icon {
   margin-top: .5em;
   height: 80px;
@@ -182,6 +186,11 @@ td {
 
 .Results-arrow-icon:hover {
   transform: scale(1.1);
+}
+
+.GDPRCompliance-arrow-icon {
+  margin-top: .5em;
+  height: 80px;
 }
 
 .GDPRCompliance-arrow-icon:hover {
@@ -266,10 +275,6 @@ td {
     margin: auto;    
     margin-top: 1rem;
   }
-}
-
-.Main-content-right {   
- 
 }
 
 .Heading {
@@ -422,6 +427,12 @@ td {
   color: gainsboro;
 }
 
+.GDPRCompliance-content-div {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
 .GDPRCompliance-contact-info {
   font-size: large;
 }
@@ -469,6 +480,20 @@ td {
   color: gainsboro;
   background-color: #3b6978;
   border: #181A1B 2px solid;
+}
+
+/* DeletionConfirmation */
+
+.DeletionConfirmation-div {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.DeletionConfirmation-button-div {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
 }
 
 /* Calculator */
@@ -812,10 +837,6 @@ td {
 }
 
 /* AboutUs */
-
-.AboutUs-header {
-  
-}
 
 .AboutUs-projectinfo-container {
   font-family: PT Root;
