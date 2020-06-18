@@ -10,7 +10,7 @@ export const english = {
     calculator: 'calculator',
     aboutTheMath: 'About the math',
     privacyPolicy: 'Privacy Policy',
-    gdprCompliance: 'GDPR',
+    gdprCompliance: 'GDPR (your data protection rights)',
     deletionConfirmation: 'Confirm',
     workDoneRemotelyPercent: 'of work done remotely',
     workDoneRemotelyDays: 'Days of work done remotely',
