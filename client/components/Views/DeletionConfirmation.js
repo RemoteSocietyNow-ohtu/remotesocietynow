@@ -13,7 +13,7 @@ const DeletionConfirmation = ({ setBody }) => {
 
   return (
     <div className='Container'>
-      <div className='GDPRCompliance-arrow-icon-div' onClick={() => setBody('main')}>
+      <div className='GDPRCompliance-arrow-icon-div' onClick={() => setBody('gdprCompliance')}>
         <img src={arrowLeft} className='GDPRCompliance-arrow-icon' />
         <a className='GDPRCompliance-go-back'>{language.content.goBack}</a>
       </div>
