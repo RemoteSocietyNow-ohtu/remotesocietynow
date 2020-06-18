@@ -57,8 +57,8 @@ export const english = {
     thisPdfWasGenerated: 'This PDF was generated from the answers given at ' + window.location.hostname + '. A web aplication to help you save money and environment by working remote.',
     testReductions: 'Test your reductions now!',
     aboutUs: 'About us',
-    clickhere: 'Click here!',
-    mathinfo: 'Want to learn more about the math used? ',
+    clickhere: 'the math used?',
+    mathinfo: 'Want to learn more about ',
   },
   buttons: {
     calculate: 'View Results',
@@ -115,7 +115,7 @@ export const english = {
     'Let us show you how! Leave your contact info and we’ll call back.',
     'For each legitimate business talk with a new client we will plant a real tree – for real.'
   ],
-  mathInfo: 'We factor in the following variables: more text to be added',
+  mathInfo: 'We factor in the following variables: more text to be added ',
 
   privacyPolicy: {
     infoTexts: {

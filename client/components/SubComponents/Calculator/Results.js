@@ -68,10 +68,13 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
   }
 
   return  (
-    <div>
+    <div style={{scrollBehavior:'smooth'}}>
       {showMath === true && <Mathinfo onClick={()=> {setShowMath(false)
         document.getElementById('results-container').style.filter='blur(0px)'}} />}
-      <div id='results-container' className='Calculator-results-container' style={{ animation: 'none'}}>
+      <div id='results-container' className='Calculator-results-container' onClick={() => {
+        setShowMath(false)
+        document.getElementById('results-container').style.filter='blur(0px)'}} 
+        style={{ animation: 'none'}}>
         <div className='Calculator-results-left'>
           <div className='Results-arrow-icon-div' onClick={() => setBody('main')}>
             <img src={arrowLeft} className='Results-arrow-icon' />
@@ -139,7 +142,9 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
       </div>
       <p>{language.content.mathinfo}
         <a className='Calculator-results-clickhere' onClick={()=> {document.getElementById('results-container').style.filter='blur(5px)'
-          setShowMath(true)}}>{language.content.clickhere}</a>
+          setShowMath(true)
+          window.scrollTo(0,0)
+          }}>{language.content.clickhere}</a>
       </p>
     </div>
     
