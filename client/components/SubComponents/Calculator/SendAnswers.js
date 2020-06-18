@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import SendAnswersButton from './SendAnswersButton'
-import Cookies from 'js-cookie'
 import LanguageContext from '@root/client/Contexts/LanguageContext'
 import leftArrow from '../../../resources/arrow-left.png'
 
