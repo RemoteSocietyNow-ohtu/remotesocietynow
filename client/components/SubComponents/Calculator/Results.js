@@ -68,7 +68,7 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
   }
 
   return  (
-    <div>
+    <div className='Container'>
       {showMath === true && <Mathinfo onClick={()=> {setShowMath(false)
         document.getElementById('results-container').style.filter='blur(0px)'}} />}
       <div id='results-container' className='Calculator-results-container' onClick={() => {
