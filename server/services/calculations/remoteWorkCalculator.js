@@ -66,8 +66,7 @@ const calculateBenefitsForPerson = (distance, commuteTime, daysFirst,daysSecond,
 
   const moneySavedPerYear = (remoteDays > (totalCommuteDays) ? 1 : (remoteDays/(totalCommuteDays)))*totalCostPerYear
 
-  const totalCommutingHoursPerYear = commuteTime * (totalCommuteDays) * 2 * 52 / 60
-  const timeSavedPerYear = (remoteDays > (totalCommuteDays) ? 1 : (remoteDays/(totalCommuteDays))) * totalCommutingHoursPerYear
+  const timeSavedPerYear = (commuteTime * 2 * avgNumberOfWorkDaysInAYear * (1 - shareOfWorkDoneAtOffice)) / 60
 
   const result = [
     {
