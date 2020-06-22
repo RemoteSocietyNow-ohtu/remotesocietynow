@@ -18,7 +18,7 @@ import moneySpentIcon from '../../../resources/money-spent-icon.png'
 import arrowLeft from '../../../resources/arrow-left.png'
 import Mathinfo from '../Mathinfo'
 
-const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurrentQuestion, questions, setBody }) => {
+const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurrentQuestion, questions  }) => {
   const language = useContext(LanguageContext)
   const [error, setError] = useState(false)
   const [sliderValue, setSliderValue] = useState(0)
