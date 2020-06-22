@@ -82,7 +82,7 @@ export const english = {
     downloadCompanyFeedback: 'Feedback (Company)',
     downloadPersonsFeedback: 'Feedback (Person)',
     admin: 'Admin',
-    downloadResultsasPdf: 'Download Results as a PDF-file!',
+    downloadResultsasPdf: 'Download Results (pdf)',
     generatingPdf: 'generating PDF...',
     yes: 'Yes',
     no: 'No',
