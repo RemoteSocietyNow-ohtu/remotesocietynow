@@ -30,7 +30,7 @@ You and your company actually earn real money and save time, plus productivity i
 - Production version is also running in Heroku, https://remotesocietynow.herokuapp.com/. 
 - Staging version can manually be promoted to production in Heroku dashboad.
 
-Local -> (push to master) -> Github -> Travis CI -> Heroku staging -> (promote) -> Heroku production
+![Local -> (push to master) -> Github -> Travis CI -> Heroku staging -> (promote) -> Heroku production](https://github.com/RemoteSocietyNow-ohtu/remotesocietynow/docs/CI-flow.png)
 
 ## Project material ##
 [Product backlog](https://docs.google.com/spreadsheets/d/1H6ewmum8H_-1ys8o97zC2eXteDIf6e95wRCZ0LieV_k/edit#gid=0)
