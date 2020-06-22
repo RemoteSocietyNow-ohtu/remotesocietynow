@@ -64,7 +64,10 @@ const calculateBenefitsForPerson = (distance, commuteTime, daysFirst,daysSecond,
 
   const totalCostPerYear = Math.floor(busCostPerMonth * 12 + carCostPerYear + trainCostPerMonth * 12)
 
-  const moneySavedPerYear = (remoteDays > (daysFirst+daysSecond) ? 1 : (remoteDays/(daysFirst+daysSecond)))*totalCostPerYear
+  const moneySavedPerYear = (remoteDays > (totalCommuteDays) ? 1 : (remoteDays/(totalCommuteDays)))*totalCostPerYear
+
+  const totalCommutingHoursPerYear = commuteTime * (totalCommuteDays) * 2 * 52 / 60
+  const timeSavedPerYear = (remoteDays > (totalCommuteDays) ? 1 : (remoteDays/(totalCommuteDays))) * totalCommutingHoursPerYear
 
   const result = [
     {
@@ -86,6 +89,12 @@ const calculateBenefitsForPerson = (distance, commuteTime, daysFirst,daysSecond,
       value: moneySavedPerYear,
       unit: '€',
       bartype: 'nobar'
+    },
+    {
+      title: 'Annual time saved by working remotely',
+      value: timeSavedPerYear,
+      unit: 'hours',
+      bartype: 'timebar'
     }
   ]  
 
