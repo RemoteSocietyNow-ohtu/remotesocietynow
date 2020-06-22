@@ -140,6 +140,7 @@ const App = () => {
         <Navbar body={body} setBody={setBody} Cookies={Cookies} />
         <div className='Body'>
           <Calculator
+            setBody={setBody}
             questions={companyQuestions}
             setQuestions={setCompanyQuestions}
             answers={companyAnswers}
