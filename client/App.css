@@ -883,7 +883,7 @@ td {
 
 .Mathinfo-container {
   font-size: calc(10px + 1vmin);
-  position: absolute;
+  position: relative;
   width: 80%;
   margin: auto;
   border: solid 3px;
