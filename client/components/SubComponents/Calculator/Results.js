@@ -15,6 +15,8 @@ import co2SavedIcon from '../../../resources/co2-saved-icon.png'
 import moneySavedIcon from '../../../resources/money-saved-icon.png'
 import moneySpentIcon from '../../../resources/money-spent-icon.png'
 
+import timeIcon from '../../../resources/time-icon-white.png'
+
 import arrowLeft from '../../../resources/arrow-left.png'
 import Mathinfo from '../Mathinfo'
 
@@ -89,6 +91,7 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
                     {!isCompany && result.bartype === 'greenbar' && <img className='Calculator-resultbar-icon' src={co2SavedIcon} alt='Pollution icon' />}
                     {!isCompany && result.bartype === 'redbar' && <img className='Calculator-resultbar-icon' src={pollutionIcon} alt='Pollution icon' />}
                     {!isCompany && result.bartype === 'nobar' && <img className='Calculator-resultbar-icon' src={moneySavedIcon} alt='Money saved icon' />}
+                    {!isCompany && result.bartype === 'timebar' && <img className='Calculator-resultbar-icon' src={timeIcon} alt='Time saved icon' />}
                     {isCompany && result.bartype === 'greenbar' && <img className='Calculator-resultbar-icon' src={moneySavedIcon} alt='Money saved icon' />}
                     {isCompany && result.bartype === 'redbar' && <img className='Calculator-resultbar-icon' src={moneySpentIcon} alt='Money spent icon' />}
                     {isCompany && result.bartype === 'nobar' && <img className='Calculator-resultbar-icon' src={co2SavedIcon} alt='Pollution icon' />}

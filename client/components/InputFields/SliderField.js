@@ -2,7 +2,8 @@ import React from 'react'
 
 const SliderField = ({ handleValueChange, handleRelease, value, minValue, maxValue, unit }) => {
   const width = {
-    width:'14.13%'
+    width:'14.14%',
+    padding: '0'
   }
   
   return(
