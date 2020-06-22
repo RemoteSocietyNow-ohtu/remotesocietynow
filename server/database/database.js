@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const databaseUrl = require('../util/databaseUrl')
 const converter = require('json-2-csv')
 const User = require('../models/userSchema')
+const AdminSettings = require('../models/AdminSettingsSchema')
 const bcrypt = require('bcrypt')
 const url = databaseUrl.getDatabaseUrl()
 const parser = require('../util/schemaParser')
@@ -17,10 +18,18 @@ const initializeAdmin = async() => {
   await user.save()
 }
 
+const initializeSettings = async () => {
+  const settings = await AdminSettings.findOne({ })
+  if (!settings) { 
+    const newSettings = new AdminSettings( { saveDataToDatabase: true })
+    await newSettings.save()
+  }  
+}
 
 const connectToDatabase = async () => {
   try{
     await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
+    initializeSettings()
     console.log('connected to mongoose')
     try{
       await initializeAdmin()

@@ -8,7 +8,7 @@ const Company = require('../models/companySchema')
 const EmployeeFeedback = require('../models/employeeFeedbackSchema')
 const CompanyFeedback = require('../models/companyFeedbackSchema')
 const User = require('../models/userSchema')
-
+const adminSettingsService = require('../services/adminSettingsService')
 
 const getTokenFrom = request => {
   const authorization = request.get('authorization')
@@ -53,7 +53,9 @@ calculationRouter.post('/person/:save?', async (req, res) => {
   const result = remoteWorkCalculator.calculateBenefitsForPerson(...calculateData)
 
   /* Calls storeEmployeeData in /server/database/database.js to save all employee input to database. */
-  if (req.params.save === 'save') {
+  
+  if (req.params.save === 'save' && await adminSettingsService.getSaveToDatabase() === true) {
+    console.log('save to Database')
     const employeeData = new Employee(bodyData)
     await employeeData.save()
     /* Calls storeEmployeeFeedback in /server/database/database.js to save employee feedback to database. */
@@ -98,8 +100,8 @@ calculationRouter.post('/company/:save?', async (req, res) => {
     using parameters gathered above*/
   const result = remoteWorkCalculator.calculateBenefitsForCompany(rent, officeUpkeep, employees, remoteShare, averageCarHours, energyCost, energySource, averageFlightHours, totalCommutingSubsidies)
 
-  /* Calls storeCompanyData in /server/database/database.js to save all company input to database. */
-  if (req.params.save === 'save') {
+  /* Calls storeCompanyData in /server/database/database.js to save all company input to database. */  
+  if (req.params.save === 'save' && await adminSettingsService.getSaveToDatabase() === true ) {    
     const companyData = new Company(bodyData)
     await companyData.save()
   
@@ -107,7 +109,6 @@ calculationRouter.post('/company/:save?', async (req, res) => {
       feedbacks['companyName'] = body.companyName
       const companyFeedback = new CompanyFeedback(feedbacks)
       await companyFeedback.save()
-
     }
   }
   res.json(result)

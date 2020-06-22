@@ -1,15 +1,25 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import LanguageContext from '../../Contexts/LanguageContext'
 import Toggle from 'react-toggle'
+import settingsService from '../../services/adminSettingsService'
 
 const Admin = ({ Cookies }) => {
-
+  const [ toggleValue, setToggleValue ] = useState(false)
   const baseurl = process.env.REACT_APP_BACKEND_URL ? process.env.REACT_APP_BACKEND_URL : ''
   const language = useContext(LanguageContext)
   const adminToken = Cookies.get('adminToken')
 
-  const toggleSaveToDatabase = () => {
-    // todo
+  useEffect(() => {
+    const setToggle = async () => {
+      setToggleValue(await settingsService.getSaveToggleValue())
+    }
+    setToggle()
+  }, [])
+
+  const toggleSaveToDatabase = async(e) => {
+    e.preventDefault()
+    setToggleValue(!toggleValue)
+    await settingsService.setSaveToggle(adminToken, !toggleValue)
   }
 
   return (
@@ -18,8 +28,9 @@ const Admin = ({ Cookies }) => {
         <h3 className='Admin-header'>{language.headers.adminHeader}</h3>
         <label>
           <Toggle
-            defaultChecked={true}
-            onChange={() => toggleSaveToDatabase()} />
+            checked={toggleValue}
+            onChange={(e) => toggleSaveToDatabase(e)}               
+          />
           <span className='Admin-toggle-text'>Save answers to the database</span>
         </label>
         <h5>{language.headers.downloadFiles}</h5>

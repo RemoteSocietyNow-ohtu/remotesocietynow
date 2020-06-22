@@ -3,6 +3,15 @@ const supertest = require('supertest')
 const app = require('../index')
 const { companyAnswers }  = require('./companyAnswers')
 const { peopleAnswers } = require('./peopleAnswers')
+const { toggleSaveTrue } = require('./testUtils')
+
+const mock = require('./mockdatabase')
+beforeAll(async () => await mock.connect())
+beforeEach(async () => {
+  await toggleSaveTrue()
+})
+afterEach(async () => await mock.clearDB())
+afterAll(async () => await mock.closeAndDrop())
 
 test('Backend calculate company returns results', async () => {
   const response = await supertest(app)

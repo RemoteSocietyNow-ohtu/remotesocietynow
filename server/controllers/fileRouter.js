@@ -18,7 +18,6 @@ const startDownload = (res, data, filename) => {
   res.write(data, function () {
     res.end()
   })
-
 }
 
 fileRouter.get('/companyCSV/:token?', async (req, res) => {

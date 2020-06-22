@@ -10,10 +10,15 @@ const mock = require('./mockdatabase')
 
 const { companyAnswers, companyAnswersAllCommentFieldsEmpty } = require('./companyAnswers')
 const { peopleAnswers, peopleAnswersAllCommentFieldsEmpty } = require('./peopleAnswers')
+const { toggleSaveTrue } = require('./testUtils')
 
 const api = supertest(app)
 
 beforeAll(async () => await mock.connect())
+
+beforeEach(async () => {
+  await toggleSaveTrue()
+})
 
 afterEach(async () => await mock.clearDB())
 
