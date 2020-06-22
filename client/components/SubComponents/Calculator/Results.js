@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { PDFDownloadLink } from '@react-pdf/renderer'
-import ResultsPdfDocument from '../ResultsPdfDocument'
+import ResultsPdfDocument from '../ResultsPdf/ResultsPdfDocument'
 
 import LanguageContext from '../../../Contexts/LanguageContext'
 import questionService from '../../../services/questionService'
