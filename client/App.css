@@ -178,6 +178,7 @@ td {
 .Results-arrow-icon-div {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .Results-arrow-icon {

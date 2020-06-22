@@ -68,7 +68,7 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
   }
 
   return  (
-    <div style={{scrollBehavior:'smooth'}}>
+    <div>
       {showMath === true && <Mathinfo onClick={()=> {setShowMath(false)
         document.getElementById('results-container').style.filter='blur(0px)'}} />}
       <div id='results-container' className='Calculator-results-container' onClick={() => {
@@ -76,7 +76,7 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
         document.getElementById('results-container').style.filter='blur(0px)'}} 
       style={{ animation: 'none'}}>
         <div className='Calculator-results-left'>
-          <div className='Results-arrow-icon-div' onClick={() => setBody('main')}>
+          <div className='Results-arrow-icon-div' onClick={() => setCurrentQuestion(0)}>
             <img src={arrowLeft} className='Results-arrow-icon' />
             <a className='Calculator-results-send-answers-link' onClick={() => setCurrentQuestion(0)} >{language.buttons.getBackToQuestions}</a>
           </div>
