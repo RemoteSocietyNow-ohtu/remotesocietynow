@@ -1,6 +1,6 @@
 const settingsRouter = require('express').Router()
 const auth = require('../util/userAuthenticator')
-const AdminSettings = require('../models/AdminSettingsSchema')
+const AdminSettings = require('../models/adminSettingsSchema')
 
 settingsRouter.post('/', async (req, res) => {
   const token = auth.getTokenFrom(req)  

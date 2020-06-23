@@ -1,7 +1,7 @@
-const adminSettings = require('../models/adminSettingsSchema')
+const AdminSettings = require('../models/adminSettingsSchema')
 
 const getSaveToDatabase = async () => {
-  const settings = await adminSettings.findOne({ })
+  const settings = await AdminSettings.findOne({ })
   return settings.saveDataToDatabase
 }
 

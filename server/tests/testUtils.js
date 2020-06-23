@@ -1,7 +1,7 @@
 require('@babel/polyfill')
 const supertest = require('supertest')
 const User = require('../models/userSchema')
-const AdminSettings = require('../models/AdminSettingsSchema')
+const AdminSettings = require('../models/adminSettingsSchema')
 const bcrypt = require('bcrypt')
 const app = require('../index')
 const api = supertest(app)

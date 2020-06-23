@@ -1,7 +1,7 @@
 require('@babel/polyfill')
 const supertest = require('supertest')
 const app = require('../index')
-const AdminSettings = require('../models/AdminSettingsSchema')
+const AdminSettings = require('../models/adminSettingsSchema')
 const Company = require('../models/companySchema')
 const mock = require('./mockdatabase')
 const testUtils = require('./testUtils')
