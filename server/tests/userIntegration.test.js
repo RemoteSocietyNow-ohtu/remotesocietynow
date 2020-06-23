@@ -3,13 +3,16 @@ const supertest = require('supertest')
 const app = require('../index')
 const User = require('../models/userSchema')
 const Company = require('../models/companySchema')
-const Employee = require('../models/companySchema')
+const Employee = require('../models/employeeSchema')
 const mock = require('./mockdatabase')
 const api = supertest(app)
-const { companyAnswers, companyAnswersAllCommentFieldsEmpty } = require('./companyAnswers')
-const { peopleAnswers, peopleAnswersAllCommentFieldsEmpty } = require('./peopleAnswers')
+const { companyAnswers } = require('./companyAnswers')
+const { peopleAnswers } = require('./peopleAnswers')
+const util = require('./testUtils')
 
 beforeAll(async () => await mock.connect())
+
+beforeEach(async () => await util.toggleSaveTrue())
 
 afterEach(async () => await mock.clearDB())
 
@@ -34,8 +37,8 @@ const loginWithTestUserData = async () => {
 
 const deleteUser = async (token) => {
   return api
-  .post('/files/deleteUser')
-  .set('Authorization', `bearer ${token}` )
+    .post('/files/deleteUser')
+    .set('Authorization', `bearer ${token}`)
 }
 
 const findUserByUsername = async (username) => {
@@ -44,48 +47,48 @@ const findUserByUsername = async (username) => {
 
 const sendPeopleAndCompanyAnswersWithUsersToken = async (token) => {
   await api
-  .post('/calculate/company/save/')
-  .send(companyAnswers)
-  .set('Authorization', `bearer ${token}` )
+    .post('/calculate/company/save/')
+    .set('Authorization', `bearer ${token}`)
+    .send(companyAnswers)
 
   await api
-  .post('/calculate/person/save/')
-  .send(peopleAnswers)
-  .set('Authorization', `bearer ${token}` )
+    .post('/calculate/person/save/')
+    .set('Authorization', `bearer ${token}`)
+    .send(peopleAnswers)
 }
 
-test('user can sign up', async () => { 
+test('user can sign up', async () => {
   await api
     .post('/users/')
     .send(testUser)
     .expect(200)
 })
 
-test('signing up returns user object with username, passwordhash and role', async () => { 
-  const response = await signUpWithTestUserData()    
+test('signing up returns user object with username, passwordhash and role', async () => {
+  const response = await signUpWithTestUserData()
   expect(response.body.username).toBe(testUser.username)
   expect(response.body.role).toBe('USER')
 })
 
-test('user can not sign up with a name already taken', async () => { 
+test('user can not sign up with a name already taken', async () => {
   await signUpWithTestUserData()
-  const response = await signUpWithTestUserData()   
+  const response = await signUpWithTestUserData()
   expect(response.body.error).toBeDefined()
 })
 
 test('user can log in after signed up', async () => {
-  await signUpWithTestUserData() 
+  await signUpWithTestUserData()
   const response = await loginWithTestUserData()
   expect(response.body.token).toBeDefined
-  expect(response.body.username).toBe(testUser.username)  
+  expect(response.body.username).toBe(testUser.username)
 })
 
-test('user can not log in if not signed up', async () => { 
+test('user can not log in if not signed up', async () => {
   const response = await loginWithTestUserData()
   expect(response.body.error).toBeDefined()
 })
 
-test('user can not log in with wrong password', async () => { 
+test('user can not log in with wrong password', async () => {
   await signUpWithTestUserData()
   const response = await api
     .post('/users/login/')
@@ -99,19 +102,21 @@ test('user data is saved to database', async () => {
   expect(users.length).toBe(1)
 })
 
-test('users id is linked to their answers when answering while logged in', async() => {
+test('users id is linked to their answers when answering while logged in', async () => {
   await signUpWithTestUserData()
   const loggedInData = await loginWithTestUserData()
   const token = loggedInData.body.token
 
   await sendPeopleAndCompanyAnswersWithUsersToken(token)
 
-  const id = await findUserByUsername(testUser.username).id
+  const users = await findUserByUsername(testUser.username)
+  const id = users[0].id
 
-  const usersCompanyAnswers = await Company.find({'user': `${id}`})
+  const usersCompanyAnswers = await Company.find({ 'user': `${id}` })
+  const usersEmployeeAnswers = await Employee.find({ 'user': `${id}` })
 
   expect(usersCompanyAnswers.length).toBe(1)
-
+  expect(usersEmployeeAnswers.length).toBe(1)
 })
 
 test('user cannot login after deletion', async () => {
@@ -135,4 +140,25 @@ test('users login data is deleted after deletion', async () => {
 
   const users = await findUserByUsername(testUser.username)
   expect(users.length).toBe(0)
+})
+
+test('users answers are deleted after user deletion', async () => {
+
+  await signUpWithTestUserData()
+  const loggedInData = await loginWithTestUserData()
+  const token = loggedInData.body.token
+
+  await sendPeopleAndCompanyAnswersWithUsersToken(token)
+
+  const users = await findUserByUsername(testUser.username)
+  const id = users[0].id
+
+  await deleteUser(token)
+
+  const usersCompanyAnswers = await Company.find({ 'user': `${id}` })
+  const usersEmployeeAnswers = await Employee.find({ 'user': `${id}` })
+
+  expect(usersCompanyAnswers.length).toBe(0)
+  expect(usersEmployeeAnswers.length).toBe(0)
+
 })
