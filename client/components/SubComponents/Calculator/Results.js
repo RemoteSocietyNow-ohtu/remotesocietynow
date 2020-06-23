@@ -7,6 +7,7 @@ import questionService from '../../../services/questionService'
 import SliderField from '../../InputFields/SliderField'
 import CountUp from 'react-countup'
 import ResultBar from './ResultBar'
+import SavingsDemonstrator from './SavingsDemonstrator'
 
 
 import pollutionIcon from '../../../resources/pollution-icon.png'
@@ -25,6 +26,7 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
   const [error, setError] = useState(false)
   const [sliderValue, setSliderValue] = useState(0)
   const [showMath, setShowMath] = useState(false)
+  const [showSavings, setShowSavings] = useState(false)
   
 
   // Fetch results from backend based on answers. Triggered when answers changes.
@@ -73,6 +75,9 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
     <div className='Container'>
       {showMath === true && <Mathinfo onClick={()=> {setShowMath(false)
         document.getElementById('results-container').style.filter='blur(0px)'}} />}
+        {showSavings===true && <div className='Newsletter-background' onClick={() => setShowSavings(false)}>
+          <SavingsDemonstrator results={results}/>
+          </div>}
       <div id='results-container' className='Calculator-results-container' onClick={() => {
         setShowMath(false)
         document.getElementById('results-container').style.filter='blur(0px)'}} 
@@ -97,7 +102,7 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
                     {isCompany && result.bartype === 'nobar' && <img className='Calculator-resultbar-icon' src={co2SavedIcon} alt='Pollution icon' />}
                     <p className='Calculator-result-countup'><b></b><CountUp duration={.8} end={result.value ? result.value : 0} /> {result.unit}</p>
                   </div>
-                  <p className='Calculator-results-result-title'>{result.title}</p>
+                  <p className='Calculator-results-result-title'>{result.title} {result.bartype ==='greenbar' && <a className='Calculator-results-clickhere' onClick={() => setShowSavings(true)} ><br></br> What does this mean?</a>}</p>
                 </div>
               </div>
             )
