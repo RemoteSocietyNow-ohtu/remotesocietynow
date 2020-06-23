@@ -1,3 +1,4 @@
+const config = require('../../config/common')
 const jwt = require('jsonwebtoken')
 const User = require('../models/userSchema')
 
@@ -14,7 +15,7 @@ const isAdmin = async (token) => {
   if (token !== null) {
     let decodedToken = null
     try {
-      decodedToken = jwt.verify(token, process.env.SECRET)
+      decodedToken = jwt.verify(token, config.secret)
     } catch (e) {
       console.log(e)
       return false
@@ -33,7 +34,7 @@ const isAdmin = async (token) => {
 const decodeToken = (token) => {
   let decodedToken = null
   try{
-    decodedToken = jwt.verify(token,process.env.SECRET)
+    decodedToken = jwt.verify(token, config.secret)
   }catch (e){
     console.log(e)
     return null

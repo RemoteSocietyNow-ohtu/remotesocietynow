@@ -1,3 +1,4 @@
+const config = require('../../config/common')
 const bcrypt = require('bcrypt')
 const userRouter = require('express').Router()
 const User = require('../models/userSchema')
@@ -45,7 +46,7 @@ userRouter.post('/login/', async (req, res) => {
     role: user.role
   }
 
-  const token = jwt.sign(userForToken, process.env.SECRET)
+  const token = jwt.sign(userForToken, config.secret)
 
   if (user.role === 'ADMIN') {
     res

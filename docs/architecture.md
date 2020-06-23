@@ -47,6 +47,15 @@ Once a calculator (Myself or Company) has been chosen in the calculator choice v
 
 
 ### Downloading a csv file which contains user data
+
 ![Client](pictures/downloading-csv-file.png)
 
 As mentioned above, users who are logged in have a token (stored in a cookie) which verifies their identity to the server. When trying to download a file which contains user data the server first identifies a user or the admin (in case the token belongs to the admin) by verifying the token. If a user is identified, the server returns a csv file containing that user's data. However, if the token belongs to the admin, all human readable user data from the database is parsed into a csv file which is then returned to the Client (frontend). The browser then initiates a download.
+
+
+### Creating a CSV string from JSON data
+
+![Client](pictures/data-to-csv.png)
+
+After the [file router](https://github.com/RemoteSocietyNow-ohtu/remotesocietynow/blob/master/server/controllers/fileRouter.js) has called the dataToCSV function, the function retrieves all data (Company or Employee data depending on the query) from the database in JSON format. A data model is then parsed and used to create a CSV string with the help of [json-2-csv](https://www.npmjs.com/package/json-2-csv). Finally, the CSV string is returned to the file router.
+

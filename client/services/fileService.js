@@ -1,24 +1,22 @@
 import axios from 'axios'
 
-const baseurl = process.env.REACT_APP_BACKEND_URL ? process.env.REACT_APP_BACKEND_URL : ''
-
 const getCompanyCSV = () => {
-  const request = axios.get(`${baseurl}/api/files/companyCSV`)
+  const request = axios.get('/api/files/companyCSV')
   return request.then((res) => res.data)
 }
 
 const getEmployeeCSV = () => {
-  const request = axios.get(`${baseurl}/api/files/employeeCSV`)
+  const request = axios.get('/api/files/employeeCSV')
   return request.then((res) => res.data)
 }
 
 const getCompanyFeedbackCSV = () => {
-  const request = axios.get(`${baseurl}/api/files/companyFeedbackCSV`)
+  const request = axios.get('/api/files/companyFeedbackCSV')
   return request.then((res) => res.data)
 }
 
 const getEmployeeFeedbackCSV = () => {
-  const request = axios.get(`${baseurl}/api/files/employeeFeedbackCSV`)
+  const request = axios.get('/api/files/employeeFeedbackCSV')
   return request.then((res) => res.data)
 }
 
@@ -28,7 +26,7 @@ const deleteUser = (token) => {
     headers: { Authorization: `bearer ${token}` }
   }
 
-  const request = axios.post(`${baseurl}/api/files/deleteUser`,config)
+  const request = axios.post('/api/files/deleteUser', config)
   return request.then((res) => res.data)
 
 }
