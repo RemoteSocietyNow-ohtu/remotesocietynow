@@ -1,6 +1,7 @@
 # RemoteSocietyNow
 
 [![Build Status](https://travis-ci.org/RemoteSocietyNow-ohtu/remotesocietynow.svg?branch=master)](https://travis-ci.org/RemoteSocietyNow-ohtu/remotesocietynow)
+[![codecov](https://codecov.io/gh/RemoteSocietyNow-ohtu/remotesocietynow/branch/master/graph/badge.svg)](https://codecov.io/gh/RemoteSocietyNow-ohtu/remotesocietynow)
 
 ## Introduction ##
 
