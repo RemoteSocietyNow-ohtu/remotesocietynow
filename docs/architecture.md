@@ -46,7 +46,7 @@ Finally, the results are [calculated](https://github.com/RemoteSocietyNow-ohtu/r
 Once a calculator (Myself or Company) has been chosen in the calculator choice view, the client [gets](https://github.com/RemoteSocietyNow-ohtu/remotesocietynow/blob/master/client/services/questionService.js) all the questions from backend. The questions are retrieved in JSON format.
 
 
+### Downloading a csv file which contains user data
+![Client](pictures/downloading-csv-file.png)
 
-
-
-
+As mentioned above, users who are logged in have a token (stored in a cookie) which verifies their identity to the server. When trying to download a file which contains user data the server first identifies a user or the admin (in case the token belongs to the admin) by verifying the token. If a user is identified, the server returns a csv file containing that user's data. However, if the token belongs to the admin, all human readable user data from the database is parsed into a csv file which is then returned to the Client (frontend). The browser then initiates a download.
