@@ -4,7 +4,7 @@ const app = require('../index')
 const AdminSettings = require('../models/AdminSettingsSchema')
 const Company = require('../models/companySchema')
 const mock = require('./mockdatabase')
-const { createUserAndLogin } = require('./testUtils')
+const testUtils = require('./testUtils')
 const api = supertest(app)
 
 const { companyAnswers } = require('./companyAnswers')
@@ -16,7 +16,7 @@ afterEach(async () => await mock.clearDB())
 afterAll(async () => await mock.closeAndDrop())
 
 test('save toggle setting is saved to db', async () => { 
-  const res = await createUserAndLogin('Admin', process.env.ADMINPASSWORD, 'ADMIN')
+  const res = await testUtils.createUserAndLogin('Admin', 'test-password', 'ADMIN')
   const token = res.body.adminToken  
   await api
     .post('/settings/')
@@ -35,7 +35,7 @@ test('save toggle setting is saved to db', async () => {
 })
 
 test('non admin user can not toggle change settings ', async () => { 
-  const res = await createUserAndLogin('user', 'password', 'USER')
+  const res = await testUtils.createUserAndLogin('user', 'password', 'USER')
   const token = res.body.token  
   await api
     .post('/settings/')
@@ -45,8 +45,7 @@ test('non admin user can not toggle change settings ', async () => {
 })
 
 test('data is not saved if save toggle is false but saved if true', async () => { 
-  let settings = new AdminSettings({ saveDataToDatabase: true })
-  settings.save()
+  let settings = await testUtils.toggleSaveTrue()
   await api
     .post('/calculate/company/save/')
     .send(companyAnswers)

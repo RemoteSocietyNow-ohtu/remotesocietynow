@@ -7,7 +7,7 @@ const app = require('../index')
 const api = supertest(app)
 
 const createUserAndLogin = async (username, password, role) => {
-  const pswrd = await bcrypt.hash(process.env.ADMINPASSWORD, 2)
+  const pswrd = await bcrypt.hash(password, 2)
   const user = new User({
     username: username,
     passwordHash: pswrd,
@@ -21,7 +21,7 @@ const createUserAndLogin = async (username, password, role) => {
 
 const toggleSaveTrue = async () => {
   const newSettings = new AdminSettings( { saveDataToDatabase: true })
-  await newSettings.save()
+  return await newSettings.save()
 }
 
 module.exports = { createUserAndLogin, toggleSaveTrue }
