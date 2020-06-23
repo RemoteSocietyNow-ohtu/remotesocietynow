@@ -9,13 +9,13 @@ const questionRouter = require('./controllers/questionRouter')
 const newsletterRouter = require('./controllers/newsletterRouter')
 const userRouter = require('./controllers/userRouter')
 const fileRouter = require('./controllers/fileRouter')
-const settingsRouter = require('./controllers/settingsRouter')
+const adminSettingsRouter = require('./controllers/adminSettingsRouter')
 
 app.use('/newsletter/', newsletterRouter)
 app.use('/calculate/', calculationRouter)
 app.use('/questions/', questionRouter)
 app.use('/users/', userRouter)
 app.use('/files/', fileRouter)
-app.use('/settings/', settingsRouter)
+app.use('/settings/', adminSettingsRouter)
 
 module.exports = app

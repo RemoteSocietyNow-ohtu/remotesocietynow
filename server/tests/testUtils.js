@@ -20,8 +20,13 @@ const createUserAndLogin = async (username, password, role) => {
 }
 
 const toggleSaveTrue = async () => {
-  const newSettings = new AdminSettings( { saveDataToDatabase: true })
-  return await newSettings.save()
+  const settings = await AdminSettings.findOne({ })
+  if (!settings) {    
+    const newSettings = new AdminSettings( { saveDataToDatabase: true })
+    return await newSettings.save()
+  } else {
+    return await AdminSettings.replaceOne({ }, { saveDataToDatabase: true })
+  }
 }
 
 module.exports = { createUserAndLogin, toggleSaveTrue }

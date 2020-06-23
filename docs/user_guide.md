@@ -1,10 +1,6 @@
 # Remote Work Now - User's guide
 
-
-## Functionalities
-
-
-### Signing up as a user
+## Signing up as a user
 
 On the front page, you can find a sign up button at the top-right corner of the screen. Click it.
 
@@ -21,7 +17,7 @@ Once you have clicked sign up, you will be taken to the login screen. Input your
 You can log out from the top-right corner of the screen.
 
 
-### Using the calculators
+## Using the calculators
 
 You will be taken directly to the first calculator page after logging in. User's that have not logged in can access the calculator by clicking the Calculate benefits button on the front page.
 
@@ -46,7 +42,7 @@ A visualization of your results is shown on the results page. You can also find 
 ![Results](pictures/results.png)
 
 
-### Signing up for a newsletter
+## Signing up for a newsletter
 
 You can sign up for a newsletter from the bottom-right corner of the front page or from the results page.
 
@@ -58,7 +54,7 @@ The results page also provides you with the opportunity to know more about the o
 ![Newsletter results](pictures/connect.png)
 
 
-### Viewing and managing your data profile
+## Viewing and managing your data profile
 
 You can view your data by clicking the 'Your Data' link in the bottom-left corner of the front page.
 
@@ -73,7 +69,7 @@ To delete your account and erase your data, click the 'Delete My Account & Data'
 ![Delete data](pictures/delete_data.png)
 
 
-### Admin access
+## Admin access
 
 As the administrator of the site, you have additional features available. You can login as you would as a regular user using the login functionality. Logging in will redirect you to the admin panel.
 
