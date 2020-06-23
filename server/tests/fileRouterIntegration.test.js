@@ -80,3 +80,18 @@ test('non admin can not download employee feedback data as CSV', async () => {
   const { response } = await downloadAsNormalUser('companyFeedbackCSV')  
   expect(response.text).toBe('Unauthorized')
 })
+
+test('can not download files if not a user', async () => {
+  let response = await api
+    .get('/files/companyCSV/this-is-totally-wrong-token')
+  expect(response.text).toBe('Unauthorized')
+  response = await api
+    .get('/files/employeeCSV/')
+  expect(response.text).toBe('Unauthorized')
+  response = await api
+    .get('/files/companyFeedbackCSV/')
+  expect(response.text).toBe('Unauthorized')
+  response = await api
+    .get('/files/employeeFeedbackCSV/this-is-totally-wrong-token')
+  expect(response.text).toBe('Unauthorized')
+})

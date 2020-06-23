@@ -21,7 +21,9 @@ const startDownload = (res, data, filename) => {
 }
 
 fileRouter.get('/companyCSV/:token?', async (req, res) => {
-
+  if (!req.params.token) {
+    return res.send('Unauthorized')
+  } 
   const token = req.params.token
   const isAdmin = await auth.isAdmin(token)
   if (isAdmin) {
@@ -32,17 +34,19 @@ fileRouter.get('/companyCSV/:token?', async (req, res) => {
 
   const decodedToken = auth.decodeToken(token)
   if (decodedToken === null) {
-    res.send('Unauthorized')
+    return res.send('Unauthorized')
   }
 
   const id = decodedToken.id
   const csv = await db.dataToCSVById(companyQuestions, Company, id)
   startDownload(res, csv, `${id}.csv`)
-
+ 
 })
 
 fileRouter.get('/employeeCSV/:token?', async (req, res) => {
-
+  if (!req.params.token) {
+    return res.send('Unauthorized')
+  } 
   const token = req.params.token
   const isAdmin = await auth.isAdmin(token)
   if (isAdmin) {
@@ -61,7 +65,9 @@ fileRouter.get('/employeeCSV/:token?', async (req, res) => {
 })
 
 fileRouter.get('/companyFeedbackCSV/:token?', async (req, res) => {
-
+  if (!req.params.token) {
+    return res.send('Unauthorized')
+  } 
   const token = req.params.token
   const isAdmin = await auth.isAdmin(token)
   if (isAdmin) {
@@ -81,6 +87,9 @@ fileRouter.get('/companyFeedbackCSV/:token?', async (req, res) => {
 })
 
 fileRouter.get('/employeeFeedbackCSV/:token?', async (req, res) => {
+  if (!req.params.token) {
+    return res.send('Unauthorized')
+  } 
   const token = req.params.token
   const isAdmin = await auth.isAdmin(token)
   if (isAdmin) {
