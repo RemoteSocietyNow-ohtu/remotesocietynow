@@ -9,6 +9,7 @@ import co2SavedIcon from '../../../resources/co2-saved-icon-black.png'
 import pollutionIcon from '../../../resources/pollution-icon-black.png'
 import logoImage from '../../../resources/logo512.png'
 import atIcon from '../../../resources/at-white.png'
+import timeIcon from '../../../resources/time-icon-black.png'
 
 Font.register({
   family: 'sans',
@@ -77,11 +78,12 @@ const Results = ({ results, amountOfRemoteWork, isCompany, language }) => {
                 {!isCompany && result.bartype === 'greenbar' && <Image style={styles.icon} src={co2SavedIcon}></Image>}
                 {!isCompany && result.bartype === 'redbar' && <Image style={styles.icon} src={pollutionIcon}></Image>}
                 {!isCompany && result.bartype === 'nobar' && <Image style={styles.icon} src={moneySavedIcon}></Image>}
+                {!isCompany && result.bartype === 'timebar' && <Image style={styles.icon} src={timeIcon}></Image>}
                 <Text>{result.title}</Text>
                 <Text style={styles.bigText}>{result.value} {result.unit}</Text>
               </View>
               {
-                result.bartype !== 'nobar' &&
+                (result.bartype === 'redbar' || result.bartype === 'greenbar') &&
                 <View style={styles.bar} >
                   <View style={[
                     styles.bar,

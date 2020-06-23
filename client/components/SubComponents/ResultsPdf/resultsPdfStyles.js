@@ -34,11 +34,11 @@ export const styles = StyleSheet.create({
     fontSize: '6px'
   },
   bigText: {
-    fontSize: '48px',
+    fontSize: '36px',
     fontFamily: 'sans',
     color: 'gray',
     flexGrow: 2,
-    textAlign: 'right',
+    textAlign: 'right',  
     paddingRight: 30
   },
   bar: {
@@ -51,7 +51,7 @@ export const styles = StyleSheet.create({
     flexGrow: 1,
     height: '1px',
     backgroundColor: '#84a9ac',
-    margin: 10
+    marginTop: 10
   },
   icon: {
     height: '30px',  
