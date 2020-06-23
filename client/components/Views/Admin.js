@@ -34,11 +34,17 @@ const Admin = ({ Cookies }) => {
         </label>
         <h5>{language.headers.downloadFiles}</h5>
         <div className='Admin-download-buttons-div'>
-          <a href={`${baseurl}/api/files/companyCSV/${adminToken}`}><button className='Admin-download-button'>{language.buttons.downloadCompanies}</button></a>
-          <a href={`${baseurl}/api/files/employeeCSV/${adminToken}`}><button className='Admin-download-button'>{language.buttons.downloadPersons}</button></a>
-          <a href={`${baseurl}/api/files/companyFeedbackCSV/${adminToken}`}><button className='Admin-download-button'>{language.buttons.downloadCompanyFeedback}</button></a>
-          <a href={`${baseurl}/api/files/employeeFeedbackCSV/${adminToken}`}><button className='Admin-download-button'>{language.buttons.downloadPersonsFeedback}</button></a>
+          <a href={`/api/files/companyCSV/${adminToken}`}><button className='Admin-download-button'>{language.buttons.downloadCompanies}</button></a>
+          <a href={`/api/files/employeeCSV/${adminToken}`}><button className='Admin-download-button'>{language.buttons.downloadPersons}</button></a>
+          <a href={`/api/files/companyFeedbackCSV/${adminToken}`}><button className='Admin-download-button'>{language.buttons.downloadCompanyFeedback}</button></a>
+          <a href={`/api/files/employeeFeedbackCSV/${adminToken}`}><button className='Admin-download-button'>{language.buttons.downloadPersonsFeedback}</button></a>
         </div>
+        <h2>Change password</h2>
+        <form>
+          <input placeholder='uusi salasana' />
+          <input placeholder='uusi salasana' />
+          <input type='submit' />
+        </form>        
       </div>
     </div>
   )
