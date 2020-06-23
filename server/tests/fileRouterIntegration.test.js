@@ -86,12 +86,27 @@ test('can not download files if not a user', async () => {
     .get('/files/companyCSV/this-is-totally-wrong-token')
   expect(response.text).toBe('Unauthorized')
   response = await api
+    .get('/files/companyCSV/')
+  expect(response.text).toBe('Unauthorized')
+
+  response = await api
+    .get('/files/employeeCSV/this-is-totally-wrong-token')
+  expect(response.text).toBe('Unauthorized')
+  response = await api
     .get('/files/employeeCSV/')
+  expect(response.text).toBe('Unauthorized')
+
+  response = await api
+    .get('/files/companyFeedbackCSV/this-is-totally-wrong-token')
   expect(response.text).toBe('Unauthorized')
   response = await api
     .get('/files/companyFeedbackCSV/')
   expect(response.text).toBe('Unauthorized')
+  
   response = await api
     .get('/files/employeeFeedbackCSV/this-is-totally-wrong-token')
+  expect(response.text).toBe('Unauthorized')
+  response = await api
+    .get('/files/employeeFeedbackCSV/')
   expect(response.text).toBe('Unauthorized')
 })
