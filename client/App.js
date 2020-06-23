@@ -31,168 +31,77 @@ const App = () => {
 
   const [success, setSuccess] = useState('')
 
-  if (body === 'main') {
-    return (
-      <div className="App">
-        <Navbar body={body} setBody={setBody} Cookies={Cookies} />
-        <div className='Body'>
-          <Main setBody={setBody} />
-        </div>
+  const views = {}
+
+  views['main'] = <Main setBody={setBody} />
+
+  views['signUp'] = <SignUp setBody={setBody} setSuccess={setSuccess} />
+
+  views['login'] = <Login setBody={setBody} activeCalculator={activeCalculator} Cookies={Cookies}
+    setSuccess={setSuccess} acceptCookies={acceptCookies} setAcceptCookies={setAcceptCookies} />
+
+  views['admin'] = <Admin Cookies={Cookies} />
+
+  views['privacy-policy'] = <PrivacyPolicy
+    setBody={() => setBody('calculatorChoice')} setAcceptPrivacyPolicy={setAcceptPrivacyPolicy}
+  />
+
+  views['calculatorChoice'] = <CalculatorChoice
+    setBody={setBody}
+    setActiveCalculator={setActiveCalculator}
+    acceptPrivacyPolicy={acceptPrivacyPolicy}
+    setAcceptPrivacyPolicy={setAcceptPrivacyPolicy}
+    setCurrentCompanyQuestion={setCurrentCompanyQuestion}
+    setCurrentPeopleQuestion={setCurrentPeopleQuestion}
+  />
+
+  views['people'] = <Calculator
+    setBody={setBody}
+    questions={peopleQuestions}
+    setQuestions={setPeopleQuestions}
+    answers={peopleAnswers}
+    setAnwers={setPeopleAnwers}
+    results={peopleResults}
+    setResults={setPeopleResults}
+    currentQuestion={currentPeopleQuestion}
+    setCurrentQuestion={setCurrentPeopleQuestion}
+    login={() => setBody('login')}
+    signUp={() => setBody('signUp')}
+    success={success}
+    Cookies={Cookies}
+  />
+
+  views['companies'] = <Calculator
+    setBody={setBody}
+    questions={companyQuestions}
+    setQuestions={setCompanyQuestions}
+    answers={companyAnswers}
+    setAnwers={setCompanyAnwers}
+    results={companyResults}
+    setResults={setCompanyResults}
+    currentQuestion={currentCompanyQuestion}
+    setCurrentQuestion={setCurrentCompanyQuestion}
+    login={() => setBody('login')}
+    signUp={() => setBody('signUp')}
+    isCompany={true}
+    success={success}
+    Cookies={Cookies}
+  />
+
+  views['about'] = <AboutUs setBody={setBody} />
+
+  views['gdprCompliance'] = <GDPRCompliance Cookies={Cookies} setBody={setBody} />
+
+  views['deletionConfirmation'] = <DeletionConfirmation setBody={setBody} />
+
+  return (
+    <div className="App">
+      <Navbar body={body} setBody={setBody} Cookies={Cookies} />
+      <div className='Body'>
+        {views[body]}
       </div>
-    )
-  }
-
-  if (body === 'signUp') {
-    return (
-      <div className="App">
-        <Navbar body={body} setBody={setBody} Cookies={Cookies} />
-        <div className='Body'>
-          <SignUp setBody={setBody} setSuccess={setSuccess} />
-        </div>
-      </div>
-    )
-  }
-
-  if (body === 'login') {
-    return (
-      <div className="App">
-        <Navbar body={body} setBody={setBody} Cookies={Cookies} />
-        {success != '' && <p className='Success'>{success}</p>}
-        <div className='Body'>
-          <Login setBody={setBody} activeCalculator={activeCalculator} Cookies={Cookies}
-            setSuccess={setSuccess} acceptCookies={acceptCookies} setAcceptCookies={setAcceptCookies} />
-        </div>
-      </div>
-    )
-  }
-
-  if (body === 'admin') {
-    if (Cookies.get('adminToken')) {
-      return (
-        <div className="App">
-          <Navbar body={body} setBody={setBody} Cookies={Cookies} />
-          <div className='Body'>
-            <Admin Cookies={Cookies} />
-          </div>
-        </div>
-      )
-    }
-  }
-
-  if (body === 'privacy-policy') {
-    return (
-      <div className="App">
-        <Navbar body={body} setBody={setBody} Cookies={Cookies} />
-        <div className='Body'>
-          <PrivacyPolicy setBody={() => setBody('calculatorChoice')} setAcceptPrivacyPolicy={setAcceptPrivacyPolicy} />
-        </div>
-      </div>
-    )
-  }
-
-  if (body === 'calculatorChoice') {
-    return (
-      <div className='App'>
-        <Navbar body={body} setBody={setBody} Cookies={Cookies} />
-        <div className='Body'>
-          {success != '' && <p className='Success'>{success}</p>}
-          <CalculatorChoice
-            setBody={setBody}
-            setActiveCalculator={setActiveCalculator}
-            acceptPrivacyPolicy={acceptPrivacyPolicy}
-            setAcceptPrivacyPolicy={setAcceptPrivacyPolicy}
-            setCurrentCompanyQuestion={setCurrentCompanyQuestion}
-            setCurrentPeopleQuestion={setCurrentPeopleQuestion}
-          />
-        </div>
-      </div>
-    )
-  }
-
-  if (body === 'people') {
-    return (
-      <div className="App">
-        <Navbar body={body} setBody={setBody} Cookies={Cookies} />
-        <div className='Body'>
-          <Calculator
-            setBody={setBody}
-            questions={peopleQuestions}
-            setQuestions={setPeopleQuestions}
-            answers={peopleAnswers}
-            setAnwers={setPeopleAnwers}
-            results={peopleResults}
-            setResults={setPeopleResults}
-            currentQuestion={currentPeopleQuestion}
-            setCurrentQuestion={setCurrentPeopleQuestion}
-            login={() => setBody('login')}
-            signUp={() => setBody('signUp')}
-            success={success}
-            Cookies={Cookies}
-          />
-        </div>
-      </div>
-    )
-  }
-
-  if (body === 'companies') {
-    return (
-      <div className="App">
-        <Navbar body={body} setBody={setBody} Cookies={Cookies} />
-        <div className='Body'>
-          <Calculator
-            setBody={setBody}
-            questions={companyQuestions}
-            setQuestions={setCompanyQuestions}
-            answers={companyAnswers}
-            setAnwers={setCompanyAnwers}
-            results={companyResults}
-            setResults={setCompanyResults}
-            currentQuestion={currentCompanyQuestion}
-            setCurrentQuestion={setCurrentCompanyQuestion}
-            login={() => setBody('login')}
-            signUp={() => setBody('signUp')}
-            isCompany={true}
-            success={success}
-            Cookies={Cookies}
-          />
-        </div>
-      </div>
-    )
-  }
-
-  if (body === 'about') {
-    return (
-      <div className='App'>
-        <Navbar body={body} setBody={setBody} Cookies={Cookies} />
-        <div className='Body'>
-          <AboutUs setBody={setBody} />
-        </div>
-      </div>
-    )
-  }
-
-  if (body === 'gdprCompliance') {
-    return (
-      <div className='App'>
-        <Navbar body={body} setBody={setBody} Cookies={Cookies} />
-        <div className='Body'>
-          <GDPRCompliance Cookies={Cookies} setBody={setBody} />
-        </div>
-      </div>
-    )
-  }
-
-  if (body === 'deletionConfirmation') {
-    return (
-      <div className='App'>
-        <Navbar body={body} setBody={setBody} Cookies={Cookies} />
-        <div className='Body'>
-          <DeletionConfirmation setBody={setBody} />
-        </div>
-      </div>
-    )
-  }
-
+    </div>
+  )
 }
 
 export default App

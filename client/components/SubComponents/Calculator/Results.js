@@ -75,9 +75,9 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
     <div className='Container'>
       {showMath === true && <Mathinfo onClick={()=> {setShowMath(false)
         document.getElementById('results-container').style.filter='blur(0px)'}} />}
-        {showSavings===true && <div className='Newsletter-background' onClick={() => setShowSavings(false)}>
-          <SavingsDemonstrator results={results}/>
-          </div>}
+      {showSavings===true && <div className='Newsletter-background' onClick={() => setShowSavings(false)}>
+        <SavingsDemonstrator results={results}/>
+      </div>}
       <div id='results-container' className='Calculator-results-container' onClick={() => {
         setShowMath(false)
         document.getElementById('results-container').style.filter='blur(0px)'}} 
