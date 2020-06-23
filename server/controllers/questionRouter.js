@@ -19,14 +19,4 @@ questionRouter.get('/companies/', (req,res) => {
   res.json(questionsCompanies)
 })
 
-/** Handles GET requests to (baseUrl)/api/questions/people/id
- *  responds with the (id):th question
- */
-questionRouter.get('/people/:id', (req, res) => {
-  const id = req.params.id
-  const question = questionsPeople[id]
-
-  res.json(question)
-})
-
 module.exports = questionRouter

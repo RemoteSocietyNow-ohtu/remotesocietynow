@@ -56,7 +56,7 @@ fileRouter.get('/employeeCSV/:token?', async (req, res) => {
   }
   const decodedToken = auth.decodeToken(token)
   if (decodedToken === null) {
-    res.send('Unauthorized')
+    return res.send('Unauthorized')
   }
 
   const id = decodedToken.id
