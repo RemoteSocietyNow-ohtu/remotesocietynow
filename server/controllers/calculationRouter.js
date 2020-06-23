@@ -1,4 +1,5 @@
 const calculationRouter = require('express').Router()
+const config = require('../../config/common')
 const jwt = require('jsonwebtoken')
 const remoteWorkCalculator = require('../services/calculations/remoteWorkCalculator')
 const bodyParser = require('../util/calculationBodyParser')
@@ -43,7 +44,7 @@ calculationRouter.post('/person/:save?', async (req, res) => {
   const feedbacks = bodyParser.parseFeedBacksFromBody(body)
 
   if(token !== null){
-    const decodedToken = jwt.verify(token, process.env.SECRET)
+    const decodedToken = jwt.verify(token, config.secret)
     user = await User.findById(decodedToken.id)
     bodyData['user'] = user._id
   }
@@ -91,7 +92,7 @@ calculationRouter.post('/company/:save?', async (req, res) => {
   let user = null
 
   if(token !== null){
-    const decodedToken = jwt.verify(token, process.env.SECRET)
+    const decodedToken = jwt.verify(token, config.secret)
     user = await User.findById(decodedToken.id)
     bodyData['user'] = user._id
   }

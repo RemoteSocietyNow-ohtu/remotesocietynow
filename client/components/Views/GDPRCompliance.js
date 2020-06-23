@@ -8,8 +8,6 @@ import rightToDeleteIcon from '../../resources/delete-icon.png'
 import rightToRefuseIcon from '../../resources/right-to-refuse-icon.png'
 
 const GDPRCompliance = ({ Cookies, setBody }) => {
-
-  const baseurl = process.env.REACT_APP_BACKEND_URL ? process.env.REACT_APP_BACKEND_URL : ''
   
   const language = useContext(LanguageContext)
 

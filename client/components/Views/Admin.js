@@ -5,7 +5,6 @@ import settingsService from '../../services/adminSettingsService'
 
 const Admin = ({ Cookies }) => {
   const [ toggleValue, setToggleValue ] = useState(false)
-  const baseurl = process.env.REACT_APP_BACKEND_URL ? process.env.REACT_APP_BACKEND_URL : ''
   const language = useContext(LanguageContext)
   const adminToken = Cookies.get('adminToken')
 

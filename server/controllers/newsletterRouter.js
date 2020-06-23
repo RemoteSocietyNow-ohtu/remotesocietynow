@@ -1,3 +1,4 @@
+const config = require('../../config/common')
 const newsletterRouter = require('express').Router()
 const newsletterWelcomeMessage = require('../services/newsletterTemplates/newsletterWelcomeMessage')
 const mailService = require('../services/mailService/mailService')
@@ -5,7 +6,7 @@ const mailConfig = require('../../config/mailConfig')
 
 const prepareAdminMail = (address) => {  
   return {
-    from: process.env.MAIL_USERNAME,
+    from: config.mailUsername,
     to: address,
     subject: newsletterWelcomeMessage.subject,
     html: newsletterWelcomeMessage.body
@@ -14,7 +15,7 @@ const prepareAdminMail = (address) => {
 
 const prepareSubscriberMail = (address) => {
   return {
-    from: process.env.MAIL_USERNAME,
+    from: config.mailUsername,
     to: mailConfig.CONTACT_MAIL,
     subject: 'New RemoteSocietyNow-newsletter Subscription',
     text: `${address} wants to join RemoteSocietyNow-newsletter`
