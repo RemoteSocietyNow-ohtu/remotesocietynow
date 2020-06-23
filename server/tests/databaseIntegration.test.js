@@ -5,20 +5,17 @@ const Company = require('../models/companySchema')
 const CompanyFeedback = require('../models/companyFeedbackSchema')
 const Employee = require('../models/employeeSchema')
 const EmployeeFeedback = require('../models/employeeFeedbackSchema')
-
+const testUtils = require('./testUtils')
 const mock = require('./mockdatabase')
 
 const { companyAnswers, companyAnswersAllCommentFieldsEmpty } = require('./companyAnswers')
 const { peopleAnswers, peopleAnswersAllCommentFieldsEmpty } = require('./peopleAnswers')
-const { toggleSaveTrue } = require('./testUtils')
 
 const api = supertest(app)
 
 beforeAll(async () => await mock.connect())
 
-beforeEach(async () => {
-  await toggleSaveTrue()
-})
+beforeEach(async () => await testUtils.toggleSaveTrue())
 
 afterEach(async () => await mock.clearDB())
 

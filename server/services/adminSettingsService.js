@@ -1,8 +1,20 @@
 const AdminSettings = require('../models/adminSettingsSchema')
 
 const getSaveToDatabase = async () => {
-  const settings = await AdminSettings.findOne({ })
-  return settings.saveDataToDatabase
+  try {
+    const settings = await AdminSettings.findOne({ })
+    return settings.saveDataToDatabase
+  } catch {
+    return null
+  }  
 }
 
-module.exports = { getSaveToDatabase }
+const initializeSettings = async () => {
+  const settings = await AdminSettings.findOne({ })
+  if (!settings) { 
+    const newSettings = new AdminSettings( { saveDataToDatabase: true })
+    await newSettings.save()
+  }  
+}
+
+module.exports = { getSaveToDatabase, initializeSettings }
