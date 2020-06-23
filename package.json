@@ -9,7 +9,8 @@
     "build": "webpack --mode=production",
     "lint": "eslint .",
     "fix:lint": "eslint . --fix",
-    "test": "cross-env NODE_ENV=test jest --verbose --runInBand --detectOpenHandles"
+    "test": "cross-env NODE_ENV=test jest --verbose --runInBand --detectOpenHandles",
+    "codecov": "codecov"
   },
   "engines": {
     "node": ">=10.15"
