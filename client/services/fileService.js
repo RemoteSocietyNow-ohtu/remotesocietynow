@@ -22,9 +22,21 @@ const getEmployeeFeedbackCSV = () => {
   return request.then((res) => res.data)
 }
 
+const deleteUser = (token) => {
+
+  const config = {
+    headers: { Authorization: `bearer ${token}` }
+  }
+
+  const request = axios.post(`${baseurl}/api/files/deleteUser`,config)
+  return request.then((res) => res.data)
+
+}
+
 export default {
   getCompanyCSV,
   getEmployeeCSV,
   getCompanyFeedbackCSV,
   getEmployeeFeedbackCSV,
+  deleteUser
 }
