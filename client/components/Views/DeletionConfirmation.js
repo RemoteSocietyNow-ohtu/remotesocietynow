@@ -3,6 +3,7 @@ import LanguageContext from '../../Contexts/LanguageContext'
 import arrowLeft from '../../resources/arrow-left.png'
 import deleteIcon from '../../resources/delete-icon.png'
 import fileservise from '../../services/fileService'
+import authenticationService from '../../services/authenticationService'
 
 const DeletionConfirmation = ({Cookies, setBody }) => {
 
@@ -11,6 +12,7 @@ const DeletionConfirmation = ({Cookies, setBody }) => {
 
   const deleteUserData = () => {
     fileservise.deleteUser(token)
+    authenticationService.logout(Cookies)
   }
 
   return (
