@@ -97,6 +97,7 @@ const App = () => {
   return (
     <div className="App">
       <Navbar body={body} setBody={setBody} Cookies={Cookies} />
+      {success != '' && <p className='Success'>{success}</p>}
       <div className='Body'>
         {views[body]}
       </div>
