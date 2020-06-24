@@ -61,7 +61,12 @@ export const english = {
     clickhere: 'the math used?',
     mathinfo: 'Want to learn more about ',
     newPassword: 'New password',
-    newPassword2: 'Confirm new password'
+    newPassword2: 'Confirm new password',
+    savingsHeadingStart: 'By doing remote work on ',
+    savingsHeadingSave: ' days per week, you save ' ,
+    savingsHeadingAbout: ' kg of emissions annually. This is equal to about:',
+    savingsCar: 'kilometers driven in a car',
+    savingsPlane: 'flights over the Atlantic Ocean'
   },
   buttons: {
     calculate: 'View Results',

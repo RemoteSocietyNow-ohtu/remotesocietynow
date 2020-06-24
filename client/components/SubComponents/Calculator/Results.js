@@ -109,7 +109,9 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
             <a className='Calculator-results-send-answers-link' onClick={() => setCurrentQuestion(0)} >{language.buttons.getBackToQuestions}</a>
           </div>
         </div>
+        
         <div className='Calculator-results-divider'></div>
+        
         <div className='Calculator-results-right'>
           {
             results.map(result =>
