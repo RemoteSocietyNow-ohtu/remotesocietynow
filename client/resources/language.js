@@ -63,6 +63,7 @@ export const english = {
     mathinfo: 'Want to learn more about ',
     newPassword: 'New password',
     newPassword2: 'Confirm new password',
+    whatMean: ' What does this mean?',
     savingsHeadingStart: 'By doing remote work on ',
     savingsHeadingSave: ' days per week, you save ' ,
     savingsHeadingAbout: ' kg of emissions annually. This is equal to about:',

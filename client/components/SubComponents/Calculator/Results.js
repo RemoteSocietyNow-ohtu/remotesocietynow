@@ -59,7 +59,20 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
   // Check if there was an error fetching results
   if (error === true) return <p>{language.errors.errorSendingAnswers}</p>
 
-  
+  // Gets the correct icon 
+  const getIcon = (isCompany, id) => {
+    return (
+      <div>
+        {!isCompany && id === 'co2Save' && <img className='Calculator-resultbar-icon' src={co2SavedIcon} alt='Pollution icon' />}
+        {!isCompany && id === 'totalEmissions' && <img className='Calculator-resultbar-icon' src={pollutionIcon} alt='Pollution icon' />}
+        {!isCompany && id === 'moneySave' && <img className='Calculator-resultbar-icon' src={moneySavedIcon} alt='Money saved icon' />}
+        {!isCompany && id === 'timeSave' && <img className='Calculator-resultbar-icon' src={timeIcon} alt='Time saved icon' />}
+        {isCompany && id === 'moneySave' && <img className='Calculator-resultbar-icon' src={moneySavedIcon} alt='Money saved icon' />}
+        {isCompany && id === 'yearlyExpenses' && <img className='Calculator-resultbar-icon' src={moneySpentIcon} alt='Money spent icon' />}
+        {isCompany && id === 'co2Save' && <img className='Calculator-resultbar-icon' src={co2SavedIcon} alt='Pollution icon' />}
+      </div>
+    )
+  }
   // Change answers.remoteShare based on slider. 
   // This will cause component to rerender and fetchResults to run
   const handleRelease = async () => {
@@ -90,28 +103,21 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
               <div key={result.title}>
                 <div>
                   <div className='Calculator-results-money-inline'>
-                    {!isCompany && result.id === 'co2Save' && <img className='Calculator-resultbar-icon' src={co2SavedIcon} alt='Pollution icon' />}
-                    {!isCompany && result.id === 'totalEmissions' && <img className='Calculator-resultbar-icon' src={pollutionIcon} alt='Pollution icon' />}
-                    {!isCompany && result.id === 'moneySave' && <img className='Calculator-resultbar-icon' src={moneySavedIcon} alt='Money saved icon' />}
-                    {!isCompany && result.id === 'timeSave' && <img className='Calculator-resultbar-icon' src={timeIcon} alt='Time saved icon' />}
-                    {isCompany && result.id === 'moneySave' && <img className='Calculator-resultbar-icon' src={moneySavedIcon} alt='Money saved icon' />}
-                    {isCompany && result.id === 'yearlyExpenses' && <img className='Calculator-resultbar-icon' src={moneySpentIcon} alt='Money spent icon' />}
-                    {isCompany && result.id === 'co2Save' && <img className='Calculator-resultbar-icon' src={co2SavedIcon} alt='Pollution icon' />}
+                    {getIcon(isCompany, result.id)}
                     <p className='Calculator-result-countup'><b></b><CountUp duration={.8} end={result.value ? result.value : 0} /> {result.unit}</p>
                   </div>
-                  <p className='Calculator-results-result-title'>{result.title} {result.id === 'co2Save' && <a className='Calculator-results-clickhere' onClick={() => setShowSavings(true)} ><br></br> What does this mean?</a>}</p>
+                  <p className='Calculator-results-result-title'>{result.title} {result.id === 'co2Save' && <a className='Calculator-results-clickhere' onClick={() => setShowSavings(true)} ><br></br> {language.content.whatMean}</a>}</p>
                 </div>
               </div>
             )
           }
-          <div className='GoBack-arrow-icon-div' onClick={() => setCurrentQuestion(0)}>
-            <img src={arrowLeft} className='Results-arrow-icon' />
-            <a className='Calculator-results-send-answers-link' onClick={() => setCurrentQuestion(0)} >{language.buttons.getBackToQuestions}</a>
-          </div> 
+          
         </div>
         
         <div className='Calculator-results-divider'></div>
         
+
+
         <div className='Calculator-results-right'>
           {
             results.map(result =>
@@ -159,6 +165,10 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
           window.scrollTo(0,0)
         }}>{language.content.clickhere}</a>
       </p>
+      <div className='GoBack-arrow-icon-div' onClick={() => setCurrentQuestion(0)}>
+            <img src={arrowLeft} className='Results-arrow-icon' />
+            <a className='Calculator-results-send-answers-link' onClick={() => setCurrentQuestion(0)} >{language.buttons.getBackToQuestions}</a>
+          </div> 
     </div>
     
   )

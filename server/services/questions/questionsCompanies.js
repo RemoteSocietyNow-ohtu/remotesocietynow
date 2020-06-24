@@ -163,6 +163,12 @@ const questionsCompanies = [
     name:'If you had a superpower, what would you change in your company\'s work arrangements? And how?',
     type: 'textArea',
     dataType: String
+  },
+  {
+    identifyingString:'name',
+    name:'Your name (optional)',
+    type: 'text',
+    dataType: String
   }
 ]
 
