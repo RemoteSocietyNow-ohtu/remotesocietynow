@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import './App.css'
 import Navbar from './components/Navigation/Navbar'
 import Main from './components/Views/Main'
@@ -12,8 +12,12 @@ import Admin from './components/Views/Admin'
 import Cookies from 'js-cookie'
 import Calculator from 'Components/SubComponents/Calculator/Calculator'
 import DeletionConfirmation from './components/Views/DeletionConfirmation'
+import LanguageContext from './Contexts/LanguageContext'
 
 const App = () => {
+  const language = useContext(LanguageContext)
+  document.documentElement.lang = language.code
+
   const [acceptPrivacyPolicy, setAcceptPrivacyPolicy] = useState(false)
   const [acceptCookies, setAcceptCookies] = useState(false)
   const [body, setBody] = useState('main')
@@ -97,6 +101,7 @@ const App = () => {
   return (
     <div className="App">
       <Navbar body={body} setBody={setBody} Cookies={Cookies} />
+      {success != '' && <p className='Success'>{success}</p>}
       <div className='Body'>
         {views[body]}
       </div>

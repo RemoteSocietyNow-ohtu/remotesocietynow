@@ -8,7 +8,7 @@ import { english } from './resources/language'
 const refresh = () => render(
   <React.StrictMode>
     <LanguageContext.Provider value={english}>
-      <App />
+      <App/>
     </LanguageContext.Provider>
   </React.StrictMode>,
   document.getElementById('root')

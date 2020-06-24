@@ -2,6 +2,7 @@ import mailConfig from '../../config/mailConfig'
 
 export const english = {
   name: 'English',
+  code: 'en',
   headers: {
     mainHeader: 'Remote Work - Save Money by Saving the Planet',//'The most enjoyable way to save the planet.',
     calculateChoiceHeader: 'I am calculating benefits for...',
@@ -95,6 +96,8 @@ export const english = {
     yes: 'Yes',
     no: 'No',
     send: 'Send',
+    nextQuestion: 'Next Question',
+    previousQuestion: 'Previous Question'
   },
   navigation: {
     gdprCompliance: 'GDPR',

@@ -2,12 +2,11 @@ import React, { useContext, useState, useEffect } from 'react'
 import LanguageContext from '../../Contexts/LanguageContext'
 import Toggle from 'react-toggle'
 import settingsService from '../../services/adminSettingsService'
-import authenticationService from '../../services/authenticationService'
+import PasswordChange from 'Components/SubComponents/PasswordChange'
 
 const Admin = ({ Cookies }) => {
   const [ toggleValue, setToggleValue ] = useState(false)
-  const [ passwordError, setPasswordError ] = useState('')
-  const [ passwordSuccess, setPasswordSuccess ] = useState('')
+  
   const language = useContext(LanguageContext)
   const adminToken = Cookies.get('adminToken')
 
@@ -22,26 +21,6 @@ const Admin = ({ Cookies }) => {
     e.preventDefault()
     setToggleValue(!toggleValue)
     await settingsService.setSaveToggle(adminToken, !toggleValue)
-  }
-
-  const handlePasswordChange = (e) => {
-    e.preventDefault()
-    setPasswordError('')
-    const password = e.target.newpassword.value
-    const passwordConfirm = e.target.newpassword2.value
-    if (password.length > 0 && password === passwordConfirm ) {
-      try {
-        console.log('change password')
-        authenticationService.changePassword(adminToken, e.target.newpassword.value)
-        setPasswordSuccess(language.success.passwordChanged)
-      } catch {
-        setPasswordError(language.errors.errorChangingPassword)
-      }
-    } else {
-      setPasswordError(language.errors.passwordsMustBeIdentical)
-    }
-    e.target.newpassword.value = ''
-    e.target.newpassword2.value = ''
   }
 
   return (
@@ -62,14 +41,7 @@ const Admin = ({ Cookies }) => {
           <a href={`/api/files/companyFeedbackCSV/${adminToken}`}><button className='Admin-download-button'>{language.buttons.downloadCompanyFeedback}</button></a>
           <a href={`/api/files/employeeFeedbackCSV/${adminToken}`}><button className='Admin-download-button'>{language.buttons.downloadPersonsFeedback}</button></a>
         </div>
-        <h2>{language.headers.changePassword}</h2>
-        <form onSubmit={(e) => handlePasswordChange(e)}>
-          <input className='Admin-password-field' type='password' name='newpassword' placeholder={language.content.newPassword} />
-          <input className='Admin-password-field' type='password' name='newpassword2' placeholder={language.content.newPassword2} />
-          <input className='Admin-password-button' type='submit' value={language.buttons.send}/>
-        </form>        
-        {passwordSuccess.length > 0 && <p className='Success'>{passwordSuccess}</p>}
-        {passwordError.length > 0 && <p className='Error'>{passwordError}</p>}
+        <PasswordChange adminToken={adminToken} />
       </div>
     </div>
   )
