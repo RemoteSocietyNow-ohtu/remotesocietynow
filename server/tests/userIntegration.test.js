@@ -168,13 +168,14 @@ test('users answers are deleted after user deletion', async () => {
 test('admin can change password', async () => {
   const oldPassword = 'password'
   const newPassword = 'newPassword'
-  const response = await util.createUserAndLogin('admin', oldPassword, 'ADMIN')  
-  const token = response.body.adminToken
+  const response = await util.createUserAndLogin('admin', oldPassword, 'ADMIN')
+
   await api
     .post('/users/change-password/')
-    .set('Authorization', `bearer ${token}`)
+    .set('Authorization', `bearer ${response.body.adminToken}`)
     .send({ 'password': newPassword })
     .expect(200)
+
   const updatedUser = await User.findOne({ username: 'admin' })
   const passwordCorrect = await bcrypt.compare(newPassword, updatedUser.passwordHash)
   expect(passwordCorrect).toBe(true)
@@ -184,13 +185,14 @@ test('non admin user can not change password', async () => {
   const oldPassword = 'password'
   const newPassword = 'newPassword'
   await util.createUserAndLogin('admin', oldPassword, 'ADMIN')
-  const response = await util.createUserAndLogin('user', 'usersPassword', 'USER')  
-  const token = response.body.token
+  const response = await util.createUserAndLogin('user', 'usersPassword', 'USER')
+
   await api
     .post('/users/change-password/')
-    .set('Authorization', `bearer ${token}`)
+    .set('Authorization', `bearer ${response.body.token}`)
     .send({ 'password': newPassword })
     .expect(403)
+
   const admin = await User.findOne({ username: 'admin' })
   const passwordCorrect = await bcrypt.compare(newPassword, admin.passwordHash)
   expect(passwordCorrect).toBe(false)

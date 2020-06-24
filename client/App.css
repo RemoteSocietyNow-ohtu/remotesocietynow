@@ -316,6 +316,7 @@ td {
   display: flex;
   align-items: bottom;
   justify-content: space-between;
+  flex-wrap: wrap;
   width: 100%; 
 }
 
@@ -326,6 +327,12 @@ td {
   padding-right: 1rem;    
   display: flex;
   align-items: center;
+}
+
+@media (max-width: 656px) {
+  .Main-bottom-navigation-bar {
+    justify-content: center;
+  }
 }
 
 
