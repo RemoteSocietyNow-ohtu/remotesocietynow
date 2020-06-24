@@ -99,7 +99,7 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
                     {isCompany && result.bartype === 'nobar' && <img className='Calculator-resultbar-icon' src={co2SavedIcon} alt='Pollution icon' />}
                     <p className='Calculator-result-countup'><b></b><CountUp duration={.8} end={result.value ? result.value : 0} /> {result.unit}</p>
                   </div>
-                  <p className='Calculator-results-result-title'>{result.title} {result.bartype ==='greenbar' && <a className='Calculator-results-clickhere' onClick={() => setShowSavings(true)} ><br></br> What does this mean?</a>}</p>
+                  <p className='Calculator-results-result-title'>{result.title} {result.id === 'co2Save' && <a className='Calculator-results-clickhere' onClick={() => setShowSavings(true)} ><br></br> What does this mean?</a>}</p>
                 </div>
               </div>
             )
@@ -107,7 +107,7 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
           <div className='Results-arrow-icon-div' onClick={() => setCurrentQuestion(0)}>
             <img src={arrowLeft} className='Results-arrow-icon' />
             <a className='Calculator-results-send-answers-link' onClick={() => setCurrentQuestion(0)} >{language.buttons.getBackToQuestions}</a>
-          </div>
+          </div> 
         </div>
         
         <div className='Calculator-results-divider'></div>
@@ -137,6 +137,7 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
             <p className='Calculator-results-slidertext'>{language.headers.workDoneRemotelyPercent}</p> // If this is results for a company use percents
             : <p className='Calculator-results-slidertext'>{language.headers.workDoneRemotelyDays}</p>
           }
+          
           <div>
             <PDFDownloadLink document={
               <ResultsPdfDocument
@@ -148,8 +149,10 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
               {({ loading }) => (loading ? language.buttons.generatingPdf : <button className='Calculator-results-dowloadPdf-button'>{language.buttons.downloadResultsasPdf}</button>)}
             </PDFDownloadLink>
           </div>
-        </div>        
+        </div>
+               
       </div>
+      
       <p>{language.content.mathinfo}
         <a className='Calculator-results-clickhere' onClick={()=> {document.getElementById('results-container').style.filter='blur(5px)'
           setShowMath(true)

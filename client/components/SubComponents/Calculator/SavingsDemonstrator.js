@@ -3,7 +3,7 @@ import LanguageContext from '../../../Contexts/LanguageContext'
 
 const SavingsDemonstrator = ({results, answers}) => {
   const language = useContext(LanguageContext)
-  const result = results.find(result => result.bartype === 'greenbar')
+  const result = results.find(result => result.id === 'co2Save')
   return (
     <div onClick={(event) => event.stopPropagation()} className='Calculator-results-savings-container'>
       <p>{language.content.savingsHeadingStart} 
