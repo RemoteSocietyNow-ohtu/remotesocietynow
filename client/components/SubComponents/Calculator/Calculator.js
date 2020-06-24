@@ -27,7 +27,7 @@ const Calculator = ({ setBody, questions, setQuestions, answers, setAnwers, resu
   const [newsletterOpen, setNewsletterOpen] = useState(false)
   const language = useContext(LanguageContext)
  
-  //Fetch questions and init question and aswer states
+  //Fetch questions and init question and answer states
   useEffect(() => {
     const fetchQuesions = async () => {
       setIsLoading(true)

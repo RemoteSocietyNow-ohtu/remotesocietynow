@@ -1,8 +1,9 @@
 require('@babel/polyfill')
+const config = require('../../../config/common')
 const mailService = require('../../services/mailService/mailService')
 
 const testMailConf = {
-  from: process.env.MAIL_USERNAME,
+  from: config.mailUsername,
   to: 'test.test@testdomain.biz',
   subject: 'This is test subject',
   html: 'This is test body'

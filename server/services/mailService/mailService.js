@@ -1,3 +1,4 @@
+const { inProduction } = require('../../../config/common')
 const nodemailer = require('nodemailer')
 const util = require('util')
 const mailConfig = require('../../../config/mailConfig')
@@ -6,7 +7,7 @@ let transporter
  
 const createTransport = async () => {
   let config
-  if (process.env.NODE_ENV === 'production' ) {
+  if (inProduction) {
     config = mailConfig.productionMailConfig
   } else {  
     const createTestAccount = util.promisify(nodemailer.createTestAccount)
@@ -26,7 +27,7 @@ const createTransport = async () => {
 const sendMail = async (mailOptions) => {
   await createTransport()
   const sentMail = await transporter.sendMail(mailOptions)
-  if (process.env.NODE_ENV !== 'production')
+  if (!inProduction)
     console.log('test message: ', nodemailer.getTestMessageUrl(sentMail))
   return sentMail
 }

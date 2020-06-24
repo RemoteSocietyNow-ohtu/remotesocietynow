@@ -15,6 +15,14 @@ afterEach(async () => await mock.clearDB())
 
 afterAll(async () => await mock.closeAndDrop())
 
+test('toggle setting can be fetched', async () => {
+  await testUtils.toggleSaveTrue()
+  const response = await api
+    .get('/settings/')
+    .expect(200)
+  expect(response.body.saveDataToDatabase).toBe(true)
+})
+
 test('save toggle setting is saved to db', async () => { 
   const res = await testUtils.createUserAndLogin('Admin', 'test-password', 'ADMIN')
   const token = res.body.adminToken  

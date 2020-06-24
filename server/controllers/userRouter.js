@@ -1,7 +1,9 @@
+const config = require('../../config/common')
 const bcrypt = require('bcrypt')
 const userRouter = require('express').Router()
 const User = require('../models/userSchema')
 const jwt = require('jsonwebtoken')
+const auth = require('../util/userAuthenticator')
 
 userRouter.post('/', async (request, response) => {
   const body = request.body
@@ -45,7 +47,7 @@ userRouter.post('/login/', async (req, res) => {
     role: user.role
   }
 
-  const token = jwt.sign(userForToken, process.env.SECRET)
+  const token = jwt.sign(userForToken, config.secret)
 
   if (user.role === 'ADMIN') {
     res
@@ -56,6 +58,24 @@ userRouter.post('/login/', async (req, res) => {
       .status(200)
       .send({ token, username: user.username})
   }
+})
+
+userRouter.post('/change-password/', async (req, res) => {
+  const token = auth.getTokenFrom(req)  
+  const isAdmin = await auth.isAdmin(token)
+  if (isAdmin === false) {    
+    return res.sendStatus(403)
+  }  
+  try {
+    const admin = await User.findOne({ username: 'admin' })
+    const saltRounds = 10
+    const passwordHash = await bcrypt.hash(req.body.password, saltRounds)
+    admin.passwordHash = passwordHash    
+    await admin.save()
+    res.send(admin)    
+  } catch {
+    res.sendStatus(400)
+  }  
 })
 
 module.exports = userRouter

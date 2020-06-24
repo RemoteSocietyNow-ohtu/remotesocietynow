@@ -1,12 +1,11 @@
+const config = require('../../config/common')
+
 const getDatabaseUrl = () => { 
-  switch (process.env.NODE_ENV) {
-  case 'test':
-    return process.env.MONGODB_TEST_URI
-  case 'production':
-    return process.env.MONGODB_URI
-  default:
-    return process.env.MONGODB_DEV_URI
-  }
+  if (config.inProduction) {
+    return config.mongoDbUrl
+  } else {
+    return config.mongoDbDevUrl
+  }  
 }
 
 module.exports = { getDatabaseUrl }
