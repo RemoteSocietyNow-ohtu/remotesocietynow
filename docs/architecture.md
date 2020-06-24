@@ -55,7 +55,11 @@ As mentioned above, users who are logged in have a token (stored in a cookie) wh
 
 ### Creating a CSV string from JSON data
 
-![Client](pictures/data-to-csv.png)
+![Client](pictures/parsing-csv.png)
 
 After the [file router](https://github.com/RemoteSocietyNow-ohtu/remotesocietynow/blob/master/server/controllers/fileRouter.js) has called the dataToCSV function, the function retrieves all data (Company or Employee data depending on the query) from the database in JSON format. A data model is then parsed and used to create a CSV string with the help of [json-2-csv](https://www.npmjs.com/package/json-2-csv). Finally, the CSV string is returned to the file router.
 
+### Newsletter Subscription
+![Client](pictures/newsletter-subscription.png)
+
+When a user subscribes to the newsletter two emails are sent: a confirmation email to the user and a notification email to the admin email address. Admin has to manually add people to the newsletter mailing group.
