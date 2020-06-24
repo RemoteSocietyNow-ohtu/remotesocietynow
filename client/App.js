@@ -92,7 +92,7 @@ const App = () => {
 
   views['gdprCompliance'] = <GDPRCompliance Cookies={Cookies} setBody={setBody} />
 
-  views['deletionConfirmation'] = <DeletionConfirmation setBody={setBody} />
+  views['deletionConfirmation'] = <DeletionConfirmation Cookies={Cookies} setBody={setBody} />
 
   return (
     <div className="App">

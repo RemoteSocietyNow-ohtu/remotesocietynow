@@ -3,8 +3,6 @@ const nodemailer = require('nodemailer')
 const util = require('util')
 const mailConfig = require('../../../config/mailConfig')
 
-let transporter
- 
 const createTransport = async () => {
   let config
   if (inProduction) {
@@ -21,11 +19,11 @@ const createTransport = async () => {
       }
     }
   }
-  transporter = nodemailer.createTransport(config)
+  return nodemailer.createTransport(config)
 }
 
 const sendMail = async (mailOptions) => {
-  await createTransport()
+  let transporter = await createTransport()
   const sentMail = await transporter.sendMail(mailOptions)
   if (!inProduction)
     console.log('test message: ', nodemailer.getTestMessageUrl(sentMail))
