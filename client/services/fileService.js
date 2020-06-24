@@ -20,13 +20,14 @@ const getEmployeeFeedbackCSV = () => {
   return request.then((res) => res.data)
 }
 
+
 const deleteUser = (token) => {
 
   const config = {
-    headers: { Authorization: `bearer ${token}` }
+    headers: { Authorization: `bearer ${token}` },
   }
 
-  const request = axios.post('/api/files/deleteUser', config)
+  const request = axios.post('/api/files/deleteUser', {}, config)
   return request.then((res) => res.data)
 
 }
