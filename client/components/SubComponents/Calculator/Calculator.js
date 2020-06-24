@@ -72,7 +72,7 @@ const Calculator = ({ setBody, questions, setQuestions, answers, setAnwers, resu
   }
 
   return (
-    <div>
+    <div className='Calculator-container-stepper'>
       {success != '' && <p className='Success'>{success}</p>}
       <div className='Calculator-container'>
         {currentQuestion <= questions.length &&
@@ -117,9 +117,10 @@ const Calculator = ({ setBody, questions, setQuestions, answers, setAnwers, resu
           <QuestionsSidebar questions={questions} answers={answers} currentQuestion={currentQuestion}
             setCurrentQuestion={setCurrentQuestion} />
         </div>}
-        <Stepper questions={questions} currentQuestion={currentQuestion} setCurrentQuestion={setCurrentQuestion} />
+       
         
-      </div>  
+      </div>   
+      <Stepper questions={questions} currentQuestion={currentQuestion} setCurrentQuestion={setCurrentQuestion} />
       {currentQuestion > questions.length && 
       <>        
         <ContactInfo setNewsletterOpen={setNewsletterOpen} setBody={setBody} />

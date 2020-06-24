@@ -76,17 +76,14 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
       {showMath === true && <Mathinfo onClick={()=> {setShowMath(false)
         document.getElementById('results-container').style.filter='blur(0px)'}} />}
         {showSavings===true && <div className='Newsletter-background' onClick={() => setShowSavings(false)}>
-          <SavingsDemonstrator results={results}/>
+          <SavingsDemonstrator  results={results} answers={answers}/>
           </div>}
       <div id='results-container' className='Calculator-results-container' onClick={() => {
         setShowMath(false)
         document.getElementById('results-container').style.filter='blur(0px)'}} 
       style={{ animation: 'none'}}>
         <div className='Calculator-results-left'>
-          <div className='Results-arrow-icon-div' onClick={() => setCurrentQuestion(0)}>
-            <img src={arrowLeft} className='Results-arrow-icon' />
-            <a className='Calculator-results-send-answers-link' onClick={() => setCurrentQuestion(0)} >{language.buttons.getBackToQuestions}</a>
-          </div>
+          
           <h1>{language.headers.yourResults}</h1>
           {
             results.map(result =>
@@ -107,6 +104,10 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
               </div>
             )
           }
+          <div className='Results-arrow-icon-div' onClick={() => setCurrentQuestion(0)}>
+            <img src={arrowLeft} className='Results-arrow-icon' />
+            <a className='Calculator-results-send-answers-link' onClick={() => setCurrentQuestion(0)} >{language.buttons.getBackToQuestions}</a>
+          </div>
         </div>
         <div className='Calculator-results-divider'></div>
         <div className='Calculator-results-right'>

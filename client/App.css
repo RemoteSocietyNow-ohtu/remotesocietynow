@@ -295,6 +295,7 @@ td {
   border: none;
   border-radius: 5px 25px;
   text-decoration: none;
+  font-size: 1.4rem;
 }
 
 .Main-button:hover {
@@ -510,6 +511,13 @@ td {
   margin: auto;
 }
 
+.Calculator-container-stepper {
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height:90%;
+}
+
 .Calculator-content-left {  
   width: 36rem; 
   margin:auto; 
@@ -692,6 +700,7 @@ td {
   background: #3b6978;
   left: 10vw;
   z-index: 3;
+  font-size: 1.3rem;
 }
 
 @media(max-width:860px) {
@@ -767,8 +776,7 @@ td {
 }
 
 .Calculator-stepper-container {
-  position: fixed;
-  bottom: 10%;
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: center;
