@@ -12,14 +12,16 @@ const DeletionConfirmation = ({Cookies, setBody }) => {
 
   const deleteUserData = () => {
     fileservise.deleteUser(token)
+    let in4seconds = new Date(new Date().getTime() + 4 * 1000)
+    Cookies.set('accountDeleted', true, {expires: in4seconds, sameSite: 'lax'})
     authenticationService.logout(Cookies)
   }
 
   return (
     <div className='Container'>
-      <div className='GDPRCompliance-arrow-icon-div' onClick={() => setBody('gdprCompliance')}>
+      <div className='GoBack-arrow-icon-div' onClick={() => setBody('gdprCompliance')}>
         <img src={arrowLeft} className='GDPRCompliance-arrow-icon' />
-        <a className='GDPRCompliance-go-back'>{language.content.goBack}</a>
+        <a className='Go-back-link'>{language.content.goBack}</a>
       </div>
       <h3 className='Heading'>{language.headers.deletionConfirmation}</h3>
       <div className='GDPRCompliance-content'>

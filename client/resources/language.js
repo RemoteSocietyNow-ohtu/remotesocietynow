@@ -114,7 +114,8 @@ export const english = {
   success: {
     loggedIn: 'Logged in.',
     accountCreated: 'Account created. You can log in now.',
-    passwordChanged: 'Your admin password was changed!'
+    passwordChanged: 'Your admin password was changed!',
+    accountDeleted: 'Account and data deleted successfully.'
   },
   actions: {
     sending: 'Sending...'

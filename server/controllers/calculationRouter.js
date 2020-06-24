@@ -42,6 +42,8 @@ calculationRouter.post('/person/:save?', async (req, res) => {
   
   const bodyData = bodyParser.parseSavedDataFromBody(body)
   const feedbacks = bodyParser.parseFeedBacksFromBody(body)
+  bodyData.createdAt = new Date()
+  feedbacks.createdAt = new Date()
 
   if(token !== null){
     const decodedToken = jwt.verify(token, config.secret)
@@ -56,7 +58,6 @@ calculationRouter.post('/person/:save?', async (req, res) => {
   /* Calls storeEmployeeData in /server/database/database.js to save all employee input to database. */
   
   if (req.params.save === 'save' && await adminSettingsService.getSaveToDatabase() === true) {
-    console.log('savetodatabase') 
     const employeeData = new Employee(bodyData)
     await employeeData.save()
     /* Calls storeEmployeeFeedback in /server/database/database.js to save employee feedback to database. */
@@ -87,6 +88,8 @@ calculationRouter.post('/company/:save?', async (req, res) => {
 
   const bodyData = bodyParser.parseSavedDataFromBody(body)
   const feedbacks = bodyParser.parseFeedBacksFromBody(body)
+  bodyData.createdAt = new Date()
+  feedbacks.createdAt = new Date()
 
   const token = getTokenFrom(req)
   let user = null
@@ -102,8 +105,7 @@ calculationRouter.post('/company/:save?', async (req, res) => {
   const result = remoteWorkCalculator.calculateBenefitsForCompany(rent, officeUpkeep, employees, remoteShare, averageCarHours, energyCost, energySource, averageFlightHours, totalCommutingSubsidies)
 
   /* Calls storeCompanyData in /server/database/database.js to save all company input to database. */  
-  if (req.params.save === 'save' && await adminSettingsService.getSaveToDatabase() === true ) {  
-    console.log('savetodatabase')  
+  if (req.params.save === 'save' && await adminSettingsService.getSaveToDatabase() === true ) {
     const companyData = new Company(bodyData)
     await companyData.save()
   
