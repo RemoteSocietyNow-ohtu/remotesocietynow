@@ -17,9 +17,9 @@ const DeletionConfirmation = ({Cookies, setBody }) => {
 
   return (
     <div className='Container'>
-      <div className='GDPRCompliance-arrow-icon-div' onClick={() => setBody('gdprCompliance')}>
+      <div className='GoBack-arrow-icon-div' onClick={() => setBody('gdprCompliance')}>
         <img src={arrowLeft} className='GDPRCompliance-arrow-icon' />
-        <a className='GDPRCompliance-go-back'>{language.content.goBack}</a>
+        <a className='Go-back-link'>{language.content.goBack}</a>
       </div>
       <h3 className='Heading'>{language.headers.deletionConfirmation}</h3>
       <div className='GDPRCompliance-content'>

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import LanguageContext from '@root/client/Contexts/LanguageContext'
-
+import arrowLeft from '../../resources/arrow-left.png'
 
 const PrivacyPolicy = ({ setAcceptPrivacyPolicy, setBody }) => {
   const language = useContext(LanguageContext)
@@ -13,8 +13,12 @@ const PrivacyPolicy = ({ setAcceptPrivacyPolicy, setBody }) => {
   return (
     <div className='Container'>
       <div className='PrivacyPolicy-container'>
-        {Object.entries(language.privacyPolicy.infoTexts).map(([ key, value ]) => { 
-          if(key.includes('HeadingSmall')) {
+        <div className='GoBack-arrow-icon-div' onClick={() => setBody('main')}>
+          <img src={arrowLeft} className='GDPRCompliance-arrow-icon' />
+          <a className='Go-back-link'>{language.content.goBack}</a>
+        </div>
+        {Object.entries(language.privacyPolicy.infoTexts).map(([key, value]) => {
+          if (key.includes('HeadingSmall')) {
             return <h3 key={key}>{value}</h3>
           }
           else if (key.includes('HeadingMain')) {
