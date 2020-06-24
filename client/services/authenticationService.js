@@ -10,6 +10,14 @@ const login = (username, password) => {
   return request.then((res) => res.data)
 }
 
+const changePassword = (token, password) => {
+  const config = {
+    headers: { Authorization: `bearer ${token}` }
+  }
+  const request = axios.post('/api/users/change-password/', { 'password': password }, config)
+  return request.then((res) => res.data)
+}
+
 const logout = (Cookies) => {
   Cookies.remove('token')
   Cookies.remove('adminToken')
@@ -20,4 +28,5 @@ export default {
   signUp,
   login,
   logout,
+  changePassword
 }

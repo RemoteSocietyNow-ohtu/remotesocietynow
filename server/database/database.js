@@ -12,7 +12,7 @@ const initializeAdmin = async() => {
   const saltrounds = 10
   const password = await bcrypt.hash(config.adminPassword, saltrounds)
   const user = new User({
-    username: 'Admin',
+    username: 'admin',
     passwordHash: password,
     role: 'ADMIN'
   })

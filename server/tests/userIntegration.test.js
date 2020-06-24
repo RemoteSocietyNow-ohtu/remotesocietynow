@@ -1,6 +1,7 @@
 require('@babel/polyfill')
 const supertest = require('supertest')
 const app = require('../index')
+const bcrypt = require('bcrypt')
 const User = require('../models/userSchema')
 const Company = require('../models/companySchema')
 const Employee = require('../models/employeeSchema')
@@ -9,6 +10,7 @@ const api = supertest(app)
 const { companyAnswers } = require('./companyAnswers')
 const { peopleAnswers } = require('./peopleAnswers')
 const util = require('./testUtils')
+
 
 beforeAll(async () => await mock.connect())
 
@@ -161,4 +163,35 @@ test('users answers are deleted after user deletion', async () => {
   expect(usersCompanyAnswers.length).toBe(0)
   expect(usersEmployeeAnswers.length).toBe(0)
 
+})
+
+test('admin can change password', async () => {
+  const oldPassword = 'password'
+  const newPassword = 'newPassword'
+  const response = await util.createUserAndLogin('admin', oldPassword, 'ADMIN')  
+  const token = response.body.adminToken
+  await api
+    .post('/users/change-password/')
+    .set('Authorization', `bearer ${token}`)
+    .send({ 'password': newPassword })
+    .expect(200)
+  const updatedUser = await User.findOne({ username: 'admin' })
+  const passwordCorrect = await bcrypt.compare(newPassword, updatedUser.passwordHash)
+  expect(passwordCorrect).toBe(true)
+})
+
+test('non admin user can not change password', async () => {
+  const oldPassword = 'password'
+  const newPassword = 'newPassword'
+  await util.createUserAndLogin('admin', oldPassword, 'ADMIN')
+  const response = await util.createUserAndLogin('user', 'usersPassword', 'USER')  
+  const token = response.body.token
+  await api
+    .post('/users/change-password/')
+    .set('Authorization', `bearer ${token}`)
+    .send({ 'password': newPassword })
+    .expect(403)
+  const admin = await User.findOne({ username: 'admin' })
+  const passwordCorrect = await bcrypt.compare(newPassword, admin.passwordHash)
+  expect(passwordCorrect).toBe(false)
 })

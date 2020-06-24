@@ -26,7 +26,8 @@ export const english = {
     downloadFiles: 'Download .csv',
     yourResults: 'Your Results',
     yourAnswers: 'Your Answers',
-    about: 'About Us'
+    about: 'About Us',
+    changePassword: 'Change admin password'
   },
   content: {
     main: 'The Most Enjoyable Way to Save the Planet! While making more money and saving time.',
@@ -59,6 +60,8 @@ export const english = {
     aboutUs: 'About us',
     clickhere: 'the math used?',
     mathinfo: 'Want to learn more about ',
+    newPassword: 'New password',
+    newPassword2: 'Confirm new password'
   },
   buttons: {
     calculate: 'View Results',
@@ -86,6 +89,7 @@ export const english = {
     generatingPdf: 'generating PDF...',
     yes: 'Yes',
     no: 'No',
+    send: 'Send',
   },
   navigation: {
     gdprCompliance: 'GDPR',
@@ -99,10 +103,13 @@ export const english = {
     errorSendingEmailAddress: 'An Error occured while subscribing',
     invalidCredentials: 'Invalid credentials.',
     usernameNotUnique: 'An account with that email is already registered.',
+    passwordsMustBeIdentical: 'passwords must be identical',
+    errorChangingPassword: 'error changing password'
   },
   success: {
     loggedIn: 'Logged in.',
     accountCreated: 'Account created. You can log in now.',
+    passwordChanged: 'Your admin password was changed!'
   },
   actions: {
     sending: 'Sending...'
