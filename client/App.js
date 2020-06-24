@@ -16,9 +16,8 @@ import LanguageContext from './Contexts/LanguageContext'
 
 
 import {
-  BrowserRouter as Router,
-  Switch, Route, Link, useHistory
-} from "react-router-dom"
+  Switch, Route, useHistory
+} from 'react-router-dom'
 
 const App = () => {
   const language = useContext(LanguageContext)
@@ -26,7 +25,7 @@ const App = () => {
 
   const [acceptPrivacyPolicy, setAcceptPrivacyPolicy] = useState(false)
   const [acceptCookies, setAcceptCookies] = useState(false)
-  const [body, setBody] = useState('main')
+  const [body] = useState('main')
   const [activeCalculator, setActiveCalculator] = useState(null)
 
   const [peopleQuestions, setPeopleQuestions] = useState([]) // Questions that are presented to user.
@@ -81,8 +80,8 @@ const App = () => {
     setResults={setPeopleResults}
     currentQuestion={currentPeopleQuestion}
     setCurrentQuestion={setCurrentPeopleQuestion}
-    login={() => setBody('login')}
-    signUp={() => setBody('signUp')}
+    login={() => setView('login')}
+    signUp={() => setView('signUp')}
     success={success}
     Cookies={Cookies}
   />
@@ -97,8 +96,8 @@ const App = () => {
     setResults={setCompanyResults}
     currentQuestion={currentCompanyQuestion}
     setCurrentQuestion={setCurrentCompanyQuestion}
-    login={() => setBody('login')}
-    signUp={() => setBody('signUp')}
+    login={() => setView('login')}
+    signUp={() => setView('signUp')}
     isCompany={true}
     success={success}
     Cookies={Cookies}

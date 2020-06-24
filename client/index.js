@@ -3,7 +3,7 @@ import { render } from 'react-dom'
 import App from './App'
 import LanguageContext from './Contexts/LanguageContext'
 import { english } from './resources/language'
-import { BrowserRouter as Router } from "react-router-dom"
+import { BrowserRouter as Router } from 'react-router-dom'
 
 
 const refresh = () => render(

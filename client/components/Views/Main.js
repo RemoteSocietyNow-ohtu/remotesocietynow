@@ -8,18 +8,10 @@ import yourNewsletterIcon from '../../resources/mail-icon-white.png'
 import aboutUsIcon from '../../resources/aboutUs-icon-white.png'
 
 
-import {
-  BrowserRouter as Router,
-  Switch, Route, Link, useHistory
-} from "react-router-dom"
-
-
-
-
 const Main = ({ Cookies, setBody }) => {
   const [newsletterOpen, setNewsletterOpen] = useState(false)
   const language = useContext(LanguageContext)
-  const history = useHistory()
+  
 
   return (
     <div className='Container'>
