@@ -59,6 +59,7 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
   // Check if there was an error fetching results
   if (error === true) return <p>{language.errors.errorSendingAnswers}</p>
 
+  
   // Change answers.remoteShare based on slider. 
   // This will cause component to rerender and fetchResults to run
   const handleRelease = async () => {
@@ -89,13 +90,13 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
               <div key={result.title}>
                 <div>
                   <div className='Calculator-results-money-inline'>
-                    {!isCompany && result.bartype === 'greenbar' && <img className='Calculator-resultbar-icon' src={co2SavedIcon} alt='Pollution icon' />}
-                    {!isCompany && result.bartype === 'redbar' && <img className='Calculator-resultbar-icon' src={pollutionIcon} alt='Pollution icon' />}
-                    {!isCompany && result.bartype === 'nobar' && <img className='Calculator-resultbar-icon' src={moneySavedIcon} alt='Money saved icon' />}
-                    {!isCompany && result.bartype === 'timebar' && <img className='Calculator-resultbar-icon' src={timeIcon} alt='Time saved icon' />}
-                    {isCompany && result.bartype === 'greenbar' && <img className='Calculator-resultbar-icon' src={moneySavedIcon} alt='Money saved icon' />}
-                    {isCompany && result.bartype === 'redbar' && <img className='Calculator-resultbar-icon' src={moneySpentIcon} alt='Money spent icon' />}
-                    {isCompany && result.bartype === 'nobar' && <img className='Calculator-resultbar-icon' src={co2SavedIcon} alt='Pollution icon' />}
+                    {!isCompany && result.id === 'co2Save' && <img className='Calculator-resultbar-icon' src={co2SavedIcon} alt='Pollution icon' />}
+                    {!isCompany && result.id === 'totalEmissions' && <img className='Calculator-resultbar-icon' src={pollutionIcon} alt='Pollution icon' />}
+                    {!isCompany && result.id === 'moneySave' && <img className='Calculator-resultbar-icon' src={moneySavedIcon} alt='Money saved icon' />}
+                    {!isCompany && result.id === 'timeSave' && <img className='Calculator-resultbar-icon' src={timeIcon} alt='Time saved icon' />}
+                    {isCompany && result.id === 'moneySave' && <img className='Calculator-resultbar-icon' src={moneySavedIcon} alt='Money saved icon' />}
+                    {isCompany && result.id === 'yearlyExpenses' && <img className='Calculator-resultbar-icon' src={moneySpentIcon} alt='Money spent icon' />}
+                    {isCompany && result.id === 'co2Save' && <img className='Calculator-resultbar-icon' src={co2SavedIcon} alt='Pollution icon' />}
                     <p className='Calculator-result-countup'><b></b><CountUp duration={.8} end={result.value ? result.value : 0} /> {result.unit}</p>
                   </div>
                   <p className='Calculator-results-result-title'>{result.title} {result.id === 'co2Save' && <a className='Calculator-results-clickhere' onClick={() => setShowSavings(true)} ><br></br> What does this mean?</a>}</p>
@@ -115,10 +116,10 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
           {
             results.map(result =>
               <div key={result.bartype} className='Calculator-results-resultbars'>
-                {!isCompany && result.bartype === 'greenbar' && <img className='Calculator-resultbar-icon' src={co2SavedIcon} alt='Pollution icon' />}
-                {!isCompany && result.bartype === 'redbar' && <img className='Calculator-resultbar-icon' src={pollutionIcon} alt='Pollution icon' />}
-                {isCompany && result.bartype === 'greenbar' && <img className='Calculator-resultbar-icon' src={moneySavedIcon} alt='Money saved icon' />}
-                {isCompany && result.bartype === 'redbar' && <img className='Calculator-resultbar-icon' src={moneySpentIcon} alt='Money spent icon' />}
+                {!isCompany && result.id === 'co2Save' && <img className='Calculator-resultbar-icon' src={co2SavedIcon} alt='Pollution icon' />}
+                {!isCompany && result.id === 'totalEmissions' && <img className='Calculator-resultbar-icon' src={pollutionIcon} alt='Pollution icon' />}
+                {isCompany && result.id === 'moneySave' && <img className='Calculator-resultbar-icon' src={moneySavedIcon} alt='Money saved icon' />}
+                {isCompany && result.id === 'yearlyExpenses' && <img className='Calculator-resultbar-icon' src={moneySpentIcon} alt='Money spent icon' />}
                 <p></p>
                 <ResultBar width={80} percent={result.percent} type={result.bartype} />              
               </div>

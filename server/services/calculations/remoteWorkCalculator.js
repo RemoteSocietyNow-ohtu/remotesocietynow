@@ -74,7 +74,8 @@ const calculateBenefitsForPerson = (distance, commuteTime, daysFirst,daysSecond,
       value: roundEmissionsToKg(co2EmissionsWithRemoteWorking),
       unit: 'kg',
       bartype: 'redbar',
-      percent: co2EmissionsWithRemoteWorking/co2Emissions
+      percent: co2EmissionsWithRemoteWorking/co2Emissions,
+      id: 'totalEmissions'
     },
     {
       title: 'Annual CO2 saved by working remotely',
@@ -88,13 +89,15 @@ const calculateBenefitsForPerson = (distance, commuteTime, daysFirst,daysSecond,
       title: 'Annual money saved by working remotely',
       value: moneySavedPerYear,
       unit: '€',
-      bartype: 'nobar'
+      bartype: 'nobar',
+      id: 'moneySave'
     },
     {
       title: 'Annual time saved by working remotely',
       value: timeSavedPerYear,
       unit: 'hours',
-      bartype: 'timebar'
+      bartype: 'timebar',
+      id: 'timeSave'
     }
   ]  
 
@@ -130,14 +133,16 @@ const calculateBenefitsForCompany = (rent, officeUpkeep, employees, remoteShare,
       value: moneySaved,
       unit: '€',
       bartype: 'greenbar',
-      percent: moneySaved/totalExpenses
+      percent: moneySaved/totalExpenses,
+      id: 'moneySave'
     },
     {
       title: 'Total yearly expenses',
       value: totalExpenses - moneySaved,
       unit: '€',
       bartype: 'redbar',
-      percent: 1-(moneySaved/totalExpenses)
+      percent: 1-(moneySaved/totalExpenses),
+      id: 'yearlyExpenses'
     },
     {
       title: 'Total yearly co2 reductions',
