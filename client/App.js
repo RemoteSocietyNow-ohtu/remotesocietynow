@@ -113,6 +113,7 @@ const App = () => {
     <div className="App">
       <Navbar body={body} setBody={setView} Cookies={Cookies} />
       {success != '' && <p className='Success'>{success}</p>}
+      <div className='Body'>
       <Switch>
         <Route path='/login'>
           {views['login']}
@@ -148,6 +149,7 @@ const App = () => {
           {views['main']}
         </Route>
       </Switch>
+      </div>
     </div>
   )
 }
