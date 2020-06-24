@@ -83,7 +83,6 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
         document.getElementById('results-container').style.filter='blur(0px)'}} 
       style={{ animation: 'none'}}>
         <div className='Calculator-results-left'>
-          
           <h1>{language.headers.yourResults}</h1>
           {
             results.map(result =>
