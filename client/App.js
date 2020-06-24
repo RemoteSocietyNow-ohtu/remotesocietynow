@@ -33,7 +33,7 @@ const App = () => {
 
   const views = {}
 
-  views['main'] = <Main setBody={setBody} />
+  views['main'] = <Main setBody={setBody} Cookies={Cookies} />
 
   views['signUp'] = <SignUp setBody={setBody} setSuccess={setSuccess} />
 

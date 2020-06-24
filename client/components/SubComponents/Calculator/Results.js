@@ -104,7 +104,7 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
               </div>
             )
           }
-          <div className='Results-arrow-icon-div' onClick={() => setCurrentQuestion(0)}>
+          <div className='GoBack-arrow-icon-div' onClick={() => setCurrentQuestion(0)}>
             <img src={arrowLeft} className='Results-arrow-icon' />
             <a className='Calculator-results-send-answers-link' onClick={() => setCurrentQuestion(0)} >{language.buttons.getBackToQuestions}</a>
           </div> 

@@ -154,6 +154,12 @@ td {
   margin-bottom: 2%;
 }
 
+.Go-back-link {
+  font-size: 1rem;
+  transform: translateY(.5em);
+  cursor: pointer;
+}
+
 /* Icons */
 
 .GDPRCompliance-icon {
@@ -170,7 +176,7 @@ td {
   height: 80px;
 }
 
-.GDPRCompliance-arrow-icon-div {
+.GoBack-arrow-icon-div {
   display: flex;
   align-items: center;
 }
@@ -445,12 +451,6 @@ td {
 
 .GDPRCompliance-contact-info {
   font-size: large;
-}
-
-.GDPRCompliance-go-back {
-  font-size: 1rem;
-  transform: translateY(.5em);
-  cursor: pointer;
 }
 
 .GDPRCompliance-button-div {

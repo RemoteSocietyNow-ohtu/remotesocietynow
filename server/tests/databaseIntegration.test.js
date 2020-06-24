@@ -97,3 +97,27 @@ test('If all comment fields in people are empty do not save data at all', async(
   expect(peopleFeedback.length).toBe(0)
 })
 
+test('timestamp is saved to database in employee schema', async () => {
+  await sendPeople()
+  const people = await Employee.find({})
+  expect(people[0].createdAt.getDate()).toBe(new Date().getDate())
+})
+
+test('timestamp is saved to database in company schema', async () => {
+  await sendCompanies()
+  const companies = await Company.find({})
+  console.log(companies[0].createdAt.getDate())
+  expect(companies[0].createdAt.getDate()).toBe(new Date().getDate())
+})
+
+test('timestamp is saved to database in employeeFeedback schema', async () => {
+  await sendPeople()
+  const feedbacks = await EmployeeFeedback.find({})
+  expect(feedbacks[0].createdAt.getDate()).toBe(new Date().getDate())
+})
+
+test('timestamp is saved to database in companyFeedback schema', async () => {
+  await sendCompanies()
+  const feedbacks = await CompanyFeedback.find({})
+  expect(feedbacks[0].createdAt.getDate()).toBe(new Date().getDate())
+})

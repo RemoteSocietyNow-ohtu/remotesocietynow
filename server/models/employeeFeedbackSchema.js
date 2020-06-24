@@ -6,6 +6,10 @@ const model = parser.parseFeedBackSchema(questions)
 
 const employeeFeedbackSchema = new mongoose.Schema(model)
 
+employeeFeedbackSchema.add({
+  createdAt: Date
+})
+
 try {
   module.exports = mongoose.model('EmployeeFeedback')
 } catch (e) {

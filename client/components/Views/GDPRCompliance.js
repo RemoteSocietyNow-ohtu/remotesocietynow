@@ -43,13 +43,13 @@ const GDPRCompliance = ({ Cookies, setBody }) => {
         <div className='Line-separator-vertical'></div>
         <small className='GDPRCompliance-contact-info'>{language.content.contactInfo}</small>
       </div>
-      <div className='GDPRCompliance-arrow-icon-div' onClick={() => setBody('main')}>
+      <div className='GoBack-arrow-icon-div' onClick={() => setBody('main')}>
         <img src={arrowLeft} className='GDPRCompliance-arrow-icon' />
-        <a className='GDPRCompliance-go-back'>{language.content.goBack}</a>
+        <a className='Go-back-link'>{language.content.goBack}</a>
       </div>
       {token != '' && <div className='GDPRCompliance-button-div'>
-        <a href={`/api/files/companyCSV/${token}`}><button className='GDPRCompliance-button'>{language.buttons.downloadUserDataPerson}</button></a>
-        <a href={`/api/files/employeeCSV/${token}`}><button className='GDPRCompliance-button'>{language.buttons.downloadUserDataCompany}</button></a>
+        <a href={`/api/files/companyCSV/${token}`}><button className='GDPRCompliance-button'>{language.buttons.downloadUserDataCompany}</button></a>
+        <a href={`/api/files/employeeCSV/${token}`}><button className='GDPRCompliance-button'>{language.buttons.downloadUserDataPerson}</button></a>
         <button className='GDPRCompliance-button-delete' onClick={() => setBody('deletionConfirmation')}>{language.buttons.deleteUserData}</button>
       </div>}
     </div>

@@ -1,7 +1,7 @@
 const feedBacksAreNotEmpty = (feedbacks) =>{
   let valid = false
   for(const key in feedbacks){
-    if(feedbacks[key] !== ''){
+    if(feedbacks[key] !== '' && key !== 'createdAt'){
       valid = true
     }
   }
