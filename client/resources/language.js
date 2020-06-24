@@ -134,7 +134,12 @@ export const english = {
     'Let us show you how! Leave your contact info and we’ll call back.',
     'For each legitimate business talk with a new client we will plant a real tree – for real.'
   ],
-  mathInfo: 'We factor in the following variables: more text to be added ',
+  mathInfo: 'Emission reduction calculations in this application are based upon CO2-equivalent coefficients assessed by independent research organizations, \
+  including VTT Technical Research Centre of Finland and the Intergovernmental Panel on Climate Change (IPCC). As the coefficients are \
+  estimated from Finnish data, the calculations are less representative for other countries and regions. The formulas take into account \
+  average emissions from Finnish transports and electricity generation from different sources. Time and cost savings are based off of the user`s \
+  replies and average annual workdays in Finland. Office expenses excluding rent and electricity are not standardized and the coverage of results may \
+  therefore vary somewhat between companies.',
 
   privacyPolicy: {
     infoTexts: {

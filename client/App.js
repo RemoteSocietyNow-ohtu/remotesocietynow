@@ -14,13 +14,18 @@ import Calculator from 'Components/SubComponents/Calculator/Calculator'
 import DeletionConfirmation from './components/Views/DeletionConfirmation'
 import LanguageContext from './Contexts/LanguageContext'
 
+
+import {
+  Switch, Route, useHistory
+} from 'react-router-dom'
+
 const App = () => {
   const language = useContext(LanguageContext)
   document.documentElement.lang = language.code
 
   const [acceptPrivacyPolicy, setAcceptPrivacyPolicy] = useState(false)
   const [acceptCookies, setAcceptCookies] = useState(false)
-  const [body, setBody] = useState('main')
+  const [body] = useState('main')
   const [activeCalculator, setActiveCalculator] = useState(null)
 
   const [peopleQuestions, setPeopleQuestions] = useState([]) // Questions that are presented to user.
@@ -37,21 +42,27 @@ const App = () => {
 
   const views = {}
 
-  views['main'] = <Main setBody={setBody} Cookies={Cookies} />
+  const history = useHistory()
 
-  views['signUp'] = <SignUp setBody={setBody} setSuccess={setSuccess} />
+  const setView = (view) => {
+    history.push(`/${view}`)
+  }
 
-  views['login'] = <Login setBody={setBody} activeCalculator={activeCalculator} Cookies={Cookies}
+  views['main'] = <Main setBody={setView} Cookies={Cookies} />
+
+  views['signUp'] = <SignUp setBody={setView} setSuccess={setSuccess} />
+
+  views['login'] = <Login setBody={setView} activeCalculator={activeCalculator} Cookies={Cookies}
     setSuccess={setSuccess} acceptCookies={acceptCookies} setAcceptCookies={setAcceptCookies} />
 
   views['admin'] = <Admin Cookies={Cookies} />
 
   views['privacy-policy'] = <PrivacyPolicy
-    setBody={() => setBody('calculatorChoice')} setAcceptPrivacyPolicy={setAcceptPrivacyPolicy}
+    setBody={() => setView('calculatorChoice')} setAcceptPrivacyPolicy={setAcceptPrivacyPolicy}
   />
 
   views['calculatorChoice'] = <CalculatorChoice
-    setBody={setBody}
+    setBody={setView}
     setActiveCalculator={setActiveCalculator}
     acceptPrivacyPolicy={acceptPrivacyPolicy}
     setAcceptPrivacyPolicy={setAcceptPrivacyPolicy}
@@ -60,7 +71,7 @@ const App = () => {
   />
 
   views['people'] = <Calculator
-    setBody={setBody}
+    setBody={setView}
     questions={peopleQuestions}
     setQuestions={setPeopleQuestions}
     answers={peopleAnswers}
@@ -69,14 +80,14 @@ const App = () => {
     setResults={setPeopleResults}
     currentQuestion={currentPeopleQuestion}
     setCurrentQuestion={setCurrentPeopleQuestion}
-    login={() => setBody('login')}
-    signUp={() => setBody('signUp')}
+    login={() => setView('login')}
+    signUp={() => setView('signUp')}
     success={success}
     Cookies={Cookies}
   />
 
   views['companies'] = <Calculator
-    setBody={setBody}
+    setBody={setView}
     questions={companyQuestions}
     setQuestions={setCompanyQuestions}
     answers={companyAnswers}
@@ -85,25 +96,59 @@ const App = () => {
     setResults={setCompanyResults}
     currentQuestion={currentCompanyQuestion}
     setCurrentQuestion={setCurrentCompanyQuestion}
-    login={() => setBody('login')}
-    signUp={() => setBody('signUp')}
+    login={() => setView('login')}
+    signUp={() => setView('signUp')}
     isCompany={true}
     success={success}
     Cookies={Cookies}
   />
 
-  views['about'] = <AboutUs setBody={setBody} />
+  views['about'] = <AboutUs setBody={setView} />
 
-  views['gdprCompliance'] = <GDPRCompliance Cookies={Cookies} setBody={setBody} />
+  views['gdprCompliance'] = <GDPRCompliance Cookies={Cookies} setBody={setView} />
 
-  views['deletionConfirmation'] = <DeletionConfirmation Cookies={Cookies} setBody={setBody} />
+  views['deletionConfirmation'] = <DeletionConfirmation Cookies={Cookies} setBody={setView} />
 
   return (
     <div className="App">
-      <Navbar body={body} setBody={setBody} Cookies={Cookies} />
+      <Navbar body={body} setBody={setView} Cookies={Cookies} />
       {success != '' && <p className='Success'>{success}</p>}
       <div className='Body'>
-        {views[body]}
+        <Switch>
+          <Route path='/login'>
+            {views['login']}
+          </Route>
+          <Route path='/signUp'>
+            {views['signUp']}
+          </Route>
+          <Route path='/admin'>
+            {views['admin']}
+          </Route>
+          <Route path='/privacy-policy'>
+            {views['privacy-policy']}
+          </Route>
+          <Route path='/calculatorChoice'>
+            {views['calculatorChoice']}
+          </Route>
+          <Route path='/people'>
+            {views['people']}
+          </Route>
+          <Route path = 'companies'>
+            {views['companies']}
+          </Route>
+          <Route path='/about'>
+            {views['about']}
+          </Route>
+          <Route path = '/gdprCompliance'>
+            {views['gdprCompliance']}
+          </Route>
+          <Route path = '/deletionConfirmation'>
+            {views['deletionConfirmation']}
+          </Route>
+          <Route path='/'>
+            {views['main']}
+          </Route>
+        </Switch>
       </div>
     </div>
   )

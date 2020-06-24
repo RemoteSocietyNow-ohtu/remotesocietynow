@@ -7,9 +7,11 @@ import yourDataIcon from '../../resources/your-data-icon.png'
 import yourNewsletterIcon from '../../resources/mail-icon-white.png'
 import aboutUsIcon from '../../resources/aboutUs-icon-white.png'
 
+
 const Main = ({ Cookies, setBody }) => {
   const [newsletterOpen, setNewsletterOpen] = useState(false)
   const language = useContext(LanguageContext)
+  
 
   return (
     <div className='Container'>
