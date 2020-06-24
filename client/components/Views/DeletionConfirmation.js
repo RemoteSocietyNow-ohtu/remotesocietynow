@@ -2,13 +2,17 @@ import React, { useContext } from 'react'
 import LanguageContext from '../../Contexts/LanguageContext'
 import arrowLeft from '../../resources/arrow-left.png'
 import deleteIcon from '../../resources/delete-icon.png'
+import fileservise from '../../services/fileService'
+import authenticationService from '../../services/authenticationService'
 
-const DeletionConfirmation = ({ setBody }) => {
+const DeletionConfirmation = ({Cookies, setBody }) => {
 
   const language = useContext(LanguageContext)
+  let token = Cookies.get('token')
 
   const deleteUserData = () => {
-    // todo
+    fileservise.deleteUser(token)
+    authenticationService.logout(Cookies)
   }
 
   return (
