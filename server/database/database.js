@@ -37,7 +37,8 @@ const connectToDatabase = async () => {
 const dataToCSV = async (questions, model) => {
   const data = await model.find({})
   const dataModel = parser.parseSavedDataSchema(questions)
-  const columnNames = Object.keys(dataModel)
+  let columnNames = Object.keys(dataModel)
+  columnNames = [ ...columnNames, 'createdAt' ]
 
   let options = { keys: columnNames }
   
@@ -48,8 +49,9 @@ const dataToCSV = async (questions, model) => {
 const feedbackToCSV = async (questions, model) => {
   const data = await model.find({})
   const dataModel = parser.parseFeedBackSchema(questions)
-  const columnNames = Object.keys(dataModel)
- 
+  let columnNames = Object.keys(dataModel)
+  columnNames = [ ...columnNames, 'createdAt' ]
+  
   let options = { keys: columnNames }
   
   let str = await converter.json2csvAsync(data, options)
@@ -60,7 +62,8 @@ const dataToCSVById = async (questions,model,id) => {
  
   const data = await model.find({'user': `${id}`})
   const datamodel = parser.parseSavedDataSchema(questions)
-  const columnNames = Object.keys(datamodel)
+  let columnNames = Object.keys(datamodel)
+  columnNames = [ ...columnNames, 'createdAt' ]
 
   let options = {keys:columnNames}
 
