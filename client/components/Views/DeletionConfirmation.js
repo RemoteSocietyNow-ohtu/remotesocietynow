@@ -12,6 +12,8 @@ const DeletionConfirmation = ({Cookies, setBody }) => {
 
   const deleteUserData = () => {
     fileservise.deleteUser(token)
+    let in4seconds = new Date(new Date().getTime() + 4 * 1000)
+    Cookies.set('accountDeleted', true, {expires: in4seconds, sameSite: 'lax'})
     authenticationService.logout(Cookies)
   }
 
