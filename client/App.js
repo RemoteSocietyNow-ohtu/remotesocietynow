@@ -114,41 +114,41 @@ const App = () => {
       <Navbar body={body} setBody={setView} Cookies={Cookies} />
       {success != '' && <p className='Success'>{success}</p>}
       <div className='Body'>
-      <Switch>
-        <Route path='/login'>
-          {views['login']}
-        </Route>
-        <Route path='/signUp'>
-          {views['signUp']}
-        </Route>
-        <Route path='/admin'>
-          {views['admin']}
-        </Route>
-        <Route path='/privacy-policy'>
-          {views['privacy-policy']}
-        </Route>
-        <Route path='/calculatorChoice'>
-          {views['calculatorChoice']}
-        </Route>
-        <Route path='/people'>
-          {views['people']}
-        </Route>
-        <Route path = 'companies'>
-          {views['companies']}
-        </Route>
-        <Route path='/about'>
-          {views['about']}
-        </Route>
-        <Route path = '/gdprCompliance'>
-          {views['gdprCompliance']}
-        </Route>
-        <Route path = '/deletionConfirmation'>
-          {views['deletionConfirmation']}
-        </Route>
-        <Route path='/'>
-          {views['main']}
-        </Route>
-      </Switch>
+        <Switch>
+          <Route path='/login'>
+            {views['login']}
+          </Route>
+          <Route path='/signUp'>
+            {views['signUp']}
+          </Route>
+          <Route path='/admin'>
+            {views['admin']}
+          </Route>
+          <Route path='/privacy-policy'>
+            {views['privacy-policy']}
+          </Route>
+          <Route path='/calculatorChoice'>
+            {views['calculatorChoice']}
+          </Route>
+          <Route path='/people'>
+            {views['people']}
+          </Route>
+          <Route path = 'companies'>
+            {views['companies']}
+          </Route>
+          <Route path='/about'>
+            {views['about']}
+          </Route>
+          <Route path = '/gdprCompliance'>
+            {views['gdprCompliance']}
+          </Route>
+          <Route path = '/deletionConfirmation'>
+            {views['deletionConfirmation']}
+          </Route>
+          <Route path='/'>
+            {views['main']}
+          </Route>
+        </Switch>
       </div>
     </div>
   )
