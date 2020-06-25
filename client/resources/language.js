@@ -11,7 +11,8 @@ export const english = {
     calculator: 'calculator',
     aboutTheMath: 'About the math',
     privacyPolicy: 'Privacy Policy',
-    gdprCompliance: 'GDPR (your data protection rights)',
+    gdprCompliance: 'GDPR',
+    gdprCompliance2: 'Your data protection rights',
     deletionConfirmation: 'Confirm',
     workDoneRemotelyPercent: 'of work done remotely',
     workDoneRemotelyDays: 'Days of work done remotely',
@@ -131,8 +132,8 @@ export const english = {
     'For every employee switching to remote work, an average of X tons of harmful air pollution is reduced. This is the same as planting Y number of trees.',
     'Over time less office space needs to be used and built, which is like the effect of a forest. Imagine the environmental effect if 100,000 companies start doing this...',
     'Isn’t that costly? NO. You and your company actually earn real money and save time, plus productivity increases.',
-    'Let us show you how! Leave your contact info and we’ll call back.',
-    'For each legitimate business talk with a new client we will plant a real tree – for real.'
+    'Let us show you how! You can always email us:',
+    '' + mailConfig.CONTACT_MAIL   
   ],
   mathInfo: 'Emission reduction calculations in this application are based upon CO2-equivalent coefficients assessed by independent research organizations, \
   including VTT Technical Research Centre of Finland and the Intergovernmental Panel on Climate Change (IPCC). As the coefficients are \

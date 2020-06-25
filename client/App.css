@@ -127,6 +127,7 @@ td {
   height: 2px;
   background-color: gainsboro;
   width: 100%;
+  margin: 1rem;
 }
 
 .Error, .Success {
@@ -182,9 +183,16 @@ td {
   height: 80px;
 }
 
-.GoBack-arrow-icon-div {
+.GoBack-arrow-icon-div {  
   display: flex;
-  align-items: center;
+  align-items: center; 
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 656px) {
+  .GoBack-arrow-icon-div {
+    justify-content: center;
+  }
 }
 
 .Results-arrow-icon-div {
@@ -270,6 +278,7 @@ td {
 @media (max-width: 656px) {
   .Main-background-video-gif {    
     width: 40%;
+    margin-top: 1.5em; 
   }
 }
 
@@ -345,7 +354,7 @@ td {
   padding-right: 1rem;    
   display: flex;
   align-items: center;
-  margin: .5rem;
+  margin-bottom: 1rem;
   background: none;
   border: none;
   color: white;
@@ -453,19 +462,38 @@ td {
 
 
 /* GDPRCompliance */
+
+.GDPRCompliance-container {  
+  max-width: 70rem;
+  margin-bottom: 4%;
+  margin: auto;
+}
+
 .GDPRCompliance-content {
-  text-align: left;
   font-size: calc(10px + 2vmin);
-  color: gainsboro;
+  color: gainsboro;  
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
 }
 
 .GDPRCompliance-content-div {
   display: flex;
   justify-content: start;
-  align-items: center;
+  align-items: center;  
+  width: 80%;
+  text-align: left;
 }
 
-.GDPRCompliance-contact-info {
+@media (max-width: 656px) {
+  .GDPRCompliance-content-div {
+    width: 100%;
+  }
+}
+
+.GDPRCompliance-contact-info {  
   font-size: large;
 }
 
@@ -507,6 +535,18 @@ td {
   color: gainsboro;
   background-color: #3b6978;
   border: #181A1B 2px solid;
+}
+
+.GDPRCompliance-header {
+  margin-top: 3.5rem;
+  margin-bottom: 1rem;
+  font-size: 3rem;
+}
+
+.GDPRCompliance-header-small {
+  font-size: 1.6rem;
+  margin-top: .5rem;
+  margin-bottom: 2rem;
 }
 
 /* DeletionConfirmation */
@@ -890,23 +930,29 @@ td {
 /* AboutUs */
 
 .AboutUs-projectinfo-container {
-  font-family: PT Root;
-  font-size: calc(10px + 2vmin);
-  width: 100%;
-  border: solid 3px;
-  margin-top: 10%;
+  font-family: PT Root; 
+  max-width: 70rem;
   margin-bottom: 4%;
+  margin: auto;
+  text-align: left;
+  overflow-wrap: break-word;
 }
 
+@media (max-width: 480px) {
+  .AboutUs-projectinfo-container {
+    text-align: center;
+  }
+}
 
 .AboutUs-video-container {
   margin-top: 10%;
   position: relative;
-  padding-bottom: 56.25%;
+  padding-bottom: 56.25%; 
 }
 
 .AboutUs-calculatorChoice-button {
-  margin-bottom: 1rem;
+  margin-bottom: 2.5rem;
+  margin-top: 0;
   min-width: 12rem;
   max-width: 30%;
   height: 70px;
@@ -916,6 +962,16 @@ td {
   border: none;
   border-radius: 5px 25px;
   text-decoration: none;
+}
+
+.AboutUs-header {
+  
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.AboutUs-paragraph {
+  font-size: calc(10px + 2vmin);
 }
 
 /* Mathinfo */
