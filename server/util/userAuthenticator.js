@@ -12,7 +12,7 @@ const getTokenFrom = req => {
 
 const isAdmin = async (token) => {
 
-  if (token !== null) {
+  if (token) {
     let decodedToken = null
     try {
       decodedToken = jwt.verify(token, config.secret)

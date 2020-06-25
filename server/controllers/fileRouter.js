@@ -116,7 +116,7 @@ fileRouter.post('/deleteUser/', async (req,res) => {
   const decodedToken = auth.decodeToken(token)
   const id = decodedToken.id
   
-  if(id !== null){
+  if(id){
 
     await Company.find({'user': `${id}`}).deleteMany()
     await Employee.find({'user': `${id}`}).deleteMany()
