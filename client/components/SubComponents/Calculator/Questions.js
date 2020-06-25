@@ -9,14 +9,16 @@ const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, se
   const language = useContext(LanguageContext)  
   const [fade, setFade] = useState('question-no-fade')
   
-  const previousQuestion = () => {
+  const previousQuestion = (e) => {
+    e.currentTarget.blur()
     if (currentQuestion > 0) {
       setFade('Calculator-question-fade-right')      
       setTimeout(() => {setCurrentQuestion(currentQuestion - 1)}, 250)
     }
   }
 
-  const nextQuestion = () => {    
+  const nextQuestion = (e) => {   
+    e.currentTarget.blur()
     if (currentQuestion < questions.length) {
       setFade('Calculator-question-fade-left')
       setTimeout(() => {setCurrentQuestion(currentQuestion + 1)}, 250)      
@@ -43,10 +45,10 @@ const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, se
       </div>
       {
         currentQuestion > 0 ? 
-          <a style={{ background: 'none', border: 'none' }} href='#' onClick={previousQuestion}><img className='Calculator-arrow-icon' src={arrowLeft} alt={language.buttons.previousQuestion} /></a>
+          <button className='Calculator-arrow' onClick={e => previousQuestion(e)}><img className='Calculator-arrow-icon' src={arrowLeft} alt={language.buttons.previousQuestion} /></button>
           : null 
       }
-      <a style={{ background: 'none', border: 'none' }} href='#' onClick={nextQuestion}><img className='Calculator-arrow-icon' src={arrowRight} alt={language.buttons.nextQuestion} /></a> 
+      <button className='Calculator-arrow' onClick={e => nextQuestion(e)}><img className='Calculator-arrow-icon' src={arrowRight} alt={language.buttons.nextQuestion} /></button> 
     </div>
   )
 }

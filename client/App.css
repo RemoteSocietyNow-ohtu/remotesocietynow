@@ -171,6 +171,12 @@ td {
   margin-right: 3%;
 }
 
+.Calculator-arrow {
+  background: transparent;
+  border: 0;   
+}
+
+
 .Calculator-arrow-icon {
   margin-top: .5em;
   height: 80px;
