@@ -133,7 +133,7 @@ const App = () => {
           <Route path='/people'>
             {views['people']}
           </Route>
-          <Route path = 'companies'>
+          <Route path = '/companies'>
             {views['companies']}
           </Route>
           <Route path='/about'>
