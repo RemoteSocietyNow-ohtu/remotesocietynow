@@ -982,15 +982,27 @@ td {
 }
 
 .Mathinfo-container {
-  position: absolute;
-  width: 80vw;
+  position: relative; 
   margin: auto;
   border: solid 3px;
   margin-top: 5%;
-  margin-bottom: 4%;
-  left: 10vw;
+  margin-bottom: 4%;  
   background: #3b6978;
   z-index: 3;
+  padding: 2rem;
+}
+
+@media (max-width: 480px) {
+  .Mathinfo-container {
+    padding: .5rem;
+    margin-left: -3rem;
+    margin-right: -3rem;
+  }
+}
+
+.Mathinfo-paragraph {
+  font-size: 1rem;
+  margin-bottom: 2rem;
 }
 
 /* LoadingScreen */

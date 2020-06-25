@@ -7,7 +7,7 @@ const Mathinfo = ({onClick}) => {
   return (
     <div id='mathinfo' className='Mathinfo-container'>
       <h2>{language.headers.aboutTheMath}</h2>
-      <p>{language.mathInfo}</p>
+      <p className='Mathinfo-paragraph'>{language.mathInfo}</p>
       <a className='Mathinfo-x-button' onClick={onClick}>
         <img style={{height: '1.5rem'}} src={cross} />
       </a>
