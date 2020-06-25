@@ -31,13 +31,13 @@ const CalculatorChoice = ({ setBody, setActiveCalculator, acceptPrivacyPolicy, s
           disabled={!acceptPrivacyPolicy}
           className='CalculatorChoice-button'
           onClick={() => handleOnClick('people')} >
-          {language.buttons.calculateChoiceMyself}{!acceptPrivacyPolicy && <img className='Calculator-choice-grayed-out-icon' src={myselfIconGrayedOut} />}{acceptPrivacyPolicy && <img className='Calculator-choice-icon' src={myselfIcon} />}
+          {language.buttons.calculateChoiceMyself}{!acceptPrivacyPolicy && <img className='Calculator-choice-grayed-out-icon' src={myselfIconGrayedOut} alt='' />}{acceptPrivacyPolicy && <img className='Calculator-choice-icon' src={myselfIcon} alt='' />}
         </button>
         <button
           disabled={!acceptPrivacyPolicy}
           className='CalculatorChoice-button'
           onClick={() => handleOnClick('companies')} >
-          {language.buttons.calculateChoiceCompanies}{!acceptPrivacyPolicy && <img className='Calculator-choice-grayed-out-icon' src={myCompanyGrayedOut} />}{acceptPrivacyPolicy && <img className='Calculator-choice-icon' src={myCompanyIcon} />}
+          {language.buttons.calculateChoiceCompanies}{!acceptPrivacyPolicy && <img className='Calculator-choice-grayed-out-icon' src={myCompanyGrayedOut} alt='' />}{acceptPrivacyPolicy && <img className='Calculator-choice-icon' src={myCompanyIcon} alt='' />}
         </button>
       </div>
     </div>

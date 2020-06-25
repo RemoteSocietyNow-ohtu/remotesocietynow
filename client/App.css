@@ -189,6 +189,15 @@ td {
   margin-bottom: 2rem;
 }
 
+.GoBack-arrow-button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center; 
+  margin-bottom: 2rem;
+}
+
 @media (max-width: 656px) {
   .GoBack-arrow-icon-div {
     justify-content: center;

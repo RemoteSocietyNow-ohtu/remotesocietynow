@@ -10,17 +10,18 @@ const PrivacyCheckbox = ({ checked, setChecked, setBody }) => {
     <div className='CalculatorChoice-checkbox-container' onClick={setChecked}>      
       <button
         className='CalculatorChoice-checkbox'
+        name='CalculatorChoice-checkbox'
         type='checkbox'
         checked={checked}    
         onChange={setChecked}    
       >
         {checked ? 
-          <img className='CalculatorChoice-checkbox-image' src={checkboxImageChecked} /> 
+          <img className='CalculatorChoice-checkbox-image' src={checkboxImageChecked} alt='checkbox checked' /> 
           : 
-          <img className='CalculatorChoice-checkbox-image' src={checkboxImage} />
+          <img className='CalculatorChoice-checkbox-image' src={checkboxImage} alt='checkbox unchecked' />
         }
       </button>
-      <label className='CalculatorChoice-checkbox-label' >
+      <label className='CalculatorChoice-checkbox-label' htmlFor='CalculatorChoice-checkbox' >
         {language.content.privacyPolicy} 
         <span className='CalculatorChoice-privacy-policy-link' onClick={() => setBody('privacy-policy')}> {language.headers.privacyPolicy}.</span>      
       </label>

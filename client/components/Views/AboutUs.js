@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import Projectinfo from '../SubComponents/Projectinfo'
 //import Video from '../SubComponents/Video'
 import LanguageContext from '@root/client/Contexts/LanguageContext'
-import arrowLeft from '../../resources/arrow-left.png'
+import BackButton from 'Components/Navigation/BackButton'
 
 const AboutUs = ({ setBody }) => {
 
@@ -14,11 +14,8 @@ const AboutUs = ({ setBody }) => {
         <div className='Line-separator-vertical'></div>
         {/*<Video style={{ 'maxWidth': '80%' }} />*/}
         <Projectinfo />
-        <div className='Line-separator-vertical'></div>        
-        <div className='GoBack-arrow-icon-div' onClick={() => setBody('main')}>
-          <img src={arrowLeft} className='GDPRCompliance-arrow-icon' />          
-          <a className='Go-back-link'>{language.content.goBack}</a>
-        </div>
+        <div className='Line-separator-vertical'></div>   
+        <BackButton handleOnClick={() => setBody('main')} />
       </div>
       <button className='AboutUs-calculatorChoice-button' onClick={() => setBody('calculatorChoice')}>{language.content.testReductions}</button>      
     </div>

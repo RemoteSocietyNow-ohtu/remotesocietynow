@@ -6,6 +6,7 @@ import rightToAskIcon from '../../resources/right-to-ask-icon.png'
 import rightToCorrectIcon from '../../resources/right-to-correct-icon.png'
 import rightToDeleteIcon from '../../resources/delete-icon.png'
 import rightToRefuseIcon from '../../resources/right-to-refuse-icon.png'
+import BackButton from 'Components/Navigation/BackButton'
 
 const GDPRCompliance = ({ Cookies, setBody }) => {
   
@@ -46,10 +47,7 @@ const GDPRCompliance = ({ Cookies, setBody }) => {
           <div className='Line-separator-vertical'></div>
           <small className='GDPRCompliance-contact-info'>{language.content.contactInfo}</small>
         </div>
-        <div className='GoBack-arrow-icon-div' onClick={() => setBody('main')}>
-          <img src={arrowLeft} className='GDPRCompliance-arrow-icon' />
-          <a className='Go-back-link'>{language.content.goBack}</a>
-        </div>        
+        <BackButton handleOnClick={() => setBody('main')} />
       </div>
       {token != '' && <div className='GDPRCompliance-button-div'>
         <a href={`/api/files/companyCSV/${token}`}><button className='GDPRCompliance-button'>{language.buttons.downloadUserDataCompany}</button></a>
