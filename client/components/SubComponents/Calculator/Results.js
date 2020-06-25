@@ -166,9 +166,9 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
         }}>{language.content.clickhere}</a>
       </p>
       <div className='GoBack-arrow-icon-div' onClick={() => setCurrentQuestion(0)}>
-            <img src={arrowLeft} className='Results-arrow-icon' />
-            <a className='Calculator-results-send-answers-link' onClick={() => setCurrentQuestion(0)} >{language.buttons.getBackToQuestions}</a>
-          </div> 
+        <img src={arrowLeft} className='Results-arrow-icon' />
+        <a className='Calculator-results-send-answers-link' onClick={() => setCurrentQuestion(0)} >{language.buttons.getBackToQuestions}</a>
+      </div> 
     </div>
     
   )
