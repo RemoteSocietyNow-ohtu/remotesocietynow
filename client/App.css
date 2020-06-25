@@ -539,6 +539,7 @@ td {
   flex-direction: column;
   justify-content: space-between;
   min-height:90%;
+  margin-bottom: 1vh;
 }
 
 .Calculator-content-left {  
