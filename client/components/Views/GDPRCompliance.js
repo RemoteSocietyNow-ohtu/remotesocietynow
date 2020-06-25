@@ -13,6 +13,8 @@ const GDPRCompliance = ({ Cookies, setBody }) => {
 
   let token 
   Cookies.get('token') ? token = Cookies.get('token') : token = ''
+  let adminToken 
+  Cookies.get('adminToken') ? adminToken = Cookies.get('adminToken') : adminToken = ''
 
   return (
     <div className='Container'>
@@ -50,7 +52,7 @@ const GDPRCompliance = ({ Cookies, setBody }) => {
       {token != '' && <div className='GDPRCompliance-button-div'>
         <a href={`/api/files/companyCSV/${token}`}><button className='GDPRCompliance-button'>{language.buttons.downloadUserDataCompany}</button></a>
         <a href={`/api/files/employeeCSV/${token}`}><button className='GDPRCompliance-button'>{language.buttons.downloadUserDataPerson}</button></a>
-        <button className='GDPRCompliance-button-delete' onClick={() => setBody('deletionConfirmation')}>{language.buttons.deleteUserData}</button>
+        {adminToken == '' && <button className='GDPRCompliance-button-delete' onClick={() => setBody('deletionConfirmation')}>{language.buttons.deleteUserData}</button>}
       </div>}
     </div>
   )
