@@ -82,7 +82,6 @@ const App = () => {
     setCurrentQuestion={setCurrentPeopleQuestion}
     login={() => setView('login')}
     signUp={() => setView('signUp')}
-    success={success}
     Cookies={Cookies}
   />
 
@@ -99,7 +98,6 @@ const App = () => {
     login={() => setView('login')}
     signUp={() => setView('signUp')}
     isCompany={true}
-    success={success}
     Cookies={Cookies}
   />
 

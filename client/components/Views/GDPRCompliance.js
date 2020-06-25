@@ -13,6 +13,8 @@ const GDPRCompliance = ({ Cookies, setBody }) => {
 
   let token 
   Cookies.get('token') ? token = Cookies.get('token') : token = ''
+  let adminToken
+  Cookies.get('adminToken') ? adminToken = Cookies.get('adminToken') : adminToken = ''
 
   return (
     <div className='Container'>
@@ -47,13 +49,13 @@ const GDPRCompliance = ({ Cookies, setBody }) => {
         <div className='GoBack-arrow-icon-div' onClick={() => setBody('main')}>
           <img src={arrowLeft} className='GDPRCompliance-arrow-icon' />
           <a className='Go-back-link'>{language.content.goBack}</a>
-        </div>
-        {token != '' && <div className='GDPRCompliance-button-div'>
-          <a href={`/api/files/companyCSV/${token}`}><button className='GDPRCompliance-button'>{language.buttons.downloadUserDataCompany}</button></a>
-          <a href={`/api/files/employeeCSV/${token}`}><button className='GDPRCompliance-button'>{language.buttons.downloadUserDataPerson}</button></a>
-          <button className='GDPRCompliance-button-delete' onClick={() => setBody('deletionConfirmation')}>{language.buttons.deleteUserData}</button>
-        </div>}
+        </div>        
       </div>
+      {token != '' && <div className='GDPRCompliance-button-div'>
+        <a href={`/api/files/companyCSV/${token}`}><button className='GDPRCompliance-button'>{language.buttons.downloadUserDataCompany}</button></a>
+        <a href={`/api/files/employeeCSV/${token}`}><button className='GDPRCompliance-button'>{language.buttons.downloadUserDataPerson}</button></a>
+        {adminToken == '' && <button className='GDPRCompliance-button-delete' onClick={() => setBody('deletionConfirmation')}>{language.buttons.deleteUserData}</button>}
+      </div>}
     </div>
   )
 }
