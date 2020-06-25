@@ -52,8 +52,12 @@ const calculateBenefitsForPerson = (distance, commuteTime, daysFirst,daysSecond,
 
   const carDaysPerWeek = vehicleDaysPerWeek('car', firstVehicle, secondVehicle, daysFirst, daysSecond)
   const fuelPricePerLiter = 1.4
-  const fuelConsumptionPerHundredKm = 7
-  const carCostPerYear = carDaysPerWeek * 52 * distance * 2 * fuelConsumptionPerHundredKm / 100 * fuelPricePerLiter
+  const carFuelConsumptionPerHundredKm = 7
+  const carCostPerYear = carDaysPerWeek * 52 * distance * 2 * carFuelConsumptionPerHundredKm / 100 * fuelPricePerLiter
+
+  const motorcycleFuelConsumptionPerHundredKm = 6
+  const bikeDaysPerWeek = vehicleDaysPerWeek('motorcycle', firstVehicle, secondVehicle, daysFirst, daysSecond)
+  const motorcycleCostPerYear = bikeDaysPerWeek * 52 * distance * 2 * motorcycleFuelConsumptionPerHundredKm /100 * fuelPricePerLiter
 
   // We assume that these are local trains
 
@@ -62,7 +66,7 @@ const calculateBenefitsForPerson = (distance, commuteTime, daysFirst,daysSecond,
   const trainDaysPerWeek = vehicleDaysPerWeek('train', firstVehicle, secondVehicle, daysFirst, daysSecond)
   const trainCostPerMonth = Math.min(seasonalTrainTicketPrice, trainDaysPerWeek * trainTicketPrice * 2 * 365/52)
 
-  const totalCostPerYear = Math.floor(busCostPerMonth * 12 + carCostPerYear + trainCostPerMonth * 12)
+  const totalCostPerYear = Math.floor(busCostPerMonth * 12 + carCostPerYear + motorcycleCostPerYear + trainCostPerMonth * 12)
 
   const moneySavedPerYear = (remoteDays > (totalCommuteDays) ? 1 : (remoteDays/(totalCommuteDays)))*totalCostPerYear
 
