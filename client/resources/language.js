@@ -139,7 +139,8 @@ export const english = {
   estimated from Finnish data, the calculations are less representative for other countries and regions. The formulas take into account \
   average emissions from Finnish transports and electricity generation from different sources. Time and cost savings are based off of the user`s \
   replies and average annual workdays in Finland. Office expenses excluding rent and electricity are not standardized and the coverage of results may \
-  therefore vary somewhat between companies.',
+  therefore vary somewhat between companies. As an example, changes in server expenses are taken into account for companies that maintain their own \
+  servers but not for those that purchase server capacity from an external provider.',
 
   privacyPolicy: {
     infoTexts: {
