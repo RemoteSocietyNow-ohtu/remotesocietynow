@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import LanguageContext from '../../Contexts/LanguageContext'
-import arrowLeft from '../../resources/arrow-left.png'
 import rightToKnowIcon from '../../resources/right-to-know-icon.png'
 import rightToAskIcon from '../../resources/right-to-ask-icon.png'
 import rightToCorrectIcon from '../../resources/right-to-correct-icon.png'
