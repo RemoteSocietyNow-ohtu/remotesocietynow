@@ -2,7 +2,8 @@ import React, { useContext, useState, useEffect } from 'react'
 import LanguageContext from '../../Contexts/LanguageContext'
 import Toggle from 'react-toggle'
 import settingsService from '../../services/adminSettingsService'
-import PasswordChange from 'Components/SubComponents/PasswordChange'
+import PasswordChange from 'Components/SubComponents/PasswordChange' 
+import {Redirect} from 'react-router-dom' 
 
 const Admin = ({ Cookies }) => {
   const [ toggleValue, setToggleValue ] = useState(false)
@@ -23,6 +24,12 @@ const Admin = ({ Cookies }) => {
     await settingsService.setSaveToggle(adminToken, !toggleValue)
   }
 
+  if(adminToken == null){
+    return(
+      <Redirect to='/'/>
+    )
+  }
+  
   return (
     <div className='Container' >
       <div className='Admin-container'>
