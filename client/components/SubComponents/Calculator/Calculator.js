@@ -21,7 +21,7 @@ const initAnswerValues = questions => {
   }, {})
 }
 
-const Calculator = ({ setBody, questions, setQuestions, answers, setAnwers, results, setResults, currentQuestion, setCurrentQuestion, isCompany, login, signUp, success, Cookies }) => {
+const Calculator = ({ setBody, questions, setQuestions, answers, setAnwers, results, setResults, currentQuestion, setCurrentQuestion, isCompany, login, signUp, Cookies }) => {
   const [isLoading, setIsLoading] = useState(false)
   const [hasErrored, setHasErrored] = useState(false)  
   const [newsletterOpen, setNewsletterOpen] = useState(false)
@@ -73,7 +73,6 @@ const Calculator = ({ setBody, questions, setQuestions, answers, setAnwers, resu
 
   return (
     <div className='Calculator-container-stepper'>
-      {success != '' && <p className='Success'>{success}</p>}
       <div className='Calculator-container'>
         {currentQuestion <= questions.length &&
         <div className='Calculator-content-left'>

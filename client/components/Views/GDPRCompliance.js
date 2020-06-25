@@ -13,7 +13,7 @@ const GDPRCompliance = ({ Cookies, setBody }) => {
 
   let token 
   Cookies.get('token') ? token = Cookies.get('token') : token = ''
-  let adminToken 
+  let adminToken
   Cookies.get('adminToken') ? adminToken = Cookies.get('adminToken') : adminToken = ''
 
   return (
