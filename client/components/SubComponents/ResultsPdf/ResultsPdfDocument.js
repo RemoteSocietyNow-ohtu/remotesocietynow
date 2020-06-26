@@ -80,7 +80,7 @@ const Results = ({ results, amountOfRemoteWork, isCompany, language }) => {
                 {!isCompany && result.bartype === 'nobar' && <Image style={styles.icon} src={moneySavedIcon}></Image>}
                 {!isCompany && result.bartype === 'timebar' && <Image style={styles.icon} src={timeIcon}></Image>}
                 <Text>{result.title}</Text>
-                <Text style={styles.bigText}>{result.value} {result.unit}</Text>
+                <Text style={styles.bigText}>{Math.round((result.value + Number.EPSILON) * 100) / 100} {result.unit}</Text>
               </View>
               {
                 (result.bartype === 'redbar' || result.bartype === 'greenbar') &&

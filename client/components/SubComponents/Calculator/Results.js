@@ -1,6 +1,4 @@
 import React, { useState, useContext, useEffect } from 'react'
-import { PDFDownloadLink } from '@react-pdf/renderer'
-import ResultsPdfDocument from '../ResultsPdf/ResultsPdfDocument'
 
 import LanguageContext from '../../../Contexts/LanguageContext'
 import questionService from '../../../services/questionService'
@@ -20,13 +18,15 @@ import timeIcon from '../../../resources/time-icon-white.png'
 
 import arrowLeft from '../../../resources/arrow-left.png'
 import Mathinfo from '../Mathinfo'
+import PDFView from 'Components/Views/PDFView'
 
-const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurrentQuestion, questions  }) => {
+const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurrentQuestion, questions, showPDF, setShowPDF  }) => {
   const language = useContext(LanguageContext)
   const [error, setError] = useState(false)
   const [sliderValue, setSliderValue] = useState(0)
   const [showMath, setShowMath] = useState(false)
   const [showSavings, setShowSavings] = useState(false)
+  
   
 
   // Fetch results from backend based on answers. Triggered when answers changes.
@@ -85,6 +85,19 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
     setAnwers(tempAnswers)
   }
 
+  if (showPDF) {
+    return (
+      <div style={{ width: '100%', height:'100vh' }}>
+        <PDFView 
+          language={language}
+          questions={questions}
+          answers={answers}
+          results={results}
+          isCompany={isCompany}
+        />     
+      </div>
+    )
+  }
 
   return  (
     <div className='Container'>
@@ -111,14 +124,11 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
                 </div>
               </div>
             )
-          }
-          
+          }          
         </div>
         
         <div className='Calculator-results-divider'></div>
         
-
-
         <div className='Calculator-results-right'>
           {
             results.map(result =>
@@ -145,18 +155,9 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
           {isCompany ?
             <p className='Calculator-results-slidertext'>{language.headers.workDoneRemotelyPercent}</p> // If this is results for a company use percents
             : <p className='Calculator-results-slidertext'>{language.headers.workDoneRemotelyDays}</p>
-          }
-          
+          }          
           <div>
-          <PDFDownloadLink document={
-        <ResultsPdfDocument
-          isCompany={isCompany} 
-          questions={questions}
-          answers={answers}
-          results={results}                
-          language={language}/>} fileName="remote-work-results.pdf">
-        {({ loading }) => (loading ? language.buttons.generatingPdf : <button className='Calculator-results-dowloadPdf-button'>{language.buttons.downloadResultsasPdf}</button>)}
-      </PDFDownloadLink>          
+            <button className='Calculator-results-dowloadPdf-button' onClick={() => setShowPDF(true)}>{language.buttons.downloadResultsasPdf}</button>  
           </div>
         </div>
                
@@ -172,6 +173,7 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
         <img src={arrowLeft} className='Results-arrow-icon' />
         <a className='Calculator-results-send-answers-link' onClick={() => setCurrentQuestion(0)} >{language.buttons.getBackToQuestions}</a>
       </div> 
+     
     </div>
     
   )

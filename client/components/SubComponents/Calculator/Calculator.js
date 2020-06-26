@@ -9,6 +9,7 @@ import Stepper from './Stepper'
 import ContactInfo from './ContactInfo'
 import NewsletterBox from '../Newsletter/NewsletterBox'
 import SendAnswers from 'Components/SubComponents/Calculator/SendAnswers'
+import BackButton from 'Components/Navigation/BackButton'
 
 //answerValues get initial values. It is default value if such is available, otherwise empty string
 const initAnswerValues = questions => {
@@ -25,6 +26,7 @@ const Calculator = ({ setBody, questions, setQuestions, answers, setAnwers, resu
   const [isLoading, setIsLoading] = useState(false)
   const [hasErrored, setHasErrored] = useState(false)  
   const [newsletterOpen, setNewsletterOpen] = useState(false)
+  const [showPDF, setShowPDF] = useState(false)
   const language = useContext(LanguageContext)
  
   //Fetch questions and init question and answer states
@@ -73,7 +75,8 @@ const Calculator = ({ setBody, questions, setQuestions, answers, setAnwers, resu
 
   return (
     <div className='Calculator-container-stepper'>
-      <div className='Calculator-container'>
+      { showPDF ? <BackButton handleOnClick={() => setShowPDF(false)} /> : null }
+      <div className='Calculator-container'>      
         {currentQuestion <= questions.length &&
         <div className='Calculator-content-left'>
           {currentQuestion < questions.length ?
@@ -109,7 +112,9 @@ const Calculator = ({ setBody, questions, setQuestions, answers, setAnwers, resu
             setAnwers={setAnwers}
             isCompany={isCompany}
             setCurrentQuestion={setCurrentQuestion}  
-            questions={questions}      
+            questions={questions}  
+            setShowPDF={setShowPDF}
+            showPDF={showPDF} 
           />
         }
         {currentQuestion <= questions.length && <div className='Calculator-content-right'>
@@ -122,7 +127,8 @@ const Calculator = ({ setBody, questions, setQuestions, answers, setAnwers, resu
       <Stepper questions={questions} currentQuestion={currentQuestion} setCurrentQuestion={setCurrentQuestion} />
       {currentQuestion > questions.length && 
       <>        
-        <ContactInfo setNewsletterOpen={setNewsletterOpen} setBody={setBody} />
+        { showPDF ? <BackButton handleOnClick={() => setShowPDF(false)} /> : null }
+        <ContactInfo setNewsletterOpen={setNewsletterOpen} setBody={setBody} />         
       </>
       }    
       <NewsletterBox open={newsletterOpen} setOpen={setNewsletterOpen} />
