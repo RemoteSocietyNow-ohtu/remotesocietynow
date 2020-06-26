@@ -2,10 +2,10 @@ import React, { useContext, useState } from 'react'
 import LanguageContext from '../../Contexts/LanguageContext'
 import arrowLeft from '../../resources/arrow-left.png'
 import deleteIcon from '../../resources/delete-icon.png'
-import fileservise from '../../services/fileService'
+import fileservice from '../../services/fileService'
 
 const DeletionConfirmation = ({Cookies, setBody }) => {
-  const [ hasErrored, setHasErrored ] = useState(false)
+  const [ hasErrored, setHasErrored ] = useState(true)
   const [ hasSucceeded, setHasSucceeded ] = useState(false)
 
   const language = useContext(LanguageContext)
@@ -13,7 +13,7 @@ const DeletionConfirmation = ({Cookies, setBody }) => {
 
   const deleteUserData = async () => {
     try {
-      await fileservise.deleteUser(token)   
+      await fileservice.deleteUser(token)   
       Cookies.remove('token')
       Cookies.remove('adminToken')
       setHasSucceeded(true)
@@ -26,35 +26,18 @@ const DeletionConfirmation = ({Cookies, setBody }) => {
     window.location.replace(window.location.origin)
   }
 
-  const FailedModal = () => {
+  const Modal = ({ message, handleClose }) => {
     return (
-      <div className='Newsletter-background' onClick={() => setHasErrored(false)}>
-        <div className='Newsletter-box' onClick={(event) => event.stopPropagation()}>
+      <div className='DeletionConfirmation-modal-background' onClick={handleClose}>
+        <div className='DeletionConfirmation-modal-box' onClick={(event) => event.stopPropagation()}>
           <button 
-            className='Newsletter-box-close-button'
-            onClick={() => setHasErrored(false)}
-            aria-label="Close Newsletter subsricption Box">
+            className='DeletionConfirmation-modal-close-button'
+            onClick={handleClose}
+            aria-label="Close">
               ×
           </button>
-          <p>{language.errors.accountNotDeleted}</p>    
-          <button className='Newsletter-send-button' onClick={() => setHasErrored(false)}>Close</button>
-        </div>
-      </div>
-    )
-  }
-
-  const SuccessModal = () => {
-    return (
-      <div className='Newsletter-background' onClick={goToFrontPage}>
-        <div className='Newsletter-box' onClick={(event) => event.stopPropagation()}>
-          <button 
-            className='Newsletter-box-close-button'
-            onClick={goToFrontPage}
-            aria-label='Close Newsletter subsricption Box'>
-              ×
-          </button>
-          <p>{language.success.accountDeleted}</p>    
-          <button className='Newsletter-send-button' onClick={goToFrontPage}>Close</button>
+          <p>{message}</p>    
+          <button className='DeletionConfirmation-modal-button' onClick={handleClose}>Close</button>
         </div>
       </div>
     )
@@ -63,8 +46,8 @@ const DeletionConfirmation = ({Cookies, setBody }) => {
   return (
     <div className='Container'>
 
-      {hasErrored === true && <FailedModal />}
-      {hasSucceeded === true && <SuccessModal />}
+      {hasErrored === true && <Modal message={language.errors.accountNotDeleted} handleClose={() => setHasErrored(false)} />}
+      {hasSucceeded === true && <Modal message={language.success.accountDeleted} handleClose={goToFrontPage} />}
       <div className='GoBack-arrow-icon-div' onClick={() => setBody('gdprCompliance')}>
         <img src={arrowLeft} className='GDPRCompliance-arrow-icon' />
         <a className='Go-back-link'>{language.content.goBack}</a>

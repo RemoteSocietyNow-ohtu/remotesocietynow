@@ -583,6 +583,61 @@ td {
   width: 100%;
 }
 
+.DeletionConfirmation-modal-background {
+  position: fixed; 
+  z-index: 1;     
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  display: flex;
+  align-items: center;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.6); 
+  overflow-y: hidden;
+}
+
+.DeletionConfirmation-modal-box {  
+  position: relative;
+  color: white;
+  background: #3b6978;
+  padding: 2rem;  
+  width: 60%;         
+  border-radius: 5px; 
+  margin: auto;
+  z-index:2; 
+  animation: move-up 300ms linear;      
+}
+
+.DeletionConfirmation-modal-close-button {
+  cursor: pointer;
+  background-color: transparent;  
+  position: absolute;
+  top:0;
+  right:0;
+  border: 0px solid transparent;  
+  font-size: 2rem;
+  color: gainsboro;
+}
+
+.DeletionConfirmation-modal-button {
+  background-color: #cae8d5; 
+  height: 3rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  max-width: 80%;
+  cursor: pointer;
+  border: #3b6978 2px solid;
+  border-radius: 5px;
+}
+
+.DeletionConfirmation-modal-button:hover {
+  color: gainsboro;
+  background-color: #3b6978;
+  border: #181A1B 2px solid;
+}
+
 /* Calculator */
 
 .Calculator-container {
