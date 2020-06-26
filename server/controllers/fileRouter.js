@@ -124,7 +124,7 @@ fileRouter.post('/deleteUser/', async (req,res) => {
 
     res.send(`User ${id} deleted`)
   }else{
-    res.send('Error in user deletion')
+    res.status(400).send('Error in user deletion')
   }
 })
 

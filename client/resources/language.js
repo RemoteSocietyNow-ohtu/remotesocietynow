@@ -114,7 +114,8 @@ export const english = {
     invalidCredentials: 'Invalid credentials.',
     usernameNotUnique: 'An account with that email is already registered.',
     passwordsMustBeIdentical: 'passwords must be identical',
-    errorChangingPassword: 'error changing password'
+    errorChangingPassword: 'error changing password',
+    accountNotDeleted: 'Deleting your user and user data failed! Please try again later. If the problem persists, please contact us'
   },
   success: {
     loggedIn: 'Logged in.',

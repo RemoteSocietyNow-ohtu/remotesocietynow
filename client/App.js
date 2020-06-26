@@ -48,7 +48,7 @@ const App = () => {
     history.push(`/${view}`)
   }
 
-  views['main'] = <Main setBody={setView} Cookies={Cookies} />
+  views['main'] = <Main setBody={setView} />
 
   views['signUp'] = <SignUp setBody={setView} setSuccess={setSuccess} />
 

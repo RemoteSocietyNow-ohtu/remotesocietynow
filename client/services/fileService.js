@@ -21,7 +21,7 @@ const getEmployeeFeedbackCSV = () => {
 }
 
 
-const deleteUser = (token) => {
+const deleteUser = async (token) => {
 
   const config = {
     headers: { Authorization: `bearer ${token}` },

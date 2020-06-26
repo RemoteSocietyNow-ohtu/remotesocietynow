@@ -8,15 +8,14 @@ import yourNewsletterIcon from '../../resources/mail-icon-white.png'
 import aboutUsIcon from '../../resources/aboutUs-icon-white.png'
 
 
-const Main = ({ Cookies, setBody }) => {
+const Main = ({ setBody }) => {
   const [newsletterOpen, setNewsletterOpen] = useState(false)
   const language = useContext(LanguageContext)
   
 
   return (
     <div className='Container'>
-      <div className='Main-container'>
-        {Cookies.get('accountDeleted') && <p className='Success'>{language.success.accountDeleted}</p>}
+      <div className='Main-container'>        
         <div className='Main-container-content'>
           <div className='Main-content-left'>
             <h1 className='Heading'>{language.headers.mainHeader}</h1>
