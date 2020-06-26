@@ -10,7 +10,7 @@ const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, se
   const [fade, setFade] = useState('question-no-fade')
   
   const previousQuestion = (e) => {
-    e.currentTarget.blur()
+    e && e.currentTarget.blur()
     if (currentQuestion > 0) {
       setFade('Calculator-question-fade-right')      
       setTimeout(() => {setCurrentQuestion(currentQuestion - 1)}, 250)
@@ -18,7 +18,7 @@ const Questions = ({ questions, currentQuestion, setCurrentQuestion, answers, se
   }
 
   const nextQuestion = (e) => {   
-    e.currentTarget.blur()
+    e && e.currentTarget.blur()
     if (currentQuestion < questions.length) {
       setFade('Calculator-question-fade-left')
       setTimeout(() => {setCurrentQuestion(currentQuestion + 1)}, 250)      
