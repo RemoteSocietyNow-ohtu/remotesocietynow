@@ -1,6 +1,4 @@
 const calculationRouter = require('express').Router()
-const config = require('../../config/common')
-const jwt = require('jsonwebtoken')
 const remoteWorkCalculator = require('../services/calculations/remoteWorkCalculator')
 const bodyParser = require('../util/calculationBodyParser')
 const validator = require('../util/requestValidator')
@@ -10,14 +8,8 @@ const EmployeeFeedback = require('../models/employeeFeedbackSchema')
 const CompanyFeedback = require('../models/companyFeedbackSchema')
 const User = require('../models/userSchema')
 const adminSettingsService = require('../services/adminSettingsService')
+const auth = require('../util/userAuthenticator')
 
-const getTokenFrom = request => {
-  const authorization = request.get('authorization')
-  if (authorization && authorization.toLowerCase().startsWith('bearer ')) {
-    return authorization.substring(7)
-  }
-  return null
-}
 
 /** Handles POST requests to (baseUrl)/api/calculations/person from frontend
  * responds with total annual co2 emissions, and the potential saves from moving to more remote work
@@ -37,7 +29,7 @@ calculationRouter.post('/person/:save?', async (req, res) => {
     +body.numberOfRemoteworkDays,
     +body.numberOfHoursOnPlane
   ]
-  const token = getTokenFrom(req)
+  const token = auth.getTokenFrom(req)
   let user = null
   
   const bodyData = bodyParser.parseSavedDataFromBody(body)
@@ -45,8 +37,8 @@ calculationRouter.post('/person/:save?', async (req, res) => {
   bodyData.createdAt = new Date()
   feedbacks.createdAt = new Date()
 
-  if(token !== null){
-    const decodedToken = jwt.verify(token, config.secret)
+  if(token){
+    const decodedToken = auth.decodeToken(token)
     user = await User.findById(decodedToken.id)
     bodyData['user'] = user._id
   }
@@ -91,11 +83,11 @@ calculationRouter.post('/company/:save?', async (req, res) => {
   bodyData.createdAt = new Date()
   feedbacks.createdAt = new Date()
 
-  const token = getTokenFrom(req)
+  const token = auth.getTokenFrom(req)
   let user = null
 
-  if(token !== null){
-    const decodedToken = jwt.verify(token, config.secret)
+  if(token){
+    const decodedToken = auth.decodeToken(token)
     user = await User.findById(decodedToken.id)
     bodyData['user'] = user._id
   }
