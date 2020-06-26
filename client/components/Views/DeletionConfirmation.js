@@ -45,7 +45,6 @@ const DeletionConfirmation = ({Cookies, setBody }) => {
 
   return (
     <div className='Container'>
-
       {hasErrored === true && <Modal message={language.errors.accountNotDeleted} handleClose={() => setHasErrored(false)} />}
       {hasSucceeded === true && <Modal message={language.success.accountDeleted} handleClose={goToFrontPage} />}
       <div className='GoBack-arrow-icon-div' onClick={() => setBody('gdprCompliance')}>

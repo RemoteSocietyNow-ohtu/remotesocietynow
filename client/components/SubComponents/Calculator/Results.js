@@ -85,6 +85,7 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
     setAnwers(tempAnswers)
   }
 
+
   return  (
     <div className='Container'>
       {showMath === true && <Mathinfo onClick={()=> {setShowMath(false)
@@ -132,7 +133,9 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
             )
           }
           <SliderField
-            handleValueChange={(event) => setSliderValue(event.target.value)}
+            handleValueChange={(event) => {
+              setSliderValue(event.target.value)              
+            }}
             handleRelease={handleRelease}
             value={sliderValue}
             minValue={0}
@@ -145,15 +148,15 @@ const Results = ({ results, answers, setAnwers, setResults, isCompany, setCurren
           }
           
           <div>
-            <PDFDownloadLink document={
-              <ResultsPdfDocument
-                isCompany={isCompany} 
-                questions={questions}
-                answers={answers}
-                results={results}                
-                language={language}/>} fileName="remote-work-results.pdf">
-              {({ loading }) => (loading ? language.buttons.generatingPdf : <button className='Calculator-results-dowloadPdf-button'>{language.buttons.downloadResultsasPdf}</button>)}
-            </PDFDownloadLink>
+          <PDFDownloadLink document={
+        <ResultsPdfDocument
+          isCompany={isCompany} 
+          questions={questions}
+          answers={answers}
+          results={results}                
+          language={language}/>} fileName="remote-work-results.pdf">
+        {({ loading }) => (loading ? language.buttons.generatingPdf : <button className='Calculator-results-dowloadPdf-button'>{language.buttons.downloadResultsasPdf}</button>)}
+      </PDFDownloadLink>          
           </div>
         </div>
                
