@@ -126,8 +126,10 @@ td {
 .Line-separator-vertical {
   height: 2px;
   background-color: gainsboro;
-  width: 100%;
-  margin: 1rem;
+  width: 90%;
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .Error, .Success {
@@ -177,7 +179,6 @@ td {
   border: 0;   
 }
 
-
 .Calculator-arrow-icon {
   margin-top: .5em;
   height: 80px;
@@ -187,15 +188,25 @@ td {
   display: flex;
   align-items: center; 
   margin-bottom: 2rem;
+  margin-top: 1rem;  
+  display: flex;
+  align-items: center;   
 }
 
 .GoBack-arrow-button {
   background-color: transparent;
   border: none;
   color: white;
-  display: flex;
-  align-items: center; 
-  margin-bottom: 2rem;
+  cursor: pointer;  
+}
+
+.GoBack-arrow-label {
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.GoBack-arrow-icon {
+  height: 60px;
 }
 
 @media (max-width: 656px) {
@@ -220,7 +231,7 @@ td {
 }
 
 .GDPRCompliance-arrow-icon {
-  margin-top: .5em;
+  margin-top: 2rem;
   height: 80px;
 }
 
@@ -579,7 +590,7 @@ td {
   flex-wrap: nowrap;
   flex-direction: row;
   justify-content: center;
-  width: 80%;
+  width: 90%;
   margin: auto;
 }
 

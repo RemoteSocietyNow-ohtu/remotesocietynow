@@ -6,11 +6,11 @@ const BackButton = ({ handleOnClick }) => {
   const language = useContext(LanguageContext)
 
   return (
-    <div className='GoBack-arrow-icon-div'>
-      <button className='GoBack-arrow-button' onClick={handleOnClick}>
-        <img src={arrowLeft} className='GDPRCompliance-arrow-icon' />          
-        <a className='Go-back-link'>{language.content.goBack}</a>
+    <div className='GoBack-arrow-icon-div' onClick={handleOnClick}>
+      <button className='GoBack-arrow-button' name='backButton' onClick={handleOnClick}>
+        <img className='GoBack-arrow-icon' src={arrowLeft} />    
       </button>
+      <label className='GoBack-arrow-label' htmlFor='backButton'>{language.content.goBack}</label>
     </div>
   )
 }
