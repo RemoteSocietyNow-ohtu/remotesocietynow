@@ -5,7 +5,7 @@ import deleteIcon from '../../resources/delete-icon.png'
 import fileservice from '../../services/fileService'
 
 const DeletionConfirmation = ({Cookies, setBody }) => {
-  const [ hasErrored, setHasErrored ] = useState(true)
+  const [ hasErrored, setHasErrored ] = useState(false)
   const [ hasSucceeded, setHasSucceeded ] = useState(false)
 
   const language = useContext(LanguageContext)
