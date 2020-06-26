@@ -21,7 +21,7 @@ const changePassword = (token, password) => {
 const logout = (Cookies) => {
   Cookies.remove('token')
   Cookies.remove('adminToken')
-  window.location.reload()
+  window.location.replace(window.location.origin)
 }
 
 export default {
