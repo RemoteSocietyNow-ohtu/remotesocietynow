@@ -1,6 +1,4 @@
 const calculationRouter = require('express').Router()
-const config = require('../../config/common')
-const jwt = require('jsonwebtoken')
 const remoteWorkCalculator = require('../services/calculations/remoteWorkCalculator')
 const bodyParser = require('../util/calculationBodyParser')
 const validator = require('../util/requestValidator')
