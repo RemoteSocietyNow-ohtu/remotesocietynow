@@ -40,7 +40,9 @@ calculationRouter.post('/person/:save?', async (req, res) => {
   if(token){
     const decodedToken = auth.decodeToken(token)
     user = await User.findById(decodedToken.id)
-    bodyData['user'] = user._id
+    if(user){
+      bodyData['user'] = user._id
+    }
   }
 
   /* Calls the calculateBenefitsForPerson in /services/calculations/remoteWorkCalculator for emissions calculation 
@@ -89,7 +91,9 @@ calculationRouter.post('/company/:save?', async (req, res) => {
   if(token){
     const decodedToken = auth.decodeToken(token)
     user = await User.findById(decodedToken.id)
-    bodyData['user'] = user._id
+    if(user){
+      bodyData['user'] = user._id
+    } 
   }
   
   /* Calls the calculateBenefitsForCompany in /services/calculations/remoteWorkCalculator for emissions calculation 
