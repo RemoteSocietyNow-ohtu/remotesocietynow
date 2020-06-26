@@ -41,10 +41,15 @@ You and your company actually earn real money and save time, plus productivity i
 ## Links to files containing editable text ##
 
 [All other texts except questions](https://github.com/RemoteSocietyNow-ohtu/remotesocietynow/blob/master/client/resources/language.js)
+
 [People calculator questions](https://github.com/RemoteSocietyNow-ohtu/remotesocietynow/blob/master/server/services/questions/questionsPeople.js)
+
 [Company calculator questions](https://github.com/RemoteSocietyNow-ohtu/remotesocietynow/blob/master/server/services/questions/questionsCompanies.js)
+
 [CO2 coefficients](https://github.com/RemoteSocietyNow-ohtu/remotesocietynow/blob/master/server/services/calculations/co2Coefficients.js)
+
 [Calculation formulas](https://github.com/RemoteSocietyNow-ohtu/remotesocietynow/blob/master/server/services/calculations/remoteWorkCalculator.js)
+
 [Newsletter](https://github.com/RemoteSocietyNow-ohtu/remotesocietynow/blob/master/server/services/newsletterTemplates/newsletterWelcomeMessage.js)
 
 ## Getting started ##
